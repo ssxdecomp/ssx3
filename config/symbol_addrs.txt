@@ -1,0 +1,1 @@
+cDNASManager = 0x002561b8; // type:func
