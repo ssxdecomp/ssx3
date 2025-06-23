@@ -1,1 +1,2 @@
-cDNASManager = 0x002561b8; // type:func
+cDNASManager = 0x2561b8; // type:func
+systemInit = 0x21bdb0; // type:func
