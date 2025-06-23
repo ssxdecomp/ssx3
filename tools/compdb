@@ -1,0 +1,3 @@
+#!/bin/bash
+# Use built-in ninja functionality to generate a compile_commands database
+ninja -t compdb > compile_commands.json

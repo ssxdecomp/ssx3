@@ -1,0 +1,65 @@
+name: SSX 3 (2003) (USA)
+sha1: 77114dfd1205eaccf1ccc18c5f9650097fa78bd8
+
+options:
+  basename: SLUS_207.72
+  target_path: disc/SLUS_207.72
+  elf_path: SLUS_207.72
+  base_path: ../
+  platform: ps2
+  compiler: EEGCC
+
+  asm_path: asm
+  src_path: src/
+  build_path: obj
+
+  # Put 'hasm' splits in src/
+  hasm_in_src_path: True
+
+  rodata_string_guesser_level: 0
+
+  find_file_boundaries: False
+  disasm_unknown: True
+  named_regs_for_c_funcs: False
+
+  create_undefined_funcs_auto: True
+  undefined_funcs_auto_path: config/undefined_funcs_auto.txt
+  create_undefined_syms_auto: True
+  undefined_syms_auto_path: config/undefined_syms_auto.txt
+
+  symbol_addrs_path: [ config/symbol_addrs.txt, config/lib_symbol_addrs.txt ]
+
+  extensions_path: tools/splat_ext
+
+  section_order: [".text", ".vutext", ".data", ".rodata", ".lit4", ".sbss", ".bss"]
+  auto_link_sections: [".data", ".rodata", ".bss"]
+
+  subalign: 4
+
+segments:
+  - [0, databin, elf_header]
+  - name: main
+    type: code
+    start: 0x1000
+    vram: 0x100000
+    bss_size: 0x099EDB # I think?
+    subsegments:
+      - [0x1000, asm, sce/crt0]
+        
+      #- [0x00108, asm]
+      - [0x1218, asm]
+
+      # --- .vutext
+      - [0x32f590, textbin, vutext]
+
+      # --- .data
+      - [0x33de00, data]
+
+      # --- .rodata
+      - [0x357900, rodata]
+      
+      - [0x39c080, rodatabin, gcc_except_table]
+      
+      - [0x39c100, lit4]
+
+  - [0x3B5E60]

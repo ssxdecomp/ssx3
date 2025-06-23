@@ -1,0 +1,29 @@
+build/
+obj/
+out/
+
+permuter_settings.toml
+
+# ninja
+*.ninja
+.ninja_log
+compile_commands.json
+
+# clangd
+.cache/
+
+# splat
+asm/
+assets/
+config/undefined_funcs_auto.txt
+config/undefined_syms_auto.txt
+.splache
+*.ld
+
+# stuff
+disc/
+
+# for ref only
+tools/cc/ee-990721/
+
+venv/
