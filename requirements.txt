@@ -7,3 +7,6 @@ n64img
 pygfxd
 crunch64
 mapfile_parser
+pandas
+requests
+openpyxl
