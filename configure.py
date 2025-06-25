@@ -226,7 +226,7 @@ def main():
 
     # FIXME: Set skip_checksum to False once builds are able
     # to match; it has been temporairly enabled here.
-    do_skip_checksum = args.skip_checksum or False
+    do_skip_checksum = args.skip_checksum or True
 
     if do_clean:
         clean()

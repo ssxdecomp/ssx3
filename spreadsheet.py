@@ -50,6 +50,10 @@ def process_sheet_and_append(path):
             raw_name = str(row['Demangled Name']).strip()
             name = raw_name.split('(')[0].strip()  # Remove everything after '('
             name = name.replace('::', '_') 
+            name = name.replace(' ', '_')
+            name = name.replace('~', '_') 
+            name = name.replace('[', '')
+            name = name.replace(']', '')             
             
             addr = str(row['PS2 Address']).strip()
             
