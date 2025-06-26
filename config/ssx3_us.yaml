@@ -48,6 +48,10 @@ segments:
         
       #- [0x00108, asm]
       - [0x1218, asm]
+      
+      - [0x1dc6d8, cpp, visualfx/crowdrender2d]
+      
+      - [0x1dcd10, asm]
 
       # --- .vutext
       - [0x32f590, textbin, vutext]

@@ -63,8 +63,7 @@ compiler_type = "gcc"
 [preserve_macros]
 
 [decompme.compilers]
-"tools/cc/ee-990721/bin/gcc" = "ee-gcc2.9-990721"
-"tools/cc/ee-990721/bin/g++" = "ee-gcc2.9-990721"
+"tools/cc/ee-991111-01/bin/gcc" = "ee-gcc2.9-991111-01"
 """)
 
 def build_stuff(linker_entries: List[LinkerEntry], skip_checksum=False):
