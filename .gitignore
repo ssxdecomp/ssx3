@@ -22,9 +22,7 @@ config/undefined_syms_auto.txt
 
 # stuff
 disc/
-
-# for ref only
-tools/cc/ee-990721/
+tools/cc/eegcc-2.95.3-V1.36
 
 venv/
 
