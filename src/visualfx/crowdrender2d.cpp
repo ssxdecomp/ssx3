@@ -4,7 +4,7 @@ namespace cCrowdRender2D
 {
 	INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_cCrowdRender2D);
 	int cCrowdRender2D_cCrowdRender2D(int param_1) {
-		cCrowdRender2D_init();
+		init();
 		return param_1;
 	}
 
@@ -14,12 +14,12 @@ namespace cCrowdRender2D
 		void* pvVar1;
 
 		//pvVar1 = fun_00317d70(0x20, 0x4875d8, 0x20000000, 0);
-		//cCrowdAnim2D(pvVar1, param_1);
+		cCrowdAnim2D::cCrowdAnim2D(pvVar1, param_1);
 		return;
 	}
 
 	INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_init);
-	void cCrowdRender2D_init()
+	void init()
 	{
 
 	}
@@ -27,9 +27,13 @@ namespace cCrowdRender2D
 	INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_purge);
 
 	INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_constructCrowdAnim2D);
+}
 
+
+namespace cCrowdAnim2D
+{
 	INCLUDE_ASM("visualfx/crowdrender2d", cCrowdAnim2D_cCrowdAnim2D);
-	void cCrowdAnim2D(void* pvVar1,int param_1)
+	void cCrowdAnim2D(void* pvVar1, int param_1)
 	{
 
 	}

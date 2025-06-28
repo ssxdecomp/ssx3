@@ -5,6 +5,11 @@
 namespace cCrowdRender2D
 {
 	void constructCrowdAnim2D(int param_1);
+	void init();
+}
+
+namespace cCrowdAnim2D
+{
 	void cCrowdAnim2D(void* pvVar1, int param_1);
 }
 
