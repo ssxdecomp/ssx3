@@ -1,3 +1,6 @@
+tHashName32_getHashValue__FPUiPc = 0x00317618; //type:func
+GetHashValue32__FPc = 0x00317670; //type:func
+
 // Spreadsheet Auto Generation
 
 cMemMan_alloc = 0x00317D70; //type:func
@@ -41,7 +44,7 @@ strlen = 0x00416810; //type:func
 cAnimSequence_fadeWeight = 0x00313A10; //type:func
 cBECharacterInterface_getWeight = 0x0014EF30; //type:func
 cBEStatInterface_getCollisionAttrib = 0x00148F50; //type:func
-GetHashValue32 = 0x00317670; //type:func
+//GetHashValue32 = 0x00317670; //type:func
 cWorldPainterMan_reset = 0x002C03E8; //type:func
 cGameAnimMap_testResolve = 0x003150B0; //type:func
 cRenderStateMan_readFromReplayFrame = 0x002EF2D8; //type:func
@@ -97,7 +100,7 @@ cExecutionMan_prepause = 0x00320950; //type:func
 cExecutionMan_postpause = 0x00320958; //type:func
 cAppMan__cAppMan = 0x00316D28; //type:func
 cAppMan_loadexecpurge = 0x00317400; //type:func
-tHashName32_getHashValue = 0x00317618; //type:func
+//tHashName32_getHashValue = 0x00317618; //type:func
 GetHashValue64 = 0x003176F0; //type:func
 tHashName64_getHashValue = 0x00317690; //type:func
 BXsrand = 0x003177C8; //type:func

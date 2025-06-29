@@ -13,6 +13,7 @@ output_format = "{name} = {addr}; //type:func"
 address_offset = 0xFF000
 temp_excel_file = "temp_sheet.xlsx"
 target_sheet_name = "Found Functions"
+addresses = []
 
 # --- Step 1: Download the Excel Sheet ---
 def download_sheet(xlsx_url):
@@ -31,6 +32,14 @@ def clean_text_file(path, marker):
         if marker in line:
             cleaned = lines[:i+1]
             break
+        parts = line.split()
+        if len(parts) >= 3 and parts[1] == '=' and parts[2].startswith("0x"):
+            hex_addr = parts[2].rstrip(';')
+            try:
+                int_addr = int(hex_addr, 16)
+                addresses.append(int_addr)
+            except ValueError:
+                continue  # Skip if not a valid hex 
     else:
         cleaned = lines  # if marker not found, keep entire file
 
@@ -63,6 +72,10 @@ def process_sheet_and_append(path):
                 seen_names.add(name)
             
             new_addr = int(addr, 16)# - address_offset
+            
+            if new_addr in addresses:
+                name = "//" + name
+            
             formatted_line = output_format.format(name=name, addr=f"0x{new_addr:08X}")
             f.write("\n" +formatted_line)
             print(formatted_line)
