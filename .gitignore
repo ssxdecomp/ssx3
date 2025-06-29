@@ -27,3 +27,4 @@ tools/cc/eegcc-2.95.3-V1.36
 venv/
 
 temp_sheet.xlsx
+objdiff.json
