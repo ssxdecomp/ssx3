@@ -60,7 +60,11 @@ segments:
       - [0x21d350, cpp, md5]
       
       - [0x21E5A8, asm]
-
+      
+      - [0x2ec198, cpp, dirtysock/tags]
+      
+      - [0x2eef50, asm]
+      
       # --- .vutext
       - [0x32f590, textbin, vutext]
 

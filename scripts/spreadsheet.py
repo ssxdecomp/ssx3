@@ -75,10 +75,10 @@ def process_sheet_and_append(path):
             
             if new_addr in addresses:
                 name = "//" + name
-            
-            formatted_line = output_format.format(name=name, addr=f"0x{new_addr:08X}")
-            f.write("\n" +formatted_line)
-            print(formatted_line)
+            else:
+                formatted_line = output_format.format(name=name, addr=f"0x{new_addr:08X}")
+                f.write("\n" +formatted_line)
+                print(formatted_line)
 
 # --- MAIN ---
 if __name__ == "__main__":
