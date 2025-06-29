@@ -10,17 +10,19 @@ int cCrowdRender2D_cCrowdRender2D(int param_1) {
 
 INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D__cCrowdRender2D);
 #ifdef SKIP_ASM
-void cCrowdRender2D__cCrowdRender2D(int param_1)
+void cCrowdRender2D__cCrowdRender2D(int param_1, ulong param_2)
 {
-	void* pvVar1;
+	//cCrowdRender2D_purge();
 
-	//pvVar1 = fun_00317d70(0x20, 0x4875d8, 0x20000000, 0);
-	cCrowdAnim2D_cCrowdAnim2D(pvVar1, param_1);
+	if ((param_2 & 1) != 0) {
+		//fun00317e50(param_1);
+	}
+
 	return;
 }
 #endif
 
-INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_init);
+INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_init__Fv);
 #ifdef SKIP_ASM
 void cCrowdRender2D_init()
 {
@@ -29,6 +31,12 @@ void cCrowdRender2D_init()
 #endif
 
 INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_purge);
+#ifdef SKIP_ASM
+int cCrowdRender2D_purge(int *param_1)
+{
+	return *param_1;
+}
+#endif
 
 INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_constructCrowdAnim2D);
 

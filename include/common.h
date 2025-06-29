@@ -5,5 +5,6 @@
 #include "include_asm.h"
 
 typedef unsigned int uint;
+typedef unsigned long ulong;
 
 #endif

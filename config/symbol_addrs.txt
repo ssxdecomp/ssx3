@@ -1,10 +1,13 @@
 tHashName32_getHashValue__FPUiPc = 0x00317618; //type:func
 GetHashValue32__FPc = 0x00317670; //type:func
+GetHashValue64__FPc = 0x003176F0; //type:func
+tHashName64_getHashValue__FPUlPc = 0x00317690; //type:func
+
 cCrowdAnim2D_update = 0x002DBAC0; //type:func
 cCrowdAnim2D_advanceFrame = 0x002DBA08; //type:func
 cCrowdAnim2D_cCrowdAnim2D = 0x002DB9C8; //type:func
 cCrowdRender2D_cCrowdRender2D__Fi = 0x002DB6D8; //type:func
-cCrowdRender2D_init = 0x002DB748; //type:func
+cCrowdRender2D_init__Fv = 0x002DB748; //type:func
 cCrowdRender2D__cCrowdRender2D = 0x002DB700; //type:func
 cCrowdRender2D_purge = 0x002DB890; //type:func
 cCrowdRender2D_constructCrowdAnim2D = 0x002DB980; //type:func
@@ -109,8 +112,6 @@ cExecutionMan_postpause = 0x00320958; //type:func
 cAppMan__cAppMan = 0x00316D28; //type:func
 cAppMan_loadexecpurge = 0x00317400; //type:func
 //tHashName32_getHashValue = 0x00317618; //type:func
-GetHashValue64 = 0x003176F0; //type:func
-tHashName64_getHashValue = 0x00317690; //type:func
 BXsrand = 0x003177C8; //type:func
 //operator_new = 0x00317D20; //type:func
 //operator_new = 0x00317D48; //type:func

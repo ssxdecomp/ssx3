@@ -29,3 +29,19 @@ int GetHashValue32(char* param_1) {
     return tHashName32_getHashValue((uint*)hash, param_1);
 }
 #endif
+
+INCLUDE_ASM("hashvalue", GetHashValue64__FPc);
+#ifdef SKIP_ASM
+ulong tHashName64_getHashValue(ulong* out, char* str) {
+
+    return (ulong)1;
+}
+#endif
+
+INCLUDE_ASM("hashvalue", tHashName64_getHashValue__FPUlPc);
+#ifdef SKIP_ASM
+ulong GetHashValue64(char* str) {
+    char hash[8];
+    return tHashName64_getHashValue((ulong*)hash, str);
+}
+#endif

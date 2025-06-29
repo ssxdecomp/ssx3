@@ -55,7 +55,7 @@ segments:
       
       - [0x218618, cpp, hashvalue]
       
-      - [0x218690, asm]
+      - [0x218710, asm]
       
       - [0x21d350, cpp, md5]
       
