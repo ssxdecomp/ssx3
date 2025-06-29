@@ -4,15 +4,17 @@
 #if !defined(SPLAT) && !defined(M2CTX) && !defined(PERMUTER) && !defined(SKIP_ASM)
 #ifndef INCLUDE_ASM
 #define INCLUDE_ASM(FOLDER, NAME)                                       \
-    __asm__(                                                           \
-        ".section .text\n"                                             \
-        "\t.align\t3\n"                                                \
-        "\t.globl\t" #NAME "\n"                                        \
-        "\t.ent\t" #NAME "\n" #NAME ":\n"                              \
-        "\t.include \"asm/nonmatchings/" FOLDER "/" #NAME ".s\"\n"     \
-        "\t.set reorder\n"                                             \
-        "\t.set at\n"                                                  \
-        "\t.end\t" #NAME);
+    __asm__(                                                            \
+        ".section .text\n"                                              \
+        "   .set noat\n"                                                \
+        "   .set noreorder\n"                                           \
+        "   .globl\t" #NAME "\n"                                        \
+        "   .ent\t" #NAME "\n" #NAME ":\n"                              \
+        "   .include \"asm/nonmatchings/" FOLDER "/" #NAME ".s\"\n"     \
+        "   .set reorder\n"                                             \
+        "   .set at\n"                                                  \
+        "   .end\t" #NAME                                               \
+    );
 #endif
 #ifndef INCLUDE_RODATA
 #define INCLUDE_RODATA(FOLDER, NAME)                                    \
