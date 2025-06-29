@@ -1,0 +1,149 @@
+{
+  "custom_make": "ninja",
+  "custom_args": [],
+  "build_base": true,
+  "build_target": false,
+  "watch_patterns": [
+    "src/**/*.c",
+    "src/**/*.cp",
+    "src/**/*.cpp",
+    "src/**/*.cxx",
+    "src/**/*.h",
+    "src/**/*.hp",
+    "src/**/*.hpp",
+    "src/**/*.hxx",
+    "src/**/*.s",
+    "src/**/*.S",
+    "src/**/*.asm",
+    "src/**/*.inc",
+    "src/**/*.py",
+    "src/**/*.yml",
+    "src/**/*.txt",
+    "src/**/*.json"
+  ],
+  "units": [
+    {
+      "name": "data/elf_header",
+      "target_path": "obj/target/elf_header.o",
+      "metadata": {
+        "progress_categories": [
+          "data"
+        ]
+      }
+    },
+    {
+      "name": "sce/crt0",
+      "target_path": "obj/target/crt0.o",
+      "metadata": {
+        "progress_categories": [
+          "sce"
+        ]
+      }
+    },
+    {
+      "name": "1218",
+      "target_path": "obj/target/1218.o",
+      "metadata": {
+        "progress_categories": [
+          "1218"
+        ]
+      }
+    },
+    {
+      "name": "visualfx/crowdrender2d",
+      "target_path": "obj/target/crowdrender2d.o",
+      "base_path": "obj/current/crowdrender2d.o",
+      "metadata": {
+        "progress_categories": [
+          "visualfx"
+        ]
+      }
+    },
+    {
+      "name": "1DCD10",
+      "target_path": "obj/target/1DCD10.o",
+      "metadata": {
+        "progress_categories": [
+          "1DCD10"
+        ]
+      }
+    },
+    {
+      "name": "uncollated/HashValue32",
+      "target_path": "obj/target/HashValue32.o",
+      "base_path": "obj/current/HashValue32.o",
+      "metadata": {
+        "progress_categories": [
+          "uncollated"
+        ]
+      },
+      "symbol_mappings": {
+        "tHashName32_getHashValue": "tHashName32_getHashValue__FPUiPc"
+      }
+    },
+    {
+      "name": "218690",
+      "target_path": "obj/target/218690.o",
+      "metadata": {
+        "progress_categories": [
+          "218690"
+        ]
+      }
+    },
+    {
+      "name": "data/vutext",
+      "target_path": "obj/target/vutext.o",
+      "metadata": {
+        "progress_categories": [
+          "data"
+        ]
+      }
+    },
+    {
+      "name": "data/33DE00.data",
+      "target_path": "obj/target/33DE00.data.o",
+      "metadata": {
+        "progress_categories": [
+          "data"
+        ]
+      }
+    },
+    {
+      "name": "data/357900.rodata",
+      "target_path": "obj/target/357900.rodata.o",
+      "metadata": {
+        "progress_categories": [
+          "data"
+        ]
+      }
+    },
+    {
+      "name": "data/gcc_except_table",
+      "target_path": "obj/target/gcc_except_table.o",
+      "metadata": {
+        "progress_categories": [
+          "data"
+        ]
+      }
+    },
+    {
+      "name": "data/39C100.lit4",
+      "target_path": "obj/target/39C100.lit4.o",
+      "metadata": {
+        "progress_categories": [
+          "data"
+        ]
+      }
+    }
+  ],
+  "progress_categories": [
+    {
+      "id": "sce",
+      "name": "Libs"
+    },
+    {
+      "id": "data",
+      "name": "Data"
+    }
+  ]
+}

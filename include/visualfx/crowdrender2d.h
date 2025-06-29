@@ -2,15 +2,9 @@
 #define CROWDRENDER2D_H
 
 #include "common.h"
-namespace cCrowdRender2D
-{
-	void constructCrowdAnim2D(int param_1);
-	void init();
-}
-
-namespace cCrowdAnim2D
-{
-	void cCrowdAnim2D(void* pvVar1, int param_1);
-}
+int cCrowdRender2D_cCrowdRender2D(int param_1);
+void cCrowdRender2D__cCrowdRender2D(int param_1);
+void cCrowdRender2D_init();
+void cCrowdAnim2D_cCrowdAnim2D(void* pvVar1, int param_1);
 
 #endif /* CROWDRENDER2D_H */
