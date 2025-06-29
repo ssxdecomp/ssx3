@@ -53,9 +53,13 @@ segments:
       
       - [0x1dcd10, asm]
       
-      - [0x218618, cpp, uncollated/HashValue32]
+      - [0x218618, cpp, hashvalue]
       
       - [0x218690, asm]
+      
+      - [0x21d350, cpp, md5]
+      
+      - [0x21E5A8, asm]
 
       # --- .vutext
       - [0x32f590, textbin, vutext]

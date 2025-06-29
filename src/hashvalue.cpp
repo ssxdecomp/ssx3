@@ -3,7 +3,7 @@
 int GetHashValue32(char* param_1);
 int tHashName32_getHashValue(uint*, char*);
 
-INCLUDE_ASM("uncollated/HashValue32", tHashName32_getHashValue__FPUiPc);
+INCLUDE_ASM("hashvalue", tHashName32_getHashValue__FPUiPc);
 #ifdef SKIP_ASM
 int tHashName32_getHashValue(uint* out, char* str) {
     uint hash = 0;
@@ -22,7 +22,7 @@ int tHashName32_getHashValue(uint* out, char* str) {
 }
 #endif
 
-INCLUDE_ASM("uncollated/HashValue32", GetHashValue32__FPc);
+INCLUDE_ASM("hashvalue", GetHashValue32__FPc);
 #ifdef SKIP_ASM
 int GetHashValue32(char* param_1) {
     char hash[4];

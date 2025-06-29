@@ -1,6 +1,6 @@
 #include "visualfx/crowdrender2d.h"
 
-INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_cCrowdRender2D);
+INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_cCrowdRender2D__Fi);
 #ifdef SKIP_ASM
 int cCrowdRender2D_cCrowdRender2D(int param_1) {
 	cCrowdRender2D_init();

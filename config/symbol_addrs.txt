@@ -1,5 +1,13 @@
 tHashName32_getHashValue__FPUiPc = 0x00317618; //type:func
 GetHashValue32__FPc = 0x00317670; //type:func
+cCrowdAnim2D_update = 0x002DBAC0; //type:func
+cCrowdAnim2D_advanceFrame = 0x002DBA08; //type:func
+cCrowdAnim2D_cCrowdAnim2D = 0x002DB9C8; //type:func
+cCrowdRender2D_cCrowdRender2D__Fi = 0x002DB6D8; //type:func
+cCrowdRender2D_init = 0x002DB748; //type:func
+cCrowdRender2D__cCrowdRender2D = 0x002DB700; //type:func
+cCrowdRender2D_purge = 0x002DB890; //type:func
+cCrowdRender2D_constructCrowdAnim2D = 0x002DB980; //type:func
 
 // Spreadsheet Auto Generation
 
@@ -332,14 +340,14 @@ cAvalanche_triggerAvalanche = 0x002D97A8; //type:func
 cRenderStateMan_SnowFlakeColourR = 0x002EE7C8; //type:func
 cRenderStateMan_SnowFlakeColourG = 0x002EE810; //type:func
 cRenderStateMan_SnowFlakeColourB = 0x002EE858; //type:func
-cCrowdAnim2D_update = 0x002DBAC0; //type:func
-cCrowdAnim2D_advanceFrame = 0x002DBA08; //type:func
-cCrowdAnim2D_cCrowdAnim2D = 0x002DB9C8; //type:func
-cCrowdRender2D_cCrowdRender2D = 0x002DB6D8; //type:func
-cCrowdRender2D_init = 0x002DB748; //type:func
-cCrowdRender2D__cCrowdRender2D = 0x002DB700; //type:func
-cCrowdRender2D_purge = 0x002DB890; //type:func
-cCrowdRender2D_constructCrowdAnim2D = 0x002DB980; //type:func
+//cCrowdAnim2D_update = 0x002DBAC0; //type:func
+//cCrowdAnim2D_advanceFrame = 0x002DBA08; //type:func
+//cCrowdAnim2D_cCrowdAnim2D = 0x002DB9C8; //type:func
+//cCrowdRender2D_cCrowdRender2D = 0x002DB6D8; //type:func
+//cCrowdRender2D_init = 0x002DB748; //type:func
+//cCrowdRender2D__cCrowdRender2D = 0x002DB700; //type:func
+//cCrowdRender2D_purge = 0x002DB890; //type:func
+//cCrowdRender2D_constructCrowdAnim2D = 0x002DB980; //type:func
 cPSPVisualEffectsMan_cPSPVisualEffectsMan = 0x002F0548; //type:func
 cWorldCache_updatePages = 0x003A8668; //type:func
 cWorldPainterQuery_reset = 0x002C03A8; //type:func
