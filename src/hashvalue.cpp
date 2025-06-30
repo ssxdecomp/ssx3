@@ -39,7 +39,7 @@ ulong tHashName64_getHashValue(ulong* out, char* str) {
     //md5_init(md5);
     //md5_append(md5, str, strlen(str));
     //md5_finish(md5, hash);
-    *param_1 = hash[0];
+    *out = hash[0];
     return hash[0];
 }
 #endif
