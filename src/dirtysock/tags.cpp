@@ -1,6 +1,24 @@
 #include "common.h"
 
-INCLUDE_ASM("dirtysock/tags", cDirtysock_tag__TagFieldSetupAppend);
+INCLUDE_ASM("dirtysock/tags", cDirtysock_tag__TagFieldSetupAppend__FPcN20);
+#ifdef SKIP_ASM
+char* cDirtysock_tag__TagFieldSetupAppend(char* message, char* buffer, char* key)
+{
+    if (key == (char*)0x0) {
+        *message = 0;
+    }
+    else {
+        while (*key != 0x0) {
+            *buffer = *key;
+            key = key + 1;
+            buffer = buffer + 1;
+        }
+        *buffer = '=';
+        buffer = buffer + 1;
+    }
+    return buffer;
+}
+#endif
 
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag__TagFieldSetupTerm);
 

@@ -12,7 +12,7 @@ cCrowdRender2D__cCrowdRender2D = 0x002DB700; //type:func
 cCrowdRender2D_purge = 0x002DB890; //type:func
 cCrowdRender2D_constructCrowdAnim2D = 0x002DB980; //type:func
 
-cDirtysock_tag__TagFieldSetupAppend = 0x003eb198;
+cDirtysock_tag__TagFieldSetupAppend__FPcN20 = 0x003eb198;
 cDirtysock_tag__TagFieldSetupTerm = 0x003eb1e0;
 cDirtysock_tag_TagFieldDelete = 0x003eb918;
 cDirtysock_tag_TagFieldDupl = 0x003ebb60;
