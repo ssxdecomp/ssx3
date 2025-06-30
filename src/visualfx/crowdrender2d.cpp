@@ -15,7 +15,7 @@ void cCrowdRender2D__cCrowdRender2D(int* param_1, int param_2)
 	cCrowdRender2D_purge(param_1);
 
 	if ((param_2 & 1) != 0) {
-		func_00317E50(param_1);
+		operator_delete(param_1);
 	}
 
 	return;

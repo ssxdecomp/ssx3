@@ -33,8 +33,14 @@ int GetHashValue32(char* param_1) {
 INCLUDE_ASM("hashvalue", GetHashValue64__FPc);
 #ifdef SKIP_ASM
 ulong tHashName64_getHashValue(ulong* out, char* str) {
+    //char md5[96];
+    ulong hash[2];
 
-    return (ulong)1;
+    //md5_init(md5);
+    //md5_append(md5, str, strlen(str));
+    //md5_finish(md5, hash);
+    *param_1 = hash[0];
+    return hash[0];
 }
 #endif
 
