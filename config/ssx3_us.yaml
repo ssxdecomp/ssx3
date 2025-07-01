@@ -55,7 +55,9 @@ segments:
       
       - [0x218618, cpp, hashvalue]
       
-      - [0x218710, asm]
+      - [0x2187c8, cpp, bxrandom]
+      
+      - [0x218ae8, asm]
       
       - [0x21d350, cpp, md5]
       

@@ -3,6 +3,13 @@ GetHashValue32__FPc = 0x00317670; //type:func
 GetHashValue64__FPc = 0x003176F0; //type:func
 tHashName64_getHashValue__FPUlPc = 0x00317690; //type:func
 
+BXsrand = 0x003177C8; //type:func
+BXrand = 0x003177F0; //type:func
+AIrand = 0x00317810; //type:func
+AIrandf = 0x00317830; //type:func
+cBxPseudoRng_Seed = 0x00317958; //type:func
+cBxPseudoRng_NextInt = 0x00317a08; //type:func
+
 cCrowdAnim2D_update = 0x002DBAC0; //type:func
 cCrowdAnim2D_advanceFrame = 0x002DBA08; //type:func
 cCrowdAnim2D_cCrowdAnim2D = 0x002DB9C8; //type:func
@@ -132,13 +139,11 @@ cBEScoreInterface_getCurrentHighlightLevel = 0x001552B0; //type:func
 cBERewardInterface_getTrackMedal = 0x00158910; //type:func
 cBERewardInterface_getEarningsMedal = 0x00158AF0; //type:func
 FILE_load = 0x003E18C8; //type:func
-BXrand = 0x003177F0; //type:func
 cExecutionMan__cExecutionMan = 0x00320920; //type:func
 cExecutionMan_prepause = 0x00320950; //type:func
 cExecutionMan_postpause = 0x00320958; //type:func
 cAppMan__cAppMan = 0x00316D28; //type:func
 cAppMan_loadexecpurge = 0x00317400; //type:func
-BXsrand = 0x003177C8; //type:func
 //operator_new = 0x00317D20; //type:func
 //operator_new = 0x00317D48; //type:func
 BXFILE_exists = 0x00317F38; //type:func

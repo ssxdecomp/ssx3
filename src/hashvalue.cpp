@@ -51,3 +51,7 @@ ulong GetHashValue64(char* str) {
     return tHashName64_getHashValue((ulong*)hash, str);
 }
 #endif
+
+INCLUDE_ASM("hashvalue", func_00317710);
+
+INCLUDE_ASM("hashvalue", func_00317798);
