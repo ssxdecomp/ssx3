@@ -59,6 +59,10 @@ segments:
       
       - [0x218ae8, asm]
       
+      - [0x218fe8, cpp, bx/bxstring]
+      
+      - [0x21a1c0, asm]
+      
       - [0x21d350, cpp, md5]
       
       - [0x21E5A8, asm]
