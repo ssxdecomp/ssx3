@@ -19,7 +19,23 @@ cCrowdRender2D__cCrowdRender2D__FPii = 0x002DB700; //type:func
 cCrowdRender2D_purge__FPi = 0x002DB890; //type:func
 cCrowdRender2D_constructCrowdAnim2D = 0x002DB980; //type:func
 
-operator_delete__FPi = 0x00317e50;
+operator_delete__FPi = 0x00317e50; //type:func
+
+cBXString_cBXString = 0x00268890; //type:func
+cBXString_cBXString1 = 0x00317fe8; //type:func
+cBXString_cBXString2 = 0x003182d8; //type:func
+cBXString_cBXString4 = 0x003184e8; //type:func
+cBXString_cBXString5 = 0x003190a8; //type:func
+cBXString_Concat = 0x00318910; //type:func
+cBXString_ConcatImpl = 0x00318830; //type:func
+cBXString_FindFirstOf = 0x00318ca0; //type:func
+cBXString_FindLastOf = 0x00318c18; //type:func
+cBXString_InitFromCString = 0x003183d8; //type:func
+cBXString_operatorE = 0x00318448; //type:func
+cBXString_Realloc = 0x00318040; //type:func
+cBXString_Reset = 0x003180b8; //type:func
+cBXString_Resize = 0x00318188; //type:func
+cBXString__cBXString = 0x00318260; //type:func
 
 cDirtysock_tag__TagFieldSetupAppend__FPcN20 = 0x003eb198;
 cDirtysock_tag__TagFieldSetupTerm = 0x003eb1e0;
