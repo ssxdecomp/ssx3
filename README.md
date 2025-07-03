@@ -15,7 +15,12 @@ You will need:
 ### Debian/Ubuntu
 
 `# apt install -y binutils-mips-linux-gnu ninja-build wine`  
-`# ./scripts/setup.sh`
+
+Download required tools:  
+
+```bash  
+# ./scripts/setup.sh
+```
 
 Make a `disc` directory in the root of this repository, and copy the files from the NTSC-U game disc.
 
