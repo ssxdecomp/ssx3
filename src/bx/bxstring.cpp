@@ -59,6 +59,8 @@ INCLUDE_ASM("bx/bxstring", func_00318BC0);
 INCLUDE_ASM("bx/bxstring", func_00318BF8);
 
 INCLUDE_ASM("bx/bxstring", cBXString_FindLastOf);
+//94.17%
+//https://decomp.me/scratch/p8aRA
 
 INCLUDE_ASM("bx/bxstring", func_00318C60);
 
