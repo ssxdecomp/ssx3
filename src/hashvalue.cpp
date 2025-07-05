@@ -3,6 +3,9 @@
 int GetHashValue32(char* param_1);
 int tHashName32_getHashValue(uint*, char*);
 
+
+//100%
+//https://decomp.me/scratch/YWMcE
 INCLUDE_ASM("hashvalue", tHashName32_getHashValue__FPUiPc);
 #ifdef SKIP_ASM
 int tHashName32_getHashValue(uint* out, char* str) {
@@ -22,6 +25,8 @@ int tHashName32_getHashValue(uint* out, char* str) {
 }
 #endif
 
+//100%
+//https://decomp.me/scratch/VD967
 INCLUDE_ASM("hashvalue", GetHashValue32__FPc);
 #ifdef SKIP_ASM
 int GetHashValue32(char* param_1) {
@@ -30,6 +35,8 @@ int GetHashValue32(char* param_1) {
 }
 #endif
 
+//99.17%
+//https://decomp.me/scratch/ZrcdK
 INCLUDE_ASM("hashvalue", GetHashValue64__FPc);
 #ifdef SKIP_ASM
 ulong tHashName64_getHashValue(ulong* out, char* str) {
@@ -44,6 +51,9 @@ ulong tHashName64_getHashValue(ulong* out, char* str) {
 }
 #endif
 
+
+//100%
+//https://decomp.me/scratch/I4NLb
 INCLUDE_ASM("hashvalue", tHashName64_getHashValue__FPUlPc);
 #ifdef SKIP_ASM
 ulong GetHashValue64(char* str) {

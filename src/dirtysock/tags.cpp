@@ -1,5 +1,7 @@
 #include "common.h"
 
+//100%
+//https://decomp.me/scratch/fZ4tu
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag__TagFieldSetupAppend__FPcN20);
 #ifdef SKIP_ASM
 char* cDirtysock_tag__TagFieldSetupAppend(char* message, char* buffer, char* key)
@@ -50,6 +52,8 @@ INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldSetFlags);
 
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldSetAddress);
 
+//23.48%
+//https://decomp.me/scratch/KjMXX
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldSetFourCC);
 
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldSetString);
@@ -78,6 +82,8 @@ INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldGetNumber);
 
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldGetFlags);
 
+//56.50%
+//https://decomp.me/scratch/98Kir
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldGetAddr);
 
 INCLUDE_ASM("dirtysock/tags", cDirtysock_tag_TagFieldGetFourCC);

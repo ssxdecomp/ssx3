@@ -37,7 +37,10 @@ options:
   subalign: 4
 
 segments:
-  - [0, databin, elf_header]
+  - name: elf_header
+    type: databin
+    start: 0x0
+    
   - name: main
     type: code
     start: 0x1000
@@ -46,7 +49,6 @@ segments:
     subsegments:
       - [0x1000, asm, sce/crt0]
         
-      #- [0x00108, asm]
       - [0x1218, asm]
       
       - [0x1dc6d8, cpp, visualfx/crowdrender2d]

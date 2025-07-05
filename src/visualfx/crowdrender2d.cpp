@@ -1,5 +1,8 @@
 #include "visualfx/crowdrender2d.h"
 
+//100%
+//https://decomp.me/scratch/pOTwa
+
 INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_cCrowdRender2D__Fi);
 #ifdef SKIP_ASM
 int cCrowdRender2D_cCrowdRender2D(int param_1) {
@@ -7,6 +10,9 @@ int cCrowdRender2D_cCrowdRender2D(int param_1) {
 	return param_1;
 }
 #endif
+
+//100%
+//https://decomp.me/scratch/zsTkS
 
 INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D__cCrowdRender2D__FPii);
 #ifdef SKIP_ASM
