@@ -12,12 +12,12 @@ cBxPseudoRng_NextInt = 0x00317a08; //type:func
 
 cCrowdAnim2D_update = 0x002DBAC0; //type:func
 cCrowdAnim2D_advanceFrame = 0x002DBA08; //type:func
-cCrowdAnim2D_cCrowdAnim2D = 0x002DB9C8; //type:func
+cCrowdAnim2D_cCrowdAnim2D__FPvT0 = 0x002DB9C8; //type:func
 cCrowdRender2D_cCrowdRender2D__Fi = 0x002DB6D8; //type:func
 cCrowdRender2D_init__Fv = 0x002DB748; //type:func
 cCrowdRender2D__cCrowdRender2D__FPii = 0x002DB700; //type:func
 cCrowdRender2D_purge__FPi = 0x002DB890; //type:func
-cCrowdRender2D_constructCrowdAnim2D = 0x002DB980; //type:func
+cCrowdRender2D_constructCrowdAnim2D__FPv = 0x002DB980; //type:func
 
 operator_delete__FPi = 0x00317e50; //type:func
 

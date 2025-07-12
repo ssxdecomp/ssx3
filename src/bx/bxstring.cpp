@@ -68,20 +68,20 @@ INCLUDE_ASM("bx/bxstring", func_00318C60);
 //https://decomp.me/scratch/ETxUq
 INCLUDE_ASM("bx/bxstring", cBXString_FindFirstOf);
 #ifdef SKIP_ASM
-int cBXString_FindFirstOf(cBXString* this, char needle)
-{
-    char* pcVar1;
-    int iVar2;
-
-    pcVar1 = 0;//(char*)func_0041ACC0(this->pStrdata, needle);
-    if (pcVar1) {
-        iVar2 = (int)pcVar1 - (int)this->pStrdata;
-    }
-    else {
-        iVar2 = -1;
-    }
-    return iVar2;
-}
+//int cBXString_FindFirstOf(cBXString* this, char needle)
+//{
+//    char* pcVar1;
+//    int iVar2;
+//
+//    pcVar1 = 0;//(char*)func_0041ACC0(this->pStrdata, needle);
+//    if (pcVar1) {
+//        iVar2 = (int)pcVar1 - (int)this->pStrdata;
+//    }
+//    else {
+//        iVar2 = -1;
+//    }
+//    return iVar2;
+//}
 #endif
 
 INCLUDE_ASM("bx/bxstring", func_00318CE8);

@@ -1,4 +1,5 @@
 #include "visualfx/crowdrender2d.h"
+#include <stdint.h>
 
 //100%
 //https://decomp.me/scratch/pOTwa
@@ -13,7 +14,6 @@ int cCrowdRender2D_cCrowdRender2D(int param_1) {
 
 //100%
 //https://decomp.me/scratch/zsTkS
-
 INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D__cCrowdRender2D__FPii);
 #ifdef SKIP_ASM
 void cCrowdRender2D__cCrowdRender2D(int* param_1, int param_2)
@@ -46,17 +46,20 @@ int cCrowdRender2D_purge(int *param_1)
 
 //100%
 //https://decomp.me/scratch/Rbiv4
-INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_constructCrowdAnim2D);
+INCLUDE_ASM("visualfx/crowdrender2d", cCrowdRender2D_constructCrowdAnim2D__FPv);
 #ifdef SKIP_ASM
+
+void* cMemMan_alloc(int a, const char* b, uint32_t c, int d);
+
 void* cCrowdRender2D_constructCrowdAnim2D(void* param) {
 	void* memory = cMemMan_alloc(0x20, D_004875D8, 0x20000000, 0);
 	return cCrowdAnim2D_cCrowdAnim2D(memory, param);
 }
 #endif
 
-INCLUDE_ASM("visualfx/crowdrender2d", cCrowdAnim2D_cCrowdAnim2D);
+INCLUDE_ASM("visualfx/crowdrender2d", cCrowdAnim2D_cCrowdAnim2D__FPvT0);
 #ifdef SKIP_ASM
-void cCrowdAnim2D_cCrowdAnim2D(void* pvVar1, int param_1)
+void* cCrowdAnim2D_cCrowdAnim2D(void* memory, void* param_1)
 {
 
 }
