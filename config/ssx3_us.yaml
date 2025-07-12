@@ -46,6 +46,7 @@ segments:
     start: 0x1000
     vram: 0x100000
     bss_size: 0x099EDB # I think?
+    align: 4
     subsegments:
       - [0x1000, asm, sce/crt0]
         

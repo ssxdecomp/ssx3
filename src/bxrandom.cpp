@@ -1,6 +1,18 @@
 #include "common.h"
+void cBxPseudoRng_Seed(uint* param_1, uint seedAddend);
+void BXsrand(uint seed);
+extern const uint D_004FF018[];
 
-INCLUDE_ASM("bxrandom", BXsrand);
+//100%
+//https://decomp.me/scratch/ViFdz
+INCLUDE_ASM("bxrandom", BXsrand__FUi);
+#ifdef SKIP_ASM
+void BXsrand(uint seed)
+{
+	cBxPseudoRng_Seed((uint*)D_004FF018, seed);
+	return;
+}
+#endif
 
 INCLUDE_ASM("bxrandom", BXrand);
 
