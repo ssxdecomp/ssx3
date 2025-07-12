@@ -9,4 +9,6 @@ void cCrowdAnim2D_cCrowdAnim2D(void* pvVar1, int param_1);
 int cCrowdRender2D_purge(int* param_1);
 void operator_delete(int* param_1);
 
+extern const char D_004875D8[];
+
 #endif /* CROWDRENDER2D_H */
