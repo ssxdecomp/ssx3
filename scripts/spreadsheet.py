@@ -14,6 +14,7 @@ address_offset = 0xFF000
 temp_excel_file = "temp_sheet.xlsx"
 target_sheet_name = "Found Functions"
 addresses = []
+seen_names = set()
 
 # --- Step 1: Download the Excel Sheet ---
 def download_sheet(xlsx_url):
@@ -45,11 +46,22 @@ def clean_text_file(path, marker):
 
     with open(path, "w") as f:
         f.writelines(cleaned)
+        
+        
+def check_name(name, iteration):
+    tempname = f"{name}{iteration}"
+    if iteration == 0:
+        tempname = name
+    if tempname in seen_names:
+        tempname = check_name(name, iteration+1)
+        return tempname
+    else:
+        seen_names.add(tempname)
+        return tempname
 
 # --- Step 3–4: Process spreadsheet and alter addresses ---
 def process_sheet_and_append(path):
     df = pd.read_excel(temp_excel_file, sheet_name=target_sheet_name)
-    seen_names = set()
     if 'Demangled Name' not in df.columns or 'PS2 Address' not in df.columns:
         raise ValueError("Required columns not found in the sheet.")
 
@@ -66,10 +78,7 @@ def process_sheet_and_append(path):
             
             addr = str(row['PS2 Address']).strip()
             
-            if name in seen_names:
-                name = "//" + name
-            else:
-                seen_names.add(name)
+            name = check_name(name, 0)
             
             new_addr = int(addr, 16)# - address_offset
             
