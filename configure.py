@@ -16,7 +16,10 @@ ROOT = Path(__file__).parent.resolve()
 TOOLS_DIR = ROOT / "tools"
 OUTDIR = "out"
 
-YAML_FILE = ROOT / "config" / "ssx3_us.yaml"
+# Kept relative (not ROOT / ...) so splat resolves base_path relatively too;
+# otherwise it bakes this machine's absolute path into generated files like
+# include/macro.inc's ".include" directives.
+YAML_FILE = Path("config") / "ssx3_us.yaml"
 BASENAME = "SLUS_207.72"
 LD_PATH = f"{BASENAME}.ld"
 ELF_PATH = f"{OUTDIR}/{BASENAME}"
@@ -33,8 +36,13 @@ DRIVER_PATH_FLAG = f"-B{CC_DIR}/lib/gcc-lib/ee/2.95.3/"
 COMMON_CFLAGS = "-O2"
 COMMON_CXXFLAGS = ""
 
-COMPILE_C_RULE = f"{CC_DIR}/bin/ee-gcc2953.exe -c {COMMON_INCLUDES} {DRIVER_PATH_FLAG} {COMMON_CFLAGS} $in"
-COMPILE_CXX_RULE = f"{CC_DIR}/bin/ee-gcc2953.exe -xc++ -c {COMMON_INCLUDES} {DRIVER_PATH_FLAG} {COMMON_CFLAGS} {COMMON_CXXFLAGS} $in"
+# splat's generated INCLUDE_ASM macro emits `.include "FOLDER/NAME.s"` relative
+# to the nonmatchings dir (no longer hardcodes "asm/nonmatchings/"), so the
+# internal assembler needs that dir on its include search path.
+ASM_INCLUDE_FLAG = "-Wa,-Iasm/nonmatchings"
+
+COMPILE_C_RULE = f"{CC_DIR}/bin/ee-gcc2953.exe -c {COMMON_INCLUDES} {ASM_INCLUDE_FLAG} {DRIVER_PATH_FLAG} {COMMON_CFLAGS} $in"
+COMPILE_CXX_RULE = f"{CC_DIR}/bin/ee-gcc2953.exe -xc++ -c {COMMON_INCLUDES} {ASM_INCLUDE_FLAG} {DRIVER_PATH_FLAG} {COMMON_CFLAGS} {COMMON_CXXFLAGS} $in"
 
 CATEGORY_MAP = {
     "sce": "Libs",

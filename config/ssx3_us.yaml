@@ -16,7 +16,7 @@ options:
   # Put 'hasm' splits in src/
   hasm_in_src_path: True
 
-  rodata_string_guesser_level: 0
+  rodata_string_guesser_level: 2
 
   find_file_boundaries: False
   disasm_unknown: True

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(venv/bin/pip install *)",
+      "Bash(venv/bin/python configure.py)",
+      "Bash(wine tools/cc/eegcc-2.95.3-V1.36/bin/ee-gcc2953.exe --version)",
+      "Bash(git stash *)",
+      "Bash(venv/bin/python configure.py -c)",
+      "Bash(ninja)",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}

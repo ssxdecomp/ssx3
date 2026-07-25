@@ -13,6 +13,11 @@ cBxPseudoRng_NextInt = 0x00317a08; //type:func
 
 cCrowdAnim2D_update = 0x002DBAC0; //type:func
 cCrowdAnim2D_advanceFrame = 0x002DBA08; //type:func
+lbl_cCrowdAnim2D_advanceFrame_002DBA30 = 0x002DBA30; //type:label
+lbl_cCrowdAnim2D_advanceFrame_002DBA44 = 0x002DBA44; //type:label
+lbl_cCrowdAnim2D_advanceFrame_002DBA54 = 0x002DBA54; //type:label
+lbl_cCrowdAnim2D_advanceFrame_002DBA7C = 0x002DBA7C; //type:label
+lbl_cCrowdAnim2D_advanceFrame_002DBAA0 = 0x002DBAA0; //type:label
 cCrowdAnim2D_cCrowdAnim2D__FPvT0 = 0x002DB9C8; //type:func
 cCrowdRender2D_cCrowdRender2D__Fi = 0x002DB6D8; //type:func
 cCrowdRender2D_init__Fv = 0x002DB748; //type:func

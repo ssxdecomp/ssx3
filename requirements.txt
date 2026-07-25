@@ -1,6 +1,6 @@
-spimdisasm>=1.28.1
-rabbitizer>=1.8.0
-splat64==0.27.0
+spimdisasm>=1.41.0
+rabbitizer>=1.12.0
+splat64==0.41.1
 ninja
 ninja_syntax
 n64img
