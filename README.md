@@ -37,3 +37,26 @@ $ . venv/bin/activate
 ## Building
 
 `ninja` should do the trick.
+
+## Progress
+
+Non-matching functions live under `asm/nonmatchings/`; anything not in that
+directory has already been decompiled and matches the original binary
+byte-for-byte. To check current progress locally:
+
+```bash
+$ find asm/nonmatchings -name '*.s' | wc -l   # functions still non-matching
+$ grep -c ';\s*//type:func' config/symbol_addrs.txt   # functions identified so far
+```
+
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to
+pick a function to match, the matching workflow, and PR expectations.
+
+## License
+
+Original code, build scripts, and tooling in this repository are released
+under [CC0](LICENSE) (public domain). This does not extend to the decompiled
+game code being reconstructed, or to any game assets, which remain the
+property of Electronic Arts and are never included in this repository.
