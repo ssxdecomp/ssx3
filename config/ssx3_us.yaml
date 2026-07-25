@@ -55,10 +55,46 @@ segments:
       - [0x1dc6d8, cpp, visualfx/crowdrender2d]
       
       - [0x1dcd10, asm]
-      
+
+      - [0x1ddb88, cpp, visualfx/boardwakefx]
+
+      - [0x1e91e8, cpp, visualfx/boardtrailfx]
+
+      - [0x1ed3e0, cpp, visualfx/lensfx]
+
+      - [0x1ef7c8, cpp, visualfx/renderstateman]
+
+      - [0x1f1548, asm]
+
+      - [0x1f6298, cpp, visualfx/worldlightman]
+
+      - [0x1fbe38, asm]
+
+      - [0x208598, cpp, wscript/wscriptprocess]
+
+      - [0x20a4c8, cpp, wscript/wscriptman]
+
+      - [0x20e8b8, cpp, animation/animmodel]
+
+      - [0x2125c8, asm]
+
+      - [0x2128d0, cpp, animation/rideranimbase]
+
+      - [0x214a10, cpp, animation/animsequencer]
+
+      - [0x215cb0, cpp, animation/mdfarchive]
+
+      - [0x2160b0, cpp, animation/gameanimmap]
+
+      - [0x217898, cpp, bx/bigfile]
+
+      - [0x217a48, cpp, bx/blockman]
+
+      - [0x217cd0, cpp, bx/appman]
+
       - [0x218618, cpp, hashvalue]
       
-      - [0x2187c8, cpp, bxrandom]
+      - [0x2187c8, cpp, bx/bxrandom]
       
       - [0x218ae8, asm]
 

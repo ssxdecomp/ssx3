@@ -5,7 +5,7 @@ extern const uint D_004FF018[];
 
 //100%
 //https://decomp.me/scratch/ViFdz
-INCLUDE_ASM("bxrandom", BXsrand__FUi);
+INCLUDE_ASM("bx/bxrandom", BXsrand__FUi);
 #ifdef SKIP_ASM
 void BXsrand(uint seed)
 {
@@ -14,7 +14,7 @@ void BXsrand(uint seed)
 }
 #endif
 
-INCLUDE_ASM("bxrandom", BXrand__Fv);
+INCLUDE_ASM("bx/bxrandom", BXrand__Fv);
 #ifdef SKIP_ASM
 void cBxPseudoRng_NextInt(const uint[]);                         /* extern */
 
@@ -25,9 +25,9 @@ void BXrand()
 #endif
 
 
-INCLUDE_ASM("bxrandom", AIrand);
+INCLUDE_ASM("bx/bxrandom", AIrand);
 
-INCLUDE_ASM("bxrandom", AIrandf__Fff);
+INCLUDE_ASM("bx/bxrandom", AIrandf__Fff);
 #ifdef SKIP_ASM
 unsigned int AIrand();
 
@@ -39,7 +39,7 @@ float AIrandf(float a, float b)
 }
 #endif
 
-INCLUDE_ASM("bxrandom", func_00317890__Fff);
+INCLUDE_ASM("bx/bxrandom", func_00317890__Fff);
 #ifdef SKIP_ASM
 float func_00317890(float param_1, float param_2)
 {
@@ -50,12 +50,12 @@ float func_00317890(float param_1, float param_2)
 }
 #endif
 
-INCLUDE_ASM("bxrandom", func_003178E0);
+INCLUDE_ASM("bx/bxrandom", func_003178E0);
 
-INCLUDE_ASM("bxrandom", func_00317908);
+INCLUDE_ASM("bx/bxrandom", func_00317908);
 
-INCLUDE_ASM("bxrandom", func_00317930);
+INCLUDE_ASM("bx/bxrandom", func_00317930);
 
-INCLUDE_ASM("bxrandom", cBxPseudoRng_Seed);
+INCLUDE_ASM("bx/bxrandom", cBxPseudoRng_Seed);
 
-INCLUDE_ASM("bxrandom", cBxPseudoRng_NextInt);
+INCLUDE_ASM("bx/bxrandom", cBxPseudoRng_NextInt);
