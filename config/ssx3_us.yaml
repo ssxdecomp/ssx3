@@ -61,11 +61,19 @@ segments:
       - [0x2187c8, cpp, bxrandom]
       
       - [0x218ae8, asm]
-      
+
+      - [0x218d20, cpp, bx/memman]
+
+      - [0x218f38, asm]
+
       - [0x218fe8, cpp, bx/bxstring]
-      
+
       - [0x21a1c0, asm]
-      
+
+      - [0x21aa30, cpp, bx/memblockman]
+
+      - [0x21bdb0, cpp, bx/ps2main]
+
       - [0x21d350, cpp, md5]
       
       - [0x21E5A8, asm]
