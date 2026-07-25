@@ -22,6 +22,12 @@ options:
   disasm_unknown: True
   named_regs_for_c_funcs: False
 
+  # This project hand-maintains include/include_asm.h (needs a SKIP_ASM guard
+  # for the dual obj/target vs obj/current objdiff build, which splat's
+  # generic auto-generated template doesn't have) plus include/macro.inc and
+  # include/labels.inc, so don't let splat regenerate/overwrite them.
+  generate_asm_macros_files: False
+
   create_undefined_funcs_auto: True
   undefined_funcs_auto_path: config/undefined_funcs_auto.txt
   create_undefined_syms_auto: True

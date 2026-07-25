@@ -42,12 +42,37 @@ $ . venv/bin/activate
 
 Non-matching functions live under `asm/nonmatchings/`; anything not in that
 directory has already been decompiled and matches the original binary
-byte-for-byte. To check current progress locally:
+byte-for-byte. Progress is tracked with [objdiff](tools/objdiff), which
+compares the real game bytes (`obj/target`) against what our source
+currently compiles to (`obj/current`) function-by-function — this is the
+same tool used interactively while matching (see
+[CONTRIBUTING.md](CONTRIBUTING.md)).
+
+To check current progress locally:
 
 ```bash
-$ find asm/nonmatchings -name '*.s' | wc -l   # functions still non-matching
-$ grep -c ';\s*//type:func' config/symbol_addrs.txt   # functions identified so far
+$ ./configure.py -c -o && ninja   # -o builds obj/target and obj/current
+$ python3 scripts/progress.py
 ```
+
+The first step is a full dual build (everything compiles twice, once as
+reference bytes and once from our current source) so it's slower than a
+normal `ninja` build; only rerun it when you want a fresh number.
+
+Snapshot as of 2026-07-25:
+
+| | matching | total | % |
+|---|---|---|---|
+| Functions | 9 | 12,929 | 0.07% |
+| Code bytes | 472 | 3,195,068 | 0.01% |
+| Data bytes | 4,968 | 500,792 | 0.99% |
+
+The function/code counts include every function that's been split into its
+own file, named or not (via `config/gap_symbol_addrs.txt` — see that file's
+header for why some splits don't have a recovered name yet). It does not
+include code still sitting in the large, not-yet-split `asm/` catch-all
+files, so the true total will grow as more of those get split out and
+identified.
 
 ## Contributing
 
