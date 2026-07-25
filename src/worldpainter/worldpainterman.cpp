@@ -1,1 +1,4 @@
-//Known file in project
+#include "common.h"
+
+INCLUDE_ASM("worldpainter/worldpainterman", cWorldPainterMan_reset);
+

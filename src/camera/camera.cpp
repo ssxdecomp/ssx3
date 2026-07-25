@@ -1,1 +1,372 @@
-//Known file in project
+#include "common.h"
+
+INCLUDE_ASM("camera/camera", cCamera_resetChaseControllerSwitches);
+
+INCLUDE_ASM("camera/camera", cCamera_cCamera);
+
+INCLUDE_ASM("camera/camera", func_0015DD88);
+
+INCLUDE_ASM("camera/camera", cCamera_init);
+
+INCLUDE_ASM("camera/camera", func_0015DF98);
+
+INCLUDE_ASM("camera/camera", func_0015DFD8);
+
+INCLUDE_ASM("camera/camera", func_0015E030);
+
+INCLUDE_ASM("camera/camera", func_0015E050);
+
+INCLUDE_ASM("camera/camera", func_0015E2A8);
+
+INCLUDE_ASM("camera/camera", func_0015E360);
+
+INCLUDE_ASM("camera/camera", func_0015E460);
+
+INCLUDE_ASM("camera/camera", func_0015E668);
+
+INCLUDE_ASM("camera/camera", func_0015EC98);
+
+INCLUDE_ASM("camera/camera", func_0015EDC8);
+
+INCLUDE_ASM("camera/camera", func_0015EE00);
+
+INCLUDE_ASM("camera/camera", func_0015F568);
+
+INCLUDE_ASM("camera/camera", func_0015F598);
+
+INCLUDE_ASM("camera/camera", func_0015F5B0);
+
+INCLUDE_ASM("camera/camera", func_0015F5F8);
+
+INCLUDE_ASM("camera/camera", func_0015F610);
+
+INCLUDE_ASM("camera/camera", func_0015F628);
+
+INCLUDE_ASM("camera/camera", func_0015F640);
+
+INCLUDE_ASM("camera/camera", func_0015F650);
+
+INCLUDE_ASM("camera/camera", func_0015F668);
+
+INCLUDE_ASM("camera/camera", func_0015F680);
+
+INCLUDE_ASM("camera/camera", func_0015F690);
+
+INCLUDE_ASM("camera/camera", func_0015F6A0);
+
+INCLUDE_ASM("camera/camera", func_0015F6B0);
+
+INCLUDE_ASM("camera/camera", func_0015F6C8);
+
+INCLUDE_ASM("camera/camera", func_0015F6E0);
+
+INCLUDE_ASM("camera/camera", func_0015F6F0);
+
+INCLUDE_ASM("camera/camera", func_0015F700);
+
+INCLUDE_ASM("camera/camera", func_0015F710);
+
+INCLUDE_ASM("camera/camera", func_0015F720);
+
+INCLUDE_ASM("camera/camera", func_0015F750);
+
+INCLUDE_ASM("camera/camera", func_0015F760);
+
+INCLUDE_ASM("camera/camera", func_0015F770);
+
+INCLUDE_ASM("camera/camera", func_0015F780);
+
+INCLUDE_ASM("camera/camera", func_0015F908);
+
+INCLUDE_ASM("camera/camera", func_0015F918);
+
+INCLUDE_ASM("camera/camera", func_0015F928);
+
+INCLUDE_ASM("camera/camera", func_0015F938);
+
+INCLUDE_ASM("camera/camera", func_0015F9B8);
+
+INCLUDE_ASM("camera/camera", func_0015FD08);
+
+INCLUDE_ASM("camera/camera", func_0015FD48);
+
+INCLUDE_ASM("camera/camera", func_0015FD50);
+
+INCLUDE_ASM("camera/camera", func_0015FFB0);
+
+INCLUDE_ASM("camera/camera", func_0015FFF0);
+
+INCLUDE_ASM("camera/camera", func_00160028);
+
+INCLUDE_ASM("camera/camera", func_00160130);
+
+INCLUDE_ASM("camera/camera", func_00160228);
+
+INCLUDE_ASM("camera/camera", func_001603F0);
+
+INCLUDE_ASM("camera/camera", func_00160438);
+
+INCLUDE_ASM("camera/camera", func_00160478);
+
+INCLUDE_ASM("camera/camera", func_001604A0);
+
+INCLUDE_ASM("camera/camera", func_001604B0);
+
+INCLUDE_ASM("camera/camera", func_001604B8);
+
+INCLUDE_ASM("camera/camera", func_001606D8);
+
+INCLUDE_ASM("camera/camera", func_00160760);
+
+INCLUDE_ASM("camera/camera", func_001607A0);
+
+INCLUDE_ASM("camera/camera", func_001607C8);
+
+INCLUDE_ASM("camera/camera", func_001607D8);
+
+INCLUDE_ASM("camera/camera", func_001607E0);
+
+INCLUDE_ASM("camera/camera", func_00160AE8);
+
+INCLUDE_ASM("camera/camera", func_00160B70);
+
+INCLUDE_ASM("camera/camera", func_00160BB8);
+
+INCLUDE_ASM("camera/camera", func_00160BE0);
+
+INCLUDE_ASM("camera/camera", func_00160BF0);
+
+INCLUDE_ASM("camera/camera", func_00160BF8);
+
+INCLUDE_ASM("camera/camera", func_00160FD0);
+
+INCLUDE_ASM("camera/camera", func_00161060);
+
+INCLUDE_ASM("camera/camera", func_00161370);
+
+INCLUDE_ASM("camera/camera", func_001613D8);
+
+INCLUDE_ASM("camera/camera", func_001613E8);
+
+INCLUDE_ASM("camera/camera", func_001613F0);
+
+INCLUDE_ASM("camera/camera", func_00161630);
+
+INCLUDE_ASM("camera/camera", func_001616A8);
+
+INCLUDE_ASM("camera/camera", func_001616E8);
+
+INCLUDE_ASM("camera/camera", func_00161710);
+
+INCLUDE_ASM("camera/camera", func_00161720);
+
+INCLUDE_ASM("camera/camera", func_00161728);
+
+INCLUDE_ASM("camera/camera", func_00161848);
+
+INCLUDE_ASM("camera/camera", func_00161950);
+
+INCLUDE_ASM("camera/camera", func_001619A8);
+
+INCLUDE_ASM("camera/camera", func_00161A10);
+
+INCLUDE_ASM("camera/camera", func_00161A60);
+
+INCLUDE_ASM("camera/camera", func_00161AB0);
+
+INCLUDE_ASM("camera/camera", func_00161BB8);
+
+INCLUDE_ASM("camera/camera", func_00161E58);
+
+INCLUDE_ASM("camera/camera", func_00161EF0);
+
+INCLUDE_ASM("camera/camera", func_00161F50);
+
+INCLUDE_ASM("camera/camera", func_00161FA0);
+
+INCLUDE_ASM("camera/camera", func_00162060);
+
+INCLUDE_ASM("camera/camera", func_001620D0);
+
+INCLUDE_ASM("camera/camera", func_00162138);
+
+INCLUDE_ASM("camera/camera", func_00162170);
+
+INCLUDE_ASM("camera/camera", func_001621A8);
+
+INCLUDE_ASM("camera/camera", func_00162218);
+
+INCLUDE_ASM("camera/camera", func_00162258);
+
+INCLUDE_ASM("camera/camera", func_00162290);
+
+INCLUDE_ASM("camera/camera", func_001622B0);
+
+INCLUDE_ASM("camera/camera", func_00162310);
+
+INCLUDE_ASM("camera/camera", func_00162318);
+
+INCLUDE_ASM("camera/camera", func_00162458);
+
+INCLUDE_ASM("camera/camera", func_001624E8);
+
+INCLUDE_ASM("camera/camera", func_00162568);
+
+INCLUDE_ASM("camera/camera", func_00162998);
+
+INCLUDE_ASM("camera/camera", func_00162A20);
+
+INCLUDE_ASM("camera/camera", func_00162B80);
+
+INCLUDE_ASM("camera/camera", func_00162B90);
+
+INCLUDE_ASM("camera/camera", func_00162C78);
+
+INCLUDE_ASM("camera/camera", func_00163010);
+
+INCLUDE_ASM("camera/camera", func_00163158);
+
+INCLUDE_ASM("camera/camera", func_00163270);
+
+INCLUDE_ASM("camera/camera", func_001633B0);
+
+INCLUDE_ASM("camera/camera", func_00163450);
+
+INCLUDE_ASM("camera/camera", func_001635F8);
+
+INCLUDE_ASM("camera/camera", func_001641C0);
+
+INCLUDE_ASM("camera/camera", func_001643A8);
+
+INCLUDE_ASM("camera/camera", func_001646A0);
+
+INCLUDE_ASM("camera/camera", func_00164878);
+
+INCLUDE_ASM("camera/camera", func_00165540);
+
+INCLUDE_ASM("camera/camera", func_001656B0);
+
+INCLUDE_ASM("camera/camera", func_00165938);
+
+INCLUDE_ASM("camera/camera", func_00166228);
+
+INCLUDE_ASM("camera/camera", func_001662A0);
+
+INCLUDE_ASM("camera/camera", func_00166530);
+
+INCLUDE_ASM("camera/camera", func_00166550);
+
+INCLUDE_ASM("camera/camera", func_00166640);
+
+INCLUDE_ASM("camera/camera", func_001668B8);
+
+INCLUDE_ASM("camera/camera", func_00166C60);
+
+INCLUDE_ASM("camera/camera", func_00166F28);
+
+INCLUDE_ASM("camera/camera", func_00166F90);
+
+INCLUDE_ASM("camera/camera", func_001673A0);
+
+INCLUDE_ASM("camera/camera", func_001673F8);
+
+INCLUDE_ASM("camera/camera", func_00167D88);
+
+INCLUDE_ASM("camera/camera", func_00167D98);
+
+INCLUDE_ASM("camera/camera", func_00167DA8);
+
+INCLUDE_ASM("camera/camera", func_00167DB8);
+
+INCLUDE_ASM("camera/camera", func_00167DE8);
+
+INCLUDE_ASM("camera/camera", func_00167E18);
+
+INCLUDE_ASM("camera/camera", func_00167E20);
+
+INCLUDE_ASM("camera/camera", func_00167E28);
+
+INCLUDE_ASM("camera/camera", func_00167E30);
+
+INCLUDE_ASM("camera/camera", func_00167E40);
+
+INCLUDE_ASM("camera/camera", func_00167E58);
+
+INCLUDE_ASM("camera/camera", func_00167E60);
+
+INCLUDE_ASM("camera/camera", func_00167E68);
+
+INCLUDE_ASM("camera/camera", func_00167E90);
+
+INCLUDE_ASM("camera/camera", func_00167E98);
+
+INCLUDE_ASM("camera/camera", func_00167EA0);
+
+INCLUDE_ASM("camera/camera", func_00167F10);
+
+INCLUDE_ASM("camera/camera", func_00167F40);
+
+INCLUDE_ASM("camera/camera", func_00167F70);
+
+INCLUDE_ASM("camera/camera", func_00167FA0);
+
+INCLUDE_ASM("camera/camera", func_00167FB0);
+
+INCLUDE_ASM("camera/camera", func_00167FB8);
+
+INCLUDE_ASM("camera/camera", func_00168030);
+
+INCLUDE_ASM("camera/camera", func_00168060);
+
+INCLUDE_ASM("camera/camera", func_00168150);
+
+INCLUDE_ASM("camera/camera", func_00168298);
+
+INCLUDE_ASM("camera/camera", func_001682B8);
+
+INCLUDE_ASM("camera/camera", func_001682F8);
+
+INCLUDE_ASM("camera/camera", func_00168320);
+
+INCLUDE_ASM("camera/camera", func_00168330);
+
+INCLUDE_ASM("camera/camera", func_00168338);
+
+INCLUDE_ASM("camera/camera", func_00168508);
+
+INCLUDE_ASM("camera/camera", func_00168650);
+
+INCLUDE_ASM("camera/camera", func_00168690);
+
+INCLUDE_ASM("camera/camera", func_001686B8);
+
+INCLUDE_ASM("camera/camera", func_001686C8);
+
+INCLUDE_ASM("camera/camera", func_001686D0);
+
+INCLUDE_ASM("camera/camera", func_00168940);
+
+INCLUDE_ASM("camera/camera", func_001689C8);
+
+INCLUDE_ASM("camera/camera", func_00168A08);
+
+INCLUDE_ASM("camera/camera", func_00168A30);
+
+INCLUDE_ASM("camera/camera", func_00168A40);
+
+INCLUDE_ASM("camera/camera", func_00168A70);
+
+INCLUDE_ASM("camera/camera", func_00168C50);
+
+INCLUDE_ASM("camera/camera", func_00168CD8);
+
+INCLUDE_ASM("camera/camera", func_00168D18);
+
+INCLUDE_ASM("camera/camera", func_00168D40);
+
+INCLUDE_ASM("camera/camera", func_00168D50);
+
+INCLUDE_ASM("camera/camera", func_00168D80);
+
+INCLUDE_ASM("camera/camera", func_00168F60);
+

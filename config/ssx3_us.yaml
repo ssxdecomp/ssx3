@@ -27,7 +27,7 @@ options:
   create_undefined_syms_auto: True
   undefined_syms_auto_path: config/undefined_syms_auto.txt
 
-  symbol_addrs_path: [ config/symbol_addrs.txt, config/lib_symbol_addrs.txt ]
+  symbol_addrs_path: [ config/symbol_addrs.txt, config/lib_symbol_addrs.txt, config/gap_symbol_addrs.txt ]
 
   extensions_path: tools/splat_ext
 
@@ -51,7 +51,297 @@ segments:
       - [0x1000, asm, sce/crt0]
         
       - [0x1218, asm]
-      
+
+      - [0xd4f8, cpp, ai/computer]
+
+      - [0x14198, cpp, ai/airpredictor]
+
+      - [0x14b10, asm]
+
+      - [0x182e0, cpp, ai/ridermetrix]
+
+      - [0x1c698, cpp, ai/rider]
+
+      - [0x296a0, cpp, ai/ai]
+
+      - [0x37c40, cpp, ai/motion/wipeoutmotion]
+
+      - [0x39b48, cpp, ai/control/handplantcontrol]
+
+      - [0x458d8, cpp, be/beintnewrace]
+
+      - [0x46930, cpp, be/beintplayer]
+
+      - [0x49f50, cpp, be/beintstat]
+
+      - [0x4b080, cpp, be/belibrary]
+
+      - [0x4ec80, cpp, be/be]
+
+      - [0x4f0e0, cpp, be/beintnetwork]
+
+      - [0x4ff30, cpp, be/beintcharacter]
+
+      - [0x50250, cpp, be/beintoption]
+
+      - [0x50900, cpp, be/beintbagt]
+
+      - [0x518d8, cpp, be/beintecon]
+
+      - [0x53398, cpp, be/bedbprofile]
+
+      - [0x53638, cpp, be/beintsavefile]
+
+      - [0x54088, cpp, be/bestate]
+
+      - [0x542a0, cpp, be/beintmission]
+
+      - [0x55948, cpp, be/beintscore]
+
+      - [0x56a50, cpp, be/beintaggression]
+
+      - [0x57338, cpp, be/beprepoststate]
+
+      - [0x579c0, cpp, be/beintreward]
+
+      - [0x5bd58, cpp, be/bedbreward]
+
+      - [0x5d988, cpp, camera/cameraalgolist]
+
+      - [0x5dba0, cpp, camera/cameracontroller]
+
+      - [0x5e078, cpp, camera/cameraalgorithms]
+
+      - [0x5ec18, cpp, camera/camera]
+
+      - [0x69fe8, cpp, camera/script/scriptcontroller]
+
+      - [0x6cf20, cpp, camera/trigger/cameratriggerlist]
+
+      - [0x6d428, asm]
+
+      - [0x6d5a8, cpp, camera/trigger/cameratriggervolumes]
+
+      - [0x6d628, cpp, camera/trigger/triggeralgorithms]
+
+      - [0x6d9b0, cpp, camera/trigger/cameratriggerman]
+
+      - [0x722b0, cpp, camera/trigger/cameratriggerfactory]
+
+      - [0x7bcc8, cpp, main/loadscreens]
+
+      - [0x7d5f8, cpp, fe/debugfe]
+
+      - [0x81b60, cpp, fe/festatedebug]
+
+      - [0x82148, cpp, fe/festatecharselect]
+
+      - [0x83928, cpp, fe/festatecharsetup]
+
+      - [0x842a8, cpp, fe/festateriderbio]
+
+      - [0x84de0, cpp, wscript/wscriptmission]
+
+      - [0x85668, cpp, fe/festatestore]
+
+      - [0x86a98, cpp, fe/festatecredits]
+
+      - [0x87658, cpp, fe/festateload]
+
+      - [0x87b50, cpp, fe/fememcard]
+
+      - [0x88c50, cpp, fe/festatelegal]
+
+      - [0x89800, cpp, fe/festateoptions]
+
+      - [0x8fad8, cpp, fe/festateprofile]
+
+      - [0x918c0, cpp, fe/festateriderbiodetail]
+
+      - [0x923b8, cpp, fe/festateruleselect]
+
+      - [0x93d80, cpp, fe/festatebigradio]
+
+      - [0x95528, cpp, fe/festatetransition]
+
+      - [0x95778, cpp, fe/ovstates]
+
+      - [0x964d8, cpp, fe/festatebonusmaterial]
+
+      - [0x966f8, cpp, fe/festatecharequip]
+
+      - [0x969a8, cpp, util/locale]
+
+      - [0x97540, cpp, fe/festateaudiooptions]
+
+      - [0x97f98, cpp, fe/messagecenter]
+
+      - [0x99db8, cpp, fe/festatecharequipdetail]
+
+      - [0x9f680, cpp, fe/feridermanager]
+
+      - [0xa1648, cpp, fe/feflowstate]
+
+      - [0xa1720, cpp, fe/fereal]
+
+      - [0xa4090, cpp, fe/festateselectmp]
+
+      - [0xa4258, cpp, fe/ovstatemission]
+
+      - [0xa46e8, cpp, fe/feasyncfile]
+
+      - [0xc68e8, cpp, fe/fepopup]
+
+      - [0xcf758, asm]
+
+      - [0xd00b0, cpp, fe/festaterewards]
+
+      - [0xd3678, cpp, fe/ovstatelodge]
+
+      - [0xd5368, cpp, fe/festatetrophyroom]
+
+      - [0xd76b0, cpp, fe/fememcardcallbacks]
+
+      - [0xdadb8, cpp, fe/festatenethelppopup]
+
+      - [0xdc148, asm]
+
+      - [0xdfb90, cpp, fe/fepopupmisc]
+
+      - [0xe9ff0, cpp, fe/ovstatehud]
+
+      - [0xf4790, cpp, fe/festatelodge]
+
+      - [0xf5830, cpp, fe/festatebuyattrib]
+
+      - [0xf8198, cpp, fe/ovstateenterlodge]
+
+      - [0xf9168, cpp, fe/ovtemplatepausemenu]
+
+      - [0xfa188, cpp, fe/ovstatepause]
+
+      - [0x101218, cpp, fe/ovstaterewardslist]
+
+      - [0x101700, cpp, fe/uitemplatemap]
+
+      - [0x1096a8, cpp, fe/ovstatemap]
+
+      - [0x10b778, cpp, fe/ovtemplatedialog]
+
+      - [0x10ee30, cpp, fe/ovstatereplay]
+
+      - [0x10f938, cpp, fe/ovstatetrophy]
+
+      - [0x1121a0, cpp, fe/ovstateprofile]
+
+      - [0x1137e8, asm]
+
+      - [0x1237d0, cpp, luno/lunovm]
+
+      - [0x127830, cpp, main/ssxapp]
+
+      - [0x12d078, cpp, main/game]
+
+      - [0x12f180, cpp, main/sectionman]
+
+      - [0x12f3b8, cpp, main/gamerender]
+
+      - [0x12fbc8, cpp, main/gameload]
+
+      - [0x133348, cpp, main/loadscreens_prestart]
+
+      - [0x134438, cpp, fe/festateloadscreen]
+
+      - [0x135ad0, cpp, main/gamestate]
+
+      - [0x138cf8, cpp, main/gamemode]
+
+      - [0x13d808, cpp, movie/movieplayer]
+
+      - [0x143d10, cpp, main/streampause]
+
+      - [0x1448f0, cpp, main/ssxappdtor]
+
+      - [0x146950, cpp, fe/festateloadhint]
+
+      - [0x148e60, cpp, main/debugmenu]
+
+      - [0x152718, cpp, mem/memstd]
+
+      - [0x156860, asm]
+
+      - [0x15a288, cpp, dirtysock/tagsunk]
+
+      - [0x169890, cpp, bx/bxstringctor]
+
+      - [0x16c310, cpp, path/pathsys]
+
+      - [0x16d458, cpp, replay/playbackman]
+
+      - [0x16ebf0, cpp, replay/replay]
+
+      - [0x16f908, cpp, replay/frameptr]
+
+      - [0x171070, cpp, replay/replaycache]
+
+      - [0x1763b8, cpp, scripter/scanimmgr]
+
+      - [0x176828, cpp, scripter/datamanager]
+
+      - [0x179358, cpp, scripter/ssxscriptengine]
+
+      - [0x182f30, cpp, scripter/bxscriptengine]
+
+      - [0x184450, cpp, scripter/scsndmgr]
+
+      - [0x1848e8, cpp, scripter/videngine]
+
+      - [0x184e60, asm]
+
+      - [0x185bb0, cpp, sound/ssxAudio]
+
+      - [0x18b1e8, cpp, sound/asyncsys]
+
+      - [0x18c588, cpp, sound/bankmanager]
+
+      - [0x190d00, cpp, sound/soundsys]
+
+      - [0x1aa350, cpp, sound/ps2soundman]
+
+      - [0x1aa9d8, cpp, sound/streamsys]
+
+      - [0x1add08, cpp, sound/bankmonitor]
+
+      - [0x1b5b08, cpp, sound/icepick/worldtriggermanager]
+
+      - [0x1ba100, asm]
+
+      - [0x1c13a8, cpp, worldpainter/worldpainterquery]
+
+      - [0x1c13e8, cpp, worldpainter/worldpainterman]
+
+      - [0x1c1408, cpp, worldpainter/worldpainterqueryctor]
+
+      - [0x1c1a58, cpp, worldpainter/worldpaintermanquery]
+
+      - [0x1c27d0, cpp, worldpainter/quadtree]
+
+      - [0x1c7f78, cpp, util/statemachine]
+
+      - [0x1c9348, asm]
+
+      - [0x1cb258, cpp, util/menu]
+
+      - [0x1d2ce0, cpp, util/objectinterface]
+
+      - [0x1d3510, asm]
+
+      - [0x1d58f0, cpp, visualfx/angerfx]
+
+      - [0x1d6778, cpp, visualfx/avalanche]
+
+      - [0x1db390, cpp, visualfx/boardsparkfx]
+
       - [0x1dc6d8, cpp, visualfx/crowdrender2d]
       
       - [0x1dcd10, asm]
@@ -112,7 +402,113 @@ segments:
 
       - [0x21d350, cpp, md5]
       
-      - [0x21E5A8, asm]
+      - [0x21e5a8, asm]
+
+      - [0x21e660, cpp, bx/cubicspline]
+
+      - [0x221920, cpp, bx/execman]
+
+      - [0x221ca0, cpp, input/inputmap]
+
+      - [0x2227d0, cpp, input/inputparse]
+
+      - [0x228890, cpp, intersect/aifwddiff]
+
+      - [0x22a910, cpp, intersect/riderspheretree]
+
+      - [0x2313f0, cpp, intersect/worldsphtree]
+
+      - [0x243d10, cpp, object/debouncenode]
+
+      - [0x2464e8, cpp, object/spline3d]
+
+      - [0x246700, cpp, object/effectlink]
+
+      - [0x2476a0, cpp, object/flexbridgenode]
+
+      - [0x249b90, cpp, object/flexrailnode]
+
+      - [0x24c228, cpp, object/flagset]
+
+      - [0x24f448, cpp, object/animnode]
+
+      - [0x24feb8, cpp, object/floatingnode]
+
+      - [0x250b90, cpp, object/instancenode]
+
+      - [0x251750, cpp, object/deadfadenode]
+
+      - [0x252030, cpp, wscript/wscriptcompile]
+
+      - [0x252270, cpp, object/instanceman]
+
+      - [0x253aa8, cpp, object/modifierblock]
+
+      - [0x254f00, cpp, object/spring]
+
+      - [0x255688, cpp, object/objnode]
+
+      - [0x2559e0, cpp, object/bucketman]
+
+      - [0x2562d8, cpp, object/movenode]
+
+      - [0x259020, cpp, object/multiparticle]
+
+      - [0x25a5d8, cpp, object/splinemodifier]
+
+      - [0x25d0e8, cpp, object/railmodifier]
+
+      - [0x268150, cpp, render/ps2graphicsman]
+
+      - [0x26a8e0, cpp, render/graphicsman]
+
+      - [0x271c60, cpp, render/particle]
+
+      - [0x28bcd0, cpp, render/irradiance]
+
+      - [0x28be10, cpp, render/ps2lightman]
+
+      - [0x28be60, cpp, render/ps2bezierman]
+
+      - [0x28bef8, cpp, render/bezierman]
+
+      - [0x28ebd0, cpp, render/lightman]
+
+      - [0x292788, cpp, render/font]
+
+      - [0x298140, cpp, ui/uianimation]
+
+      - [0x298718, cpp, util/list]
+
+      - [0x298ad8, cpp, ui/uiengine]
+
+      - [0x29b3f8, cpp, ui/uilistbox]
+
+      - [0x29bd38, cpp, ui/uimenu]
+
+      - [0x29d518, cpp, ui/uiscreen]
+
+      - [0x29f8b8, cpp, ui/uistate]
+
+      - [0x2a0238, cpp, ui/uistatestack]
+
+      - [0x2a0f78, cpp, ui/uithing]
+
+      - [0x2a15e8, cpp, ui/uitext]
+
+      - [0x2a44c0, cpp, ui/uivector]
+
+      - [0x2a7688, cpp, world/world]
+
+      - [0x2a7d50, cpp, world/streamman]
+
+      - [0x2a8598, cpp, world/worldcache]
+
+      - [0x2aa800, cpp, world/worldview]
+
+      - [0x2ad800, cpp, world/wscriptcache]
+
+      - [0x2b4578, asm]
       
       - [0x2ec198, cpp, dirtysock/tags]
       

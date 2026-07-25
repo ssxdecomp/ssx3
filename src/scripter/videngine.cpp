@@ -1,1 +1,32 @@
-//Known file in project
+#include "common.h"
+
+INCLUDE_ASM("scripter/videngine", cVidEngine_ReadyVideo);
+
+INCLUDE_ASM("scripter/videngine", func_002839A8);
+
+INCLUDE_ASM("scripter/videngine", func_00283AA0);
+
+INCLUDE_ASM("scripter/videngine", func_00283AF8);
+
+INCLUDE_ASM("scripter/videngine", func_00283B78);
+
+INCLUDE_ASM("scripter/videngine", func_00283BB8);
+
+INCLUDE_ASM("scripter/videngine", func_00283C20);
+
+INCLUDE_ASM("scripter/videngine", func_00283C30);
+
+INCLUDE_ASM("scripter/videngine", func_00283C58);
+
+INCLUDE_ASM("scripter/videngine", func_00283C60);
+
+INCLUDE_ASM("scripter/videngine", func_00283C80);
+
+INCLUDE_ASM("scripter/videngine", func_00283D28);
+
+INCLUDE_ASM("scripter/videngine", func_00283D70);
+
+INCLUDE_ASM("scripter/videngine", func_00283DA0);
+
+INCLUDE_ASM("scripter/videngine", func_00283DC0);
+
