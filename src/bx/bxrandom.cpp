@@ -59,11 +59,37 @@ float func_00317890(float param_1, float param_2)
 }
 #endif
 
-INCLUDE_ASM("bx/bxrandom", func_003178E0);
+extern "C" void* func_003E6574(void*, void*, int);
 
-INCLUDE_ASM("bx/bxrandom", func_00317908);
+//100%
+INCLUDE_ASM("bx/bxrandom", func_003178E0__FPv);
+#ifdef SKIP_ASM
+void* func_003178E0(void* self)
+{
+    return func_003E6574(self, (void*)D_004FF030, 0x18);
+}
+#endif
 
-INCLUDE_ASM("bx/bxrandom", func_00317930);
+//100%
+INCLUDE_ASM("bx/bxrandom", func_00317908__FPv);
+#ifdef SKIP_ASM
+void* func_00317908(void* self)
+{
+    return func_003E6574((void*)D_004FF030, self, 0x18);
+}
+#endif
+
+extern void* D_0048DCB0[];
+extern "C" void* func_003E6574(void*, void*, int);
+
+//100%
+INCLUDE_ASM("bx/bxrandom", func_00317930__FPv);
+#ifdef SKIP_ASM
+void* func_00317930(void* self)
+{
+    return func_003E6574(self, (void*)D_0048DCB0, 0x18);
+}
+#endif
 
 INCLUDE_ASM("bx/bxrandom", cBxPseudoRng_Seed);
 

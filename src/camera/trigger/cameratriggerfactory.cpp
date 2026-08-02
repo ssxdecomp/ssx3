@@ -86,7 +86,18 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00173E40);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00174190);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001741D8);
+extern void* D_0045C458[];
+extern "C" void* func_001732B8(void*);
+
+//99.5%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001741D8__FPv);
+#ifdef SKIP_ASM
+void* func_001741D8(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045C458;
+    return func_001732B8(self);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00174200);
 
@@ -182,11 +193,31 @@ void* func_00176A28(void* self)
 }
 #endif
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176A48);
+extern "C" void* func_00175A20(int, int);
+
+//99.38%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176A48__FPv);
+#ifdef SKIP_ASM
+void* func_00176A48(void* self)
+{
+    return func_00175A20(0, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176A68);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176AA8);
+extern void* D_0045CAB0[];
+extern "C" void* func_00162458(void*);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176AA8__FPv);
+#ifdef SKIP_ASM
+void* func_00176AA8(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045CAB0;
+    return func_00162458(self);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176AD0);
 
@@ -198,7 +229,18 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176CE0);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176D68);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176DA8);
+extern void* D_0045CA38[];
+extern "C" void* func_00162458(void*);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176DA8__FPv);
+#ifdef SKIP_ASM
+void* func_00176DA8(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045CA38;
+    return func_00162458(self);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176DD0);
 
@@ -210,7 +252,18 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176FE0);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177068);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001770A8);
+extern void* D_0045C9C0[];
+extern "C" void* func_00162458(void*);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001770A8__FPv);
+#ifdef SKIP_ASM
+void* func_001770A8(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045C9C0;
+    return func_00162458(self);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001770D0);
 
@@ -224,7 +277,18 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177368);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001774C0);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177520);
+extern void* D_0045CB28[];
+extern "C" void* func_00162458(void*);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177520__FPv);
+#ifdef SKIP_ASM
+void* func_00177520(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045CB28;
+    return func_00162458(self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177548__FPv);
@@ -254,7 +318,18 @@ void* func_00177E30(void* self)
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177E50);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177E90);
+extern void* D_0045CCC8[];
+extern "C" void* func_00162458(void*);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177E90__FPv);
+#ifdef SKIP_ASM
+void* func_00177E90(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045CCC8;
+    return func_00162458(self);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00177EB8);
 
@@ -270,7 +345,18 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001783E0);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178520);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178588);
+extern void* D_0045CC50[];
+extern "C" void* func_00162458(void*);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178588__FPv);
+#ifdef SKIP_ASM
+void* func_00178588(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045CC50;
+    return func_00162458(self);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001785B0);
 
@@ -286,7 +372,18 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178938);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001789E8);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178B70);
+extern void* D_0045CBD8[];
+extern "C" void* func_00162458(void*);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178B70__FPv);
+#ifdef SKIP_ASM
+void* func_00178B70(void* self)
+{
+    *(int*)((char*)self + 0x10) = (int)(void*)D_0045CBD8;
+    return func_00162458(self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178B98__FPv);

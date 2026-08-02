@@ -70,9 +70,25 @@ INCLUDE_ASM("be/beintbagt", func_001502C8);
 
 INCLUDE_ASM("be/beintbagt", func_001503F8);
 
-INCLUDE_ASM("be/beintbagt", func_00150528);
+extern void* D_00530600[];
 
-INCLUDE_ASM("be/beintbagt", func_00150540);
+//100%
+INCLUDE_ASM("be/beintbagt", func_00150528__FPvi);
+#ifdef SKIP_ASM
+int func_00150528(void* self, int a1)
+{
+    return *(int*)((char*)(void*)D_00530600 + a1 * 8);
+}
+#endif
+
+//92.33%
+INCLUDE_ASM("be/beintbagt", func_00150540__FPvi);
+#ifdef SKIP_ASM
+int func_00150540(void* self, int a1)
+{
+    return *(int*)((char*)((char*)(void*)D_00530600 + a1 * 8) + 0x4);
+}
+#endif
 
 INCLUDE_ASM("be/beintbagt", func_00150558);
 

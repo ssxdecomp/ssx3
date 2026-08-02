@@ -32,7 +32,16 @@ void func_002F64E8(void* self)
 }
 #endif
 
-INCLUDE_ASM("visualfx/worldlightman", func_002F64F0);
+extern "C" void* func_00416210(void*, int, int);
+
+//100%
+INCLUDE_ASM("visualfx/worldlightman", func_002F64F0__FPv);
+#ifdef SKIP_ASM
+void* func_002F64F0(void* self)
+{
+    return func_00416210(((char*)self + 0x4), 0, 4);
+}
+#endif
 
 INCLUDE_ASM("visualfx/worldlightman", func_002F6518);
 
@@ -170,7 +179,16 @@ void* func_002F8370(void* self)
 }
 #endif
 
-INCLUDE_ASM("visualfx/worldlightman", func_002F8390);
+extern "C" void* func_002F6B88(int, int);
+
+//99.38%
+INCLUDE_ASM("visualfx/worldlightman", func_002F8390__FPv);
+#ifdef SKIP_ASM
+void* func_002F8390(void* self)
+{
+    return func_002F6B88(0, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("visualfx/worldlightman", func_002F83B0);
 

@@ -16,7 +16,17 @@ INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerMan_loadTriggers);
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerMan_streamIn);
 
-INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CEC8);
+extern void* D_004C5830[];
+extern "C" void* func_0016CEF0(void*, void*, int);
+
+//80.0%
+INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CEC8__FPvi);
+#ifdef SKIP_ASM
+void* func_0016CEC8(void* self, int a1)
+{
+    return func_0016CEF0((void*)D_004C5830, self, a1);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CEF0);
 
@@ -69,7 +79,18 @@ void cCameraTriggerStack_init(cCameraTriggerStack* self)
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016D210);
 
-INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016D238);
+//28.33%
+INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016D238__FPvi);
+#ifdef SKIP_ASM
+void* func_0016D238(void* self, int a1)
+{
+    void* t0 = ((char*)*(void**)self + 0x1);
+    *(int*)((char*)((char*)self + *(int*)self * 4) + 0x8) = a1;
+    *(int*)((char*)self + 0x4) = a1;
+    *(int*)self = (int)t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016D260);
 

@@ -54,7 +54,18 @@ INCLUDE_ASM("object/instanceman", func_00351B40);
 
 INCLUDE_ASM("object/instanceman", func_00352168);
 
-INCLUDE_ASM("object/instanceman", func_00352208);
+extern void* D_0048F6D8[];
+extern "C" void* func_0034FBF0(void*);
+
+//100%
+INCLUDE_ASM("object/instanceman", func_00352208__FPv);
+#ifdef SKIP_ASM
+void* func_00352208(void* self)
+{
+    *(int*)((char*)self + 0xc) = (int)(void*)D_0048F6D8;
+    return func_0034FBF0(self);
+}
+#endif
 
 INCLUDE_ASM("object/instanceman", func_00352230);
 

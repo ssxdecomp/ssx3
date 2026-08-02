@@ -88,5 +88,14 @@ void* func_002267F0(void* self)
 }
 #endif
 
-INCLUDE_ASM("luno/lunovm", func_00226810);
+extern "C" void* func_00225DE8(int, int);
+
+//99.38%
+INCLUDE_ASM("luno/lunovm", func_00226810__FPv);
+#ifdef SKIP_ASM
+void* func_00226810(void* self)
+{
+    return func_00225DE8(0, 0xffff);
+}
+#endif
 

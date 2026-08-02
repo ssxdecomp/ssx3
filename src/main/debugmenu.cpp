@@ -435,7 +435,16 @@ void* func_002501A8(void* self)
 }
 #endif
 
-INCLUDE_ASM("main/debugmenu", func_002501C8);
+extern "C" void* func_0024E8D8(int, int);
+
+//99.38%
+INCLUDE_ASM("main/debugmenu", func_002501C8__FPv);
+#ifdef SKIP_ASM
+void* func_002501C8(void* self)
+{
+    return func_0024E8D8(0, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("main/debugmenu", cAvalancheMenu_cAvalancheMenu);
 
@@ -494,7 +503,16 @@ void* func_00251690(void* self)
 }
 #endif
 
-INCLUDE_ASM("main/debugmenu", func_002516B0);
+extern "C" void* func_00250CB0(int, int);
+
+//99.38%
+INCLUDE_ASM("main/debugmenu", func_002516B0__FPv);
+#ifdef SKIP_ASM
+void* func_002516B0(void* self)
+{
+    return func_00250CB0(0, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("main/debugmenu", MEM_initblock);
 

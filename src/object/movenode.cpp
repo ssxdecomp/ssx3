@@ -225,9 +225,27 @@ INCLUDE_ASM("object/movenode", func_00357A00);
 
 INCLUDE_ASM("object/movenode", func_00357A78);
 
-INCLUDE_ASM("object/movenode", func_00357AE8);
+extern "C" void* func_003581B8(int, int);
 
-INCLUDE_ASM("object/movenode", func_00357B10);
+//97.5%
+INCLUDE_ASM("object/movenode", func_00357AE8__FPvii);
+#ifdef SKIP_ASM
+void* func_00357AE8(void* self, int a1, int a2)
+{
+    return func_003581B8(*(int*)((char*)self + a1 * 4), a2);
+}
+#endif
+
+extern "C" void* func_003581F0(int, int);
+
+//97.5%
+INCLUDE_ASM("object/movenode", func_00357B10__FPvii);
+#ifdef SKIP_ASM
+void* func_00357B10(void* self, int a1, int a2)
+{
+    return func_003581F0(*(int*)((char*)self + a1 * 4), a2);
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_00357B38);
 

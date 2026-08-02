@@ -32,7 +32,18 @@ INCLUDE_ASM("object/objnode", func_00354850);
 
 INCLUDE_ASM("object/objnode", cSortObjNode_cSortObjNode);
 
-INCLUDE_ASM("object/objnode", func_00354920);
+extern void* D_00491E00[];
+extern "C" void* func_00354808(void*);
+
+//99.5%
+INCLUDE_ASM("object/objnode", func_00354920__FPv);
+#ifdef SKIP_ASM
+void* func_00354920(void* self)
+{
+    *(int*)((char*)self + 0xc) = (int)(void*)D_00491E00;
+    return func_00354808(self);
+}
+#endif
 
 INCLUDE_ASM("object/objnode", func_00354948);
 

@@ -61,11 +61,29 @@ void* func_00320B28(void* self)
 }
 #endif
 
-INCLUDE_ASM("bx/execman", func_00320B48);
+extern "C" void* func_00320550(int, int);
+
+//100%
+INCLUDE_ASM("bx/execman", func_00320B48__FPv);
+#ifdef SKIP_ASM
+void* func_00320B48(void* self)
+{
+    return func_00320550(0, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("bx/execman", func_00320B68);
 
 INCLUDE_ASM("bx/execman", func_00320BF0);
 
-INCLUDE_ASM("bx/execman", func_00320C48);
+extern "C" void* func_00321108(int, int, int);
+
+//100%
+INCLUDE_ASM("bx/execman", func_00320C48__FPvi);
+#ifdef SKIP_ASM
+void* func_00320C48(void* self, int a1)
+{
+    return func_00321108(*(int*)((char*)self + 0x4), *(int*)self, a1);
+}
+#endif
 

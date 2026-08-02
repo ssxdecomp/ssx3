@@ -2,7 +2,16 @@
 
 INCLUDE_ASM("animation/animmodel", cAnimModel_addModelPartLOD);
 
-INCLUDE_ASM("animation/animmodel", func_0030DB70);
+//44.14%
+INCLUDE_ASM("animation/animmodel", func_0030DB70__FPvi);
+#ifdef SKIP_ASM
+void* func_0030DB70(void* self, int a1)
+{
+    *(int*)((char*)((char*)self + *(int*)((char*)self + 0x60) * 4) + 0x64) = a1;
+    *(int*)((char*)self + 0x60) = (int)(((char*)*(void**)((char*)self + 0x60) + 0x1));
+    return ((char*)self + *(int*)((char*)self + 0x60) * 4);
+}
+#endif
 
 INCLUDE_ASM("animation/animmodel", func_0030DB90);
 

@@ -26,9 +26,23 @@ INCLUDE_ASM("main/gameload", func_002305C8);
 
 INCLUDE_ASM("main/gameload", func_00230640);
 
-INCLUDE_ASM("main/gameload", func_00230698);
+//95.0%
+INCLUDE_ASM("main/gameload", func_00230698__FPvi);
+#ifdef SKIP_ASM
+int func_00230698(void* self, int a1)
+{
+    return *(int*)((char*)((char*)self + a1 * 4) + 0x5c);
+}
+#endif
 
-INCLUDE_ASM("main/gameload", func_002306A8);
+//95.0%
+INCLUDE_ASM("main/gameload", func_002306A8__FPvi);
+#ifdef SKIP_ASM
+int func_002306A8(void* self, int a1)
+{
+    return *(int*)((char*)((char*)self + a1 * 4) + 0x68);
+}
+#endif
 
 INCLUDE_ASM("main/gameload", func_002306B8);
 
@@ -84,5 +98,18 @@ INCLUDE_ASM("main/gameload", func_00231F80);
 
 INCLUDE_ASM("main/gameload", func_00231FC0);
 
-INCLUDE_ASM("main/gameload", func_00232328);
+extern void* D_0047D938[];
+
+//100%
+INCLUDE_ASM("main/gameload", func_00232328__FPv);
+#ifdef SKIP_ASM
+void* func_00232328(void* self)
+{
+    int t0 = 0;
+    *(int*)((char*)self + 0x4) = t0;
+    *(int*)self = (int)(void*)D_0047D938;
+    *(int*)((char*)self + 0x8) = t0;
+    return self;
+}
+#endif
 

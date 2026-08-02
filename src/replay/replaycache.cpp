@@ -333,7 +333,14 @@ INCLUDE_ASM("replay/replaycache", func_00274100);
 
 INCLUDE_ASM("replay/replaycache", func_00274240);
 
-INCLUDE_ASM("replay/replaycache", func_002742C8);
+//100%
+INCLUDE_ASM("replay/replaycache", func_002742C8__FPvi);
+#ifdef SKIP_ASM
+int func_002742C8(void* self, int a1)
+{
+    return *(int*)((char*)*(void**)((char*)self + 0x24) + a1 * 4);
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_002742E0);
 

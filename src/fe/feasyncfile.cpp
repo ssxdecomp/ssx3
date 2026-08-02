@@ -516,7 +516,18 @@ INCLUDE_ASM("fe/feasyncfile", func_001B1F18);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B1F88);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B2048);
+extern void* D_0046AE58[];
+extern "C" void* func_001A85D0(void*);
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001B2048__FPv);
+#ifdef SKIP_ASM
+void* func_001B2048(void* self)
+{
+    *(int*)((char*)self + 0x8) = (int)(void*)D_0046AE58;
+    return func_001A85D0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B2070);
 
@@ -660,7 +671,18 @@ INCLUDE_ASM("fe/feasyncfile", func_001B6A90);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B6AB8);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B6B28);
+extern void* D_004688E0[];
+extern "C" void* func_001A85D0(void*);
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001B6B28__FPv);
+#ifdef SKIP_ASM
+void* func_001B6B28(void* self)
+{
+    *(int*)((char*)self + 0x8) = (int)(void*)D_004688E0;
+    return func_001A85D0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B6B50);
 
@@ -1285,11 +1307,41 @@ INCLUDE_ASM("fe/feasyncfile", func_001C5630);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5750);
 
-INCLUDE_ASM("fe/feasyncfile", func_001C5780);
+//85.43%
+INCLUDE_ASM("fe/feasyncfile", func_001C5780__FPvii);
+#ifdef SKIP_ASM
+int func_001C5780(void* self, int a1, int a2)
+{
+    int t0 = 2;
+    *(int*)((char*)((char*)self + a1 * 8) + 0x28) = a2;
+    *(int*)((char*)((char*)self + a1 * 8) + 0x24) = t0;
+    return t0;
+}
+#endif
 
-INCLUDE_ASM("fe/feasyncfile", func_001C57A0);
+//85.43%
+INCLUDE_ASM("fe/feasyncfile", func_001C57A0__FPvii);
+#ifdef SKIP_ASM
+int func_001C57A0(void* self, int a1, int a2)
+{
+    int t0 = 1;
+    *(int*)((char*)((char*)self + a1 * 8) + 0x28) = a2;
+    *(int*)((char*)((char*)self + a1 * 8) + 0x24) = t0;
+    return t0;
+}
+#endif
 
-INCLUDE_ASM("fe/feasyncfile", func_001C57C0);
+//85.43%
+INCLUDE_ASM("fe/feasyncfile", func_001C57C0__FPvii);
+#ifdef SKIP_ASM
+int func_001C57C0(void* self, int a1, int a2)
+{
+    int t0 = 3;
+    *(int*)((char*)((char*)self + a1 * 8) + 0x28) = a2;
+    *(int*)((char*)((char*)self + a1 * 8) + 0x24) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5800);
 

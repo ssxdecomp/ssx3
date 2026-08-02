@@ -179,7 +179,17 @@ INCLUDE_ASM("ui/uiscreen", func_0039DFE8);
 
 INCLUDE_ASM("ui/uiscreen", func_0039E130);
 
-INCLUDE_ASM("ui/uiscreen", func_0039E288);
+extern void* D_0046DD60[];
+
+//100%
+INCLUDE_ASM("ui/uiscreen", func_0039E288__FPv);
+#ifdef SKIP_ASM
+void* func_0039E288(void* self)
+{
+    *(int*)self = (int)(void*)D_0046DD60;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", func_0039E2A0);
 
@@ -187,7 +197,16 @@ INCLUDE_ASM("ui/uiscreen", func_0039E318);
 
 INCLUDE_ASM("ui/uiscreen", func_0039E390);
 
-INCLUDE_ASM("ui/uiscreen", func_0039E4A0);
+extern "C" void* func_00397948(void*);
+
+//100%
+INCLUDE_ASM("ui/uiscreen", func_0039E4A0__FPv);
+#ifdef SKIP_ASM
+void* func_0039E4A0(void* self)
+{
+    return func_00397948(((char*)self + 0x24));
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", func_0039E4C0);
 

@@ -54,7 +54,16 @@ INCLUDE_ASM("fe/festaterewards", func_001D10A8);
 
 INCLUDE_ASM("fe/festaterewards", func_001D1128);
 
-INCLUDE_ASM("fe/festaterewards", func_001D1198);
+extern void* D_00467070[];
+
+//100%
+INCLUDE_ASM("fe/festaterewards", func_001D1198__FPv);
+#ifdef SKIP_ASM
+void* func_001D1198(void* self)
+{
+    return (void*)D_00467070;
+}
+#endif
 
 INCLUDE_ASM("fe/festaterewards", func_001D11A8);
 
@@ -64,7 +73,16 @@ INCLUDE_ASM("fe/festaterewards", func_001D1290);
 
 INCLUDE_ASM("fe/festaterewards", func_001D12C8);
 
-INCLUDE_ASM("fe/festaterewards", func_001D1330);
+extern void* D_00467098[];
+
+//100%
+INCLUDE_ASM("fe/festaterewards", func_001D1330__FPv);
+#ifdef SKIP_ASM
+void* func_001D1330(void* self)
+{
+    return (void*)D_00467098;
+}
+#endif
 
 INCLUDE_ASM("fe/festaterewards", func_001D1340);
 
@@ -74,7 +92,16 @@ INCLUDE_ASM("fe/festaterewards", func_001D1428);
 
 INCLUDE_ASM("fe/festaterewards", func_001D1460);
 
-INCLUDE_ASM("fe/festaterewards", func_001D14C8);
+extern void* D_004670C8[];
+
+//100%
+INCLUDE_ASM("fe/festaterewards", func_001D14C8__FPv);
+#ifdef SKIP_ASM
+void* func_001D14C8(void* self)
+{
+    return (void*)D_004670C8;
+}
+#endif
 
 INCLUDE_ASM("fe/festaterewards", func_001D14D8);
 
@@ -84,7 +111,16 @@ INCLUDE_ASM("fe/festaterewards", func_001D15C0);
 
 INCLUDE_ASM("fe/festaterewards", func_001D15F8);
 
-INCLUDE_ASM("fe/festaterewards", func_001D1660);
+extern void* D_004670F0[];
+
+//100%
+INCLUDE_ASM("fe/festaterewards", func_001D1660__FPv);
+#ifdef SKIP_ASM
+void* func_001D1660(void* self)
+{
+    return (void*)D_004670F0;
+}
+#endif
 
 INCLUDE_ASM("fe/festaterewards", func_001D1670);
 
@@ -94,7 +130,16 @@ INCLUDE_ASM("fe/festaterewards", func_001D1758);
 
 INCLUDE_ASM("fe/festaterewards", func_001D1790);
 
-INCLUDE_ASM("fe/festaterewards", func_001D17F8);
+extern void* D_00467118[];
+
+//100%
+INCLUDE_ASM("fe/festaterewards", func_001D17F8__FPv);
+#ifdef SKIP_ASM
+void* func_001D17F8(void* self)
+{
+    return (void*)D_00467118;
+}
+#endif
 
 INCLUDE_ASM("fe/festaterewards", func_001D1808);
 

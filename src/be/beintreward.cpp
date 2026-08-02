@@ -208,7 +208,16 @@ INCLUDE_ASM("be/beintreward", func_00158870);
 
 INCLUDE_ASM("be/beintreward", func_00158890);
 
-INCLUDE_ASM("be/beintreward", func_001588B0);
+extern void* D_0045B048[];
+
+//100%
+INCLUDE_ASM("be/beintreward", func_001588B0__FPvi);
+#ifdef SKIP_ASM
+int func_001588B0(void* self, int a1)
+{
+    return *(int*)((char*)(void*)D_0045B048 + a1 * 4);
+}
+#endif
 
 void* cBECharProfileDB_getScoreStats(void* self, int a, int b);
 extern int D_004A6CA8[];
@@ -243,9 +252,27 @@ INCLUDE_ASM("be/beintreward", func_00158D58);
 
 INCLUDE_ASM("be/beintreward", func_00158E30);
 
-INCLUDE_ASM("be/beintreward", func_00158F20);
+extern void* D_004C3EF0[];
 
-INCLUDE_ASM("be/beintreward", func_00158F30);
+//100%
+INCLUDE_ASM("be/beintreward", func_00158F20__FPv);
+#ifdef SKIP_ASM
+void* func_00158F20(void* self)
+{
+    return (void*)D_004C3EF0;
+}
+#endif
+
+extern "C" void* func_0015A6F0(void*);
+
+//100%
+INCLUDE_ASM("be/beintreward", func_00158F30__FPv);
+#ifdef SKIP_ASM
+void* func_00158F30(void* self)
+{
+    return func_0015A6F0((void*)D_004C3EF0);
+}
+#endif
 
 INCLUDE_ASM("be/beintreward", func_00158F60);
 
@@ -275,7 +302,15 @@ INCLUDE_ASM("be/beintreward", func_0015A398);
 
 INCLUDE_ASM("be/beintreward", func_0015A3B8);
 
+extern void* D_004C3E98[];
+
 INCLUDE_ASM("be/beintreward", func_0015A478);
+#ifdef SKIP_ASM
+void* func_0015A478(void* self)
+{
+    return (void*)D_004C3E98;
+}
+#endif
 
 INCLUDE_ASM("be/beintreward", func_0015A488);
 
@@ -291,7 +326,14 @@ INCLUDE_ASM("be/beintreward", func_0015A6F0);
 
 INCLUDE_ASM("be/beintreward", func_0015A750);
 
-INCLUDE_ASM("be/beintreward", func_0015A768);
+//95.0%
+INCLUDE_ASM("be/beintreward", func_0015A768__FPvi);
+#ifdef SKIP_ASM
+int func_0015A768(void* self, int a1)
+{
+    return *(int*)((char*)((char*)self + a1 * 4) + 0x174);
+}
+#endif
 
 INCLUDE_ASM("be/beintreward", func_0015A778);
 

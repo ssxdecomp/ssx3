@@ -105,7 +105,16 @@ INCLUDE_ASM("world/wscriptcache", func_003AE860);
 
 INCLUDE_ASM("world/wscriptcache", func_003AE888);
 
-INCLUDE_ASM("world/wscriptcache", func_003AE938);
+extern "C" void* func_003AE888(void*, int);
+
+//100%
+INCLUDE_ASM("world/wscriptcache", func_003AE938__FPv);
+#ifdef SKIP_ASM
+void* func_003AE938(void* self)
+{
+    return func_003AE888(self, 0);
+}
+#endif
 
 extern "C" void* func_003AE888(void*, int);
 
@@ -156,7 +165,20 @@ INCLUDE_ASM("world/wscriptcache", func_003AEEF8);
 
 INCLUDE_ASM("world/wscriptcache", func_003AEFA8);
 
-INCLUDE_ASM("world/wscriptcache", func_003B0410);
+extern void* D_00456890[];
+
+//100%
+INCLUDE_ASM("world/wscriptcache", func_003B0410__FPv);
+#ifdef SKIP_ASM
+void* func_003B0410(void* self)
+{
+    int t0 = 0;
+    *(int*)self = t0;
+    *(int*)((char*)self + 0xc) = (int)(void*)D_00456890;
+    *(int*)((char*)self + 0x4) = t0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003B0430);
 
@@ -220,7 +242,16 @@ void* func_003B07B8(void* self)
 }
 #endif
 
-INCLUDE_ASM("world/wscriptcache", func_003B07D8);
+extern "C" void* func_003B0770(int, int);
+
+//99.38%
+INCLUDE_ASM("world/wscriptcache", func_003B07D8__FPv);
+#ifdef SKIP_ASM
+void* func_003B07D8(void* self)
+{
+    return func_003B0770(0, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003B07F8);
 

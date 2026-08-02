@@ -82,5 +82,14 @@ void* func_00247E20(void* self)
 }
 #endif
 
-INCLUDE_ASM("fe/festateloadhint", func_00247E40);
+extern "C" void* func_00242EB8(int, int);
+
+//100%
+INCLUDE_ASM("fe/festateloadhint", func_00247E40__FPv);
+#ifdef SKIP_ASM
+void* func_00247E40(void* self)
+{
+    return func_00242EB8(0, 0xffff);
+}
+#endif
 

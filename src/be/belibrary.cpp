@@ -100,11 +100,37 @@ INCLUDE_ASM("be/belibrary", func_0014B700);
 
 INCLUDE_ASM("be/belibrary", func_0014B988);
 
-INCLUDE_ASM("be/belibrary", func_0014BD78);
+extern void* D_004A6750[];
+extern "C" void* func_0014C6A0(void*);
 
-INCLUDE_ASM("be/belibrary", func_0014BD98);
+//100%
+INCLUDE_ASM("be/belibrary", func_0014BD78__FPv);
+#ifdef SKIP_ASM
+void* func_0014BD78(void* self)
+{
+    return func_0014C6A0((void*)D_004A6750);
+}
+#endif
 
-INCLUDE_ASM("be/belibrary", func_0014BDB8);
+extern "C" void* func_0014D068(void*);
+
+//100%
+INCLUDE_ASM("be/belibrary", func_0014BD98__FPv);
+#ifdef SKIP_ASM
+void* func_0014BD98(void* self)
+{
+    return func_0014D068((void*)D_004A6750);
+}
+#endif
+
+//100%
+INCLUDE_ASM("be/belibrary", func_0014BDB8__FPv);
+#ifdef SKIP_ASM
+void* func_0014BDB8(void* self)
+{
+    return (void*)D_004A6750;
+}
+#endif
 
 INCLUDE_ASM("be/belibrary", func_0014BE70);
 
@@ -140,7 +166,14 @@ INCLUDE_ASM("be/belibrary", func_0014D7E8);
 
 INCLUDE_ASM("be/belibrary", func_0014D908);
 
-INCLUDE_ASM("be/belibrary", func_0014D988);
+//95.0%
+INCLUDE_ASM("be/belibrary", func_0014D988__FPvi);
+#ifdef SKIP_ASM
+int func_0014D988(void* self, int a1)
+{
+    return *(int*)((char*)((char*)self + a1 * 4) + 0x2c);
+}
+#endif
 
 INCLUDE_ASM("be/belibrary", func_0014D998);
 
@@ -148,11 +181,25 @@ INCLUDE_ASM("be/belibrary", func_0014D9D0);
 
 INCLUDE_ASM("be/belibrary", func_0014DB40);
 
-INCLUDE_ASM("be/belibrary", func_0014DC00);
+//95.0%
+INCLUDE_ASM("be/belibrary", func_0014DC00__FPvi);
+#ifdef SKIP_ASM
+int func_0014DC00(void* self, int a1)
+{
+    return *(int*)((char*)((char*)self + a1 * 4) + 0x2fc);
+}
+#endif
 
 INCLUDE_ASM("be/belibrary", func_0014DC10);
 
-INCLUDE_ASM("be/belibrary", func_0014DC40);
+//95.0%
+INCLUDE_ASM("be/belibrary", func_0014DC40__FPvi);
+#ifdef SKIP_ASM
+int func_0014DC40(void* self, int a1)
+{
+    return *(int*)((char*)((char*)self + a1 * 4) + 0x3ec);
+}
+#endif
 
 INCLUDE_ASM("be/belibrary", func_0014DC50);
 

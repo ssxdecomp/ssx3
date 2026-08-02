@@ -106,7 +106,17 @@ INCLUDE_ASM("render/particle", func_00375918);
 
 INCLUDE_ASM("render/particle", func_00375990);
 
-INCLUDE_ASM("render/particle", func_003759E8);
+extern void* D_00493000[];
+
+//100%
+INCLUDE_ASM("render/particle", func_003759E8__FPv);
+#ifdef SKIP_ASM
+void* func_003759E8(void* self)
+{
+    *(int*)self = (int)(void*)D_00493000;
+    return self;
+}
+#endif
 
 //100%
 INCLUDE_ASM("render/particle", func_00375A00__FPv);

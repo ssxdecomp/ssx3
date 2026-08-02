@@ -522,7 +522,14 @@ void* func_00394C68(void* self)
 }
 #endif
 
-INCLUDE_ASM("render/font", func_00394C88);
+//100%
+INCLUDE_ASM("render/font", func_00394C88__FPvi);
+#ifdef SKIP_ASM
+void* func_00394C88(void* self, int a1)
+{
+    return ((char*)*(void**)((char*)self + 0x4) + a1 * 4);
+}
+#endif
 
 INCLUDE_ASM("render/font", func_00394C98);
 
@@ -824,7 +831,16 @@ void* func_003970F8(void* self)
 }
 #endif
 
-INCLUDE_ASM("render/font", func_00397118);
+extern "C" void* func_00393048(int, int);
+
+//99.38%
+INCLUDE_ASM("render/font", func_00397118__FPv);
+#ifdef SKIP_ASM
+void* func_00397118(void* self)
+{
+    return func_00393048(0, 0xffff);
+}
+#endif
 
 //100%
 INCLUDE_ASM("render/font", func_00397138__FPvi);

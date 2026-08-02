@@ -83,7 +83,18 @@ INCLUDE_ASM("ui/uivector", func_003A4D40);
 
 INCLUDE_ASM("ui/uivector", func_003A4D70);
 
-INCLUDE_ASM("ui/uivector", func_003A4E80);
+extern void* D_00494AA8[];
+extern "C" void* func_0039FC48(void*);
+
+//100%
+INCLUDE_ASM("ui/uivector", func_003A4E80__FPv);
+#ifdef SKIP_ASM
+void* func_003A4E80(void* self)
+{
+    *(int*)((char*)self + 0x8) = (int)(void*)D_00494AA8;
+    return func_0039FC48(self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("ui/uivector", func_003A4EA8__FPv);
@@ -364,5 +375,14 @@ void* func_003A6648(void* self)
 }
 #endif
 
-INCLUDE_ASM("ui/uivector", func_003A6668);
+extern "C" void* func_003A3F48(int, int);
+
+//99.38%
+INCLUDE_ASM("ui/uivector", func_003A6668__FPv);
+#ifdef SKIP_ASM
+void* func_003A6668(void* self)
+{
+    return func_003A3F48(0, 0xffff);
+}
+#endif
 

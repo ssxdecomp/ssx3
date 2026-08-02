@@ -57,7 +57,14 @@ int func_003A6CD8(void* self, void* a1)
 
 INCLUDE_ASM("world/world", func_003A6CE8);
 
-INCLUDE_ASM("world/world", func_003A6D00);
+//100%
+INCLUDE_ASM("world/world", func_003A6D00__FPvi);
+#ifdef SKIP_ASM
+int func_003A6D00(void* self, int a1)
+{
+    return *(int*)((char*)*(void**)self + a1 * 4);
+}
+#endif
 
 INCLUDE_ASM("world/world", func_003A6D18);
 

@@ -113,7 +113,16 @@ INCLUDE_ASM("dirtysock/tagsunk", func_0025C610);
 
 INCLUDE_ASM("dirtysock/tagsunk", func_0025C8A8);
 
-INCLUDE_ASM("dirtysock/tagsunk", func_0025CD28);
+extern "C" void* func_0025CD50(void*, int);
+
+//100%
+INCLUDE_ASM("dirtysock/tagsunk", func_0025CD28__FPvi);
+#ifdef SKIP_ASM
+void* func_0025CD28(void* self, int a1)
+{
+    return func_0025CD50(self, *(int*)((char*)((char*)self + a1 * 4) + 0x70));
+}
+#endif
 
 INCLUDE_ASM("dirtysock/tagsunk", func_0025CD50);
 
@@ -221,9 +230,29 @@ void func_0025FC20(void* self)
 }
 #endif
 
-INCLUDE_ASM("dirtysock/tagsunk", func_0025FC28);
+extern void* D_004A3270[];
+extern "C" void* func_0025FB80(void*, int, void*);
 
-INCLUDE_ASM("dirtysock/tagsunk", func_0025FC48);
+//100%
+INCLUDE_ASM("dirtysock/tagsunk", func_0025FC28__FPvi);
+#ifdef SKIP_ASM
+void* func_0025FC28(void* self, int a1)
+{
+    return func_0025FB80(self, a1, (void*)D_004A3270);
+}
+#endif
+
+extern void* D_004807F8[];
+extern "C" void* func_0025FB80(void*, int, void*);
+
+//100%
+INCLUDE_ASM("dirtysock/tagsunk", func_0025FC48__FPv);
+#ifdef SKIP_ASM
+void* func_0025FC48(void* self)
+{
+    return func_0025FB80(self, *(int*)((char*)self + 0x98), (void*)D_004807F8);
+}
+#endif
 
 INCLUDE_ASM("dirtysock/tagsunk", func_0025FC70);
 
@@ -384,7 +413,18 @@ INCLUDE_ASM("dirtysock/tagsunk", func_002635A8);
 
 INCLUDE_ASM("dirtysock/tagsunk", func_00263630);
 
-INCLUDE_ASM("dirtysock/tagsunk", func_00263660);
+extern void* D_004810C8[];
+
+//100%
+INCLUDE_ASM("dirtysock/tagsunk", func_00263660__FPv);
+#ifdef SKIP_ASM
+void* func_00263660(void* self)
+{
+    *(int*)self = 0;
+    *(int*)((char*)self + 0x8) = (int)(void*)D_004810C8;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("dirtysock/tagsunk", func_00263678);
 
@@ -394,7 +434,18 @@ INCLUDE_ASM("dirtysock/tagsunk", func_002636F0);
 
 INCLUDE_ASM("dirtysock/tagsunk", func_00263828);
 
-INCLUDE_ASM("dirtysock/tagsunk", func_00263998);
+extern void* D_004810B0[];
+
+//100%
+INCLUDE_ASM("dirtysock/tagsunk", func_00263998__FPv);
+#ifdef SKIP_ASM
+void* func_00263998(void* self)
+{
+    *(int*)self = 0;
+    *(int*)((char*)self + 0x14) = (int)(void*)D_004810B0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("dirtysock/tagsunk", func_002639B0);
 

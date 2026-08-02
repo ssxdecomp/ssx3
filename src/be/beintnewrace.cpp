@@ -96,7 +96,16 @@ INCLUDE_ASM("be/beintnewrace", func_00144D38);
 
 INCLUDE_ASM("be/beintnewrace", func_00144D50);
 
-INCLUDE_ASM("be/beintnewrace", func_00144D70);
+//100%
+INCLUDE_ASM("be/beintnewrace", func_00144D70__FPvii);
+#ifdef SKIP_ASM
+void* func_00144D70(void* self, int a1, int a2)
+{
+    *(int*)((char*)(void*)&D_00535BC8 + a1 * 4) = a2;
+    *(int*)((char*)((char*)(void*)&D_00535BC8 + a2 * 4) + 0x18) = a1;
+    return ((char*)(void*)&D_00535BC8 + a1 * 4);
+}
+#endif
 
 INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_setNumberAI);
 

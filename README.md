@@ -63,9 +63,9 @@ Snapshot as of 2026-08-02:
 
 | | matching | partial | total | % matching |
 |---|---|---|---|---|
-| Functions | 1,312 | 112 | 12,930 | 10.15% |
-| Code bytes | 23,588 | — | 3,195,184 | 0.74% |
-| Data bytes | 1,248 | — | 500,792 | 0.25% |
+| Functions | 1,433 | 151 | 12,930 | 11.08% |
+| Code bytes | 27,560 | — | 3,195,184 | 0.86% |
+| Data bytes | 1,152 | — | 500,792 | 0.23% |
 
 "Partial" functions have a real C implementation (not a raw `INCLUDE_ASM`
 stub) that compiles but doesn't yet byte-match — see the `//XX%` comment

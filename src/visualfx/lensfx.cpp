@@ -16,7 +16,18 @@ void* cLensFxMan_construct()
 
 INCLUDE_ASM("visualfx/lensfx", func_002EC418);
 
-INCLUDE_ASM("visualfx/lensfx", func_002EC450);
+extern void* D_00487F00[];
+extern "C" void* func_002E3060(void*);
+
+//100%
+INCLUDE_ASM("visualfx/lensfx", func_002EC450__FPv);
+#ifdef SKIP_ASM
+void* func_002EC450(void* self)
+{
+    *(int*)((char*)self + 0x649c) = (int)(void*)D_00487F00;
+    return func_002E3060(self);
+}
+#endif
 
 INCLUDE_ASM("visualfx/lensfx", func_002EC478);
 

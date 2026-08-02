@@ -32,9 +32,31 @@ void func_00232718(void* self)
 }
 #endif
 
-INCLUDE_ASM("main/loadscreens_prestart", func_00232720);
+extern void* D_0047D8A8[];
 
-INCLUDE_ASM("main/loadscreens_prestart", func_00232738);
+//100%
+INCLUDE_ASM("main/loadscreens_prestart", func_00232720__FPv);
+#ifdef SKIP_ASM
+void* func_00232720(void* self)
+{
+    *(int*)((char*)self + 0x4) = 0;
+    *(int*)self = (int)(void*)D_0047D8A8;
+    return self;
+}
+#endif
+
+extern void* D_0047D860[];
+
+//100%
+INCLUDE_ASM("main/loadscreens_prestart", func_00232738__FPv);
+#ifdef SKIP_ASM
+void* func_00232738(void* self)
+{
+    *(int*)((char*)self + 0x4) = 0;
+    *(int*)self = (int)(void*)D_0047D860;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("main/loadscreens_prestart", func_00232750);
 

@@ -58,7 +58,16 @@ INCLUDE_ASM("be/beintecon", func_00150B88);
 
 INCLUDE_ASM("be/beintecon", func_00150C20);
 
-INCLUDE_ASM("be/beintecon", func_00150E50);
+extern void* D_00440550[];
+
+//92.33%
+INCLUDE_ASM("be/beintecon", func_00150E50__FPvi);
+#ifdef SKIP_ASM
+int func_00150E50(void* self, int a1)
+{
+    return *(int*)((char*)((char*)(void*)D_00440550 + a1 * 8) + 0x4);
+}
+#endif
 
 INCLUDE_ASM("be/beintecon", func_00151040);
 
