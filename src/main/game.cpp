@@ -50,7 +50,16 @@ INCLUDE_ASM("main/game", func_0022DE98);
 
 INCLUDE_ASM("main/game", func_0022DF50);
 
-INCLUDE_ASM("main/game", func_0022DFD0);
+extern "C" void* func_002312D8(int);
+
+//100%
+INCLUDE_ASM("main/game", func_0022DFD0__FPv);
+#ifdef SKIP_ASM
+void* func_0022DFD0(void* self)
+{
+    return func_002312D8(*(int*)((char*)self + 0x1b0));
+}
+#endif
 
 INCLUDE_ASM("main/game", func_0022DFF0);
 

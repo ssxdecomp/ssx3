@@ -48,7 +48,16 @@ INCLUDE_ASM("wscript/wscriptprocess", func_00307EC0);
 
 INCLUDE_ASM("wscript/wscriptprocess", func_00307F58);
 
-INCLUDE_ASM("wscript/wscriptprocess", func_00308018);
+extern "C" void* func_00309B70(int);
+
+//100%
+INCLUDE_ASM("wscript/wscriptprocess", func_00308018__FPv);
+#ifdef SKIP_ASM
+void* func_00308018(void* self)
+{
+    return func_00309B70(*(int*)((char*)self + 0x10));
+}
+#endif
 
 INCLUDE_ASM("wscript/wscriptprocess", func_00308038);
 

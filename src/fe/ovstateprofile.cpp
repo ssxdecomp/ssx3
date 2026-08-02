@@ -16,7 +16,17 @@ INCLUDE_ASM("fe/ovstateprofile", func_00211A08);
 
 INCLUDE_ASM("fe/ovstateprofile", func_00211AA8);
 
-INCLUDE_ASM("fe/ovstateprofile", func_00211B10);
+extern "C" void* func_001D58B8(void*);
+
+//73.3%
+INCLUDE_ASM("fe/ovstateprofile", func_00211B10__FPv);
+#ifdef SKIP_ASM
+void* func_00211B10(void* self)
+{
+    *(int*)((char*)self + 0x1a4) = 0;
+    return func_001D58B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/ovstateprofile", func_00211B38);
 

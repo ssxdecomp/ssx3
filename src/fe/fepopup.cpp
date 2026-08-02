@@ -6,7 +6,17 @@ INCLUDE_ASM("fe/fepopup", func_001C5A90);
 
 INCLUDE_ASM("fe/fepopup", cScreenPopup_onCreateScreen);
 
-INCLUDE_ASM("fe/fepopup", func_001C5B68);
+extern "C" void* func_0039E4A0(void*);
+
+//100%
+INCLUDE_ASM("fe/fepopup", func_001C5B68__FPv);
+#ifdef SKIP_ASM
+void* func_001C5B68(void* self)
+{
+    *(int*)((char*)self + 0x2b8) = 0;
+    return func_0039E4A0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/fepopup", func_001C5B88);
 

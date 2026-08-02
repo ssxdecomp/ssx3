@@ -24,7 +24,16 @@ INCLUDE_ASM("render/graphicsman", func_0036A020);
 
 INCLUDE_ASM("render/graphicsman", func_0036A048);
 
-INCLUDE_ASM("render/graphicsman", func_0036A190);
+extern "C" void* func_0036A1C0(int);
+
+//100%
+INCLUDE_ASM("render/graphicsman", func_0036A190__FPvi);
+#ifdef SKIP_ASM
+void* func_0036A190(void* self, int a1)
+{
+    return func_0036A1C0(a1);
+}
+#endif
 
 //100%
 INCLUDE_ASM("render/graphicsman", func_0036A1B0__FPvT0);

@@ -8,7 +8,16 @@ INCLUDE_ASM("world/world", func_003A67E0);
 
 INCLUDE_ASM("world/world", cWorld_resetMap);
 
-INCLUDE_ASM("world/world", func_003A6928);
+extern "C" void* func_003A8290(int);
+
+//100%
+INCLUDE_ASM("world/world", func_003A6928__FPv);
+#ifdef SKIP_ASM
+void* func_003A6928(void* self)
+{
+    return func_003A8290(*(int*)self);
+}
+#endif
 
 INCLUDE_ASM("world/world", func_003A6948);
 

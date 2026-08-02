@@ -10,7 +10,16 @@ INCLUDE_ASM("replay/replay", cReplay_restoreObject);
 
 INCLUDE_ASM("replay/replay", cReplay_restoreDeadBucket);
 
-INCLUDE_ASM("replay/replay", func_0026E448);
+extern "C" void* func_0026E6A0(void*);
+
+//100%
+INCLUDE_ASM("replay/replay", func_0026E448__FPv);
+#ifdef SKIP_ASM
+void* func_0026E448(void* self)
+{
+    return func_0026E6A0((char*)self + 0x3b0);
+}
+#endif
 
 INCLUDE_ASM("replay/replay", func_0026E468);
 

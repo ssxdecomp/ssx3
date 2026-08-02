@@ -76,7 +76,16 @@ INCLUDE_ASM("world/wscriptcache", func_003ADD40);
 
 INCLUDE_ASM("world/wscriptcache", func_003ADD70);
 
-INCLUDE_ASM("world/wscriptcache", func_003ADDA0);
+extern "C" void* func_003AD290(int, int);
+
+//99.38%
+INCLUDE_ASM("world/wscriptcache", func_003ADDA0__FPv);
+#ifdef SKIP_ASM
+void* func_003ADDA0(void* self)
+{
+    return func_003AD290(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003ADDC0);
 
@@ -98,17 +107,44 @@ INCLUDE_ASM("world/wscriptcache", func_003AE888);
 
 INCLUDE_ASM("world/wscriptcache", func_003AE938);
 
-INCLUDE_ASM("world/wscriptcache", func_003AE958);
+extern "C" void* func_003AE888(void*, int);
+
+//100%
+INCLUDE_ASM("world/wscriptcache", func_003AE958__FPv);
+#ifdef SKIP_ASM
+void* func_003AE958(void* self)
+{
+    return func_003AE888(self, 0x1000);
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003AE9A0);
 
 INCLUDE_ASM("world/wscriptcache", func_003AEAD0);
 
-INCLUDE_ASM("world/wscriptcache", func_003AECB8);
+extern "C" void* func_003AEAD0(int, void*);
+
+//99.44%
+INCLUDE_ASM("world/wscriptcache", func_003AECB8__FPvT0);
+#ifdef SKIP_ASM
+void* func_003AECB8(void* self, void* a1)
+{
+    return func_003AEAD0(*(int*)a1, self);
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003AECE0);
 
-INCLUDE_ASM("world/wscriptcache", func_003AED20);
+extern "C" void* func_003AECE0(int, int);
+
+//99.38%
+INCLUDE_ASM("world/wscriptcache", func_003AED20__FPvT0i);
+#ifdef SKIP_ASM
+void* func_003AED20(void* self, void* a1, int a2)
+{
+    return func_003AECE0(*(int*)a1, a2);
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003AED40);
 
@@ -173,7 +209,16 @@ INCLUDE_ASM("world/wscriptcache", func_003B0758);
 
 INCLUDE_ASM("world/wscriptcache", func_003B0770);
 
-INCLUDE_ASM("world/wscriptcache", func_003B07B8);
+extern "C" void* func_003B0770(int, int);
+
+//99.38%
+INCLUDE_ASM("world/wscriptcache", func_003B07B8__FPv);
+#ifdef SKIP_ASM
+void* func_003B07B8(void* self)
+{
+    return func_003B0770(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003B07D8);
 
@@ -226,7 +271,16 @@ INCLUDE_ASM("world/wscriptcache", func_003B1228);
 
 INCLUDE_ASM("world/wscriptcache", func_003B1258);
 
-INCLUDE_ASM("world/wscriptcache", func_003B1270);
+extern "C" void* func_003B1300(int);
+
+//100%
+INCLUDE_ASM("world/wscriptcache", func_003B1270__FPv);
+#ifdef SKIP_ASM
+void* func_003B1270(void* self)
+{
+    return func_003B1300(1);
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003B1290);
 
@@ -266,7 +320,14 @@ INCLUDE_ASM("world/wscriptcache", func_003B22F8);
 
 INCLUDE_ASM("world/wscriptcache", func_003B2318);
 
-INCLUDE_ASM("world/wscriptcache", func_003B2360);
+//100%
+INCLUDE_ASM("world/wscriptcache", func_003B2360__FPv);
+#ifdef SKIP_ASM
+void* func_003B2360(void* self)
+{
+    return func_003B1300(1);
+}
+#endif
 
 extern "C" void* func_003B1498(void* self);
 

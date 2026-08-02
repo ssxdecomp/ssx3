@@ -689,7 +689,19 @@ void* func_001B7088(void* self)
 }
 #endif
 
-INCLUDE_ASM("fe/feasyncfile", func_001B70A8);
+extern "C" void* func_001B7778(void*);
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001B70A8__FPv);
+#ifdef SKIP_ASM
+void* func_001B70A8(void* self)
+{
+    int t0 = 0;
+    *(signed char*)((char*)self + 0x6e0) = (signed char)t0;
+    *(signed char*)((char*)self + 0x6f1) = (signed char)t0;
+    return func_001B7778(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B70D0);
 
@@ -697,7 +709,16 @@ INCLUDE_ASM("fe/feasyncfile", func_001B7650);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B7778);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B77A8);
+extern "C" void* func_001B70D0(void*, int);
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001B77A8__FPv);
+#ifdef SKIP_ASM
+void* func_001B77A8(void* self)
+{
+    return func_001B70D0(self, 2);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B77C8);
 

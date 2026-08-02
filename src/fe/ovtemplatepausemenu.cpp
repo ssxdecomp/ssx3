@@ -16,7 +16,17 @@ void func_001F8720(void* self)
 
 INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8728);
 
-INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F88E8);
+extern "C" void* func_0020A430(void*);
+
+//100%
+INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F88E8__FPv);
+#ifdef SKIP_ASM
+void* func_001F88E8(void* self)
+{
+    *(int*)((char*)self + 0xc4) = 0;
+    return func_0020A430(self);
+}
+#endif
 
 INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8908);
 

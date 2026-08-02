@@ -68,7 +68,16 @@ INCLUDE_ASM("ai/rider", func_0011F3D8);
 
 INCLUDE_ASM("ai/rider", cRider_doLeanPoseAdjust);
 
-INCLUDE_ASM("ai/rider", func_0011FE78);
+extern "C" void* func_001112B8(int);
+
+//100%
+INCLUDE_ASM("ai/rider", func_0011FE78__FPv);
+#ifdef SKIP_ASM
+void* func_0011FE78(void* self)
+{
+    return func_001112B8(*(int*)((char*)self + 0x77c));
+}
+#endif
 
 //100%
 INCLUDE_ASM("ai/rider", func_0011FE98__FPv);
@@ -79,7 +88,16 @@ int func_0011FE98(void* self)
 }
 #endif
 
-INCLUDE_ASM("ai/rider", func_0011FEC8);
+extern "C" void* func_00111538(int);
+
+//100%
+INCLUDE_ASM("ai/rider", func_0011FEC8__FPv);
+#ifdef SKIP_ASM
+void* func_0011FEC8(void* self)
+{
+    return func_00111538(*(int*)((char*)self + 0x77c));
+}
+#endif
 
 //100%
 INCLUDE_ASM("ai/rider", func_0011FEE8__FPv);
@@ -122,7 +140,16 @@ INCLUDE_ASM("ai/rider", func_001210B0);
 
 INCLUDE_ASM("ai/rider", func_001211F8);
 
-INCLUDE_ASM("ai/rider", func_001216E0);
+extern "C" void* func_00111408(int);
+
+//100%
+INCLUDE_ASM("ai/rider", func_001216E0__FPv);
+#ifdef SKIP_ASM
+void* func_001216E0(void* self)
+{
+    return func_00111408(*(int*)((char*)self + 0x77c));
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00121700);
 
@@ -130,7 +157,16 @@ INCLUDE_ASM("ai/rider", func_00121728);
 
 INCLUDE_ASM("ai/rider", func_00121750);
 
-INCLUDE_ASM("ai/rider", func_001217F8);
+extern "C" void* func_003103F0(int);
+
+//100%
+INCLUDE_ASM("ai/rider", func_001217F8__FPv);
+#ifdef SKIP_ASM
+void* func_001217F8(void* self)
+{
+    return func_003103F0(*(int*)((char*)self + 0x780));
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00121818);
 
@@ -154,7 +190,16 @@ INCLUDE_ASM("ai/rider", func_001225C0);
 
 INCLUDE_ASM("ai/rider", func_001225F0);
 
-INCLUDE_ASM("ai/rider", func_00122638);
+extern "C" void* func_002F2088(int);
+
+//100%
+INCLUDE_ASM("ai/rider", func_00122638__FPv);
+#ifdef SKIP_ASM
+void* func_00122638(void* self)
+{
+    return func_002F2088(*(int*)((char*)self + 0x88c));
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00122658);
 

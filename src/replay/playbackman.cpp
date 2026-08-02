@@ -29,7 +29,17 @@ INCLUDE_ASM("replay/playbackman", func_0026CC48);
 
 INCLUDE_ASM("replay/playbackman", func_0026CD20);
 
-INCLUDE_ASM("replay/playbackman", func_0026CDD0);
+extern "C" void* func_0026CC18(void*);
+
+//72.8%
+INCLUDE_ASM("replay/playbackman", func_0026CDD0__FPv);
+#ifdef SKIP_ASM
+void* func_0026CDD0(void* self)
+{
+    *(int*)((char*)self + 0x70) = 0;
+    return func_0026CC18(self);
+}
+#endif
 
 INCLUDE_ASM("replay/playbackman", func_0026CDF8);
 
@@ -73,7 +83,16 @@ INCLUDE_ASM("replay/playbackman", func_0026D678);
 
 INCLUDE_ASM("replay/playbackman", func_0026D730);
 
-INCLUDE_ASM("replay/playbackman", func_0026D740);
+extern "C" void* func_0026E5D0(void*);
+
+//100%
+INCLUDE_ASM("replay/playbackman", func_0026D740__FPv);
+#ifdef SKIP_ASM
+void* func_0026D740(void* self)
+{
+    return func_0026E5D0((char*)self + 0x3b0);
+}
+#endif
 
 INCLUDE_ASM("replay/playbackman", func_0026D760);
 

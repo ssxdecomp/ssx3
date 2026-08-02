@@ -42,5 +42,14 @@ void func_0026C418(void* self)
 }
 #endif
 
-INCLUDE_ASM("path/pathsys", func_0026C438);
+extern "C" void* func_0026BAE8(int, int);
+
+//99.38%
+INCLUDE_ASM("path/pathsys", func_0026C438__FPv);
+#ifdef SKIP_ASM
+void* func_0026C438(void* self)
+{
+    return func_0026BAE8(1, 0xffff);
+}
+#endif
 

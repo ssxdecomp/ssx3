@@ -1552,7 +1552,17 @@ int func_00361CA8(void* self)
 
 INCLUDE_ASM("object/railmodifier", func_00361CB0);
 
-INCLUDE_ASM("object/railmodifier", func_00361CD8);
+extern "C" void* func_0035DDE8(void*);
+
+//100%
+INCLUDE_ASM("object/railmodifier", func_00361CD8__FPv);
+#ifdef SKIP_ASM
+void* func_00361CD8(void* self)
+{
+    *(int*)((char*)self + 0x20) = 0;
+    return func_0035DDE8(self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_00361CF8__FPv);
@@ -1645,7 +1655,16 @@ void* func_00361E08(void* self)
 }
 #endif
 
-INCLUDE_ASM("object/railmodifier", func_00361E10);
+extern "C" void* func_0035FE10(int, int);
+
+//99.38%
+INCLUDE_ASM("object/railmodifier", func_00361E10__FPv);
+#ifdef SKIP_ASM
+void* func_00361E10(void* self)
+{
+    return func_0035FE10(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("object/railmodifier", func_00361E30);
 

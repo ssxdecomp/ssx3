@@ -35,7 +35,17 @@ INCLUDE_ASM("fe/festateprofile", func_0018F9D8);
 
 INCLUDE_ASM("fe/festateprofile", func_0018FAF0);
 
-INCLUDE_ASM("fe/festateprofile", func_0018FC70);
+extern "C" void* func_001D58B8(void*);
+
+//73.3%
+INCLUDE_ASM("fe/festateprofile", func_0018FC70__FPv);
+#ifdef SKIP_ASM
+void* func_0018FC70(void* self)
+{
+    *(int*)((char*)self + 0x1a4) = 0;
+    return func_001D58B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateprofile", func_0018FC98);
 

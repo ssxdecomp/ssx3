@@ -4,7 +4,17 @@ INCLUDE_ASM("fe/ovstateenterlodge", cOVState_ENTERLODGE_onCreateScreen);
 
 INCLUDE_ASM("fe/ovstateenterlodge", func_001F7210);
 
-INCLUDE_ASM("fe/ovstateenterlodge", func_001F7298);
+extern "C" void* func_0020A430(void*);
+
+//100%
+INCLUDE_ASM("fe/ovstateenterlodge", func_001F7298__FPv);
+#ifdef SKIP_ASM
+void* func_001F7298(void* self)
+{
+    *(int*)((char*)self + 0x50) = 0;
+    return func_0020A430(self);
+}
+#endif
 
 INCLUDE_ASM("fe/ovstateenterlodge", func_001F72B8);
 

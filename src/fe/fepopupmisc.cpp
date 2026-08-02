@@ -1137,7 +1137,16 @@ void func_001E12A8(void* self)
 }
 #endif
 
-INCLUDE_ASM("fe/fepopupmisc", func_001E12B0);
+extern "C" void* func_001DBC98(int, int);
+
+//100%
+INCLUDE_ASM("fe/fepopupmisc", func_001E12B0__FPv);
+#ifdef SKIP_ASM
+void* func_001E12B0(void* self)
+{
+    return func_001DBC98(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E12D0);
 

@@ -89,7 +89,17 @@ INCLUDE_ASM("ai/ridermetrix", func_00119898);
 
 INCLUDE_ASM("ai/ridermetrix", func_001198D8);
 
-INCLUDE_ASM("ai/ridermetrix", func_00119918);
+extern "C" void* func_00119898(void*);
+
+//99.29%
+INCLUDE_ASM("ai/ridermetrix", func_00119918__FPvi);
+#ifdef SKIP_ASM
+void* func_00119918(void* self, int a1)
+{
+    *(int*)((char*)self + 0x20) = a1;
+    return func_00119898(self);
+}
+#endif
 
 //97.62%
 INCLUDE_ASM("ai/ridermetrix", func_00119938__FPvii);

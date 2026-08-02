@@ -52,17 +52,71 @@ INCLUDE_ASM("util/menu", func_002CA3B0);
 
 INCLUDE_ASM("util/menu", func_002CA3E8);
 
-INCLUDE_ASM("util/menu", func_002CA408);
+extern "C" void* func_002CC260(int);
 
-INCLUDE_ASM("util/menu", func_002CA428);
+//100%
+INCLUDE_ASM("util/menu", func_002CA408__FPv);
+#ifdef SKIP_ASM
+void* func_002CA408(void* self)
+{
+    return func_002CC260(*(int*)((char*)*(void**)self + 0x124));
+}
+#endif
 
-INCLUDE_ASM("util/menu", func_002CA448);
+extern "C" void* func_002CC280(int);
 
-INCLUDE_ASM("util/menu", func_002CA468);
+//100%
+INCLUDE_ASM("util/menu", func_002CA428__FPv);
+#ifdef SKIP_ASM
+void* func_002CA428(void* self)
+{
+    return func_002CC280(*(int*)((char*)*(void**)self + 0x124));
+}
+#endif
 
-INCLUDE_ASM("util/menu", func_002CA488);
+extern "C" void* func_002CC2A0(int);
 
-INCLUDE_ASM("util/menu", func_002CA4A8);
+//100%
+INCLUDE_ASM("util/menu", func_002CA448__FPv);
+#ifdef SKIP_ASM
+void* func_002CA448(void* self)
+{
+    return func_002CC2A0(*(int*)((char*)*(void**)self + 0x124));
+}
+#endif
+
+extern "C" void* func_002CC2C0(int);
+
+//100%
+INCLUDE_ASM("util/menu", func_002CA468__FPv);
+#ifdef SKIP_ASM
+void* func_002CA468(void* self)
+{
+    return func_002CC2C0(*(int*)((char*)*(void**)self + 0x124));
+}
+#endif
+
+extern "C" void* func_002CC2E0(int);
+
+//100%
+INCLUDE_ASM("util/menu", func_002CA488__FPv);
+#ifdef SKIP_ASM
+void* func_002CA488(void* self)
+{
+    return func_002CC2E0(*(int*)((char*)*(void**)self + 0x124));
+}
+#endif
+
+extern "C" void* func_002CC318(int);
+
+//100%
+INCLUDE_ASM("util/menu", func_002CA4A8__FPv);
+#ifdef SKIP_ASM
+void* func_002CA4A8(void* self)
+{
+    return func_002CC318(*(int*)((char*)*(void**)self + 0x124));
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CA4C8);
 

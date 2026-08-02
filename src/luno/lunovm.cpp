@@ -77,7 +77,16 @@ INCLUDE_ASM("luno/lunovm", func_00226628);
 
 INCLUDE_ASM("luno/lunovm", func_00226768);
 
-INCLUDE_ASM("luno/lunovm", func_002267F0);
+extern "C" void* func_00225DE8(int, int);
+
+//99.38%
+INCLUDE_ASM("luno/lunovm", func_002267F0__FPv);
+#ifdef SKIP_ASM
+void* func_002267F0(void* self)
+{
+    return func_00225DE8(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("luno/lunovm", func_00226810);
 

@@ -137,7 +137,16 @@ INCLUDE_ASM("ui/uiscreen", cUIScreen_createAllObjects);
 
 INCLUDE_ASM("ui/uiscreen", cUIScreen_createObjectByStruct);
 
-INCLUDE_ASM("ui/uiscreen", func_0039D758);
+extern "C" void* func_00398798(void*);
+
+//100%
+INCLUDE_ASM("ui/uiscreen", func_0039D758__FPv);
+#ifdef SKIP_ASM
+void* func_0039D758(void* self)
+{
+    return func_00398798((char*)self + 0x40);
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", func_0039D778);
 

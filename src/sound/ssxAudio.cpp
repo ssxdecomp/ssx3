@@ -98,7 +98,16 @@ INCLUDE_ASM("sound/ssxAudio", func_00288940);
 
 INCLUDE_ASM("sound/ssxAudio", func_00288A20);
 
-INCLUDE_ASM("sound/ssxAudio", func_00288AC0);
+extern "C" void* func_0028B210(int);
+
+//100%
+INCLUDE_ASM("sound/ssxAudio", func_00288AC0__FPvi);
+#ifdef SKIP_ASM
+void* func_00288AC0(void* self, int a1)
+{
+    return (char*)func_0028B210(a1) + 0x20;
+}
+#endif
 
 INCLUDE_ASM("sound/ssxAudio", func_00288AE0);
 
@@ -169,7 +178,16 @@ INCLUDE_ASM("sound/ssxAudio", func_00289D08);
 
 INCLUDE_ASM("sound/ssxAudio", func_00289D60);
 
-INCLUDE_ASM("sound/ssxAudio", func_00289DC0);
+extern "C" void* func_00289D60(void*, int);
+
+//99.29%
+INCLUDE_ASM("sound/ssxAudio", func_00289DC0__FPv);
+#ifdef SKIP_ASM
+void* func_00289DC0(void* self)
+{
+    return func_00289D60(self, *(int*)((char*)self + 0x62b0));
+}
+#endif
 
 //60.0%
 INCLUDE_ASM("sound/ssxAudio", func_00289DE0__FPv);

@@ -71,7 +71,16 @@ INCLUDE_ASM("fe/festateloadhint", cFELoadState_InitwidgetMultiP);
 
 INCLUDE_ASM("fe/festateloadhint", cFELoadState_widgetCreateQP);
 
-INCLUDE_ASM("fe/festateloadhint", func_00247E20);
+extern "C" void* func_00242EB8(int, int);
+
+//100%
+INCLUDE_ASM("fe/festateloadhint", func_00247E20__FPv);
+#ifdef SKIP_ASM
+void* func_00247E20(void* self)
+{
+    return func_00242EB8(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("fe/festateloadhint", func_00247E40);
 

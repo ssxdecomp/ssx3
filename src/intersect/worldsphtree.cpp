@@ -109,7 +109,16 @@ INCLUDE_ASM("intersect/worldsphtree", func_00340FA0);
 
 INCLUDE_ASM("intersect/worldsphtree", func_003410C0);
 
-INCLUDE_ASM("intersect/worldsphtree", func_00341368);
+extern "C" void* func_003400D8(int, int);
+
+//99.38%
+INCLUDE_ASM("intersect/worldsphtree", func_00341368__FPv);
+#ifdef SKIP_ASM
+void* func_00341368(void* self)
+{
+    return func_003400D8(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("intersect/worldsphtree", func_00341388);
 

@@ -167,7 +167,16 @@ INCLUDE_ASM("replay/replaycache", func_00272258);
 
 INCLUDE_ASM("replay/replaycache", func_00272288);
 
-INCLUDE_ASM("replay/replaycache", func_002722C0);
+extern "C" void* func_002718E8(int, int);
+
+//99.38%
+INCLUDE_ASM("replay/replaycache", func_002722C0__FPv);
+#ifdef SKIP_ASM
+void* func_002722C0(void* self)
+{
+    return func_002718E8(1, 0xffff);
+}
+#endif
 
 //100%
 INCLUDE_ASM("replay/replaycache", func_002722E0__FPvN20);
@@ -372,7 +381,16 @@ void func_00274808(void* self, float val)
 }
 #endif
 
-INCLUDE_ASM("replay/replaycache", func_00274810);
+extern "C" void* func_00274830(void*, int);
+
+//100%
+INCLUDE_ASM("replay/replaycache", func_00274810__FPv);
+#ifdef SKIP_ASM
+void* func_00274810(void* self)
+{
+    return func_00274830(self, *(int*)((char*)self + 0x1c));
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_00274830);
 

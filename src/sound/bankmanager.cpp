@@ -158,7 +158,16 @@ INCLUDE_ASM("sound/bankmanager", func_0028FA98);
 
 INCLUDE_ASM("sound/bankmanager", func_0028FAE0);
 
-INCLUDE_ASM("sound/bankmanager", func_0028FC38);
+extern "C" void* func_002B3AC0(void*);
+
+//100%
+INCLUDE_ASM("sound/bankmanager", func_0028FC38__FPv);
+#ifdef SKIP_ASM
+void* func_0028FC38(void* self)
+{
+    return func_002B3AC0((char*)self + 0x118);
+}
+#endif
 
 INCLUDE_ASM("sound/bankmanager", func_0028FC58);
 

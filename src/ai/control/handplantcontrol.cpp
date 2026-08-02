@@ -371,5 +371,14 @@ INCLUDE_ASM("ai/control/handplantcontrol", func_001446F8);
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001448A8);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001448B8);
+extern "C" void* func_0013FB20(int, int);
+
+//99.38%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001448B8__FPv);
+#ifdef SKIP_ASM
+void* func_001448B8(void* self)
+{
+    return func_0013FB20(1, 0xffff);
+}
+#endif
 

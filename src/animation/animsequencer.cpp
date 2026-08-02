@@ -112,9 +112,27 @@ INCLUDE_ASM("animation/animsequencer", func_00314988);
 
 INCLUDE_ASM("animation/animsequencer", func_003149D0);
 
-INCLUDE_ASM("animation/animsequencer", func_00314A18);
+extern "C" void* func_00314AA0(void*);
 
-INCLUDE_ASM("animation/animsequencer", func_00314A40);
+//75.56%
+INCLUDE_ASM("animation/animsequencer", func_00314A18__FPvi);
+#ifdef SKIP_ASM
+void* func_00314A18(void* self, int a1)
+{
+    *(int*)self = a1;
+    return func_00314AA0(self);
+}
+#endif
+
+//100%
+INCLUDE_ASM("animation/animsequencer", func_00314A40__FPv);
+#ifdef SKIP_ASM
+void* func_00314A40(void* self)
+{
+    *(int*)self = 0;
+    return func_00314AA0(self);
+}
+#endif
 
 INCLUDE_ASM("animation/animsequencer", func_00314AA0);
 

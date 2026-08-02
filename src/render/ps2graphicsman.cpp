@@ -12,7 +12,16 @@ INCLUDE_ASM("render/ps2graphicsman", func_003672C0);
 
 INCLUDE_ASM("render/ps2graphicsman", func_00367310);
 
-INCLUDE_ASM("render/ps2graphicsman", func_00367340);
+extern "C" void* func_00365E40(void*, int, int, void*);
+
+//100%
+INCLUDE_ASM("render/ps2graphicsman", func_00367340__FPvii);
+#ifdef SKIP_ASM
+void* func_00367340(void* self, int a1, int a2)
+{
+    return func_00365E40((char*)self + 0x4350, a1, a2, (char*)self + 0x8);
+}
+#endif
 
 INCLUDE_ASM("render/ps2graphicsman", func_00367360);
 

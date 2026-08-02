@@ -68,7 +68,16 @@ INCLUDE_ASM("ai/computer", func_0010F1C0);
 
 INCLUDE_ASM("ai/computer", func_0010F280);
 
-INCLUDE_ASM("ai/computer", func_0010F2B8);
+extern "C" void* func_0011A0E0(int);
+
+//100%
+INCLUDE_ASM("ai/computer", func_0010F2B8__FPv);
+#ifdef SKIP_ASM
+void* func_0010F2B8(void* self)
+{
+    return func_0011A0E0(*(int*)((char*)self + 0x790));
+}
+#endif
 
 INCLUDE_ASM("ai/computer", func_0010F2D8);
 

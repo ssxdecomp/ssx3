@@ -88,9 +88,27 @@ INCLUDE_ASM("fe/uitemplatemap", func_00208438);
 
 INCLUDE_ASM("fe/uitemplatemap", func_00208498);
 
-INCLUDE_ASM("fe/uitemplatemap", func_00208518);
+extern "C" void* func_002009D0(void*);
 
-INCLUDE_ASM("fe/uitemplatemap", func_00208538);
+//99.29%
+INCLUDE_ASM("fe/uitemplatemap", func_00208518__FPv);
+#ifdef SKIP_ASM
+void* func_00208518(void* self)
+{
+    return func_002009D0((char*)self + 0x9c);
+}
+#endif
+
+extern "C" void* func_00200A70(void*);
+
+//99.29%
+INCLUDE_ASM("fe/uitemplatemap", func_00208538__FPv);
+#ifdef SKIP_ASM
+void* func_00208538(void* self)
+{
+    return func_00200A70((char*)self + 0x9c);
+}
+#endif
 
 INCLUDE_ASM("fe/uitemplatemap", func_00208558);
 
@@ -102,7 +120,16 @@ INCLUDE_ASM("fe/uitemplatemap", func_00208610);
 
 INCLUDE_ASM("fe/uitemplatemap", func_00208638);
 
-INCLUDE_ASM("fe/uitemplatemap", func_00208658);
+extern "C" void* func_00202770(void*);
+
+//99.29%
+INCLUDE_ASM("fe/uitemplatemap", func_00208658__FPv);
+#ifdef SKIP_ASM
+void* func_00208658(void* self)
+{
+    return func_00202770((char*)self + 0x9c);
+}
+#endif
 
 INCLUDE_ASM("fe/uitemplatemap", func_00208678);
 

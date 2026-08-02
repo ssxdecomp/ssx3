@@ -41,5 +41,14 @@ INCLUDE_ASM("be/be", func_0014E048);
 
 INCLUDE_ASM("be/be", func_0014E050);
 
-INCLUDE_ASM("be/be", func_0014E0C0);
+extern "C" void* func_0014A5E0(int);
+
+//100%
+INCLUDE_ASM("be/be", func_0014E0C0__FPvi);
+#ifdef SKIP_ASM
+void* func_0014E0C0(void* self, int a1)
+{
+    return func_0014A5E0(a1);
+}
+#endif
 

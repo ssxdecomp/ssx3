@@ -2,9 +2,27 @@
 
 INCLUDE_ASM("fe/festateload", cFEStateEventSelect_onCreateScreen);
 
-INCLUDE_ASM("fe/festateload", func_00186708);
+extern "C" void* func_002009D0(void*);
 
-INCLUDE_ASM("fe/festateload", func_00186728);
+//100%
+INCLUDE_ASM("fe/festateload", func_00186708__FPv);
+#ifdef SKIP_ASM
+void* func_00186708(void* self)
+{
+    return func_002009D0((char*)self + 0x48);
+}
+#endif
+
+extern "C" void* func_00200A70(void*);
+
+//100%
+INCLUDE_ASM("fe/festateload", func_00186728__FPv);
+#ifdef SKIP_ASM
+void* func_00186728(void* self)
+{
+    return func_00200A70((char*)self + 0x48);
+}
+#endif
 
 INCLUDE_ASM("fe/festateload", func_00186748);
 

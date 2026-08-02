@@ -112,7 +112,16 @@ INCLUDE_ASM("be/bedbreward", func_0015C870);
 
 INCLUDE_ASM("be/bedbreward", func_0015C8B0);
 
-INCLUDE_ASM("be/bedbreward", func_0015C8F0);
+extern "C" void* func_0015B028(int, int);
+
+//99.38%
+INCLUDE_ASM("be/bedbreward", func_0015C8F0__FPv);
+#ifdef SKIP_ASM
+void* func_0015C8F0(void* self)
+{
+    return func_0015B028(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("be/bedbreward", func_0015C910);
 

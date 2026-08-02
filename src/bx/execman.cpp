@@ -50,7 +50,16 @@ void* func_00320B08(void* self)
 }
 #endif
 
-INCLUDE_ASM("bx/execman", func_00320B28);
+extern "C" void* func_00320550(int, int);
+
+//100%
+INCLUDE_ASM("bx/execman", func_00320B28__FPv);
+#ifdef SKIP_ASM
+void* func_00320B28(void* self)
+{
+    return func_00320550(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("bx/execman", func_00320B48);
 

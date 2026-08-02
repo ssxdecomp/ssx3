@@ -63,7 +63,16 @@ INCLUDE_ASM("bx/memblockman", func_0031AA58);
 
 INCLUDE_ASM("bx/memblockman", func_0031AAC8);
 
-INCLUDE_ASM("bx/memblockman", func_0031AAF0);
+extern "C" void* func_00423DE0(int);
+
+//100%
+INCLUDE_ASM("bx/memblockman", func_0031AAF0__FPv);
+#ifdef SKIP_ASM
+void* func_0031AAF0(void* self)
+{
+    return func_00423DE0(*(int*)((char*)self + 0xc));
+}
+#endif
 
 INCLUDE_ASM("bx/memblockman", func_0031AB10);
 

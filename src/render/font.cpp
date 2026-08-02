@@ -813,7 +813,16 @@ INCLUDE_ASM("render/font", func_00396B40);
 
 INCLUDE_ASM("render/font", func_00396D30);
 
-INCLUDE_ASM("render/font", func_003970F8);
+extern "C" void* func_00393048(int, int);
+
+//99.38%
+INCLUDE_ASM("render/font", func_003970F8__FPv);
+#ifdef SKIP_ASM
+void* func_003970F8(void* self)
+{
+    return func_00393048(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("render/font", func_00397118);
 

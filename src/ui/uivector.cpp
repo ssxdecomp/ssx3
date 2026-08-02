@@ -353,7 +353,16 @@ int func_003A6540(void* self)
 }
 #endif
 
-INCLUDE_ASM("ui/uivector", func_003A6648);
+extern "C" void* func_003A3F48(int, int);
+
+//99.38%
+INCLUDE_ASM("ui/uivector", func_003A6648__FPv);
+#ifdef SKIP_ASM
+void* func_003A6648(void* self)
+{
+    return func_003A3F48(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("ui/uivector", func_003A6668);
 

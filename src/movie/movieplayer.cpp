@@ -255,7 +255,16 @@ INCLUDE_ASM("movie/movieplayer", func_00241DC8);
 
 INCLUDE_ASM("movie/movieplayer", func_00241E18);
 
-INCLUDE_ASM("movie/movieplayer", func_00241FB0);
+extern "C" void* func_002420C8(void*, int);
+
+//100%
+INCLUDE_ASM("movie/movieplayer", func_00241FB0__FPv);
+#ifdef SKIP_ASM
+void* func_00241FB0(void* self)
+{
+    return func_002420C8(self, *(int*)((char*)self + 0x42c));
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", func_00241FD0);
 

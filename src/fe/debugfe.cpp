@@ -83,77 +83,333 @@ INCLUDE_ASM("fe/debugfe", func_0017FBF0);
 
 INCLUDE_ASM("fe/debugfe", func_0017FDF0);
 
-INCLUDE_ASM("fe/debugfe", func_0017FE80);
+extern "C" void* func_00320C48(int, int);
 
-INCLUDE_ASM("fe/debugfe", func_0017FEA0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FE80__FPv);
+#ifdef SKIP_ASM
+void* func_0017FE80(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x70);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FEC0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FEA0__FPv);
+#ifdef SKIP_ASM
+void* func_0017FEA0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x71);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FEE0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FEC0__FPv);
+#ifdef SKIP_ASM
+void* func_0017FEC0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x7a);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FF00);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FEE0__FPv);
+#ifdef SKIP_ASM
+void* func_0017FEE0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x7b);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FF20);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FF00__FPv);
+#ifdef SKIP_ASM
+void* func_0017FF00(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x7c);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FF40);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FF20__FPv);
+#ifdef SKIP_ASM
+void* func_0017FF20(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x7d);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FF60);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FF40__FPv);
+#ifdef SKIP_ASM
+void* func_0017FF40(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x97);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FF80);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FF60__FPv);
+#ifdef SKIP_ASM
+void* func_0017FF60(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x98);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FFA0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FF80__FPv);
+#ifdef SKIP_ASM
+void* func_0017FF80(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x99);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FFC0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FFA0__FPv);
+#ifdef SKIP_ASM
+void* func_0017FFA0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x9a);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_0017FFE0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FFC0__FPv);
+#ifdef SKIP_ASM
+void* func_0017FFC0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x9b);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180000);
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FFE0__FPv);
+#ifdef SKIP_ASM
+void* func_0017FFE0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x9c);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180020);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180000__FPv);
+#ifdef SKIP_ASM
+void* func_00180000(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x9d);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180040);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180020__FPv);
+#ifdef SKIP_ASM
+void* func_00180020(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x9e);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180060);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180040__FPv);
+#ifdef SKIP_ASM
+void* func_00180040(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x72);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180080);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180060__FPv);
+#ifdef SKIP_ASM
+void* func_00180060(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x73);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001800A0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180080__FPv);
+#ifdef SKIP_ASM
+void* func_00180080(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x74);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001800C0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_001800A0__FPv);
+#ifdef SKIP_ASM
+void* func_001800A0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x75);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001800E0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_001800C0__FPv);
+#ifdef SKIP_ASM
+void* func_001800C0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x93);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180100);
+//100%
+INCLUDE_ASM("fe/debugfe", func_001800E0__FPv);
+#ifdef SKIP_ASM
+void* func_001800E0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x94);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180120);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180100__FPv);
+#ifdef SKIP_ASM
+void* func_00180100(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x95);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180140);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180120__FPv);
+#ifdef SKIP_ASM
+void* func_00180120(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x96);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180160);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180140__FPv);
+#ifdef SKIP_ASM
+void* func_00180140(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x7e);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180180);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180160__FPv);
+#ifdef SKIP_ASM
+void* func_00180160(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x7f);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001801A0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180180__FPv);
+#ifdef SKIP_ASM
+void* func_00180180(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x80);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001801C0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_001801A0__FPv);
+#ifdef SKIP_ASM
+void* func_001801A0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x81);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001801E0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_001801C0__FPv);
+#ifdef SKIP_ASM
+void* func_001801C0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x82);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180200);
+//100%
+INCLUDE_ASM("fe/debugfe", func_001801E0__FPv);
+#ifdef SKIP_ASM
+void* func_001801E0(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x83);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180220);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180200__FPv);
+#ifdef SKIP_ASM
+void* func_00180200(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x84);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180240);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180220__FPv);
+#ifdef SKIP_ASM
+void* func_00180220(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x85);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180260);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180240__FPv);
+#ifdef SKIP_ASM
+void* func_00180240(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x90);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_00180280);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180260__FPv);
+#ifdef SKIP_ASM
+void* func_00180260(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x92);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001802A0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_00180280__FPv);
+#ifdef SKIP_ASM
+void* func_00180280(void* self)
+{
+    return func_00320C48(*(int*)((char*)self + 0x18), 0x91);
+}
+#endif
 
-INCLUDE_ASM("fe/debugfe", func_001802C0);
+extern "C" void* func_00320BF0(int, int);
 
-INCLUDE_ASM("fe/debugfe", func_001802E0);
+//100%
+INCLUDE_ASM("fe/debugfe", func_001802A0__FPv);
+#ifdef SKIP_ASM
+void* func_001802A0(void* self)
+{
+    return func_00320BF0(*(int*)((char*)self + 0x18), 0x90);
+}
+#endif
+
+//100%
+INCLUDE_ASM("fe/debugfe", func_001802C0__FPv);
+#ifdef SKIP_ASM
+void* func_001802C0(void* self)
+{
+    return func_00320BF0(*(int*)((char*)self + 0x18), 0x92);
+}
+#endif
+
+//100%
+INCLUDE_ASM("fe/debugfe", func_001802E0__FPv);
+#ifdef SKIP_ASM
+void* func_001802E0(void* self)
+{
+    return func_00320BF0(*(int*)((char*)self + 0x18), 0x91);
+}
+#endif
 
 INCLUDE_ASM("fe/debugfe", func_00180300);
 

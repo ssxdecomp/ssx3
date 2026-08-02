@@ -206,7 +206,16 @@ INCLUDE_ASM("wscript/wscriptman", func_0030B758);
 
 INCLUDE_ASM("wscript/wscriptman", func_0030B7F8);
 
-INCLUDE_ASM("wscript/wscriptman", func_0030B898);
+extern "C" void* func_0030B320(void*, int);
+
+//100%
+INCLUDE_ASM("wscript/wscriptman", func_0030B898__FPvT0);
+#ifdef SKIP_ASM
+int func_0030B898(void* self, void* a1)
+{
+    return (func_0030B320((char*)self + 0x2b8, *(int*)((char*)a1 + 0x20)) != 0);
+}
+#endif
 
 INCLUDE_ASM("wscript/wscriptman", func_0030B8C0);
 
@@ -274,7 +283,16 @@ int func_0030D480(void* self)
 }
 #endif
 
-INCLUDE_ASM("wscript/wscriptman", func_0030D498);
+extern "C" void* func_0030C8D8(int, int);
+
+//99.38%
+INCLUDE_ASM("wscript/wscriptman", func_0030D498__FPv);
+#ifdef SKIP_ASM
+void* func_0030D498(void* self)
+{
+    return func_0030C8D8(1, 0xffff);
+}
+#endif
 
 INCLUDE_ASM("wscript/wscriptman", func_0030D4B8);
 
