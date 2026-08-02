@@ -12,7 +12,13 @@ INCLUDE_ASM("ui/uistate", func_0039EB60);
 
 INCLUDE_ASM("ui/uistate", func_0039EBE0);
 
-INCLUDE_ASM("ui/uistate", func_0039ECA8);
+//100%
+INCLUDE_ASM("ui/uistate", func_0039ECA8__FPv);
+#ifdef SKIP_ASM
+void func_0039ECA8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ui/uistate", func_0039ECB0);
 

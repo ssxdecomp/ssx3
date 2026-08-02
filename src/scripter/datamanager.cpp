@@ -56,7 +56,14 @@ INCLUDE_ASM("scripter/datamanager", func_002771C8);
 
 INCLUDE_ASM("scripter/datamanager", func_00277298);
 
-INCLUDE_ASM("scripter/datamanager", func_002772B8);
+//100%
+INCLUDE_ASM("scripter/datamanager", func_002772B8__FPv);
+#ifdef SKIP_ASM
+int func_002772B8(void* self)
+{
+    return *(int*)((char*)self + 0xB0);
+}
+#endif
 
 INCLUDE_ASM("scripter/datamanager", func_002772C0);
 

@@ -70,7 +70,13 @@ INCLUDE_ASM("main/gamestate", func_002368A0);
 
 INCLUDE_ASM("main/gamestate", func_00236960);
 
-INCLUDE_ASM("main/gamestate", func_00236AF0);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236AF0__FPv);
+#ifdef SKIP_ASM
+void func_00236AF0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00236AF8);
 
@@ -116,7 +122,13 @@ INCLUDE_ASM("main/gamestate", func_00236FC8);
 
 INCLUDE_ASM("main/gamestate", func_00236FE8);
 
-INCLUDE_ASM("main/gamestate", func_00237030);
+//100%
+INCLUDE_ASM("main/gamestate", func_00237030__FPv);
+#ifdef SKIP_ASM
+void func_00237030(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00237038);
 
@@ -130,7 +142,13 @@ INCLUDE_ASM("main/gamestate", func_00237280);
 
 INCLUDE_ASM("main/gamestate", func_002373B8);
 
-INCLUDE_ASM("main/gamestate", func_00237948);
+//100%
+INCLUDE_ASM("main/gamestate", func_00237948__FPv);
+#ifdef SKIP_ASM
+void func_00237948(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00237950);
 

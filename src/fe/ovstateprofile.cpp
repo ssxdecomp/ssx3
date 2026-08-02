@@ -30,7 +30,14 @@ INCLUDE_ASM("fe/ovstateprofile", cOVState_AUTOSAVE_onCreateScreen);
 
 INCLUDE_ASM("fe/ovstateprofile", func_00212208);
 
-INCLUDE_ASM("fe/ovstateprofile", func_002122E0);
+//100%
+INCLUDE_ASM("fe/ovstateprofile", func_002122E0__FPv);
+#ifdef SKIP_ASM
+int func_002122E0(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("fe/ovstateprofile", func_002122E8);
 

@@ -121,7 +121,13 @@ INCLUDE_ASM("main/ssxapp", func_00229E58);
 
 INCLUDE_ASM("main/ssxapp", func_00229F30);
 
-INCLUDE_ASM("main/ssxapp", func_00229F80);
+//100%
+INCLUDE_ASM("main/ssxapp", func_00229F80__FPv);
+#ifdef SKIP_ASM
+void func_00229F80(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/ssxapp", func_00229F88);
 

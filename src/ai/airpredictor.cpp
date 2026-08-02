@@ -27,7 +27,14 @@ void cAirPredictor_initLaunch(char* self, sQuad* a, sQuad* b)
 
 INCLUDE_ASM("ai/airpredictor", func_00113648);
 
-INCLUDE_ASM("ai/airpredictor", func_00113998);
+//100%
+INCLUDE_ASM("ai/airpredictor", func_00113998__FPv);
+#ifdef SKIP_ASM
+void func_00113998(void* self)
+{
+    *(int*)((char*)self + 0x98) = 0;
+}
+#endif
 
 INCLUDE_ASM("ai/airpredictor", func_001139A0);
 

@@ -61,11 +61,17 @@ normal `ninja` build; only rerun it when you want a fresh number.
 
 Snapshot as of 2026-08-02:
 
-| | matching | total | % |
-|---|---|---|---|
-| Functions | 494 | 12,930 | 3.82% |
-| Code bytes | 9,368 | 3,195,184 | 0.29% |
-| Data bytes | 3,264 | 500,792 | 0.65% |
+| | matching | partial | total | % matching |
+|---|---|---|---|---|
+| Functions | 892 | 41 | 12,930 | 6.90% |
+| Code bytes | 12,552 | — | 3,195,184 | 0.39% |
+| Data bytes | 1,848 | — | 500,792 | 0.37% |
+
+"Partial" functions have a real C implementation (not a raw `INCLUDE_ASM`
+stub) that compiles but doesn't yet byte-match — see the `//XX%` comment
+above each one for its objdiff score. A full per-function breakdown,
+including every partial and matching function by file, is in
+[MATCHING.md](MATCHING.md).
 
 The function/code counts include every function that's been split into its
 own file, named or not (via `config/gap_symbol_addrs.txt` — see that file's

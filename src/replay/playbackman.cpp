@@ -12,7 +12,14 @@ INCLUDE_ASM("replay/playbackman", func_0026C898);
 
 INCLUDE_ASM("replay/playbackman", func_0026CA90);
 
-INCLUDE_ASM("replay/playbackman", func_0026CBB0);
+//100%
+INCLUDE_ASM("replay/playbackman", func_0026CBB0__FPv);
+#ifdef SKIP_ASM
+void func_0026CBB0(void* self)
+{
+    *(int*)((char*)self + 0x10) = 0;
+}
+#endif
 
 INCLUDE_ASM("replay/playbackman", func_0026CBB8);
 

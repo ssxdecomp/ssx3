@@ -4,7 +4,13 @@ INCLUDE_ASM("fe/festateloadhint", cFELoadHintState_onCreateScreen);
 
 INCLUDE_ASM("fe/festateloadhint", func_00245AE0);
 
-INCLUDE_ASM("fe/festateloadhint", func_00245B50);
+//100%
+INCLUDE_ASM("fe/festateloadhint", func_00245B50__FPv);
+#ifdef SKIP_ASM
+void func_00245B50(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/festateloadhint", func_00245B58);
 
@@ -18,7 +24,13 @@ INCLUDE_ASM("fe/festateloadhint", func_00245D28);
 
 INCLUDE_ASM("fe/festateloadhint", cFELoadStateInLodge_onCreateScreen);
 
-INCLUDE_ASM("fe/festateloadhint", func_00245DB8);
+//100%
+INCLUDE_ASM("fe/festateloadhint", func_00245DB8__FPv);
+#ifdef SKIP_ASM
+void func_00245DB8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/festateloadhint", func_00245DC0);
 

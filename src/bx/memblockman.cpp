@@ -12,9 +12,22 @@ INCLUDE_ASM("bx/memblockman", cMemMan_internalResizeBlock);
 
 INCLUDE_ASM("bx/memblockman", func_00319CC8);
 
-INCLUDE_ASM("bx/memblockman", func_00319D10);
+//100%
+INCLUDE_ASM("bx/memblockman", func_00319D10__FPv);
+#ifdef SKIP_ASM
+void func_00319D10(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("bx/memblockman", func_00319D18);
+//100%
+INCLUDE_ASM("bx/memblockman", func_00319D18__FPv);
+#ifdef SKIP_ASM
+int func_00319D18(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("bx/memblockman", cMemBlockMan_initialize);
 
@@ -54,9 +67,22 @@ INCLUDE_ASM("bx/memblockman", func_0031AAF0);
 
 INCLUDE_ASM("bx/memblockman", func_0031AB10);
 
-INCLUDE_ASM("bx/memblockman", func_0031ABC0);
+//100%
+INCLUDE_ASM("bx/memblockman", func_0031ABC0__FPv);
+#ifdef SKIP_ASM
+void func_0031ABC0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("bx/memblockman", func_0031ABC8);
+//100%
+INCLUDE_ASM("bx/memblockman", func_0031ABC8__FPv);
+#ifdef SKIP_ASM
+int func_0031ABC8(void* self)
+{
+    return 0x3C;
+}
+#endif
 
 INCLUDE_ASM("bx/memblockman", func_0031ABD0);
 

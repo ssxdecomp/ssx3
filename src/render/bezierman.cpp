@@ -42,7 +42,13 @@ INCLUDE_ASM("render/bezierman", func_0038D448);
 
 INCLUDE_ASM("render/bezierman", func_0038D638);
 
-INCLUDE_ASM("render/bezierman", func_0038D660);
+//100%
+INCLUDE_ASM("render/bezierman", func_0038D660__FPv);
+#ifdef SKIP_ASM
+void func_0038D660(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("render/bezierman", func_0038D690);
 

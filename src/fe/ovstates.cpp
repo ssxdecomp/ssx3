@@ -6,7 +6,13 @@ INCLUDE_ASM("fe/ovstates", func_001947F8);
 
 INCLUDE_ASM("fe/ovstates", func_001948A8);
 
-INCLUDE_ASM("fe/ovstates", func_00194980);
+//100%
+INCLUDE_ASM("fe/ovstates", func_00194980__FPv);
+#ifdef SKIP_ASM
+void func_00194980(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/ovstates", func_00194988);
 

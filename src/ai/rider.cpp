@@ -204,7 +204,13 @@ INCLUDE_ASM("ai/rider", func_00125958);
 
 INCLUDE_ASM("ai/rider", func_00125970);
 
-INCLUDE_ASM("ai/rider", func_00125AD0);
+//100%
+INCLUDE_ASM("ai/rider", func_00125AD0__FPv);
+#ifdef SKIP_ASM
+void func_00125AD0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00125AD8);
 
@@ -222,7 +228,14 @@ INCLUDE_ASM("ai/rider", func_001278C0);
 
 INCLUDE_ASM("ai/rider", func_001278D0);
 
-INCLUDE_ASM("ai/rider", func_001278E0);
+//100%
+INCLUDE_ASM("ai/rider", func_001278E0__FPvf);
+#ifdef SKIP_ASM
+void func_001278E0(void* self, float val)
+{
+    *(float*)((char*)self + 0xE00) = val;
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_001278E8);
 

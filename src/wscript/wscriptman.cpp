@@ -106,7 +106,13 @@ INCLUDE_ASM("wscript/wscriptman", func_0030B388);
 
 INCLUDE_ASM("wscript/wscriptman", func_0030B428);
 
-INCLUDE_ASM("wscript/wscriptman", func_0030B4B8);
+//100%
+INCLUDE_ASM("wscript/wscriptman", func_0030B4B8__FPv);
+#ifdef SKIP_ASM
+void func_0030B4B8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("wscript/wscriptman", func_0030B4C0);
 
@@ -176,11 +182,25 @@ INCLUDE_ASM("wscript/wscriptman", func_0030C870);
 
 INCLUDE_ASM("wscript/wscriptman", func_0030C8D8);
 
-INCLUDE_ASM("wscript/wscriptman", func_0030D3D8);
+//100%
+INCLUDE_ASM("wscript/wscriptman", func_0030D3D8__FPv);
+#ifdef SKIP_ASM
+int func_0030D3D8(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("wscript/wscriptman", func_0030D420);
 
-INCLUDE_ASM("wscript/wscriptman", func_0030D480);
+//100%
+INCLUDE_ASM("wscript/wscriptman", func_0030D480__FPv);
+#ifdef SKIP_ASM
+int func_0030D480(void* self)
+{
+    return 0x1;
+}
+#endif
 
 INCLUDE_ASM("wscript/wscriptman", func_0030D498);
 

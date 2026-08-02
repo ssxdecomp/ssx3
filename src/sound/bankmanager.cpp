@@ -16,7 +16,14 @@ INCLUDE_ASM("sound/bankmanager", func_0028B878);
 
 INCLUDE_ASM("sound/bankmanager", cBankInstance_OnAsyncMainMemAlloc);
 
-INCLUDE_ASM("sound/bankmanager", func_0028B928);
+//100%
+INCLUDE_ASM("sound/bankmanager", func_0028B928__FPv);
+#ifdef SKIP_ASM
+int func_0028B928(void* self)
+{
+    return *(int*)((char*)self + 0x14);
+}
+#endif
 
 INCLUDE_ASM("sound/bankmanager", func_0028B930);
 
@@ -52,7 +59,14 @@ INCLUDE_ASM("sound/bankmanager", func_0028C2D0);
 
 INCLUDE_ASM("sound/bankmanager", func_0028C430);
 
-INCLUDE_ASM("sound/bankmanager", func_0028C8C0);
+//100%
+INCLUDE_ASM("sound/bankmanager", func_0028C8C0__FPvi);
+#ifdef SKIP_ASM
+void func_0028C8C0(void* self, int val)
+{
+    *(int*)((char*)self + 0x6250) = val;
+}
+#endif
 
 INCLUDE_ASM("sound/bankmanager", func_0028C8C8);
 
@@ -72,7 +86,14 @@ INCLUDE_ASM("sound/bankmanager", func_0028D740);
 
 INCLUDE_ASM("sound/bankmanager", func_0028D7D8);
 
-INCLUDE_ASM("sound/bankmanager", func_0028D898);
+//100%
+INCLUDE_ASM("sound/bankmanager", func_0028D898__FPv);
+#ifdef SKIP_ASM
+int func_0028D898(void* self)
+{
+    return *(int*)((char*)self + 0x623C);
+}
+#endif
 
 INCLUDE_ASM("sound/bankmanager", func_0028D8A0);
 

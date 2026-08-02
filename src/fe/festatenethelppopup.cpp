@@ -6,7 +6,14 @@ INCLUDE_ASM("fe/festatenethelppopup", func_001D9E20);
 
 INCLUDE_ASM("fe/festatenethelppopup", func_001D9E68);
 
-INCLUDE_ASM("fe/festatenethelppopup", func_001D9F30);
+//100%
+INCLUDE_ASM("fe/festatenethelppopup", func_001D9F30__FPv);
+#ifdef SKIP_ASM
+int func_001D9F30(void* self)
+{
+    return 0x1;
+}
+#endif
 
 INCLUDE_ASM("fe/festatenethelppopup", cFEStateNetHelpPopup_onWidgetCreate);
 
@@ -20,7 +27,14 @@ INCLUDE_ASM("fe/festatenethelppopup", func_001DA4A8);
 
 INCLUDE_ASM("fe/festatenethelppopup", func_001DA510);
 
-INCLUDE_ASM("fe/festatenethelppopup", func_001DA528);
+//100%
+INCLUDE_ASM("fe/festatenethelppopup", func_001DA528__FPvi);
+#ifdef SKIP_ASM
+void func_001DA528(void* self, int val)
+{
+    *(int*)((char*)self + 0x48) = val;
+}
+#endif
 
 INCLUDE_ASM("fe/festatenethelppopup", func_001DA530);
 

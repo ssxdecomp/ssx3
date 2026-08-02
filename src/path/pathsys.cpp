@@ -26,9 +26,21 @@ INCLUDE_ASM("path/pathsys", func_0026BA88);
 
 INCLUDE_ASM("path/pathsys", func_0026BAE8);
 
-INCLUDE_ASM("path/pathsys", func_0026C410);
+//100%
+INCLUDE_ASM("path/pathsys", func_0026C410__FPv);
+#ifdef SKIP_ASM
+void func_0026C410(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("path/pathsys", func_0026C418);
+//100%
+INCLUDE_ASM("path/pathsys", func_0026C418__FPv);
+#ifdef SKIP_ASM
+void func_0026C418(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("path/pathsys", func_0026C438);
 

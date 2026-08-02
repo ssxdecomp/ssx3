@@ -20,7 +20,13 @@ INCLUDE_ASM("replay/replaycache", func_002703F0);
 
 INCLUDE_ASM("replay/replaycache", func_00270538);
 
-INCLUDE_ASM("replay/replaycache", func_002705A8);
+//100%
+INCLUDE_ASM("replay/replaycache", func_002705A8__FPv);
+#ifdef SKIP_ASM
+void func_002705A8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_002705B0);
 
@@ -81,7 +87,13 @@ INCLUDE_ASM("replay/replaycache", func_00270ED8);
 
 INCLUDE_ASM("replay/replaycache", func_00270EF8);
 
-INCLUDE_ASM("replay/replaycache", func_00270F18);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00270F18__FPv);
+#ifdef SKIP_ASM
+void func_00270F18(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_00270F20);
 
@@ -255,7 +267,14 @@ INCLUDE_ASM("replay/replaycache", func_002745C0);
 
 INCLUDE_ASM("replay/replaycache", func_002746F8);
 
-INCLUDE_ASM("replay/replaycache", func_00274808);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00274808__FPvf);
+#ifdef SKIP_ASM
+void func_00274808(void* self, float val)
+{
+    *(float*)((char*)self + 0x24) = val;
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_00274810);
 
@@ -285,45 +304,164 @@ INCLUDE_ASM("replay/replaycache", func_00274DE0);
 
 INCLUDE_ASM("replay/replaycache", func_002751A0);
 
-INCLUDE_ASM("replay/replaycache", func_002752F0);
+//100%
+INCLUDE_ASM("replay/replaycache", func_002752F0__FPv);
+#ifdef SKIP_ASM
+void* func_002752F0(void* self)
+{
+    return (char*)self + 0x1C;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_002752F8);
+//100%
+INCLUDE_ASM("replay/replaycache", func_002752F8__FPv);
+#ifdef SKIP_ASM
+int func_002752F8(void* self)
+{
+    return *(int*)((char*)self + 0x20);
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275300);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275300__FPv);
+#ifdef SKIP_ASM
+int func_00275300(void* self)
+{
+    return -0x1;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275308);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275308__FPv);
+#ifdef SKIP_ASM
+int func_00275308(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275310);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275310__FPv);
+#ifdef SKIP_ASM
+int func_00275310(void* self)
+{
+    return *(int*)((char*)self + 0xC);
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_00275318);
 
-INCLUDE_ASM("replay/replaycache", func_00275328);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275328__FPv);
+#ifdef SKIP_ASM
+void* func_00275328(void* self)
+{
+    return (char*)self + 0x28;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275330);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275330__FPv);
+#ifdef SKIP_ASM
+int func_00275330(void* self)
+{
+    return *(int*)((char*)self + 0x24);
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275338);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275338__FPv);
+#ifdef SKIP_ASM
+int func_00275338(void* self)
+{
+    return 0x2;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275340);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275340__FPv);
+#ifdef SKIP_ASM
+int func_00275340(void* self)
+{
+    return *(int*)((char*)self + 0xC);
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_00275348);
 
-INCLUDE_ASM("replay/replaycache", func_00275358);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275358__FPv);
+#ifdef SKIP_ASM
+void* func_00275358(void* self)
+{
+    return (char*)self + 0x20;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275360);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275360__FPv);
+#ifdef SKIP_ASM
+int func_00275360(void* self)
+{
+    return *(int*)((char*)self + 0x1C);
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275368);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275368__FPv);
+#ifdef SKIP_ASM
+int func_00275368(void* self)
+{
+    return 0x3;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275370);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275370__FPv);
+#ifdef SKIP_ASM
+int func_00275370(void* self)
+{
+    return *(int*)((char*)self + 0xC);
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_00275378);
 
-INCLUDE_ASM("replay/replaycache", func_00275388);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275388__FPv);
+#ifdef SKIP_ASM
+void* func_00275388(void* self)
+{
+    return (char*)self + 0x24;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275390);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275390__FPv);
+#ifdef SKIP_ASM
+int func_00275390(void* self)
+{
+    return *(int*)((char*)self + 0x20);
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_00275398);
+//100%
+INCLUDE_ASM("replay/replaycache", func_00275398__FPv);
+#ifdef SKIP_ASM
+int func_00275398(void* self)
+{
+    return 0x1;
+}
+#endif
 
-INCLUDE_ASM("replay/replaycache", func_002753A0);
+//100%
+INCLUDE_ASM("replay/replaycache", func_002753A0__FPv);
+#ifdef SKIP_ASM
+int func_002753A0(void* self)
+{
+    return *(int*)((char*)self + 0xC);
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_002753A8);
 

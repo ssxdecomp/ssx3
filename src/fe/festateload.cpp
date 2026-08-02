@@ -24,5 +24,12 @@ INCLUDE_ASM("fe/festateload", func_00186A08);
 
 INCLUDE_ASM("fe/festateload", func_00186B18);
 
-INCLUDE_ASM("fe/festateload", func_00186B48);
+//100%
+INCLUDE_ASM("fe/festateload", func_00186B48__FPv);
+#ifdef SKIP_ASM
+int func_00186B48(void* self)
+{
+    return 0x100;
+}
+#endif
 

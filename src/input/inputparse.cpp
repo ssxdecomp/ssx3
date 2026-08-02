@@ -76,7 +76,13 @@ INCLUDE_ASM("input/inputparse", func_00326678);
 
 INCLUDE_ASM("input/inputparse", cInputPreProcessor_readCmdLine);
 
-INCLUDE_ASM("input/inputparse", func_00326A20);
+//100%
+INCLUDE_ASM("input/inputparse", func_00326A20__FPv);
+#ifdef SKIP_ASM
+void func_00326A20(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("input/inputparse", func_00326A28);
 
@@ -104,15 +110,35 @@ INCLUDE_ASM("input/inputparse", func_00326E50);
 
 INCLUDE_ASM("input/inputparse", func_00326EB0);
 
-INCLUDE_ASM("input/inputparse", func_00327738);
+//100%
+INCLUDE_ASM("input/inputparse", func_00327738__FPv);
+#ifdef SKIP_ASM
+int func_00327738(void* self)
+{
+    return 0x2;
+}
+#endif
 
 INCLUDE_ASM("input/inputparse", func_00327740);
 
 INCLUDE_ASM("input/inputparse", func_003277D0);
 
-INCLUDE_ASM("input/inputparse", func_00327800);
+//100%
+INCLUDE_ASM("input/inputparse", func_00327800__FPv);
+#ifdef SKIP_ASM
+int func_00327800(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("input/inputparse", func_00327808);
+//100%
+INCLUDE_ASM("input/inputparse", func_00327808__FPv);
+#ifdef SKIP_ASM
+void func_00327808(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("input/inputparse", func_00327810);
 

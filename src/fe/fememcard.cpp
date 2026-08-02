@@ -38,5 +38,12 @@ INCLUDE_ASM("fe/fememcard", func_00187920);
 
 INCLUDE_ASM("fe/fememcard", func_00187A38);
 
-INCLUDE_ASM("fe/fememcard", func_00187C10);
+//100%
+INCLUDE_ASM("fe/fememcard", func_00187C10__FPv);
+#ifdef SKIP_ASM
+int func_00187C10(void* self)
+{
+    return 0;
+}
+#endif
 

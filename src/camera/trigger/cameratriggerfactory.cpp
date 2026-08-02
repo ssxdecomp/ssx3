@@ -110,17 +110,58 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001763C8);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001763F8);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176440);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176440__FPv);
+#ifdef SKIP_ASM
+void* func_00176440(void* self)
+{
+    return self;
+}
+#endif
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176448);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176448__FPv);
+#ifdef SKIP_ASM
+void* func_00176448(void* self)
+{
+    return (char*)self + 0xC;
+}
+#endif
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176450);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176450__FPv);
+#ifdef SKIP_ASM
+void* func_00176450(void* self)
+{
+    return (char*)self + 0x10;
+}
+#endif
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176458);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176458__FPv);
+#ifdef SKIP_ASM
+void* func_00176458(void* self)
+{
+    return (char*)self + 0x14;
+}
+#endif
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176460);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176460__FPv);
+#ifdef SKIP_ASM
+void* func_00176460(void* self)
+{
+    return (char*)self + 0x18;
+}
+#endif
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001765F8);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_001765F8__FPv);
+#ifdef SKIP_ASM
+void func_001765F8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176808);
 
@@ -224,7 +265,14 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178B70);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178B98);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178BA8);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178BA8__FPvT0);
+#ifdef SKIP_ASM
+void func_00178BA8(void* self, void* other)
+{
+    *(int*)((char*)other + 0x10) = 0;
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00178BB0);
 

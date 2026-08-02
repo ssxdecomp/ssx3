@@ -38,11 +38,32 @@ INCLUDE_ASM("luno/lunovm", func_00225DE8);
 
 INCLUDE_ASM("luno/lunovm", func_00226600);
 
-INCLUDE_ASM("luno/lunovm", func_00226610);
+//100%
+INCLUDE_ASM("luno/lunovm", func_00226610__FPv);
+#ifdef SKIP_ASM
+void* func_00226610(void* self)
+{
+    return self;
+}
+#endif
 
-INCLUDE_ASM("luno/lunovm", func_00226618);
+//100%
+INCLUDE_ASM("luno/lunovm", func_00226618__FPv);
+#ifdef SKIP_ASM
+void* func_00226618(void* self)
+{
+    return self;
+}
+#endif
 
-INCLUDE_ASM("luno/lunovm", func_00226620);
+//100%
+INCLUDE_ASM("luno/lunovm", func_00226620__FPv);
+#ifdef SKIP_ASM
+void* func_00226620(void* self)
+{
+    return self;
+}
+#endif
 
 INCLUDE_ASM("luno/lunovm", func_00226628);
 

@@ -8,7 +8,14 @@ INCLUDE_ASM("sound/streamsys", func_002A9E78);
 
 INCLUDE_ASM("sound/streamsys", func_002A9ED8);
 
-INCLUDE_ASM("sound/streamsys", func_002A9F30);
+//100%
+INCLUDE_ASM("sound/streamsys", func_002A9F30__FPvi);
+#ifdef SKIP_ASM
+void func_002A9F30(void* self, int val)
+{
+    *(char*)((char*)self + 0xC) = (char)val;
+}
+#endif
 
 INCLUDE_ASM("sound/streamsys", func_002A9F38);
 

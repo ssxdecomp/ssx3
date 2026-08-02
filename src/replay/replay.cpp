@@ -36,7 +36,14 @@ INCLUDE_ASM("replay/replay", func_0026E6A0);
 
 INCLUDE_ASM("replay/replay", func_0026E6E0);
 
-INCLUDE_ASM("replay/replay", func_0026E7F8);
+//100%
+INCLUDE_ASM("replay/replay", func_0026E7F8__FPv);
+#ifdef SKIP_ASM
+void func_0026E7F8(void* self)
+{
+    *(int*)((char*)self + 0xB0) = 0;
+}
+#endif
 
 INCLUDE_ASM("replay/replay", func_0026E800);
 

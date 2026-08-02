@@ -49,7 +49,14 @@ INCLUDE_ASM("fe/uitemplatemap", func_002018A8);
 
 INCLUDE_ASM("fe/uitemplatemap", func_00202738);
 
-INCLUDE_ASM("fe/uitemplatemap", func_00202768);
+//100%
+INCLUDE_ASM("fe/uitemplatemap", func_00202768__FPv);
+#ifdef SKIP_ASM
+int func_00202768(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("fe/uitemplatemap", func_00202770);
 

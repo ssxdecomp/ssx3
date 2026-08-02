@@ -30,7 +30,14 @@ INCLUDE_ASM("be/beintnetwork", func_0014E130);
 
 INCLUDE_ASM("be/beintnetwork", func_0014E1F8);
 
-INCLUDE_ASM("be/beintnetwork", func_0014E2C0);
+//100%
+INCLUDE_ASM("be/beintnetwork", func_0014E2C0__FPv);
+#ifdef SKIP_ASM
+int func_0014E2C0(void* self)
+{
+    return 0xC44;
+}
+#endif
 
 INCLUDE_ASM("be/beintnetwork", func_0014E2C8);
 

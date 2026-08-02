@@ -58,7 +58,13 @@ INCLUDE_ASM("main/gamemode", func_0023A668);
 
 INCLUDE_ASM("main/gamemode", func_0023A760);
 
-INCLUDE_ASM("main/gamemode", func_0023AC10);
+//100%
+INCLUDE_ASM("main/gamemode", func_0023AC10__FPv);
+#ifdef SKIP_ASM
+void func_0023AC10(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/gamemode", func_0023AC18);
 

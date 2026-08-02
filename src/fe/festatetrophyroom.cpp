@@ -66,7 +66,13 @@ INCLUDE_ASM("fe/festatetrophyroom", func_001D5D78);
 
 INCLUDE_ASM("fe/festatetrophyroom", func_001D5DF0);
 
-INCLUDE_ASM("fe/festatetrophyroom", func_001D5F38);
+//100%
+INCLUDE_ASM("fe/festatetrophyroom", func_001D5F38__FPv);
+#ifdef SKIP_ASM
+void func_001D5F38(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/festatetrophyroom", func_001D5F40);
 

@@ -2,7 +2,13 @@
 
 INCLUDE_ASM("fe/ovstatemap", cOVState_MAP_onCreateScreen);
 
-INCLUDE_ASM("fe/ovstatemap", func_002087E8);
+//100%
+INCLUDE_ASM("fe/ovstatemap", func_002087E8__FPv);
+#ifdef SKIP_ASM
+void func_002087E8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatemap", cOVState_MAP_onGainTransition);
 

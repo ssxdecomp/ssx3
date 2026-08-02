@@ -8,31 +8,103 @@ INCLUDE_ASM("be/bedbreward", func_0015AF40);
 
 INCLUDE_ASM("be/bedbreward", func_0015B028);
 
-INCLUDE_ASM("be/bedbreward", func_0015BB00);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015BB00__FPv);
+#ifdef SKIP_ASM
+void func_0015BB00(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015BB08);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015BB08__FPv);
+#ifdef SKIP_ASM
+void func_0015BB08(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015BB10);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015BB10__FPv);
+#ifdef SKIP_ASM
+void func_0015BB10(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015BB18);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015BB18__FPv);
+#ifdef SKIP_ASM
+void func_0015BB18(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015BCC0);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015BCC0__FPv);
+#ifdef SKIP_ASM
+void func_0015BCC0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015BCC8);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015BCC8__FPv);
+#ifdef SKIP_ASM
+void func_0015BCC8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("be/bedbreward", func_0015C228);
 
-INCLUDE_ASM("be/bedbreward", func_0015C6C8);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015C6C8__FPv);
+#ifdef SKIP_ASM
+void func_0015C6C8(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015C6D0);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015C6D0__FPv);
+#ifdef SKIP_ASM
+void func_0015C6D0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015C6D8);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015C6D8__FPv);
+#ifdef SKIP_ASM
+void func_0015C6D8(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015C6E0);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015C6E0__FPv);
+#ifdef SKIP_ASM
+void func_0015C6E0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015C7D0);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015C7D0__FPv);
+#ifdef SKIP_ASM
+void func_0015C7D0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/bedbreward", func_0015C7D8);
+//100%
+INCLUDE_ASM("be/bedbreward", func_0015C7D8__FPv);
+#ifdef SKIP_ASM
+void func_0015C7D8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("be/bedbreward", func_0015C830);
 

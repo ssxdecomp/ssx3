@@ -16,7 +16,14 @@ INCLUDE_ASM("scripter/videngine", func_00283C20);
 
 INCLUDE_ASM("scripter/videngine", func_00283C30);
 
-INCLUDE_ASM("scripter/videngine", func_00283C58);
+//100%
+INCLUDE_ASM("scripter/videngine", func_00283C58__FPv);
+#ifdef SKIP_ASM
+int func_00283C58(void* self)
+{
+    return *(int*)((char*)self + 0x94);
+}
+#endif
 
 INCLUDE_ASM("scripter/videngine", func_00283C60);
 

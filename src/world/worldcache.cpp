@@ -84,7 +84,13 @@ INCLUDE_ASM("world/worldcache", func_003A8FB8);
 
 INCLUDE_ASM("world/worldcache", func_003A9000);
 
-INCLUDE_ASM("world/worldcache", func_003A9180);
+//100%
+INCLUDE_ASM("world/worldcache", func_003A9180__FPv);
+#ifdef SKIP_ASM
+void func_003A9180(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("world/worldcache", func_003A9188);
 

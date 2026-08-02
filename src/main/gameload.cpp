@@ -38,7 +38,14 @@ INCLUDE_ASM("main/gameload", func_00230F40);
 
 INCLUDE_ASM("main/gameload", func_00231250);
 
-INCLUDE_ASM("main/gameload", func_00231278);
+//100%
+INCLUDE_ASM("main/gameload", func_00231278__FPvi);
+#ifdef SKIP_ASM
+void func_00231278(void* self, int val)
+{
+    *(int*)((char*)self + 0x208) = val;
+}
+#endif
 
 INCLUDE_ASM("main/gameload", func_002312D8);
 

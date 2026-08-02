@@ -28,7 +28,14 @@ INCLUDE_ASM("ai/ridermetrix", func_00117718);
 
 INCLUDE_ASM("ai/ridermetrix", func_00117838);
 
-INCLUDE_ASM("ai/ridermetrix", func_00117900);
+//100%
+INCLUDE_ASM("ai/ridermetrix", func_00117900__FPv);
+#ifdef SKIP_ASM
+float func_00117900(void* self)
+{
+    return *(float*)((char*)self + 0x14);
+}
+#endif
 
 INCLUDE_ASM("ai/ridermetrix", func_00117908);
 

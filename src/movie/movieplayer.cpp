@@ -58,7 +58,13 @@ INCLUDE_ASM("movie/movieplayer", func_0023D7D8);
 
 INCLUDE_ASM("movie/movieplayer", func_0023E268);
 
-INCLUDE_ASM("movie/movieplayer", func_0023E2C0);
+//100%
+INCLUDE_ASM("movie/movieplayer", func_0023E2C0__FPv);
+#ifdef SKIP_ASM
+void func_0023E2C0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", func_0023E2C8);
 
@@ -70,7 +76,13 @@ INCLUDE_ASM("movie/movieplayer", func_0023E428);
 
 INCLUDE_ASM("movie/movieplayer", func_0023E498);
 
-INCLUDE_ASM("movie/movieplayer", func_0023E4F0);
+//100%
+INCLUDE_ASM("movie/movieplayer", func_0023E4F0__FPv);
+#ifdef SKIP_ASM
+void func_0023E4F0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", func_0023E4F8);
 
@@ -116,7 +128,14 @@ INCLUDE_ASM("movie/movieplayer", func_0023F698);
 
 INCLUDE_ASM("movie/movieplayer", func_0023FAE0);
 
-INCLUDE_ASM("movie/movieplayer", func_0023FB18);
+//100%
+INCLUDE_ASM("movie/movieplayer", func_0023FB18__FPvi);
+#ifdef SKIP_ASM
+void func_0023FB18(void* self, int val)
+{
+    *(int*)((char*)self + 0x428) = val;
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", func_0023FB20);
 

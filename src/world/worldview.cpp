@@ -102,7 +102,13 @@ INCLUDE_ASM("world/worldview", func_003AADE8);
 
 INCLUDE_ASM("world/worldview", func_003AAE40);
 
-INCLUDE_ASM("world/worldview", func_003AAE60);
+//100%
+INCLUDE_ASM("world/worldview", func_003AAE60__FPv);
+#ifdef SKIP_ASM
+void func_003AAE60(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("world/worldview", func_003AAE68);
 

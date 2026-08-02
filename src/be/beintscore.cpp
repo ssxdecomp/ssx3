@@ -37,7 +37,13 @@ void* cBEScoreInterface_getThis()
 
 INCLUDE_ASM("be/beintscore", func_001549A8);
 
-INCLUDE_ASM("be/beintscore", func_001549E0);
+//100%
+INCLUDE_ASM("be/beintscore", func_001549E0__FPv);
+#ifdef SKIP_ASM
+void func_001549E0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("be/beintscore", func_001549E8);
 
@@ -75,9 +81,21 @@ signed char cBEScoreInterface_getCurrentHighlightLevel(void* self, int riderInde
 
 INCLUDE_ASM("be/beintscore", func_00155328);
 
-INCLUDE_ASM("be/beintscore", func_00155380);
+//100%
+INCLUDE_ASM("be/beintscore", func_00155380__FPv);
+#ifdef SKIP_ASM
+void func_00155380(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/beintscore", func_00155388);
+//100%
+INCLUDE_ASM("be/beintscore", func_00155388__FPv);
+#ifdef SKIP_ASM
+void func_00155388(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("be/beintscore", func_00155390);
 

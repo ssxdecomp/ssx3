@@ -19,13 +19,37 @@ void* cLightMan_construct()
 }
 #endif
 
-INCLUDE_ASM("render/lightman", func_0038DC50);
+//100%
+INCLUDE_ASM("render/lightman", func_0038DC50__FPv);
+#ifdef SKIP_ASM
+void func_0038DC50(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("render/lightman", func_0038DC58);
+//100%
+INCLUDE_ASM("render/lightman", func_0038DC58__FPv);
+#ifdef SKIP_ASM
+void func_0038DC58(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("render/lightman", func_0038DC60);
+//100%
+INCLUDE_ASM("render/lightman", func_0038DC60__FPv);
+#ifdef SKIP_ASM
+void func_0038DC60(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("render/lightman", func_0038DC68);
+//100%
+INCLUDE_ASM("render/lightman", func_0038DC68__FPv);
+#ifdef SKIP_ASM
+void func_0038DC68(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("render/lightman", func_0038DC70);
 
@@ -63,7 +87,13 @@ INCLUDE_ASM("render/lightman", func_0038F768);
 
 INCLUDE_ASM("render/lightman", func_0038F7B0);
 
-INCLUDE_ASM("render/lightman", func_0038F7F8);
+//100%
+INCLUDE_ASM("render/lightman", func_0038F7F8__FPv);
+#ifdef SKIP_ASM
+void func_0038F7F8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("render/lightman", func_0038F800);
 

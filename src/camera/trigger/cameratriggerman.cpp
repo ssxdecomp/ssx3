@@ -2,7 +2,13 @@
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerMan_cleanupOnExit);
 
-INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CA10);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CA10__FPv);
+#ifdef SKIP_ASM
+void func_0016CA10(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerMan_purge);
 
@@ -16,7 +22,13 @@ INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CEF0);
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CF18);
 
-INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CF40);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CF40__FPv);
+#ifdef SKIP_ASM
+void func_0016CF40(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CF48);
 

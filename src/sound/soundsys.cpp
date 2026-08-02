@@ -136,7 +136,13 @@ INCLUDE_ASM("sound/soundsys", func_0029B7E0);
 
 INCLUDE_ASM("sound/soundsys", func_0029B818);
 
-INCLUDE_ASM("sound/soundsys", func_0029B960);
+//100%
+INCLUDE_ASM("sound/soundsys", func_0029B960__FPv);
+#ifdef SKIP_ASM
+void func_0029B960(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("sound/soundsys", func_0029B968);
 
@@ -144,7 +150,13 @@ INCLUDE_ASM("sound/soundsys", func_0029BCF8);
 
 INCLUDE_ASM("sound/soundsys", func_0029C088);
 
-INCLUDE_ASM("sound/soundsys", func_0029C418);
+//100%
+INCLUDE_ASM("sound/soundsys", func_0029C418__FPv);
+#ifdef SKIP_ASM
+void func_0029C418(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("sound/soundsys", func_0029C420);
 
@@ -180,7 +192,13 @@ INCLUDE_ASM("sound/soundsys", func_0029DEF0);
 
 INCLUDE_ASM("sound/soundsys", func_0029E438);
 
-INCLUDE_ASM("sound/soundsys", func_0029E560);
+//100%
+INCLUDE_ASM("sound/soundsys", func_0029E560__FPv);
+#ifdef SKIP_ASM
+void func_0029E560(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("sound/soundsys", func_0029E578);
 
@@ -260,7 +278,14 @@ INCLUDE_ASM("sound/soundsys", func_002A1B58);
 
 INCLUDE_ASM("sound/soundsys", func_002A1B88);
 
-INCLUDE_ASM("sound/soundsys", func_002A1BD0);
+//100%
+INCLUDE_ASM("sound/soundsys", func_002A1BD0__FPv);
+#ifdef SKIP_ASM
+int func_002A1BD0(void* self)
+{
+    return 0x1;
+}
+#endif
 
 INCLUDE_ASM("sound/soundsys", func_002A1BD8);
 

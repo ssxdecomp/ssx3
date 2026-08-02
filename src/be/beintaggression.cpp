@@ -26,9 +26,21 @@ void* cBEAggressionInterface_getThis()
 }
 #endif
 
-INCLUDE_ASM("be/beintaggression", func_00155AA0);
+//100%
+INCLUDE_ASM("be/beintaggression", func_00155AA0__FPv);
+#ifdef SKIP_ASM
+void func_00155AA0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/beintaggression", func_00155AA8);
+//100%
+INCLUDE_ASM("be/beintaggression", func_00155AA8__FPv);
+#ifdef SKIP_ASM
+void func_00155AA8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("be/beintaggression", func_00155AB0);
 

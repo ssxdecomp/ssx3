@@ -162,7 +162,13 @@ INCLUDE_ASM("ai/ai", func_0012E778);
 
 INCLUDE_ASM("ai/ai", func_0012E980);
 
-INCLUDE_ASM("ai/ai", func_0012E9B0);
+//100%
+INCLUDE_ASM("ai/ai", func_0012E9B0__FPv);
+#ifdef SKIP_ASM
+void func_0012E9B0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/ai", func_0012E9B8);
 
@@ -316,7 +322,13 @@ INCLUDE_ASM("ai/ai", func_00136920);
 
 INCLUDE_ASM("ai/ai", func_00136958);
 
-INCLUDE_ASM("ai/ai", func_00136978);
+//100%
+INCLUDE_ASM("ai/ai", func_00136978__FPv);
+#ifdef SKIP_ASM
+void func_00136978(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/ai", func_00136980);
 

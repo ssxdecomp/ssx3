@@ -6,7 +6,13 @@ INCLUDE_ASM("main/ssxappdtor", func_00243A40);
 
 INCLUDE_ASM("main/ssxappdtor", func_00243A80);
 
-INCLUDE_ASM("main/ssxappdtor", func_00243AB0);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243AB0__FPv);
+#ifdef SKIP_ASM
+void func_00243AB0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_00243AE8);
 
@@ -18,21 +24,70 @@ INCLUDE_ASM("main/ssxappdtor", func_00243C00);
 
 INCLUDE_ASM("main/ssxappdtor", func_00243C80);
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CB0);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CB0__FPv);
+#ifdef SKIP_ASM
+void func_00243CB0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CB8);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CB8__FPv);
+#ifdef SKIP_ASM
+void func_00243CB8(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CC0);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CC0__FPv);
+#ifdef SKIP_ASM
+void func_00243CC0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CC8);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CC8__FPv);
+#ifdef SKIP_ASM
+void func_00243CC8(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CD0);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CD0__FPv);
+#ifdef SKIP_ASM
+void func_00243CD0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CD8);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CD8__FPv);
+#ifdef SKIP_ASM
+void func_00243CD8(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CE0);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CE0__FPv);
+#ifdef SKIP_ASM
+int func_00243CE0(void* self)
+{
+    return 0x1;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00243CE8);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00243CE8__FPv);
+#ifdef SKIP_ASM
+void func_00243CE8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_00243CF0);
 
@@ -72,11 +127,32 @@ INCLUDE_ASM("main/ssxappdtor", func_002443C0);
 
 INCLUDE_ASM("main/ssxappdtor", func_002443F0);
 
-INCLUDE_ASM("main/ssxappdtor", func_002443F8);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_002443F8__FPv);
+#ifdef SKIP_ASM
+int func_002443F8(void* self)
+{
+    return 0x1;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244400);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244400__FPvi);
+#ifdef SKIP_ASM
+void func_00244400(void* self, int val)
+{
+    *(int*)((char*)self + 0x0) = val;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244408);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244408__FPvi);
+#ifdef SKIP_ASM
+void func_00244408(void* self, int val)
+{
+    *(int*)((char*)self + 0x4) = val;
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_00244410);
 
@@ -86,19 +162,63 @@ INCLUDE_ASM("main/ssxappdtor", func_002444A8);
 
 INCLUDE_ASM("main/ssxappdtor", func_002444F0);
 
-INCLUDE_ASM("main/ssxappdtor", func_00244528);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244528__FPv);
+#ifdef SKIP_ASM
+void func_00244528(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244530);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244530__FPv);
+#ifdef SKIP_ASM
+int func_00244530(void* self)
+{
+    return 0x1;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244538);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244538__FPv);
+#ifdef SKIP_ASM
+void func_00244538(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244540);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244540__FPv);
+#ifdef SKIP_ASM
+void func_00244540(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244548);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244548__FPv);
+#ifdef SKIP_ASM
+int func_00244548(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244550);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244550__FPv);
+#ifdef SKIP_ASM
+void func_00244550(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244558);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244558__FPv);
+#ifdef SKIP_ASM
+void func_00244558(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_00244560);
 
@@ -108,9 +228,21 @@ INCLUDE_ASM("main/ssxappdtor", func_002445C0);
 
 INCLUDE_ASM("main/ssxappdtor", func_002445F0);
 
-INCLUDE_ASM("main/ssxappdtor", func_00244620);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244620__FPv);
+#ifdef SKIP_ASM
+void func_00244620(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244628);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244628__FPv);
+#ifdef SKIP_ASM
+void func_00244628(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_00244630);
 
@@ -124,15 +256,49 @@ INCLUDE_ASM("main/ssxappdtor", func_002446F0);
 
 INCLUDE_ASM("main/ssxappdtor", func_00244720);
 
-INCLUDE_ASM("main/ssxappdtor", func_00244860);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244860__FPv);
+#ifdef SKIP_ASM
+void func_00244860(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244868);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244868__FPv);
+#ifdef SKIP_ASM
+int func_00244868(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244870);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244870__FPv);
+#ifdef SKIP_ASM
+int func_00244870(void* self)
+{
+    return 0x1;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244878);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244878__FPv);
+#ifdef SKIP_ASM
+int func_00244878(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("main/ssxappdtor", func_00244880);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00244880__FPv);
+#ifdef SKIP_ASM
+void func_00244880(void* self)
+{
+    *(int*)((char*)self + 0x40) = 0;
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_002448E0);
 
@@ -166,7 +332,13 @@ INCLUDE_ASM("main/ssxappdtor", func_00245600);
 
 INCLUDE_ASM("main/ssxappdtor", func_00245628);
 
-INCLUDE_ASM("main/ssxappdtor", func_00245690);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00245690__FPv);
+#ifdef SKIP_ASM
+void func_00245690(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_00245698);
 
@@ -174,7 +346,13 @@ INCLUDE_ASM("main/ssxappdtor", func_00245708);
 
 INCLUDE_ASM("main/ssxappdtor", func_00245730);
 
-INCLUDE_ASM("main/ssxappdtor", func_002458B0);
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_002458B0__FPv);
+#ifdef SKIP_ASM
+void func_002458B0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_002458B8);
 

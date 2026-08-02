@@ -100,9 +100,21 @@ INCLUDE_ASM("be/beintmission", func_00154760);
 
 INCLUDE_ASM("be/beintmission", func_001547A0);
 
-INCLUDE_ASM("be/beintmission", func_001547D8);
+//100%
+INCLUDE_ASM("be/beintmission", func_001547D8__FPv);
+#ifdef SKIP_ASM
+void func_001547D8(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("be/beintmission", func_001547E0);
+//100%
+INCLUDE_ASM("be/beintmission", func_001547E0__FPv);
+#ifdef SKIP_ASM
+void func_001547E0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("be/beintmission", func_001547E8);
 

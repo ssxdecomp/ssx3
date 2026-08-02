@@ -88,7 +88,13 @@ INCLUDE_ASM("render/particle", func_00375990);
 
 INCLUDE_ASM("render/particle", func_003759E8);
 
-INCLUDE_ASM("render/particle", func_00375A00);
+//100%
+INCLUDE_ASM("render/particle", func_00375A00__FPv);
+#ifdef SKIP_ASM
+void func_00375A00(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_00375A08);
 

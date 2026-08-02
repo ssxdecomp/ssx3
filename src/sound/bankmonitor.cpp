@@ -42,7 +42,14 @@ INCLUDE_ASM("sound/bankmonitor", func_002AD970);
 
 INCLUDE_ASM("sound/bankmonitor", func_002AD980);
 
-INCLUDE_ASM("sound/bankmonitor", func_002AD990);
+//100%
+INCLUDE_ASM("sound/bankmonitor", func_002AD990__FPv);
+#ifdef SKIP_ASM
+void func_002AD990(void* self)
+{
+    *(int*)((char*)self + 0x0) = 0;
+}
+#endif
 
 INCLUDE_ASM("sound/bankmonitor", func_002AD998);
 
@@ -278,7 +285,13 @@ INCLUDE_ASM("sound/bankmonitor", func_002B3EE8);
 
 INCLUDE_ASM("sound/bankmonitor", func_002B3FE8);
 
-INCLUDE_ASM("sound/bankmonitor", func_002B4060);
+//100%
+INCLUDE_ASM("sound/bankmonitor", func_002B4060__FPv);
+#ifdef SKIP_ASM
+void func_002B4060(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("sound/bankmonitor", func_002B4070);
 
@@ -322,7 +335,14 @@ INCLUDE_ASM("sound/bankmonitor", func_002B4A20);
 
 INCLUDE_ASM("sound/bankmonitor", func_002B4AA0);
 
-INCLUDE_ASM("sound/bankmonitor", func_002B4AE8);
+//100%
+INCLUDE_ASM("sound/bankmonitor", func_002B4AE8__FPv);
+#ifdef SKIP_ASM
+int func_002B4AE8(void* self)
+{
+    return *(int*)((char*)self + 0x5434);
+}
+#endif
 
 INCLUDE_ASM("sound/bankmonitor", func_002B4AF0);
 

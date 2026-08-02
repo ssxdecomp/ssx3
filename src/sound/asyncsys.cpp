@@ -46,7 +46,14 @@ INCLUDE_ASM("sound/asyncsys", func_0028B1F8);
 
 INCLUDE_ASM("sound/asyncsys", func_0028B210);
 
-INCLUDE_ASM("sound/asyncsys", func_0028B240);
+//100%
+INCLUDE_ASM("sound/asyncsys", func_0028B240__FPv);
+#ifdef SKIP_ASM
+int func_0028B240(void* self)
+{
+    return 0x3C;
+}
+#endif
 
 INCLUDE_ASM("sound/asyncsys", func_0028B248);
 

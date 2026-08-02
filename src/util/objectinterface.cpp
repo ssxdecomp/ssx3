@@ -29,9 +29,21 @@ INCLUDE_ASM("util/objectinterface", func_002D2058);
 
 INCLUDE_ASM("util/objectinterface", func_002D2100);
 
-INCLUDE_ASM("util/objectinterface", func_002D21B0);
+//100%
+INCLUDE_ASM("util/objectinterface", func_002D21B0__FPv);
+#ifdef SKIP_ASM
+void func_002D21B0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("util/objectinterface", func_002D21B8);
+//100%
+INCLUDE_ASM("util/objectinterface", func_002D21B8__FPv);
+#ifdef SKIP_ASM
+void func_002D21B8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("util/objectinterface", func_002D21C0);
 

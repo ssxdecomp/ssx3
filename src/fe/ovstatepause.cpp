@@ -16,7 +16,14 @@ INCLUDE_ASM("fe/ovstatepause", func_001FAB08);
 
 INCLUDE_ASM("fe/ovstatepause", cOVState_PAUSE_ONLINE_ERROR_onCreateScreen);
 
-INCLUDE_ASM("fe/ovstatepause", func_001FAF08);
+//100%
+INCLUDE_ASM("fe/ovstatepause", func_001FAF08__FPv);
+#ifdef SKIP_ASM
+int func_001FAF08(void* self)
+{
+    return 0x1;
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatepause", func_001FAF10);
 

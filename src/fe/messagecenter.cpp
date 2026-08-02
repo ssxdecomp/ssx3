@@ -40,7 +40,14 @@ INCLUDE_ASM("fe/messagecenter", func_00198A88);
 
 INCLUDE_ASM("fe/messagecenter", func_00198AB8);
 
-INCLUDE_ASM("fe/messagecenter", func_00198AE8);
+//100%
+INCLUDE_ASM("fe/messagecenter", func_00198AE8__FPv);
+#ifdef SKIP_ASM
+int func_00198AE8(void* self)
+{
+    return 0x1388;
+}
+#endif
 
 INCLUDE_ASM("fe/messagecenter", func_00198AF0);
 

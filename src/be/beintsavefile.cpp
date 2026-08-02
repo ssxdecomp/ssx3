@@ -38,7 +38,14 @@ INCLUDE_ASM("be/beintsavefile", func_00152728);
 
 INCLUDE_ASM("be/beintsavefile", func_00152758);
 
-INCLUDE_ASM("be/beintsavefile", func_00152948);
+//100%
+INCLUDE_ASM("be/beintsavefile", func_00152948__FPv);
+#ifdef SKIP_ASM
+int func_00152948(void* self)
+{
+    return 0xCCC;
+}
+#endif
 
 INCLUDE_ASM("be/beintsavefile", func_00152950);
 

@@ -6,7 +6,13 @@ INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8448);
 
 INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F85C0);
 
-INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8720);
+//100%
+INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8720__FPv);
+#ifdef SKIP_ASM
+void func_001F8720(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8728);
 
@@ -16,7 +22,14 @@ INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8908);
 
 INCLUDE_ASM("fe/ovtemplatepausemenu", cOVTemplate_PauseMenu_onWidgetEvent);
 
-INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8DF0);
+//100%
+INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8DF0__FPv);
+#ifdef SKIP_ASM
+int func_001F8DF0(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("fe/ovtemplatepausemenu", func_001F8DF8);
 

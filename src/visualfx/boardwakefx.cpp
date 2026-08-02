@@ -56,7 +56,14 @@ INCLUDE_ASM("visualfx/boardwakefx", func_002E26B8);
 
 INCLUDE_ASM("visualfx/boardwakefx", func_002E27E8);
 
-INCLUDE_ASM("visualfx/boardwakefx", func_002E2860);
+//100%
+INCLUDE_ASM("visualfx/boardwakefx", func_002E2860__FPv);
+#ifdef SKIP_ASM
+void* func_002E2860(void* self)
+{
+    return self;
+}
+#endif
 
 INCLUDE_ASM("visualfx/boardwakefx", func_002E2868);
 

@@ -10,7 +10,13 @@ INCLUDE_ASM("ai/motion/wipeoutmotion", func_00136E98);
 
 INCLUDE_ASM("ai/motion/wipeoutmotion", func_00136EE0);
 
-INCLUDE_ASM("ai/motion/wipeoutmotion", func_00136F28);
+//100%
+INCLUDE_ASM("ai/motion/wipeoutmotion", func_00136F28__FPv);
+#ifdef SKIP_ASM
+void func_00136F28(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/motion/wipeoutmotion", func_00136F30);
 

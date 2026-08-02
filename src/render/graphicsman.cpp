@@ -10,7 +10,13 @@ INCLUDE_ASM("render/graphicsman", func_00369CB0);
 
 INCLUDE_ASM("render/graphicsman", func_00369CF8);
 
-INCLUDE_ASM("render/graphicsman", func_00369FF0);
+//100%
+INCLUDE_ASM("render/graphicsman", func_00369FF0__FPv);
+#ifdef SKIP_ASM
+void func_00369FF0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("render/graphicsman", func_00369FF8);
 

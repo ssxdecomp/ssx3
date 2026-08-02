@@ -103,7 +103,14 @@ INCLUDE_ASM("intersect/riderspheretree", func_0032E4D0);
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032E5E8);
 
-INCLUDE_ASM("intersect/riderspheretree", func_0032E688);
+//100%
+INCLUDE_ASM("intersect/riderspheretree", func_0032E688__FPv);
+#ifdef SKIP_ASM
+int func_0032E688(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032E690);
 

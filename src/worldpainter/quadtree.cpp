@@ -42,7 +42,13 @@ INCLUDE_ASM("worldpainter/quadtree", func_002C2868);
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C2F18);
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C3FA0);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C3FA0__FPv);
+#ifdef SKIP_ASM
+void func_002C3FA0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C3FA8);
 
@@ -66,9 +72,23 @@ INCLUDE_ASM("worldpainter/quadtree", func_002C4388);
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C43E0);
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C4400);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C4400__FPv);
+#ifdef SKIP_ASM
+int func_002C4400(void* self)
+{
+    return *(int*)((char*)self + 0x490);
+}
+#endif
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C4408);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C4408__FPvi);
+#ifdef SKIP_ASM
+void func_002C4408(void* self, int val)
+{
+    *(int*)((char*)self + 0x24) = val;
+}
+#endif
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C4410);
 
@@ -142,7 +162,13 @@ INCLUDE_ASM("worldpainter/quadtree", func_002C54D0);
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C5500);
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C5520);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C5520__FPv);
+#ifdef SKIP_ASM
+void func_002C5520(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C5528);
 
@@ -176,27 +202,76 @@ INCLUDE_ASM("worldpainter/quadtree", func_002C66B8);
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C66D8);
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C6700);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C6700__FPv);
+#ifdef SKIP_ASM
+int func_002C6700(void* self)
+{
+    return 0x1;
+}
+#endif
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C6708);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C6708__FPv);
+#ifdef SKIP_ASM
+int func_002C6708(void* self)
+{
+    return 0x1;
+}
+#endif
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C6710);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C6710__FPv);
+#ifdef SKIP_ASM
+int func_002C6710(void* self)
+{
+    return 0x1;
+}
+#endif
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C6718);
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C6748);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C6748__FPv);
+#ifdef SKIP_ASM
+int func_002C6748(void* self)
+{
+    return 0x4000;
+}
+#endif
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C6750);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C6750__FPv);
+#ifdef SKIP_ASM
+int func_002C6750(void* self)
+{
+    return -0x1;
+}
+#endif
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C6758);
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C6778);
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C67A8);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C67A8__FPv);
+#ifdef SKIP_ASM
+int func_002C67A8(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C67B0);
 
-INCLUDE_ASM("worldpainter/quadtree", func_002C67E0);
+//100%
+INCLUDE_ASM("worldpainter/quadtree", func_002C67E0__FPv);
+#ifdef SKIP_ASM
+int func_002C67E0(void* self)
+{
+    return -0x1;
+}
+#endif
 
 INCLUDE_ASM("worldpainter/quadtree", func_002C67E8);
 

@@ -122,7 +122,14 @@ INCLUDE_ASM("ai/computer", func_00112588);
 
 INCLUDE_ASM("ai/computer", func_001125A8);
 
-INCLUDE_ASM("ai/computer", func_001125B8);
+//100%
+INCLUDE_ASM("ai/computer", func_001125B8__FPv);
+#ifdef SKIP_ASM
+int func_001125B8(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("ai/computer", func_001125C0);
 
@@ -134,9 +141,23 @@ INCLUDE_ASM("ai/computer", func_00112D58);
 
 INCLUDE_ASM("ai/computer", func_00112FB0);
 
-INCLUDE_ASM("ai/computer", func_00113128);
+//100%
+INCLUDE_ASM("ai/computer", func_00113128__FPv);
+#ifdef SKIP_ASM
+float func_00113128(void* self)
+{
+    return *(float*)((char*)self + 0x4D0);
+}
+#endif
 
-INCLUDE_ASM("ai/computer", func_00113130);
+//100%
+INCLUDE_ASM("ai/computer", func_00113130__FPv);
+#ifdef SKIP_ASM
+float func_00113130(void* self)
+{
+    return *(float*)((char*)self + 0x4D8);
+}
+#endif
 
 INCLUDE_ASM("ai/computer", func_00113138);
 

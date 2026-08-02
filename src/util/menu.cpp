@@ -28,9 +28,21 @@ INCLUDE_ASM("util/menu", func_002CA2B0);
 
 INCLUDE_ASM("util/menu", func_002CA320);
 
-INCLUDE_ASM("util/menu", func_002CA368);
+//100%
+INCLUDE_ASM("util/menu", func_002CA368__FPv);
+#ifdef SKIP_ASM
+void func_002CA368(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("util/menu", func_002CA370);
+//100%
+INCLUDE_ASM("util/menu", func_002CA370__FPv);
+#ifdef SKIP_ASM
+void func_002CA370(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CA378);
 
@@ -70,9 +82,22 @@ INCLUDE_ASM("util/menu", func_002CABE0);
 
 INCLUDE_ASM("util/menu", func_002CACC0);
 
-INCLUDE_ASM("util/menu", func_002CAD48);
+//100%
+INCLUDE_ASM("util/menu", func_002CAD48__FPv);
+#ifdef SKIP_ASM
+int func_002CAD48(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("util/menu", func_002CAD50);
+//100%
+INCLUDE_ASM("util/menu", func_002CAD50__FPv);
+#ifdef SKIP_ASM
+void func_002CAD50(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CAD58);
 
@@ -110,15 +135,43 @@ INCLUDE_ASM("util/menu", func_002CC070);
 
 INCLUDE_ASM("util/menu", func_002CC098);
 
-INCLUDE_ASM("util/menu", func_002CC0B8);
+//100%
+INCLUDE_ASM("util/menu", func_002CC0B8__FPvi);
+#ifdef SKIP_ASM
+void func_002CC0B8(void* self, int val)
+{
+    *(int*)((char*)self + 0x54) = val;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CC0C0);
 
-INCLUDE_ASM("util/menu", func_002CC248);
+//100%
+INCLUDE_ASM("util/menu", func_002CC248__FPv);
+#ifdef SKIP_ASM
+int func_002CC248(void* self)
+{
+    return *(int*)((char*)self + 0x48);
+}
+#endif
 
-INCLUDE_ASM("util/menu", func_002CC250);
+//100%
+INCLUDE_ASM("util/menu", func_002CC250__FPv);
+#ifdef SKIP_ASM
+int func_002CC250(void* self)
+{
+    return *(int*)((char*)self + 0x4C);
+}
+#endif
 
-INCLUDE_ASM("util/menu", func_002CC258);
+//100%
+INCLUDE_ASM("util/menu", func_002CC258__FPv);
+#ifdef SKIP_ASM
+int func_002CC258(void* self)
+{
+    return *(int*)((char*)self + 0x50);
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CC260);
 
@@ -202,7 +255,14 @@ cNullMenuItem* cNullMenuItem_cNullMenuItem(cNullMenuItem* self, void* text)
 }
 #endif
 
-INCLUDE_ASM("util/menu", func_002CD2E8);
+//100%
+INCLUDE_ASM("util/menu", func_002CD2E8__FPv);
+#ifdef SKIP_ASM
+int func_002CD2E8(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CD2F0);
 
@@ -228,11 +288,24 @@ cSpaceMenuItem* cSpaceMenuItem_cSpaceMenuItem(cSpaceMenuItem* self, void* text)
 }
 #endif
 
-INCLUDE_ASM("util/menu", func_002CD398);
+//100%
+INCLUDE_ASM("util/menu", func_002CD398__FPv);
+#ifdef SKIP_ASM
+int func_002CD398(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CD3A0);
 
-INCLUDE_ASM("util/menu", func_002CD3F0);
+//100%
+INCLUDE_ASM("util/menu", func_002CD3F0__FPv);
+#ifdef SKIP_ASM
+void func_002CD3F0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CD578);
 
@@ -321,7 +394,14 @@ INCLUDE_ASM("util/menu", func_002CFEF8);
 
 INCLUDE_ASM("util/menu", cRGBTitleMenuItem_cRGBTitleMenuItem);
 
-INCLUDE_ASM("util/menu", func_002CFF80);
+//100%
+INCLUDE_ASM("util/menu", func_002CFF80__FPv);
+#ifdef SKIP_ASM
+int func_002CFF80(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CFF88);
 
@@ -331,7 +411,14 @@ INCLUDE_ASM("util/menu", cARGBMenuItem_cARGBMenuItem);
 
 INCLUDE_ASM("util/menu", func_002D03D0);
 
-INCLUDE_ASM("util/menu", func_002D0448);
+//100%
+INCLUDE_ASM("util/menu", func_002D0448__FPv);
+#ifdef SKIP_ASM
+int func_002D0448(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002D0450);
 

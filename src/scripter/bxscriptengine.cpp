@@ -64,7 +64,14 @@ INCLUDE_ASM("scripter/bxscriptengine", func_00282CD0);
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282D30);
 
-INCLUDE_ASM("scripter/bxscriptengine", func_00282DA8);
+//100%
+INCLUDE_ASM("scripter/bxscriptengine", func_00282DA8__FPvi);
+#ifdef SKIP_ASM
+void func_00282DA8(void* self, int val)
+{
+    *(int*)((char*)self + 0x10) = val;
+}
+#endif
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282DB0);
 

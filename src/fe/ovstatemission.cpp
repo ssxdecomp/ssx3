@@ -2,15 +2,33 @@
 
 INCLUDE_ASM("fe/ovstatemission", cFEStateMPCircuit_onCreateScreen);
 
-INCLUDE_ASM("fe/ovstatemission", func_001A3300);
+//100%
+INCLUDE_ASM("fe/ovstatemission", func_001A3300__FPv);
+#ifdef SKIP_ASM
+void func_001A3300(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatemission", func_001A3308);
 
 INCLUDE_ASM("fe/ovstatemission", func_001A33A0);
 
-INCLUDE_ASM("fe/ovstatemission", func_001A34A0);
+//100%
+INCLUDE_ASM("fe/ovstatemission", func_001A34A0__FPv);
+#ifdef SKIP_ASM
+void func_001A34A0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("fe/ovstatemission", func_001A34A8);
+//100%
+INCLUDE_ASM("fe/ovstatemission", func_001A34A8__FPv);
+#ifdef SKIP_ASM
+void func_001A34A8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatemission", func_001A3590);
 

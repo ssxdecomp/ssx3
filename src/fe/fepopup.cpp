@@ -12,7 +12,14 @@ INCLUDE_ASM("fe/fepopup", func_001C5B88);
 
 INCLUDE_ASM("fe/fepopup", cScreenPopup_onGainTransition);
 
-INCLUDE_ASM("fe/fepopup", func_001C5DD0);
+//100%
+INCLUDE_ASM("fe/fepopup", func_001C5DD0__FPv);
+#ifdef SKIP_ASM
+int func_001C5DD0(void* self)
+{
+    return 0x1;
+}
+#endif
 
 INCLUDE_ASM("fe/fepopup", func_001C5DD8);
 

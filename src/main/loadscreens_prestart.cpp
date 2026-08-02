@@ -16,9 +16,21 @@ INCLUDE_ASM("main/loadscreens_prestart", func_00232650);
 
 INCLUDE_ASM("main/loadscreens_prestart", func_002326D8);
 
-INCLUDE_ASM("main/loadscreens_prestart", func_00232710);
+//100%
+INCLUDE_ASM("main/loadscreens_prestart", func_00232710__FPv);
+#ifdef SKIP_ASM
+void func_00232710(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("main/loadscreens_prestart", func_00232718);
+//100%
+INCLUDE_ASM("main/loadscreens_prestart", func_00232718__FPv);
+#ifdef SKIP_ASM
+void func_00232718(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("main/loadscreens_prestart", func_00232720);
 

@@ -152,7 +152,14 @@ INCLUDE_ASM("bx/bxstringctor", func_00269ED8);
 
 INCLUDE_ASM("bx/bxstringctor", func_00269F18);
 
-INCLUDE_ASM("bx/bxstringctor", func_0026A068);
+//100%
+INCLUDE_ASM("bx/bxstringctor", func_0026A068__FPv);
+#ifdef SKIP_ASM
+void func_0026A068(void* self)
+{
+    *(int*)((char*)self + 0x38) = 0;
+}
+#endif
 
 INCLUDE_ASM("bx/bxstringctor", func_0026A070);
 
@@ -184,7 +191,13 @@ INCLUDE_ASM("bx/bxstringctor", func_0026AC88);
 
 INCLUDE_ASM("bx/bxstringctor", func_0026AD70);
 
-INCLUDE_ASM("bx/bxstringctor", func_0026ADA0);
+//100%
+INCLUDE_ASM("bx/bxstringctor", func_0026ADA0__FPv);
+#ifdef SKIP_ASM
+void func_0026ADA0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("bx/bxstringctor", func_0026ADF0);
 

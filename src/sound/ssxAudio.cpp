@@ -118,7 +118,13 @@ INCLUDE_ASM("sound/ssxAudio", func_00289520);
 
 INCLUDE_ASM("sound/ssxAudio", func_00289650);
 
-INCLUDE_ASM("sound/ssxAudio", func_00289680);
+//100%
+INCLUDE_ASM("sound/ssxAudio", func_00289680__FPv);
+#ifdef SKIP_ASM
+void func_00289680(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("sound/ssxAudio", func_00289688);
 
@@ -130,7 +136,13 @@ INCLUDE_ASM("sound/ssxAudio", func_002899E8);
 
 INCLUDE_ASM("sound/ssxAudio", func_002899F8);
 
-INCLUDE_ASM("sound/ssxAudio", func_00289AF0);
+//100%
+INCLUDE_ASM("sound/ssxAudio", func_00289AF0__FPv);
+#ifdef SKIP_ASM
+void func_00289AF0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("sound/ssxAudio", func_00289AF8);
 

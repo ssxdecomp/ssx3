@@ -18,7 +18,13 @@ INCLUDE_ASM("ai/control/handplantcontrol", func_001399A8);
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001399E0);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00139A18);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00139A18__FPv);
+#ifdef SKIP_ASM
+void func_00139A18(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_00139A20);
 
@@ -90,53 +96,182 @@ INCLUDE_ASM("ai/control/handplantcontrol", func_00140680);
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001406B0);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001406C0);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001406C0__FPv);
+#ifdef SKIP_ASM
+int func_001406C0(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001406C8);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001406C8__FPv);
+#ifdef SKIP_ASM
+void func_001406C8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001406D0);
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001406E0);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001406F0);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001406F0__FPv);
+#ifdef SKIP_ASM
+int func_001406F0(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001406F8);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001406F8__FPv);
+#ifdef SKIP_ASM
+int func_001406F8(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140700);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140700__FPv);
+#ifdef SKIP_ASM
+int func_00140700(void* self)
+{
+    return 0;
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140708);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140708__FPv);
+#ifdef SKIP_ASM
+void func_00140708(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140710);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140710__FPv);
+#ifdef SKIP_ASM
+void func_00140710(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140718);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140718__FPv);
+#ifdef SKIP_ASM
+void func_00140718(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140720);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140720__FPv);
+#ifdef SKIP_ASM
+void func_00140720(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140728);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140728__FPv);
+#ifdef SKIP_ASM
+void func_00140728(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140730);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140730__FPv);
+#ifdef SKIP_ASM
+void func_00140730(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_00140738);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001408F0);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001408F0__FPv);
+#ifdef SKIP_ASM
+void* func_001408F0(void* self)
+{
+    return (char*)self + 0x110;
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140910);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140910__FPv);
+#ifdef SKIP_ASM
+void* func_00140910(void* self)
+{
+    return (char*)self + 0x1E0;
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140B80);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140B80__FPv);
+#ifdef SKIP_ASM
+int func_00140B80(void* self)
+{
+    return *(int*)((char*)self + 0x86C);
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140BC0);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140BC0__FPv);
+#ifdef SKIP_ASM
+int func_00140BC0(void* self)
+{
+    return *(int*)((char*)self + 0x874);
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_00140BC8);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140C68);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140C68__FPv);
+#ifdef SKIP_ASM
+void func_00140C68(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140C70);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140C70__FPv);
+#ifdef SKIP_ASM
+void func_00140C70(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140C78);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140C78__FPv);
+#ifdef SKIP_ASM
+void func_00140C78(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140C80);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140C80__FPv);
+#ifdef SKIP_ASM
+void func_00140C80(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00140CE0);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00140CE0__FPv);
+#ifdef SKIP_ASM
+void* func_00140CE0(void* self)
+{
+    return self;
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_00140D80);
 
@@ -182,7 +317,13 @@ INCLUDE_ASM("ai/control/handplantcontrol", func_001428F0);
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_00142A50);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00144068);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00144068__FPv);
+#ifdef SKIP_ASM
+void func_00144068(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001441A0);
 

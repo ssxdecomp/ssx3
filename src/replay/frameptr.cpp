@@ -40,7 +40,13 @@ INCLUDE_ASM("replay/frameptr", func_0026ECD8);
 
 INCLUDE_ASM("replay/frameptr", func_0026ED28);
 
-INCLUDE_ASM("replay/frameptr", func_0026ED88);
+//100%
+INCLUDE_ASM("replay/frameptr", func_0026ED88__FPv);
+#ifdef SKIP_ASM
+void func_0026ED88(void* self)
+{
+}
+#endif
 
 //100%
 INCLUDE_ASM("replay/frameptr", cReplayFramePtr_getFrameBlock__Fv);
@@ -72,9 +78,22 @@ INCLUDE_ASM("replay/frameptr", func_0026F228);
 
 INCLUDE_ASM("replay/frameptr", func_0026F428);
 
-INCLUDE_ASM("replay/frameptr", func_0026F498);
+//100%
+INCLUDE_ASM("replay/frameptr", func_0026F498__FPv);
+#ifdef SKIP_ASM
+void func_0026F498(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("replay/frameptr", func_0026F4A0);
+//100%
+INCLUDE_ASM("replay/frameptr", func_0026F4A0__FPvi);
+#ifdef SKIP_ASM
+void func_0026F4A0(void* self, int val)
+{
+    *(int*)((char*)self + 0x0) = val;
+}
+#endif
 
 INCLUDE_ASM("replay/frameptr", func_0026F4A8);
 
@@ -84,7 +103,14 @@ INCLUDE_ASM("replay/frameptr", func_0026F7F8);
 
 INCLUDE_ASM("replay/frameptr", func_0026F850);
 
-INCLUDE_ASM("replay/frameptr", func_0026F898);
+//100%
+INCLUDE_ASM("replay/frameptr", func_0026F898__FPvi);
+#ifdef SKIP_ASM
+void func_0026F898(void* self, int val)
+{
+    *(int*)((char*)self + 0x28) = val;
+}
+#endif
 
 INCLUDE_ASM("replay/frameptr", func_0026F8A0);
 

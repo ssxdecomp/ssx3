@@ -76,15 +76,39 @@ INCLUDE_ASM("fe/fememcardcallbacks", func_001D9308);
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D9368);
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D93A8);
+//100%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D93A8__FPv);
+#ifdef SKIP_ASM
+void func_001D93A8(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D93B0);
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D93C0);
+//100%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D93C0__FPv);
+#ifdef SKIP_ASM
+void func_001D93C0(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D93C8);
+//100%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D93C8__FPv);
+#ifdef SKIP_ASM
+void func_001D93C8(void* self)
+{
+}
+#endif
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D93D0);
+//100%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D93D0__FPv);
+#ifdef SKIP_ASM
+void func_001D93D0(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D93D8);
 
@@ -96,7 +120,13 @@ INCLUDE_ASM("fe/fememcardcallbacks", func_001D97E0);
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D9818);
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D9878);
+//100%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D9878__FPv);
+#ifdef SKIP_ASM
+void func_001D9878(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D9880);
 

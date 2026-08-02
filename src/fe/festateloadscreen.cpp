@@ -20,7 +20,13 @@ INCLUDE_ASM("fe/festateloadscreen", func_00233B28);
 
 INCLUDE_ASM("fe/festateloadscreen", func_00233B60);
 
-INCLUDE_ASM("fe/festateloadscreen", func_00233B88);
+//100%
+INCLUDE_ASM("fe/festateloadscreen", func_00233B88__FPv);
+#ifdef SKIP_ASM
+void func_00233B88(void* self)
+{
+}
+#endif
 
 INCLUDE_ASM("fe/festateloadscreen", func_00233B90);
 

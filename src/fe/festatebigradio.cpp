@@ -2,7 +2,14 @@
 
 INCLUDE_ASM("fe/festatebigradio", cFEStateBraggingRights_onCreateScreen);
 
-INCLUDE_ASM("fe/festatebigradio", func_00193310);
+//100%
+INCLUDE_ASM("fe/festatebigradio", func_00193310__FPv);
+#ifdef SKIP_ASM
+int func_00193310(void* self)
+{
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("fe/festatebigradio", func_00193318);
 
