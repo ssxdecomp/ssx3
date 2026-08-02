@@ -14,7 +14,16 @@ INCLUDE_ASM("ui/uimenu", func_0039B7B0);
 
 INCLUDE_ASM("ui/uimenu", cUIMenu_setSelectedByIndex);
 
-INCLUDE_ASM("ui/uimenu", func_0039BAB0);
+extern "C" void* func_0039FE00(void* self);
+
+//100%
+INCLUDE_ASM("ui/uimenu", func_0039BAB0__FPv);
+#ifdef SKIP_ASM
+void* func_0039BAB0(void* self)
+{
+    return func_0039FE00(self);
+}
+#endif
 
 INCLUDE_ASM("ui/uimenu", func_0039BAD0);
 

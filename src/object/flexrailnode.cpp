@@ -52,7 +52,16 @@ INCLUDE_ASM("object/flexrailnode", func_0034AE68);
 
 INCLUDE_ASM("object/flexrailnode", func_0034AEA0);
 
-INCLUDE_ASM("object/flexrailnode", func_0034AEF8);
+extern "C" void* func_0034FE90(void* self);
+
+//100%
+INCLUDE_ASM("object/flexrailnode", func_0034AEF8__FPv);
+#ifdef SKIP_ASM
+void* func_0034AEF8(void* self)
+{
+    return func_0034FE90(self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/flexrailnode", func_0034AF18__FPv);

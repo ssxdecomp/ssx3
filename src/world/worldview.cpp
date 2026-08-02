@@ -52,7 +52,14 @@ INCLUDE_ASM("world/worldview", func_003A99D8);
 
 INCLUDE_ASM("world/worldview", func_003A9A98);
 
-INCLUDE_ASM("world/worldview", func_003A9AB0);
+//100%
+INCLUDE_ASM("world/worldview", func_003A9AB0__FPv);
+#ifdef SKIP_ASM
+int func_003A9AB0(void* self)
+{
+    return *(int*)((char*)*(void**)((char*)self + 0x4) + 0x10);
+}
+#endif
 
 INCLUDE_ASM("world/worldview", func_003A9D60);
 

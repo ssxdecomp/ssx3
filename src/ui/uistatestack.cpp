@@ -40,7 +40,14 @@ INCLUDE_ASM("ui/uistatestack", func_0039FE00);
 
 INCLUDE_ASM("ui/uistatestack", func_0039FEB8);
 
-INCLUDE_ASM("ui/uistatestack", func_0039FF50);
+//100%
+INCLUDE_ASM("ui/uistatestack", func_0039FF50__FPv);
+#ifdef SKIP_ASM
+int func_0039FF50(void* self)
+{
+    return *(int*)((char*)*(void**)((char*)*(void**)((char*)self + 0x5c) + 0xd0) + 0x10);
+}
+#endif
 
 INCLUDE_ASM("ui/uistatestack", func_0039FF60);
 

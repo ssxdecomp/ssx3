@@ -54,7 +54,16 @@ INCLUDE_ASM("fe/fememcardcallbacks", func_001D8530);
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D8670);
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D86A0);
+//63.33%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D86A0__FPv);
+#ifdef SKIP_ASM
+int func_001D86A0(void* self)
+{
+    int t0 = 6;
+    *(int*)((char*)self + 0x1c0) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D86B0);
 
@@ -62,7 +71,19 @@ INCLUDE_ASM("fe/fememcardcallbacks", func_001D8700);
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D8BE0);
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D8C38);
+//99.6%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D8C38__FPv);
+#ifdef SKIP_ASM
+int func_001D8C38(void* self)
+{
+    int t0 = 0;
+    int t1 = 1;
+    *(int*)((char*)self + 0x1dc) = t0;
+    *(int*)((char*)self + 0x1c0) = t1;
+    *(int*)((char*)self + 0x1a8) = t0;
+    return t1;
+}
+#endif
 
 INCLUDE_ASM("fe/fememcardcallbacks", cFEMemCard_onInputBegin);
 
@@ -84,7 +105,16 @@ void func_001D93A8(void* self)
 }
 #endif
 
-INCLUDE_ASM("fe/fememcardcallbacks", func_001D93B0);
+//63.33%
+INCLUDE_ASM("fe/fememcardcallbacks", func_001D93B0__FPv);
+#ifdef SKIP_ASM
+int func_001D93B0(void* self)
+{
+    int t0 = 1;
+    *(int*)((char*)self + 0x1c0) = t0;
+    return t0;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D93C0__FPv);

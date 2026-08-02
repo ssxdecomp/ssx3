@@ -58,7 +58,16 @@ INCLUDE_ASM("object/movenode", func_00355770);
 
 INCLUDE_ASM("object/movenode", func_00355858);
 
-INCLUDE_ASM("object/movenode", func_00355878);
+//100%
+INCLUDE_ASM("object/movenode", func_00355878__FPvT0);
+#ifdef SKIP_ASM
+float func_00355878(void* self, void* a1)
+{
+    float t0 = *(float*)((char*)a1 + 0x4);
+    *(float*)((char*)self + 0x24) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_00355888);
 
@@ -142,7 +151,16 @@ INCLUDE_ASM("object/movenode", func_00356DB0);
 
 INCLUDE_ASM("object/movenode", func_00356E60);
 
-INCLUDE_ASM("object/movenode", func_00356E98);
+extern "C" void* func_00356B30(void* self);
+
+//99.29%
+INCLUDE_ASM("object/movenode", func_00356E98__FPv);
+#ifdef SKIP_ASM
+void* func_00356E98(void* self)
+{
+    return func_00356B30(self);
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_00356EB8);
 
@@ -192,7 +210,14 @@ INCLUDE_ASM("object/movenode", func_00357918);
 
 INCLUDE_ASM("object/movenode", func_00357950);
 
-INCLUDE_ASM("object/movenode", func_003579A8);
+//99.29%
+INCLUDE_ASM("object/movenode", func_003579A8__FPv);
+#ifdef SKIP_ASM
+void* func_003579A8(void* self)
+{
+    return func_00356B30(self);
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_003579C8);
 

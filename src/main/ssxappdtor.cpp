@@ -312,7 +312,16 @@ INCLUDE_ASM("main/ssxappdtor", func_002449F8);
 
 INCLUDE_ASM("main/ssxappdtor", func_00244A18);
 
-INCLUDE_ASM("main/ssxappdtor", func_00245228);
+extern "C" void* func_0039E390(void* self);
+
+//100%
+INCLUDE_ASM("main/ssxappdtor", func_00245228__FPv);
+#ifdef SKIP_ASM
+void* func_00245228(void* self)
+{
+    return func_0039E390(self);
+}
+#endif
 
 INCLUDE_ASM("main/ssxappdtor", func_00245248);
 

@@ -99,7 +99,16 @@ INCLUDE_ASM("fe/ovstatepause", func_001FE968);
 
 INCLUDE_ASM("fe/ovstatepause", func_001FE9A8);
 
-INCLUDE_ASM("fe/ovstatepause", func_001FEC40);
+extern "C" void* func_001D58B8(void* self);
+
+//100%
+INCLUDE_ASM("fe/ovstatepause", func_001FEC40__FPv);
+#ifdef SKIP_ASM
+void* func_001FEC40(void* self)
+{
+    return func_001D58B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatepause", func_001FEC60);
 

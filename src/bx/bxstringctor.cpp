@@ -136,17 +136,43 @@ INCLUDE_ASM("bx/bxstringctor", func_00269C40);
 
 INCLUDE_ASM("bx/bxstringctor", func_00269CF0);
 
-INCLUDE_ASM("bx/bxstringctor", func_00269DA0);
+extern "C" void* func_00267E18(void* self);
+
+//100%
+INCLUDE_ASM("bx/bxstringctor", func_00269DA0__FPv);
+#ifdef SKIP_ASM
+void* func_00269DA0(void* self)
+{
+    return func_00267E18(self);
+}
+#endif
 
 INCLUDE_ASM("bx/bxstringctor", func_00269DC0);
 
-INCLUDE_ASM("bx/bxstringctor", func_00269E20);
+//100%
+INCLUDE_ASM("bx/bxstringctor", func_00269E20__FPv);
+#ifdef SKIP_ASM
+void* func_00269E20(void* self)
+{
+    return func_00267E18(self);
+}
+#endif
 
 INCLUDE_ASM("bx/bxstringctor", func_00269E40);
 
 INCLUDE_ASM("bx/bxstringctor", func_00269EA0);
 
-INCLUDE_ASM("bx/bxstringctor", func_00269EC0);
+//100%
+INCLUDE_ASM("bx/bxstringctor", func_00269EC0__FPv);
+#ifdef SKIP_ASM
+int func_00269EC0(void* self)
+{
+    int t0 = 0x2e;
+    *(int*)((char*)self + 0x38) = t0;
+    *(int*)((char*)self + 0x3c) = 1;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("bx/bxstringctor", func_00269ED8);
 

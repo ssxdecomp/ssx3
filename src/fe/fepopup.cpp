@@ -115,7 +115,16 @@ INCLUDE_ASM("fe/fepopup", func_001CA4F8);
 
 INCLUDE_ASM("fe/fepopup", func_001CA528);
 
-INCLUDE_ASM("fe/fepopup", func_001CA578);
+extern "C" void* func_0039E6B8(void* self);
+
+//100%
+INCLUDE_ASM("fe/fepopup", func_001CA578__FPv);
+#ifdef SKIP_ASM
+void* func_001CA578(void* self)
+{
+    return func_0039E6B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/fepopup", func_001CA598);
 

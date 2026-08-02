@@ -145,7 +145,16 @@ INCLUDE_ASM("ui/uiscreen", cUIScreen_getObjectByHashName);
 
 INCLUDE_ASM("ui/uiscreen", func_0039D8C0);
 
-INCLUDE_ASM("ui/uiscreen", func_0039D948);
+extern "C" void* func_0039FE00(void* self);
+
+//100%
+INCLUDE_ASM("ui/uiscreen", func_0039D948__FPv);
+#ifdef SKIP_ASM
+void* func_0039D948(void* self)
+{
+    return func_0039FE00(self);
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", func_0039D968);
 

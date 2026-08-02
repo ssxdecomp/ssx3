@@ -42,7 +42,15 @@ INCLUDE_ASM("input/inputparse", func_00324EC8);
 
 INCLUDE_ASM("input/inputparse", func_003250D8);
 
-INCLUDE_ASM("input/inputparse", func_00325250);
+//100%
+INCLUDE_ASM("input/inputparse", func_00325250__FPv);
+#ifdef SKIP_ASM
+void* func_00325250(void* self)
+{
+    *(int*)self = 0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("input/inputparse", func_00325260);
 
@@ -140,7 +148,19 @@ void func_00327808(void* self)
 }
 #endif
 
-INCLUDE_ASM("input/inputparse", func_00327810);
+//100%
+INCLUDE_ASM("input/inputparse", func_00327810__FPv);
+#ifdef SKIP_ASM
+void* func_00327810(void* self)
+{
+    int t0 = 0;
+    *(int*)self = t0;
+    *(int*)((char*)self + 0x4) = t0;
+    *(int*)((char*)self + 0x8) = t0;
+    *(int*)((char*)self + 0xc) = t0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("input/inputparse", func_00327828);
 

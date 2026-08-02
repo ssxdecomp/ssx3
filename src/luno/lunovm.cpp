@@ -36,7 +36,15 @@ INCLUDE_ASM("luno/lunovm", func_00225CA0);
 
 INCLUDE_ASM("luno/lunovm", func_00225DE8);
 
-INCLUDE_ASM("luno/lunovm", func_00226600);
+//96.0%
+INCLUDE_ASM("luno/lunovm", func_00226600__FPvii);
+#ifdef SKIP_ASM
+void func_00226600(void* self, int a1, int a2)
+{
+    *(int*)((char*)self + 0x4) = a2;
+    *(int*)self = a1;
+}
+#endif
 
 //100%
 INCLUDE_ASM("luno/lunovm", func_00226610__FPv);

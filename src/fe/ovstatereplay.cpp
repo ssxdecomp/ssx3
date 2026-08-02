@@ -12,7 +12,16 @@ INCLUDE_ASM("fe/ovstatereplay", cOVState_REPLAY_setupCameraName);
 
 INCLUDE_ASM("fe/ovstatereplay", cOVState_REPLAY_setupTicker);
 
-INCLUDE_ASM("fe/ovstatereplay", func_0020E8E0);
+extern "C" void* func_0039E6B8(void* self);
+
+//100%
+INCLUDE_ASM("fe/ovstatereplay", func_0020E8E0__FPv);
+#ifdef SKIP_ASM
+void* func_0020E8E0(void* self)
+{
+    return func_0039E6B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatereplay", func_0020E900);
 

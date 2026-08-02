@@ -95,7 +95,16 @@ void func_0038F7F8(void* self)
 }
 #endif
 
-INCLUDE_ASM("render/lightman", func_0038F800);
+extern "C" void* func_002BB6B8(void* self);
+
+//100%
+INCLUDE_ASM("render/lightman", func_0038F800__FPv);
+#ifdef SKIP_ASM
+void* func_0038F800(void* self)
+{
+    return func_002BB6B8(self);
+}
+#endif
 
 INCLUDE_ASM("render/lightman", func_0038F930);
 

@@ -13,7 +13,15 @@ void tCameraTrigger__tCameraTrigger(void* self, int flags)
 }
 #endif
 
-INCLUDE_ASM("camera/trigger/cameratriggervolumes", func_0016C5D0);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggervolumes", func_0016C5D0__FPv);
+#ifdef SKIP_ASM
+void* func_0016C5D0(void* self)
+{
+    *(int*)self = 0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggervolumes", func_0016C5E0);
 

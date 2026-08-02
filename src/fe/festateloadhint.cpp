@@ -42,7 +42,16 @@ INCLUDE_ASM("fe/festateloadhint", func_00245EC0);
 
 INCLUDE_ASM("fe/festateloadhint", func_00245F00);
 
-INCLUDE_ASM("fe/festateloadhint", func_00245F30);
+extern "C" void* func_0039E390(void* self);
+
+//100%
+INCLUDE_ASM("fe/festateloadhint", func_00245F30__FPv);
+#ifdef SKIP_ASM
+void* func_00245F30(void* self)
+{
+    return func_0039E390(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateloadhint", func_00245F50);
 

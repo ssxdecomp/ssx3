@@ -11,7 +11,16 @@ int func_00193310(void* self)
 }
 #endif
 
-INCLUDE_ASM("fe/festatebigradio", func_00193318);
+extern "C" void* func_0039E6B8(void* self);
+
+//100%
+INCLUDE_ASM("fe/festatebigradio", func_00193318__FPv);
+#ifdef SKIP_ASM
+void* func_00193318(void* self)
+{
+    return func_0039E6B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festatebigradio", func_00193338);
 

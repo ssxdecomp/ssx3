@@ -8,7 +8,16 @@ INCLUDE_ASM("main/gamemode", cGameModeMan_initGameMode);
 
 INCLUDE_ASM("main/gamemode", cGameModeMan_restartHeat);
 
-INCLUDE_ASM("main/gamemode", func_00238348);
+//100%
+INCLUDE_ASM("main/gamemode", func_00238348__FPv);
+#ifdef SKIP_ASM
+int func_00238348(void* self)
+{
+    int t0 = *(int*)((char*)self + 0x74);
+    *(int*)((char*)self + 0x70) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("main/gamemode", func_00238358);
 

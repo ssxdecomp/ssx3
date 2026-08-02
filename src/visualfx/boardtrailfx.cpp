@@ -36,7 +36,16 @@ INCLUDE_ASM("visualfx/boardtrailfx", func_002EAAE0);
 
 INCLUDE_ASM("visualfx/boardtrailfx", func_002EAC60);
 
-INCLUDE_ASM("visualfx/boardtrailfx", func_002EADC0);
+//99.33%
+INCLUDE_ASM("visualfx/boardtrailfx", func_002EADC0__FPv);
+#ifdef SKIP_ASM
+void func_002EADC0(void* self)
+{
+    int t0 = 0;
+    *(int*)((char*)self + 0x10) = t0;
+    *(int*)((char*)self + 0xc) = t0;
+}
+#endif
 
 INCLUDE_ASM("visualfx/boardtrailfx", func_002EADD0);
 

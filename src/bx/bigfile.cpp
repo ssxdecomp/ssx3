@@ -65,7 +65,20 @@ int cBigFile_close(cBigFile* self)
 
 INCLUDE_ASM("bx/bigfile", cBigFile_open);
 
-INCLUDE_ASM("bx/bigfile", func_00316A00);
+//100%
+INCLUDE_ASM("bx/bigfile", func_00316A00__FPv);
+#ifdef SKIP_ASM
+void* func_00316A00(void* self)
+{
+    int t0 = 0;
+    *(int*)self = t0;
+    *(int*)((char*)self + 0x10) = 0x10;
+    *(int*)((char*)self + 0x4) = t0;
+    *(int*)((char*)self + 0x8) = t0;
+    *(int*)((char*)self + 0xc) = t0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("bx/bigfile", func_00316A20);
 

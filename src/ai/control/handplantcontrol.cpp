@@ -325,13 +325,32 @@ void func_00144068(void* self)
 }
 #endif
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001441A0);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001441A0__FPvT0);
+#ifdef SKIP_ASM
+int func_001441A0(void* self, void* a1)
+{
+    int t0 = 2;
+    *(int*)((char*)a1 + 0x8) = t0;
+    *(int*)((char*)self + 0x704) = (int)((char*)*(void**)((char*)self + 0x704) - 0x1);
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001441B8);
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_00144368);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_00144610);
+extern "C" void* func_00311958(void* self);
+
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_00144610__FPv);
+#ifdef SKIP_ASM
+void* func_00144610(void* self)
+{
+    return func_00311958(self);
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_00144670);
 
@@ -339,7 +358,14 @@ INCLUDE_ASM("ai/control/handplantcontrol", func_001446A0);
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001446B8);
 
-INCLUDE_ASM("ai/control/handplantcontrol", func_001446E8);
+//100%
+INCLUDE_ASM("ai/control/handplantcontrol", func_001446E8__FPv);
+#ifdef SKIP_ASM
+float func_001446E8(void* self)
+{
+    return 0.0f;
+}
+#endif
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001446F8);
 

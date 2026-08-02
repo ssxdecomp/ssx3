@@ -20,7 +20,18 @@ INCLUDE_ASM("render/bezierman", func_0038B0F8);
 
 INCLUDE_ASM("render/bezierman", func_0038B158);
 
-INCLUDE_ASM("render/bezierman", func_0038B178);
+//99.2%
+INCLUDE_ASM("render/bezierman", func_0038B178__FPv);
+#ifdef SKIP_ASM
+void func_0038B178(void* self)
+{
+    int t0 = 0;
+    *(int*)((char*)self + 0x4d84) = t0;
+    *(int*)((char*)self + 0x458) = t0;
+    *(int*)((char*)self + 0x3c9c) = t0;
+    *(int*)((char*)self + 0x4a60) = t0;
+}
+#endif
 
 INCLUDE_ASM("render/bezierman", func_0038B190);
 

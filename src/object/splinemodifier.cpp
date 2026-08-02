@@ -30,7 +30,16 @@ INCLUDE_ASM("object/splinemodifier", func_0035A550);
 
 INCLUDE_ASM("object/splinemodifier", func_0035A560);
 
-INCLUDE_ASM("object/splinemodifier", func_0035A5D8);
+extern "C" void* func_0035AC20(void* self);
+
+//100%
+INCLUDE_ASM("object/splinemodifier", func_0035A5D8__FPv);
+#ifdef SKIP_ASM
+void* func_0035A5D8(void* self)
+{
+    return func_0035AC20(self);
+}
+#endif
 
 INCLUDE_ASM("object/splinemodifier", cMultiSplineModifier_setupOverlapSystem);
 
@@ -38,9 +47,27 @@ INCLUDE_ASM("object/splinemodifier", func_0035A780);
 
 INCLUDE_ASM("object/splinemodifier", func_0035A918);
 
-INCLUDE_ASM("object/splinemodifier", func_0035AAD0);
+//100%
+INCLUDE_ASM("object/splinemodifier", func_0035AAD0__FPv);
+#ifdef SKIP_ASM
+void* func_0035AAD0(void* self)
+{
+    void* t0 = (char*)*(void**)((char*)self + 0x34) + 0x1;
+    *(int*)((char*)self + 0x34) = (int)t0;
+    return t0;
+}
+#endif
 
-INCLUDE_ASM("object/splinemodifier", func_0035AAE0);
+//100%
+INCLUDE_ASM("object/splinemodifier", func_0035AAE0__FPv);
+#ifdef SKIP_ASM
+void* func_0035AAE0(void* self)
+{
+    void* t0 = (char*)*(void**)((char*)self + 0x34) - 0x1;
+    *(int*)((char*)self + 0x34) = (int)t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("object/splinemodifier", func_0035AAF0);
 

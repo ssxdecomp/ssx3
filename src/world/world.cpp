@@ -28,9 +28,23 @@ INCLUDE_ASM("world/world", func_003A6C68);
 
 INCLUDE_ASM("world/world", func_003A6C98);
 
-INCLUDE_ASM("world/world", func_003A6CC8);
+//100%
+INCLUDE_ASM("world/world", func_003A6CC8__FPvT0);
+#ifdef SKIP_ASM
+int func_003A6CC8(void* self, void* a1)
+{
+    return *(int*)((char*)*(void**)((char*)*(void**)((char*)a1 + 0x88) + 0xc) + 0x8);
+}
+#endif
 
-INCLUDE_ASM("world/world", func_003A6CD8);
+//100%
+INCLUDE_ASM("world/world", func_003A6CD8__FPvT0);
+#ifdef SKIP_ASM
+int func_003A6CD8(void* self, void* a1)
+{
+    return *(int*)((char*)*(void**)((char*)*(void**)((char*)a1 + 0x88) + 0xc) + 0x8);
+}
+#endif
 
 INCLUDE_ASM("world/world", func_003A6CE8);
 

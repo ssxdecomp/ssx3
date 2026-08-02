@@ -58,7 +58,16 @@ INCLUDE_ASM("main/loadscreens_prestart", func_00232B28);
 
 INCLUDE_ASM("main/loadscreens_prestart", func_00232C98);
 
-INCLUDE_ASM("main/loadscreens_prestart", func_00232CF8);
+extern "C" void* func_00231CF0(void* self);
+
+//100%
+INCLUDE_ASM("main/loadscreens_prestart", func_00232CF8__FPv);
+#ifdef SKIP_ASM
+void* func_00232CF8(void* self)
+{
+    return func_00231CF0(self);
+}
+#endif
 
 INCLUDE_ASM("main/loadscreens_prestart", func_00232D18);
 
@@ -72,7 +81,16 @@ INCLUDE_ASM("main/loadscreens_prestart", cGameLoadScreen_loadTexture);
 
 INCLUDE_ASM("main/loadscreens_prestart", func_00233260);
 
-INCLUDE_ASM("main/loadscreens_prestart", func_002332C8);
+extern "C" void* func_00231C70(void* self);
+
+//100%
+INCLUDE_ASM("main/loadscreens_prestart", func_002332C8__FPv);
+#ifdef SKIP_ASM
+int func_002332C8(void* self)
+{
+    return (func_00231C70(self) != 0);
+}
+#endif
 
 INCLUDE_ASM("main/loadscreens_prestart", func_002332E8);
 

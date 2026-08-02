@@ -36,7 +36,16 @@ INCLUDE_ASM("render/particle", func_00371D10);
 
 INCLUDE_ASM("render/particle", func_00371DD8);
 
-INCLUDE_ASM("render/particle", func_00372500);
+extern "C" void* func_003725B0(void* self);
+
+//100%
+INCLUDE_ASM("render/particle", func_00372500__FPv);
+#ifdef SKIP_ASM
+void* func_00372500(void* self)
+{
+    return func_003725B0(self);
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_00372520);
 
@@ -80,7 +89,18 @@ INCLUDE_ASM("render/particle", func_00374D00);
 
 INCLUDE_ASM("render/particle", func_00375890);
 
-INCLUDE_ASM("render/particle", func_003758F8);
+//99.71%
+INCLUDE_ASM("render/particle", func_003758F8__FPv);
+#ifdef SKIP_ASM
+void* func_003758F8(void* self)
+{
+    int t0 = 0x80;
+    *(int*)((char*)self + 0x170) = -1;
+    *(int*)((char*)self + 0x178) = t0;
+    *(int*)((char*)self + 0x174) = t0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_00375918);
 
@@ -270,7 +290,16 @@ INCLUDE_ASM("render/particle", func_003826E0);
 
 INCLUDE_ASM("render/particle", func_00382730);
 
-INCLUDE_ASM("render/particle", func_00382740);
+extern "C" void* func_00382760(void* self);
+
+//100%
+INCLUDE_ASM("render/particle", func_00382740__FPv);
+#ifdef SKIP_ASM
+void* func_00382740(void* self)
+{
+    return func_00382760(self);
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_00382760);
 
@@ -320,7 +349,15 @@ INCLUDE_ASM("render/particle", func_00386640);
 
 INCLUDE_ASM("render/particle", func_00386688);
 
-INCLUDE_ASM("render/particle", func_003866E0);
+//96.0%
+INCLUDE_ASM("render/particle", func_003866E0__FPvii);
+#ifdef SKIP_ASM
+void func_003866E0(void* self, int a1, int a2)
+{
+    *(int*)((char*)self + 0x6d10) = a2;
+    *(int*)((char*)self + 0x6d0c) = a1;
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_003866F0);
 

@@ -32,7 +32,16 @@ INCLUDE_ASM("fe/ovstatelodge", cFEStatePeakRoom_onCreateScreen);
 
 INCLUDE_ASM("fe/ovstatelodge", cFEStatePeakRoom_onWidgetCreate);
 
-INCLUDE_ASM("fe/ovstatelodge", func_001D3C60);
+extern "C" void* func_0039E4C0(void* self);
+
+//100%
+INCLUDE_ASM("fe/ovstatelodge", func_001D3C60__FPv);
+#ifdef SKIP_ASM
+void* func_001D3C60(void* self)
+{
+    return func_0039E4C0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatelodge", func_001D3C80);
 

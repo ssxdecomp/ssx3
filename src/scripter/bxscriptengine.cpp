@@ -48,7 +48,14 @@ INCLUDE_ASM("scripter/bxscriptengine", func_00282B88);
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282BB0);
 
-INCLUDE_ASM("scripter/bxscriptengine", func_00282BE0);
+//100%
+INCLUDE_ASM("scripter/bxscriptengine", func_00282BE0__FPvT0);
+#ifdef SKIP_ASM
+int func_00282BE0(void* self, void* a1)
+{
+    return *(int*)((char*)*(void**)((char*)a1 + 0xc) + 0x1c);
+}
+#endif
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282BF0);
 
@@ -56,7 +63,24 @@ INCLUDE_ASM("scripter/bxscriptengine", func_00282C18);
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282C38);
 
-INCLUDE_ASM("scripter/bxscriptengine", func_00282C88);
+//87.5%
+INCLUDE_ASM("scripter/bxscriptengine", func_00282C88__FPvT0);
+#ifdef SKIP_ASM
+int func_00282C88(void* self, void* a1)
+{
+    int t0 = 0;
+    int t1 = -1;
+    *(int*)((char*)a1 + 0xc) = t0;
+    *(int*)((char*)a1 + 0x14) = t1;
+    *(int*)a1 = t0;
+    *(int*)((char*)a1 + 0x4) = t0;
+    *(int*)((char*)a1 + 0x20) = t0;
+    *(short*)((char*)a1 + 0x10) = (short)t0;
+    *(short*)((char*)a1 + 0x12) = (short)t0;
+    *(int*)((char*)a1 + 0x18) = t0;
+    return t1;
+}
+#endif
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282CB0);
 
@@ -85,7 +109,14 @@ INCLUDE_ASM("scripter/bxscriptengine", func_00282F30);
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282F60);
 
-INCLUDE_ASM("scripter/bxscriptengine", func_00282F80);
+//100%
+INCLUDE_ASM("scripter/bxscriptengine", func_00282F80__FPv);
+#ifdef SKIP_ASM
+int func_00282F80(void* self)
+{
+    return (*(int*)((char*)self + 0x8) != 0);
+}
+#endif
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282F90);
 
@@ -117,7 +148,25 @@ INCLUDE_ASM("scripter/bxscriptengine", func_00283320);
 
 INCLUDE_ASM("scripter/bxscriptengine", func_002833A8);
 
-INCLUDE_ASM("scripter/bxscriptengine", func_00283430);
+//100%
+INCLUDE_ASM("scripter/bxscriptengine", func_00283430__FPv);
+#ifdef SKIP_ASM
+void* func_00283430(void* self)
+{
+    void* t0 = (char*)*(void**)((char*)self + 0x8) + 0x1;
+    *(int*)((char*)self + 0x8) = (int)t0;
+    return t0;
+}
+#endif
 
-INCLUDE_ASM("scripter/bxscriptengine", func_00283440);
+//100%
+INCLUDE_ASM("scripter/bxscriptengine", func_00283440__FPv);
+#ifdef SKIP_ASM
+void* func_00283440(void* self)
+{
+    void* t0 = (char*)*(void**)((char*)self + 0x8) - 0x1;
+    *(int*)((char*)self + 0x8) = (int)t0;
+    return t0;
+}
+#endif
 

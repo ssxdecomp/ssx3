@@ -132,9 +132,27 @@ INCLUDE_ASM("object/modifierblock", func_00353B10);
 
 INCLUDE_ASM("object/modifierblock", func_00353CF0);
 
-INCLUDE_ASM("object/modifierblock", func_00353D98);
+//100%
+INCLUDE_ASM("object/modifierblock", func_00353D98__FPv);
+#ifdef SKIP_ASM
+int func_00353D98(void* self)
+{
+    int t0 = -1;
+    *(int*)((char*)self + 0x14) = 0;
+    *(int*)((char*)self + 0x10) = t0;
+    return t0;
+}
+#endif
 
-INCLUDE_ASM("object/modifierblock", func_00353DA8);
+//100%
+INCLUDE_ASM("object/modifierblock", func_00353DA8__FPv);
+#ifdef SKIP_ASM
+void* func_00353DA8(void* self)
+{
+    *(int*)((char*)self + 0x24) = 0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("object/modifierblock", func_00353DB8);
 

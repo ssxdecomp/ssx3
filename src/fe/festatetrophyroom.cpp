@@ -2,7 +2,16 @@
 
 INCLUDE_ASM("fe/festatetrophyroom", cFEStateTrophyRoom_onCreateScreen);
 
-INCLUDE_ASM("fe/festatetrophyroom", func_001D43D0);
+extern "C" void* func_0039E4C0(void* self);
+
+//100%
+INCLUDE_ASM("fe/festatetrophyroom", func_001D43D0__FPv);
+#ifdef SKIP_ASM
+void* func_001D43D0(void* self)
+{
+    return func_0039E4C0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festatetrophyroom", cFEStateTrophyRoom_onWidgetCreate);
 

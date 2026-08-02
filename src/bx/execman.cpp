@@ -39,7 +39,16 @@ void cExecutionMan_postpause()
 
 INCLUDE_ASM("bx/execman", func_00320AD8);
 
-INCLUDE_ASM("bx/execman", func_00320B08);
+extern "C" void* func_00423C90(void* self);
+
+//100%
+INCLUDE_ASM("bx/execman", func_00320B08__FPv);
+#ifdef SKIP_ASM
+void* func_00320B08(void* self)
+{
+    return func_00423C90(self);
+}
+#endif
 
 INCLUDE_ASM("bx/execman", func_00320B28);
 

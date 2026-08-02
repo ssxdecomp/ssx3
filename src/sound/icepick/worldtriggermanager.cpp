@@ -84,7 +84,20 @@ INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6868);
 
 INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B68D0);
 
-INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6900);
+//78.5%
+INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6900__FPv);
+#ifdef SKIP_ASM
+int func_002B6900(void* self)
+{
+    int t0 = 0;
+    int t1 = -1;
+    *(int*)((char*)self + 0x330) = t0;
+    *(int*)((char*)self + 0x32c) = t1;
+    *(int*)((char*)self + 0x324) = t0;
+    *(int*)((char*)self + 0x328) = t1;
+    return t1;
+}
+#endif
 
 INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6988);
 

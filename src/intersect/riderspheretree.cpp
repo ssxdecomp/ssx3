@@ -124,7 +124,17 @@ INCLUDE_ASM("intersect/riderspheretree", func_0032F760);
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032F840);
 
-INCLUDE_ASM("intersect/riderspheretree", func_0032F8B0);
+//100%
+INCLUDE_ASM("intersect/riderspheretree", func_0032F8B0__FPv);
+#ifdef SKIP_ASM
+int func_0032F8B0(void* self)
+{
+    int t0 = *(int*)((char*)self + 0x64);
+    *(int*)((char*)self + 0x4) = 0;
+    *(int*)((char*)self + 0x60) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032F8C0);
 

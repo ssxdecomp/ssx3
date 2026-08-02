@@ -64,7 +64,16 @@ INCLUDE_ASM("fe/debugfe", func_0017F868);
 
 INCLUDE_ASM("fe/debugfe", func_0017FA60);
 
-INCLUDE_ASM("fe/debugfe", func_0017FAB0);
+extern "C" void* func_00231CF0(void* self);
+
+//100%
+INCLUDE_ASM("fe/debugfe", func_0017FAB0__FPv);
+#ifdef SKIP_ASM
+int func_0017FAB0(void* self)
+{
+    return (func_00231CF0(self) != 0);
+}
+#endif
 
 INCLUDE_ASM("fe/debugfe", func_0017FAD0);
 

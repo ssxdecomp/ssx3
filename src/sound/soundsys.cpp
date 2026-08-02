@@ -178,7 +178,16 @@ INCLUDE_ASM("sound/soundsys", func_0029D610);
 
 INCLUDE_ASM("sound/soundsys", func_0029D678);
 
-INCLUDE_ASM("sound/soundsys", func_0029D6D0);
+//63.33%
+INCLUDE_ASM("sound/soundsys", func_0029D6D0__FPv);
+#ifdef SKIP_ASM
+int func_0029D6D0(void* self)
+{
+    int t0 = 1;
+    *(int*)((char*)self + 0x5fd8) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("sound/soundsys", func_0029D6E0);
 
@@ -495,7 +504,15 @@ INCLUDE_ASM("sound/soundsys", func_002A77F8);
 
 INCLUDE_ASM("sound/soundsys", func_002A7890);
 
-INCLUDE_ASM("sound/soundsys", func_002A78E0);
+//47.0%
+INCLUDE_ASM("sound/soundsys", func_002A78E0__FPv);
+#ifdef SKIP_ASM
+signed char func_002A78E0(void* self)
+{
+    *(int*)((char*)self + 0x8) = (int)((char*)*(void**)((char*)self + 0x8) + 0x1);
+    return *(signed char*)*(void**)((char*)self + 0x8);
+}
+#endif
 
 INCLUDE_ASM("sound/soundsys", func_002A78F8);
 

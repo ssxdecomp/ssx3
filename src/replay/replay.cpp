@@ -22,9 +22,30 @@ INCLUDE_ASM("replay/replay", func_0026E528);
 
 INCLUDE_ASM("replay/replay", func_0026E568);
 
-INCLUDE_ASM("replay/replay", func_0026E5A8);
+//100%
+INCLUDE_ASM("replay/replay", func_0026E5A8__FPv);
+#ifdef SKIP_ASM
+void* func_0026E5A8(void* self)
+{
+    int t0 = 0;
+    *(int*)((char*)self + 0x4) = t0;
+    *(int*)self = t0;
+    *(int*)((char*)self + 0x8) = t0;
+    return self;
+}
+#endif
 
-INCLUDE_ASM("replay/replay", func_0026E5C0);
+//99.25%
+INCLUDE_ASM("replay/replay", func_0026E5C0__FPv);
+#ifdef SKIP_ASM
+void func_0026E5C0(void* self)
+{
+    int t0 = 0;
+    *(int*)((char*)self + 0x8) = t0;
+    *(int*)((char*)self + 0x4) = t0;
+    *(int*)self = t0;
+}
+#endif
 
 INCLUDE_ASM("replay/replay", func_0026E5D0);
 

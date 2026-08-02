@@ -8,7 +8,16 @@ INCLUDE_ASM("fe/festateprofile", func_0018ECA0);
 
 INCLUDE_ASM("fe/festateprofile", cFEStateProfileLoad_onCreateScreen);
 
-INCLUDE_ASM("fe/festateprofile", func_0018EE98);
+extern "C" void* func_0039E6B8(void* self);
+
+//100%
+INCLUDE_ASM("fe/festateprofile", func_0018EE98__FPv);
+#ifdef SKIP_ASM
+void* func_0018EE98(void* self)
+{
+    return func_0039E6B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateprofile", func_0018EEB8);
 

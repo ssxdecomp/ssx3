@@ -40,7 +40,16 @@ INCLUDE_ASM("ui/uiengine", func_003984B0);
 
 INCLUDE_ASM("ui/uiengine", cUIFontInterface_loadFonts);
 
-INCLUDE_ASM("ui/uiengine", func_00398618);
+extern "C" void* func_0039FE00(void* self);
+
+//100%
+INCLUDE_ASM("ui/uiengine", func_00398618__FPv);
+#ifdef SKIP_ASM
+void* func_00398618(void* self)
+{
+    return func_0039FE00(self);
+}
+#endif
 
 INCLUDE_ASM("ui/uiengine", func_00398638);
 
@@ -58,7 +67,17 @@ INCLUDE_ASM("ui/uiengine", func_00398910);
 
 INCLUDE_ASM("ui/uiengine", func_00398998);
 
-INCLUDE_ASM("ui/uiengine", func_00398A60);
+//58.0%
+INCLUDE_ASM("ui/uiengine", func_00398A60__FPvT0);
+#ifdef SKIP_ASM
+float func_00398A60(void* self, void* a1)
+{
+    float t0 = *(float*)a1;
+    *(float*)self = t0;
+    *(float*)a1 = *(float*)self;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("ui/uiengine", func_00398A78);
 

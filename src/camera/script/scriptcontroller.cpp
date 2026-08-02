@@ -72,7 +72,15 @@ INCLUDE_ASM("camera/script/scriptcontroller", func_0016B180);
 
 INCLUDE_ASM("camera/script/scriptcontroller", func_0016B7B8);
 
-INCLUDE_ASM("camera/script/scriptcontroller", func_0016BEE8);
+//100%
+INCLUDE_ASM("camera/script/scriptcontroller", func_0016BEE8__FPv);
+#ifdef SKIP_ASM
+void* func_0016BEE8(void* self)
+{
+    *(int*)self = 0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("camera/script/scriptcontroller", func_0016BEF8);
 

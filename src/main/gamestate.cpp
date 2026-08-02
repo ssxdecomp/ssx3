@@ -6,15 +6,47 @@ INCLUDE_ASM("main/gamestate", func_00234BE8);
 
 INCLUDE_ASM("main/gamestate", cGFGateState_update);
 
-INCLUDE_ASM("main/gamestate", func_00234DE0);
+extern "C" void* func_00233AF0(void* self);
 
-INCLUDE_ASM("main/gamestate", func_00234E00);
+//100%
+INCLUDE_ASM("main/gamestate", func_00234DE0__FPv);
+#ifdef SKIP_ASM
+void* func_00234DE0(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
+
+extern "C" void* func_00233B28(void* self);
+
+//100%
+INCLUDE_ASM("main/gamestate", func_00234E00__FPv);
+#ifdef SKIP_ASM
+void* func_00234E00(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00234E20);
 
-INCLUDE_ASM("main/gamestate", func_00234EB8);
+//100%
+INCLUDE_ASM("main/gamestate", func_00234EB8__FPv);
+#ifdef SKIP_ASM
+void* func_00234EB8(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("main/gamestate", func_00234ED8);
+//100%
+INCLUDE_ASM("main/gamestate", func_00234ED8__FPv);
+#ifdef SKIP_ASM
+void* func_00234ED8(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00234EF8);
 
@@ -50,9 +82,23 @@ INCLUDE_ASM("main/gamestate", func_00236058);
 
 INCLUDE_ASM("main/gamestate", func_00236198);
 
-INCLUDE_ASM("main/gamestate", func_002361C8);
+//100%
+INCLUDE_ASM("main/gamestate", func_002361C8__FPv);
+#ifdef SKIP_ASM
+void* func_002361C8(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("main/gamestate", func_002361E8);
+//100%
+INCLUDE_ASM("main/gamestate", func_002361E8__FPv);
+#ifdef SKIP_ASM
+void* func_002361E8(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00236208);
 
@@ -78,15 +124,43 @@ void func_00236AF0(void* self)
 }
 #endif
 
-INCLUDE_ASM("main/gamestate", func_00236AF8);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236AF8__FPv);
+#ifdef SKIP_ASM
+void* func_00236AF8(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("main/gamestate", func_00236B18);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236B18__FPv);
+#ifdef SKIP_ASM
+void* func_00236B18(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00236B38);
 
-INCLUDE_ASM("main/gamestate", func_00236B70);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236B70__FPv);
+#ifdef SKIP_ASM
+void* func_00236B70(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("main/gamestate", func_00236B90);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236B90__FPv);
+#ifdef SKIP_ASM
+void* func_00236B90(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00236BB0);
 
@@ -96,9 +170,23 @@ INCLUDE_ASM("main/gamestate", func_00236C88);
 
 INCLUDE_ASM("main/gamestate", func_00236CD8);
 
-INCLUDE_ASM("main/gamestate", func_00236D60);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236D60__FPv);
+#ifdef SKIP_ASM
+void* func_00236D60(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("main/gamestate", func_00236D80);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236D80__FPv);
+#ifdef SKIP_ASM
+void* func_00236D80(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00236DA0);
 
@@ -106,9 +194,23 @@ INCLUDE_ASM("main/gamestate", func_00236E60);
 
 INCLUDE_ASM("main/gamestate", func_00236EA0);
 
-INCLUDE_ASM("main/gamestate", func_00236EC8);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236EC8__FPv);
+#ifdef SKIP_ASM
+void* func_00236EC8(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("main/gamestate", func_00236EE8);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236EE8__FPv);
+#ifdef SKIP_ASM
+void* func_00236EE8(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00236F08);
 
@@ -116,9 +218,23 @@ INCLUDE_ASM("main/gamestate", func_00236F40);
 
 INCLUDE_ASM("main/gamestate", func_00236F90);
 
-INCLUDE_ASM("main/gamestate", func_00236FA8);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236FA8__FPv);
+#ifdef SKIP_ASM
+void* func_00236FA8(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("main/gamestate", func_00236FC8);
+//100%
+INCLUDE_ASM("main/gamestate", func_00236FC8__FPv);
+#ifdef SKIP_ASM
+void* func_00236FC8(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_00236FE8);
 

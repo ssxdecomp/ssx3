@@ -66,7 +66,16 @@ INCLUDE_ASM("render/ps2graphicsman", func_00369690);
 
 INCLUDE_ASM("render/ps2graphicsman", func_003696C8);
 
-INCLUDE_ASM("render/ps2graphicsman", func_00369890);
+//100%
+INCLUDE_ASM("render/ps2graphicsman", func_00369890__FPvii);
+#ifdef SKIP_ASM
+void func_00369890(void* self, int a1, int a2)
+{
+    *(int*)((char*)self + 0x27c) = a2;
+    *(int*)((char*)self + 0x278) = a1;
+    *(int*)((char*)self + 0xe80) = 0;
+}
+#endif
 
 INCLUDE_ASM("render/ps2graphicsman", func_003698A0);
 

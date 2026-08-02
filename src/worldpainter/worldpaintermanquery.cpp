@@ -602,5 +602,15 @@ INCLUDE_ASM("worldpainter/worldpaintermanquery", func_002C1688);
 
 INCLUDE_ASM("worldpainter/worldpaintermanquery", func_002C16B8);
 
-INCLUDE_ASM("worldpainter/worldpaintermanquery", func_002C17C0);
+//70.75%
+INCLUDE_ASM("worldpainter/worldpaintermanquery", func_002C17C0__FPv);
+#ifdef SKIP_ASM
+void* func_002C17C0(void* self)
+{
+    void* t0 = (char*)self + 0x28;
+    *(int*)((char*)self + 0x24) = (int)t0;
+    *(int*)((char*)self + 0x20) = (int)t0;
+    return t0;
+}
+#endif
 

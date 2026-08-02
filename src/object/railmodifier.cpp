@@ -252,7 +252,14 @@ int func_00360918(void* self)
 }
 #endif
 
-INCLUDE_ASM("object/railmodifier", func_00360920);
+//100%
+INCLUDE_ASM("object/railmodifier", func_00360920__FPv);
+#ifdef SKIP_ASM
+unsigned char func_00360920(void* self)
+{
+    return *(unsigned char*)((char*)*(void**)((char*)self + 0x18) + 0x78);
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_00360930__FPv);
@@ -316,9 +323,23 @@ int func_00360960(void* self)
 }
 #endif
 
-INCLUDE_ASM("object/railmodifier", func_00360970);
+//100%
+INCLUDE_ASM("object/railmodifier", func_00360970__FPv);
+#ifdef SKIP_ASM
+void* func_00360970(void* self)
+{
+    return (char*)*(void**)((char*)self + 0x18) + 0x10;
+}
+#endif
 
-INCLUDE_ASM("object/railmodifier", func_00360980);
+//100%
+INCLUDE_ASM("object/railmodifier", func_00360980__FPv);
+#ifdef SKIP_ASM
+void* func_00360980(void* self)
+{
+    return (char*)*(void**)((char*)self + 0x18) + 0x10;
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_00360990__FPv);
@@ -356,7 +377,14 @@ int func_003609A8(void* self)
 }
 #endif
 
-INCLUDE_ASM("object/railmodifier", func_003609B0);
+//100%
+INCLUDE_ASM("object/railmodifier", func_003609B0__FPv);
+#ifdef SKIP_ASM
+float func_003609B0(void* self)
+{
+    return 0.0f;
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_003609C0__FPv);
@@ -673,7 +701,14 @@ void func_00360B88(void* self)
 }
 #endif
 
-INCLUDE_ASM("object/railmodifier", func_00360B90);
+//100%
+INCLUDE_ASM("object/railmodifier", func_00360B90__FPv);
+#ifdef SKIP_ASM
+float func_00360B90(void* self)
+{
+    return 0.0f;
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_00360BA0__FPv);
@@ -824,7 +859,16 @@ int func_00360C70(void* self)
 }
 #endif
 
-INCLUDE_ASM("object/railmodifier", func_00360C78);
+extern "C" void* func_00370C08(void* self);
+
+//100%
+INCLUDE_ASM("object/railmodifier", func_00360C78__FPv);
+#ifdef SKIP_ASM
+void* func_00360C78(void* self)
+{
+    return func_00370C08(self);
+}
+#endif
 
 INCLUDE_ASM("object/railmodifier", func_00360C98);
 
@@ -948,7 +992,14 @@ int func_00361060(void* self)
 
 INCLUDE_ASM("object/railmodifier", func_00361068);
 
-INCLUDE_ASM("object/railmodifier", func_00361080);
+//100%
+INCLUDE_ASM("object/railmodifier", func_00361080__FPv);
+#ifdef SKIP_ASM
+float func_00361080(void* self)
+{
+    return 0.0f;
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_00361090__FPv);
@@ -1242,7 +1293,16 @@ INCLUDE_ASM("object/railmodifier", func_00361940);
 
 INCLUDE_ASM("object/railmodifier", func_00361988);
 
-INCLUDE_ASM("object/railmodifier", func_003619B8);
+//63.33%
+INCLUDE_ASM("object/railmodifier", func_003619B8__FPv);
+#ifdef SKIP_ASM
+int func_003619B8(void* self)
+{
+    int t0 = 1;
+    *(int*)((char*)self + 0x44) = t0;
+    return t0;
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_003619C8__FPv);
@@ -1264,7 +1324,14 @@ int func_003619D0(void* self)
 
 INCLUDE_ASM("object/railmodifier", func_003619E0);
 
-INCLUDE_ASM("object/railmodifier", func_00361A10);
+//100%
+INCLUDE_ASM("object/railmodifier", func_00361A10__FPv);
+#ifdef SKIP_ASM
+int func_00361A10(void* self)
+{
+    return (*(int*)((char*)self + 0x50) != 0);
+}
+#endif
 
 //100%
 INCLUDE_ASM("object/railmodifier", func_00361A20__FPv);
@@ -1432,7 +1499,14 @@ int func_00361BD8(void* self)
 }
 #endif
 
-INCLUDE_ASM("object/railmodifier", func_00361BE0);
+//100%
+INCLUDE_ASM("object/railmodifier", func_00361BE0__FPv);
+#ifdef SKIP_ASM
+void* func_00361BE0(void* self)
+{
+    return (char*)*(void**)((char*)self + 0x3c) + 0x30;
+}
+#endif
 
 INCLUDE_ASM("object/railmodifier", func_00361BF0);
 
@@ -1579,7 +1653,16 @@ INCLUDE_ASM("object/railmodifier", func_00361E80);
 
 INCLUDE_ASM("object/railmodifier", func_00361EB8);
 
-INCLUDE_ASM("object/railmodifier", func_00361F40);
+extern "C" void* func_00361E80(void* self);
+
+//99.29%
+INCLUDE_ASM("object/railmodifier", func_00361F40__FPv);
+#ifdef SKIP_ASM
+void* func_00361F40(void* self)
+{
+    return func_00361E80(self);
+}
+#endif
 
 INCLUDE_ASM("object/railmodifier", func_00361F60);
 

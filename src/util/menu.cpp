@@ -131,7 +131,24 @@ INCLUDE_ASM("util/menu", func_002CC018);
 
 INCLUDE_ASM("util/menu", func_002CC048);
 
-INCLUDE_ASM("util/menu", func_002CC070);
+//98.4%
+INCLUDE_ASM("util/menu", func_002CC070__FPv);
+#ifdef SKIP_ASM
+int func_002CC070(void* self)
+{
+    int t0 = -1;
+    int t1 = 11;
+    int t2 = 0;
+    *(int*)((char*)self + 0x50) = t0;
+    *(int*)((char*)self + 0x48) = t1;
+    *(int*)((char*)self + 0x58) = t2;
+    *(int*)((char*)self + 0x54) = t2;
+    *(int*)self = t2;
+    *(int*)((char*)self + 0x64) = t2;
+    *(int*)((char*)self + 0x4c) = t0;
+    return t1;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CC098);
 
@@ -409,7 +426,16 @@ INCLUDE_ASM("util/menu", func_002D0008);
 
 INCLUDE_ASM("util/menu", cARGBMenuItem_cARGBMenuItem);
 
-INCLUDE_ASM("util/menu", func_002D03D0);
+extern "C" void* func_002CFA08(void* self);
+
+//99.29%
+INCLUDE_ASM("util/menu", func_002D03D0__FPv);
+#ifdef SKIP_ASM
+void* func_002D03D0(void* self)
+{
+    return func_002CFA08(self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("util/menu", func_002D0448__FPv);
@@ -472,5 +498,14 @@ INCLUDE_ASM("util/menu", func_002D1C98);
 
 INCLUDE_ASM("util/menu", func_002D1CB0);
 
-INCLUDE_ASM("util/menu", func_002D1CC0);
+extern "C" void* func_002FC2C0(void* self);
+
+//100%
+INCLUDE_ASM("util/menu", func_002D1CC0__FPv);
+#ifdef SKIP_ASM
+void* func_002D1CC0(void* self)
+{
+    return func_002FC2C0(self);
+}
+#endif
 

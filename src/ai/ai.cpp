@@ -196,7 +196,21 @@ INCLUDE_ASM("ai/ai", func_0012FBF0);
 
 INCLUDE_ASM("ai/ai", func_0012FC28);
 
-INCLUDE_ASM("ai/ai", func_0012FC60);
+//87.5%
+INCLUDE_ASM("ai/ai", func_0012FC60__FPv);
+#ifdef SKIP_ASM
+int func_0012FC60(void* self)
+{
+    int t0 = 0;
+    *(int*)self = t0;
+    *(int*)((char*)*(void**)((char*)self + 0x14) + 0x360) = t0;
+    *(int*)((char*)self + 0x10) = t0;
+    *(int*)((char*)self + 0x4) = t0;
+    *(int*)((char*)self + 0x8) = t0;
+    *(int*)((char*)self + 0xc) = t0;
+    return *(int*)((char*)self + 0x14);
+}
+#endif
 
 INCLUDE_ASM("ai/ai", func_0012FC80);
 
@@ -210,7 +224,16 @@ INCLUDE_ASM("ai/ai", func_00130228);
 
 INCLUDE_ASM("ai/ai", func_001303E0);
 
-INCLUDE_ASM("ai/ai", func_001304D0);
+//63.33%
+INCLUDE_ASM("ai/ai", func_001304D0__FPv);
+#ifdef SKIP_ASM
+int func_001304D0(void* self)
+{
+    int t0 = 1;
+    *(int*)self = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("ai/ai", func_001304E0);
 
@@ -234,7 +257,17 @@ INCLUDE_ASM("ai/ai", func_00131598);
 
 INCLUDE_ASM("ai/ai", func_001315D0);
 
-INCLUDE_ASM("ai/ai", func_00131608);
+//68.0%
+INCLUDE_ASM("ai/ai", func_00131608__FPv);
+#ifdef SKIP_ASM
+int func_00131608(void* self)
+{
+    int t0 = 0;
+    *(int*)((char*)*(void**)self + 0x35c) = t0;
+    *(int*)((char*)*(void**)self + 0x360) = t0;
+    return *(int*)self;
+}
+#endif
 
 INCLUDE_ASM("ai/ai", func_00131620);
 

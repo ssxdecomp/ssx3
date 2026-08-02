@@ -67,7 +67,19 @@ void cList_addToEnd(cList* list, cListNode* newNode)
 }
 #endif
 
-INCLUDE_ASM("util/list", func_00397930);
+//79.33%
+INCLUDE_ASM("util/list", func_00397930__FPv);
+#ifdef SKIP_ASM
+void* func_00397930(void* self)
+{
+    void* t0 = (char*)self + 0xc;
+    *(int*)self = (int)self;
+    *(int*)((char*)self + 0x10) = (int)t0;
+    *(int*)((char*)self + 0x4) = (int)t0;
+    *(int*)((char*)self + 0xc) = (int)self;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("util/list", func_00397948);
 

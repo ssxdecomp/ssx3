@@ -83,7 +83,16 @@ INCLUDE_ASM("mem/memstd", func_00253AA0);
 
 INCLUDE_ASM("mem/memstd", func_00253AD0);
 
-INCLUDE_ASM("mem/memstd", func_00253AF8);
+extern "C" void* func_002523A8(void* self);
+
+//99.29%
+INCLUDE_ASM("mem/memstd", func_00253AF8__FPv);
+#ifdef SKIP_ASM
+void* func_00253AF8(void* self)
+{
+    return func_002523A8(self);
+}
+#endif
 
 INCLUDE_ASM("mem/memstd", func_00253B58);
 
@@ -95,7 +104,15 @@ INCLUDE_ASM("mem/memstd", func_00254368);
 
 INCLUDE_ASM("mem/memstd", func_002543F0);
 
-INCLUDE_ASM("mem/memstd", func_00254400);
+//96.0%
+INCLUDE_ASM("mem/memstd", func_00254400__FPvff);
+#ifdef SKIP_ASM
+void func_00254400(void* self, float f0, float f1)
+{
+    *(float*)((char*)self + 0x50) = f1;
+    *(float*)((char*)self + 0x4c) = f0;
+}
+#endif
 
 INCLUDE_ASM("mem/memstd", func_00254410);
 
@@ -105,7 +122,16 @@ INCLUDE_ASM("mem/memstd", func_002548D0);
 
 INCLUDE_ASM("mem/memstd", func_00254C48);
 
-INCLUDE_ASM("mem/memstd", func_00254DA0);
+extern "C" void* func_002548D0(void* self);
+
+//99.29%
+INCLUDE_ASM("mem/memstd", func_00254DA0__FPv);
+#ifdef SKIP_ASM
+void* func_00254DA0(void* self)
+{
+    return func_002548D0(self);
+}
+#endif
 
 INCLUDE_ASM("mem/memstd", func_00254DC0);
 
@@ -127,7 +153,17 @@ INCLUDE_ASM("mem/memstd", func_002557E0);
 
 INCLUDE_ASM("mem/memstd", func_00255800);
 
-INCLUDE_ASM("mem/memstd", func_00255830);
+//100%
+INCLUDE_ASM("mem/memstd", func_00255830__FPv);
+#ifdef SKIP_ASM
+int func_00255830(void* self)
+{
+    int t0 = 1;
+    *(int*)((char*)self + 0x4) = 0;
+    *(int*)self = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("mem/memstd", func_00255840);
 

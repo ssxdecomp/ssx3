@@ -18,7 +18,16 @@ INCLUDE_ASM("fe/festateoptions", func_00188EE8);
 
 INCLUDE_ASM("fe/festateoptions", cFEStateOptionsGame_onCreateScreen);
 
-INCLUDE_ASM("fe/festateoptions", func_001895F0);
+extern "C" void* func_0039E4C0(void* self);
+
+//100%
+INCLUDE_ASM("fe/festateoptions", func_001895F0__FPv);
+#ifdef SKIP_ASM
+void* func_001895F0(void* self)
+{
+    return func_0039E4C0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateoptions", func_00189610);
 
@@ -36,7 +45,14 @@ INCLUDE_ASM("fe/festateoptions", cFEStateOptionsSound_onCreateScreen);
 
 INCLUDE_ASM("fe/festateoptions", func_0018A3D8);
 
-INCLUDE_ASM("fe/festateoptions", func_0018A870);
+//100%
+INCLUDE_ASM("fe/festateoptions", func_0018A870__FPv);
+#ifdef SKIP_ASM
+void* func_0018A870(void* self)
+{
+    return func_0039E4C0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateoptions", func_0018A890);
 
@@ -52,7 +68,14 @@ INCLUDE_ASM("fe/festateoptions", func_0018C0E8);
 
 INCLUDE_ASM("fe/festateoptions", func_0018C128);
 
-INCLUDE_ASM("fe/festateoptions", func_0018C198);
+//100%
+INCLUDE_ASM("fe/festateoptions", func_0018C198__FPv);
+#ifdef SKIP_ASM
+void* func_0018C198(void* self)
+{
+    return func_0039E4C0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateoptions", func_0018C1B8);
 

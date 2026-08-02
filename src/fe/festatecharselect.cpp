@@ -8,7 +8,16 @@ INCLUDE_ASM("fe/festatecharselect", func_001812A8);
 
 INCLUDE_ASM("fe/festatecharselect", func_00181308);
 
-INCLUDE_ASM("fe/festatecharselect", func_00181400);
+extern "C" void* func_0039E6B8(void* self);
+
+//100%
+INCLUDE_ASM("fe/festatecharselect", func_00181400__FPv);
+#ifdef SKIP_ASM
+void* func_00181400(void* self)
+{
+    return func_0039E6B8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festatecharselect", func_00181420);
 

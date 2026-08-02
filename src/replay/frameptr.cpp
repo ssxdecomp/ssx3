@@ -22,7 +22,17 @@ void cReplayFramePtr_readRewind(cReplayFramePtr* self)
 }
 #endif
 
-INCLUDE_ASM("replay/frameptr", func_0026E9C0);
+//100%
+INCLUDE_ASM("replay/frameptr", func_0026E9C0__FPv);
+#ifdef SKIP_ASM
+int func_0026E9C0(void* self)
+{
+    int t0 = *(int*)((char*)self + 0x4);
+    *(int*)((char*)self + 0x10) = 0;
+    *(int*)((char*)self + 0x8) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("replay/frameptr", func_0026E9D0);
 

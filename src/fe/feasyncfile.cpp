@@ -132,7 +132,16 @@ INCLUDE_ASM("fe/feasyncfile", func_001A7848);
 
 INCLUDE_ASM("fe/feasyncfile", func_001A7970);
 
-INCLUDE_ASM("fe/feasyncfile", func_001A7B20);
+extern "C" void* func_001A8770(void* self);
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001A7B20__FPv);
+#ifdef SKIP_ASM
+void* func_001A7B20(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001A7B40);
 
@@ -306,7 +315,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001AC068);
 
 INCLUDE_ASM("fe/feasyncfile", func_001AC0B8);
 
-INCLUDE_ASM("fe/feasyncfile", func_001AC150);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001AC150__FPv);
+#ifdef SKIP_ASM
+void* func_001AC150(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001AC170);
 
@@ -342,7 +358,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001AD130);
 
 INCLUDE_ASM("fe/feasyncfile", func_001AD178);
 
-INCLUDE_ASM("fe/feasyncfile", func_001AD1E8);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001AD1E8__FPv);
+#ifdef SKIP_ASM
+void* func_001AD1E8(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001AD208);
 
@@ -372,7 +395,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001ADFB8);
 
 INCLUDE_ASM("fe/feasyncfile", func_001ADFE8);
 
-INCLUDE_ASM("fe/feasyncfile", func_001AE0E0);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001AE0E0__FPv);
+#ifdef SKIP_ASM
+void* func_001AE0E0(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001AE100);
 
@@ -414,7 +444,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001AFE68);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B00B8);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B0130);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001B0130__FPv);
+#ifdef SKIP_ASM
+void* func_001B0130(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B0150);
 
@@ -442,7 +479,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001B0F60);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B0FB0);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B1048);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001B1048__FPv);
+#ifdef SKIP_ASM
+void* func_001B1048(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B1068);
 
@@ -528,7 +572,16 @@ INCLUDE_ASM("fe/feasyncfile", func_001B40D0);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B4168);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B4198);
+//63.33%
+INCLUDE_ASM("fe/feasyncfile", func_001B4198__FPv);
+#ifdef SKIP_ASM
+int func_001B4198(void* self)
+{
+    int t0 = 6;
+    *(int*)((char*)self + 0x708) = t0;
+    return t0;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B41A8);
 
@@ -625,7 +678,16 @@ INCLUDE_ASM("fe/feasyncfile", func_001B6ED0);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B7030);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B7088);
+extern "C" void* func_001ABFA8(void* self);
+
+//99.29%
+INCLUDE_ASM("fe/feasyncfile", func_001B7088__FPv);
+#ifdef SKIP_ASM
+void* func_001B7088(void* self)
+{
+    return func_001ABFA8(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B70A8);
 
@@ -675,7 +737,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001B88F0);
 
 INCLUDE_ASM("fe/feasyncfile", func_001B8960);
 
-INCLUDE_ASM("fe/feasyncfile", func_001B89E8);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001B89E8__FPv);
+#ifdef SKIP_ASM
+void* func_001B89E8(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001B8A08);
 
@@ -735,7 +804,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001BA3E0);
 
 INCLUDE_ASM("fe/feasyncfile", func_001BA428);
 
-INCLUDE_ASM("fe/feasyncfile", func_001BA4E0);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001BA4E0__FPv);
+#ifdef SKIP_ASM
+void* func_001BA4E0(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001BA500);
 
@@ -783,7 +859,16 @@ INCLUDE_ASM("fe/feasyncfile", func_001BB968);
 
 INCLUDE_ASM("fe/feasyncfile", func_001BB9B0);
 
-INCLUDE_ASM("fe/feasyncfile", func_001BBAA8);
+extern "C" void* func_001BBC40(void* self);
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001BBAA8__FPv);
+#ifdef SKIP_ASM
+int func_001BBAA8(void* self)
+{
+    return (func_001BBC40(self) != 0);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001BBAC8);
 
@@ -793,7 +878,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001BBD08);
 
 INCLUDE_ASM("fe/feasyncfile", func_001BBD60);
 
-INCLUDE_ASM("fe/feasyncfile", func_001BBDE0);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001BBDE0__FPv);
+#ifdef SKIP_ASM
+void* func_001BBDE0(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001BBE00);
 
@@ -825,7 +917,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001BCCA8);
 
 INCLUDE_ASM("fe/feasyncfile", func_001BCD18);
 
-INCLUDE_ASM("fe/feasyncfile", func_001BCE18);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001BCE18__FPv);
+#ifdef SKIP_ASM
+void* func_001BCE18(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001BCE38);
 
@@ -879,7 +978,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001BE7D8);
 
 INCLUDE_ASM("fe/feasyncfile", func_001BE828);
 
-INCLUDE_ASM("fe/feasyncfile", func_001BE890);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001BE890__FPv);
+#ifdef SKIP_ASM
+void* func_001BE890(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001BE8B0);
 
@@ -906,7 +1012,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001BEE78);
 
 INCLUDE_ASM("fe/feasyncfile", func_001BEED0);
 
-INCLUDE_ASM("fe/feasyncfile", func_001BEF40);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001BEF40__FPv);
+#ifdef SKIP_ASM
+void* func_001BEF40(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001BEF60);
 
@@ -928,7 +1041,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001BFBB8);
 
 INCLUDE_ASM("fe/feasyncfile", func_001BFBF8);
 
-INCLUDE_ASM("fe/feasyncfile", func_001BFCA0);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001BFCA0__FPv);
+#ifdef SKIP_ASM
+void* func_001BFCA0(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001BFCC0);
 
@@ -962,7 +1082,16 @@ INCLUDE_ASM("fe/feasyncfile", func_001C0CE0);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C0D28);
 
-INCLUDE_ASM("fe/feasyncfile", func_001C0E88);
+extern "C" void* func_001A8E40(void* self);
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001C0E88__FPv);
+#ifdef SKIP_ASM
+void* func_001C0E88(void* self)
+{
+    return func_001A8E40(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C0EA8);
 
@@ -1003,7 +1132,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001C1C50);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C1C90);
 
-INCLUDE_ASM("fe/feasyncfile", func_001C1D10);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001C1D10__FPv);
+#ifdef SKIP_ASM
+void* func_001C1D10(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C1D30);
 
@@ -1015,7 +1151,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001C20F8);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C2138);
 
-INCLUDE_ASM("fe/feasyncfile", func_001C21A0);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001C21A0__FPv);
+#ifdef SKIP_ASM
+void* func_001C21A0(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C21C0);
 
@@ -1045,7 +1188,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001C2E00);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C2E70);
 
-INCLUDE_ASM("fe/feasyncfile", func_001C2EE0);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001C2EE0__FPv);
+#ifdef SKIP_ASM
+void* func_001C2EE0(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C2F00);
 
@@ -1087,7 +1237,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001C5098);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5108);
 
-INCLUDE_ASM("fe/feasyncfile", func_001C5178);
+//100%
+INCLUDE_ASM("fe/feasyncfile", func_001C5178__FPv);
+#ifdef SKIP_ASM
+void* func_001C5178(void* self)
+{
+    return func_001A8770(self);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5198);
 

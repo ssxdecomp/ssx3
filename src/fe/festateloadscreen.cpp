@@ -28,13 +28,45 @@ void func_00233B88(void* self)
 }
 #endif
 
-INCLUDE_ASM("fe/festateloadscreen", func_00233B90);
+extern "C" void* func_00233AF0(void* self);
 
-INCLUDE_ASM("fe/festateloadscreen", func_00233BB0);
+//99.29%
+INCLUDE_ASM("fe/festateloadscreen", func_00233B90__FPv);
+#ifdef SKIP_ASM
+void* func_00233B90(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
 
-INCLUDE_ASM("fe/festateloadscreen", func_00233BD0);
+extern "C" void* func_00233B28(void* self);
 
-INCLUDE_ASM("fe/festateloadscreen", func_00233BF0);
+//99.29%
+INCLUDE_ASM("fe/festateloadscreen", func_00233BB0__FPv);
+#ifdef SKIP_ASM
+void* func_00233BB0(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
+
+//99.29%
+INCLUDE_ASM("fe/festateloadscreen", func_00233BD0__FPv);
+#ifdef SKIP_ASM
+void* func_00233BD0(void* self)
+{
+    return func_00233AF0(self);
+}
+#endif
+
+//99.29%
+INCLUDE_ASM("fe/festateloadscreen", func_00233BF0__FPv);
+#ifdef SKIP_ASM
+void* func_00233BF0(void* self)
+{
+    return func_00233B28(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateloadscreen", func_00233C10);
 

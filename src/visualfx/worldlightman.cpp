@@ -132,7 +132,16 @@ void func_002F8168(void* self)
 
 INCLUDE_ASM("visualfx/worldlightman", func_002F8188);
 
-INCLUDE_ASM("visualfx/worldlightman", func_002F81B8);
+extern "C" void* func_003546C8(void* self);
+
+//100%
+INCLUDE_ASM("visualfx/worldlightman", func_002F81B8__FPv);
+#ifdef SKIP_ASM
+void* func_002F81B8(void* self)
+{
+    return func_003546C8(self);
+}
+#endif
 
 INCLUDE_ASM("visualfx/worldlightman", func_002F81F0);
 

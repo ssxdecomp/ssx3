@@ -6,7 +6,16 @@ INCLUDE_ASM("object/debouncenode", func_00342D88);
 
 INCLUDE_ASM("object/debouncenode", func_00342DD8);
 
-INCLUDE_ASM("object/debouncenode", func_00342E78);
+extern "C" void* func_00356B08(void* self);
+
+//100%
+INCLUDE_ASM("object/debouncenode", func_00342E78__FPv);
+#ifdef SKIP_ASM
+void* func_00342E78(void* self)
+{
+    return func_00356B08(self);
+}
+#endif
 
 INCLUDE_ASM("object/debouncenode", func_00342E98);
 
@@ -56,7 +65,16 @@ INCLUDE_ASM("object/debouncenode", func_00344240);
 
 INCLUDE_ASM("object/debouncenode", func_003442E0);
 
-INCLUDE_ASM("object/debouncenode", func_00344348);
+extern "C" void* func_00344800(void* self);
+
+//100%
+INCLUDE_ASM("object/debouncenode", func_00344348__FPv);
+#ifdef SKIP_ASM
+void* func_00344348(void* self)
+{
+    return func_00344800(self);
+}
+#endif
 
 INCLUDE_ASM("object/debouncenode", func_00344368);
 

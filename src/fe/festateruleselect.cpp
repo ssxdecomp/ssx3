@@ -4,7 +4,16 @@ INCLUDE_ASM("fe/festateruleselect", cFEStateRuleSelect_setupMenu);
 
 INCLUDE_ASM("fe/festateruleselect", cFEStateRuleSelect_onCreateScreen);
 
-INCLUDE_ASM("fe/festateruleselect", func_00191C48);
+extern "C" void* func_0039E4C0(void* self);
+
+//100%
+INCLUDE_ASM("fe/festateruleselect", func_00191C48__FPv);
+#ifdef SKIP_ASM
+void* func_00191C48(void* self)
+{
+    return func_0039E4C0(self);
+}
+#endif
 
 INCLUDE_ASM("fe/festateruleselect", func_00191C68);
 

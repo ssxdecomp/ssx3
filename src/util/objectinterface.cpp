@@ -21,7 +21,16 @@ void* cObjectInterface_getInstanceMan()
 }
 #endif
 
-INCLUDE_ASM("util/objectinterface", func_002D1CF0);
+extern "C" void* func_002D9C00(void* self);
+
+//100%
+INCLUDE_ASM("util/objectinterface", func_002D1CF0__FPv);
+#ifdef SKIP_ASM
+void* func_002D1CF0(void* self)
+{
+    return func_002D9C00(self);
+}
+#endif
 
 INCLUDE_ASM("util/objectinterface", func_002D1D10);
 

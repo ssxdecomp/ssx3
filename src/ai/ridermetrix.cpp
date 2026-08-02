@@ -91,7 +91,19 @@ INCLUDE_ASM("ai/ridermetrix", func_001198D8);
 
 INCLUDE_ASM("ai/ridermetrix", func_00119918);
 
-INCLUDE_ASM("ai/ridermetrix", func_00119938);
+//97.62%
+INCLUDE_ASM("ai/ridermetrix", func_00119938__FPvii);
+#ifdef SKIP_ASM
+float func_00119938(void* self, int a1, int a2)
+{
+    *(int*)((char*)self + 0x6c) = 0;
+    *(int*)((char*)self + 0x20) = a2;
+    *(int*)((char*)self + 0x70) = a1;
+    *(int*)((char*)self + 0x5c) = 1;
+    *(int*)((char*)self + 0xc) = a2;
+    return *(float*)((char*)self + 0x6c);
+}
+#endif
 
 INCLUDE_ASM("ai/ridermetrix", func_00119958);
 
@@ -130,7 +142,14 @@ float cRiderMetrix_evAutoResetSurface(void* self)
 }
 #endif
 
-INCLUDE_ASM("ai/ridermetrix", func_0011A0C0);
+//100%
+INCLUDE_ASM("ai/ridermetrix", func_0011A0C0__FPv);
+#ifdef SKIP_ASM
+float func_0011A0C0(void* self)
+{
+    return 0.0f;
+}
+#endif
 
 INCLUDE_ASM("ai/ridermetrix", func_0011A0E0);
 
@@ -150,5 +169,14 @@ INCLUDE_ASM("ai/ridermetrix", func_0011B2C0);
 
 INCLUDE_ASM("ai/ridermetrix", func_0011B3F8);
 
-INCLUDE_ASM("ai/ridermetrix", func_0011B678);
+extern "C" void* func_0041AA88(void* self);
+
+//100%
+INCLUDE_ASM("ai/ridermetrix", func_0011B678__FPv);
+#ifdef SKIP_ASM
+void* func_0011B678(void* self)
+{
+    return func_0041AA88(self);
+}
+#endif
 

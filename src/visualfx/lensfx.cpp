@@ -20,7 +20,15 @@ INCLUDE_ASM("visualfx/lensfx", func_002EC450);
 
 INCLUDE_ASM("visualfx/lensfx", func_002EC478);
 
-INCLUDE_ASM("visualfx/lensfx", func_002EC9D0);
+//100%
+INCLUDE_ASM("visualfx/lensfx", func_002EC9D0__FPv);
+#ifdef SKIP_ASM
+void* func_002EC9D0(void* self)
+{
+    *(int*)self = -1;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("visualfx/lensfx", func_002EC9E0);
 
