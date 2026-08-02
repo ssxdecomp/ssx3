@@ -16,7 +16,7 @@ INCLUDE_ASM("fe/ovstates5", func_00200D00);
 
 INCLUDE_ASM("fe/ovstates5", cUITemplate_MAP_setupMenus);
 
-INCLUDE_ASM("fe/ovstates5", cUITemplate_MAP_setupEventUnlock);
+INCLUDE_ASM("fe/ovstates5", cUITemplate_MAP_setupEventUnlock__FP15cUITemplate_MAP);
 
 INCLUDE_ASM("fe/ovstates5", cUITemplate_MAP_setupPeakUnlock);
 

@@ -1,6 +1,30 @@
 #include "common.h"
 
-INCLUDE_ASM("be/beintmission", cBEMissionInterface_getThis);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern const char D_0045A848[];
+extern void* D_0045ADF8[16];
+extern void* D_004A1238;
+
+struct cBEMissionInterface {
+    char pad_0x00[8];
+    int field_0x8;
+    void* vtable;
+};
+
+//99.58%
+INCLUDE_ASM("be/beintmission", cBEMissionInterface_getThis__Fv);
+#ifdef SKIP_ASM
+void* cBEMissionInterface_getThis()
+{
+    if (D_004A1238 == 0) {
+        cBEMissionInterface* mem = (cBEMissionInterface*)cMemMan_alloc(0x14, D_0045A848, 0, 0);
+        mem->field_0x8 = 0;
+        mem->vtable = D_0045ADF8;
+        D_004A1238 = mem;
+    }
+    return D_004A1238;
+}
+#endif
 
 INCLUDE_ASM("be/beintmission", func_00153350);
 

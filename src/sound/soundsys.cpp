@@ -242,6 +242,8 @@ INCLUDE_ASM("sound/soundsys", func_002A1138);
 
 INCLUDE_ASM("sound/soundsys", func_002A1280);
 
+INCLUDE_ASM("sound/soundsys", func_002A1388);
+
 INCLUDE_ASM("sound/soundsys", func_002A1400);
 
 INCLUDE_ASM("sound/soundsys", func_002A1560);

@@ -1,12 +1,49 @@
 #include "common.h"
 
-INCLUDE_ASM("be/beintreward", cBERewardInterface_getThis);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern const char D_0045A938[];
+extern void* D_0045AE88[16];
+extern void* D_004A1264;
+
+struct cBERewardInterface {
+    char pad_0x00[8];
+    int field_0x8;
+    void* vtable;
+};
+
+//99.84%
+INCLUDE_ASM("be/beintreward", cBERewardInterface_getThis__Fv);
+#ifdef SKIP_ASM
+void* cBERewardInterface_getThis()
+{
+    if (D_004A1264 == 0) {
+        cBERewardInterface* mem = (cBERewardInterface*)cMemMan_alloc(0x18, D_0045A938, 0, 0);
+        mem->field_0x8 = 0;
+        mem->vtable = D_0045AE88;
+        D_004A1264 = mem;
+    }
+    return D_004A1264;
+}
+#endif
 
 INCLUDE_ASM("be/beintreward", func_00156A10);
 
 INCLUDE_ASM("be/beintreward", func_00156A38);
 
-INCLUDE_ASM("be/beintreward", cBERewardInterface_isBetterMedal);
+//100%
+INCLUDE_ASM("be/beintreward", cBERewardInterface_isBetterMedal__FPvii);
+#ifdef SKIP_ASM
+int cBERewardInterface_isBetterMedal(void* self, int a, int b)
+{
+    if (b == -1) {
+        return 0;
+    }
+    if (a == -1) {
+        return 1;
+    }
+    return b < a;
+}
+#endif
 
 INCLUDE_ASM("be/beintreward", func_00156A90);
 

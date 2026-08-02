@@ -1,16 +1,86 @@
 #include "common.h"
 
-INCLUDE_ASM("object/modifierblock", tModifierBlock_tModifierBlock);
+struct sBoundBoxTarget {
+    char pad_0x00[0x68];
+    short field_0x68;
+    char pad_0x6A[2];
+    void (*fnBoundBox)(void*); // 0x6C
+    char pad_0x70[0x78 - 0x70];
+    short field_0x78;
+    char pad_0x7A[2];
+    void (*fnRadius)(void*); // 0x7C
+};
+
+struct sBoundBoxNode {
+    sBoundBoxTarget* target; // 0x0
+};
+
+struct tModifierBlock {
+    sBoundBoxNode* node; // 0x0
+    int field_0x4;
+    int field_0x8;
+    int field_0xC;
+    int field_0x10;
+    int field_0x14;
+    void* field_0x18;
+    int field_0x1C;
+    int field_0x20;
+    void* field_0x24;
+};
+
+extern void* D_00491340[16];
+extern void* D_00491200[16];
+
+//100%
+INCLUDE_ASM("object/modifierblock", tModifierBlock_tModifierBlock__FP14tModifierBlock);
+#ifdef SKIP_ASM
+tModifierBlock* tModifierBlock_tModifierBlock(tModifierBlock* self)
+{
+    self->field_0x18 = D_00491340;
+    self->field_0x24 = D_00491200;
+    self->field_0x10 = 0;
+    self->field_0x14 = 0;
+    self->field_0x1C = 0;
+    self->field_0x20 = 0;
+    self->node = 0;
+    self->field_0x4 = 0;
+    self->field_0x8 = 0;
+    self->field_0xC = 0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("object/modifierblock", func_00352AE8);
 
 INCLUDE_ASM("object/modifierblock", func_00352B88);
 
-INCLUDE_ASM("object/modifierblock", tModifierBlock_setBoundBox);
+//98.46% - target uses a2 for `node`, unclear source shape reproduces that register choice
+INCLUDE_ASM("object/modifierblock", tModifierBlock_setBoundBox__FP14tModifierBlock);
+#ifdef SKIP_ASM
+void tModifierBlock_setBoundBox(tModifierBlock* self)
+{
+    sBoundBoxNode* node = self->node;
+    if (node != 0) {
+        sBoundBoxTarget* target = node->target;
+        target->fnBoundBox((char*)node + target->field_0x68);
+    }
+}
+#endif
 
 INCLUDE_ASM("object/modifierblock", func_00352BF8);
 
-INCLUDE_ASM("object/modifierblock", tModifierBlock_setRadius);
+//100%
+INCLUDE_ASM("object/modifierblock", tModifierBlock_setRadius__FP14tModifierBlock);
+#ifdef SKIP_ASM
+void tModifierBlock_setRadius(tModifierBlock* self)
+{
+    sBoundBoxNode* node = self->node;
+    if (node != 0) {
+        sBoundBoxTarget* target = node->target;
+        target->fnRadius((char*)node + target->field_0x78);
+    }
+}
+#endif
 
 INCLUDE_ASM("object/modifierblock", func_00352C70);
 

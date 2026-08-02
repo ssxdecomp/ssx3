@@ -1,6 +1,26 @@
 #include "common.h"
 
-INCLUDE_ASM("util/menu", cMenuItem_cMenuItem);
+struct cMenuItem {
+    char pad_0x00[0x4];
+    int field_0x4;
+    void* field_0x8;
+    int field_0xC;
+    void* vtable; // 0x10
+};
+extern void* D_00486F28[16];
+
+//100%
+INCLUDE_ASM("util/menu", cMenuItem_cMenuItem__FP9cMenuItemPv);
+#ifdef SKIP_ASM
+cMenuItem* cMenuItem_cMenuItem(cMenuItem* self, void* text)
+{
+    self->field_0x4 = 1;
+    self->vtable = D_00486F28;
+    self->field_0x8 = text;
+    self->field_0xC = 0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CA280);
 
@@ -162,7 +182,25 @@ INCLUDE_ASM("util/menu", func_002CD240);
 
 INCLUDE_ASM("util/menu", func_002CD278);
 
-INCLUDE_ASM("util/menu", cNullMenuItem_cNullMenuItem);
+extern void* D_00486CA0[16];
+
+struct cNullMenuItem {
+    char pad_0x00[0x10];
+    void* vtable;
+    void* field_0x14;
+};
+
+//89.33% - target uses single-instruction addiu for the -1 constant, ours uses lui/ori for the void* constant
+INCLUDE_ASM("util/menu", cNullMenuItem_cNullMenuItem__FP13cNullMenuItemPv);
+#ifdef SKIP_ASM
+cNullMenuItem* cNullMenuItem_cNullMenuItem(cNullMenuItem* self, void* text)
+{
+    cMenuItem_cMenuItem((cMenuItem*)self, (void*)-1);
+    self->field_0x14 = text;
+    self->vtable = D_00486CA0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CD2E8);
 
@@ -170,7 +208,25 @@ INCLUDE_ASM("util/menu", func_002CD2F0);
 
 INCLUDE_ASM("util/menu", func_002CD328);
 
-INCLUDE_ASM("util/menu", cSpaceMenuItem_cSpaceMenuItem);
+extern void* D_00486C50[16];
+
+struct cSpaceMenuItem {
+    char pad_0x00[0x10];
+    void* vtable;
+    void* field_0x14;
+};
+
+//89.33% - same -1 constant materialization issue as cNullMenuItem
+INCLUDE_ASM("util/menu", cSpaceMenuItem_cSpaceMenuItem__FP14cSpaceMenuItemPv);
+#ifdef SKIP_ASM
+cSpaceMenuItem* cSpaceMenuItem_cSpaceMenuItem(cSpaceMenuItem* self, void* text)
+{
+    cMenuItem_cMenuItem((cMenuItem*)self, (void*)-1);
+    self->field_0x14 = text;
+    self->vtable = D_00486C50;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CD398);
 
@@ -238,7 +294,16 @@ INCLUDE_ASM("util/menu", func_002CF860);
 
 INCLUDE_ASM("util/menu", func_002CF8D8);
 
-INCLUDE_ASM("util/menu", cExpandMenuItem_addItem);
+void cMenu_addItem(void* menu, void* item);
+
+//100%
+INCLUDE_ASM("util/menu", cExpandMenuItem_addItem__FPvT0);
+#ifdef SKIP_ASM
+void cExpandMenuItem_addItem(void* self, void* item)
+{
+    cMenu_addItem((char*)self + 0x18, item);
+}
+#endif
 
 INCLUDE_ASM("util/menu", func_002CFA08);
 

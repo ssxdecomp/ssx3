@@ -1,6 +1,22 @@
 #include "common.h"
 
-INCLUDE_ASM("animation/animsequencer", cAnimSequence_fadeWeight);
+struct cAnimSequence {
+    char pad_0x00[0x98];
+    float mCurrentWeight; // 0x98
+    float mTargetWeight; // 0x9C
+    float mFadeSpeed; // 0xA0
+};
+
+//100%
+INCLUDE_ASM("animation/animsequencer", cAnimSequence_fadeWeight__FP13cAnimSequenceff);
+#ifdef SKIP_ASM
+void cAnimSequence_fadeWeight(cAnimSequence* self, float weight, float target)
+{
+    self->mCurrentWeight = weight;
+    self->mTargetWeight = target;
+    self->mFadeSpeed = 0.0f;
+}
+#endif
 
 INCLUDE_ASM("animation/animsequencer", func_00313A20);
 
@@ -46,7 +62,28 @@ INCLUDE_ASM("animation/animsequencer", func_003146D0);
 
 INCLUDE_ASM("animation/animsequencer", func_00314718);
 
-INCLUDE_ASM("animation/animsequencer", cAnimSequencer_getSequence);
+struct cAnimSequenceNode {
+    char pad_0x00[0xC8];
+    cAnimSequenceNode* next; // 0xC8
+};
+
+struct cAnimSequencer {
+    char pad_0x00[0x4];
+    cAnimSequenceNode* mFirstSequence; // 0x4
+};
+
+//100%
+INCLUDE_ASM("animation/animsequencer", cAnimSequencer_getSequence__FP14cAnimSequenceri);
+#ifdef SKIP_ASM
+cAnimSequenceNode* cAnimSequencer_getSequence(cAnimSequencer* self, int index)
+{
+    cAnimSequenceNode* cur = self->mFirstSequence;
+    while (cur != 0 && index-- > 0) {
+        cur = cur->next;
+    }
+    return cur;
+}
+#endif
 
 INCLUDE_ASM("animation/animsequencer", func_003147F0);
 

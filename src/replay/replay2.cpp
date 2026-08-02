@@ -32,7 +32,7 @@ INCLUDE_ASM("replay/replay2", func_00270670);
 
 INCLUDE_ASM("replay/replay2", func_002706B8);
 
-INCLUDE_ASM("replay/replay2", cReplay_stopAutoReplay);
+INCLUDE_ASM("replay/replay2", cReplay_stopAutoReplay__FPv);
 
 INCLUDE_ASM("replay/replay2", func_00270730);
 

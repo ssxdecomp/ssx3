@@ -20,11 +20,33 @@ INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CF40);
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016CF48);
 
-INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerMan_setInGameTriggers);
+void func_0016CF48(void* self, int type);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerMan_setInGameTriggers__FPv);
+#ifdef SKIP_ASM
+void cCameraTriggerMan_setInGameTriggers(void* self)
+{
+    func_0016CF48(self, 2);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016D1D8);
 
-INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerStack_init);
+struct cCameraTriggerStack {
+    int field_0x0;
+    int field_0x4;
+};
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerman", cCameraTriggerStack_init__FP19cCameraTriggerStack);
+#ifdef SKIP_ASM
+void cCameraTriggerStack_init(cCameraTriggerStack* self)
+{
+    self->field_0x0 = 0;
+    self->field_0x4 = 0;
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerman", func_0016D210);
 

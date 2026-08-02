@@ -6,9 +6,29 @@ INCLUDE_ASM("mem/memstd", MEMCLASS_link);
 
 INCLUDE_ASM("mem/memstd", func_00251F68);
 
-INCLUDE_ASM("mem/memstd", MEM_printclass);
+extern const char D_004800A8[];
+void func_00251F68();
+void MEM_printclassf(void* thing, const char* fmt, void (*cb)());
 
-INCLUDE_ASM("mem/memstd", MEM_print);
+//100%
+INCLUDE_ASM("mem/memstd", MEM_printclass__FPv);
+#ifdef SKIP_ASM
+void MEM_printclass(void* thing)
+{
+    MEM_printclassf(thing, D_004800A8, func_00251F68);
+}
+#endif
+
+extern void* D_004A2E78;
+
+//99.25%
+INCLUDE_ASM("mem/memstd", MEM_print__Fv);
+#ifdef SKIP_ASM
+void MEM_print()
+{
+    MEM_printclass(D_004A2E78);
+}
+#endif
 
 INCLUDE_ASM("mem/memstd", MEM_printclassf);
 

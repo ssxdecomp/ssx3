@@ -1,6 +1,38 @@
 #include "common.h"
 
-INCLUDE_ASM("be/beintbagt", cBEBAGTInterface_getThis);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern const char D_0045A6D8[];
+
+struct sVTableBAGT {
+    char pad_0x00[0x10];
+    short field_0x10;
+    char pad_0x12[2];
+    void (*fn)(void*);
+};
+extern sVTableBAGT D_0045ACD8;
+
+struct cBEBAGTInterface {
+    char pad_0x00[8];
+    int field_0x8;
+    void* vtable;
+};
+extern void* D_004A1210;
+
+//83.17% - delay-slot scheduling of the vtable store vs. the vtable-fn call not reproduced
+INCLUDE_ASM("be/beintbagt", cBEBAGTInterface_getThis__Fv);
+#ifdef SKIP_ASM
+void* cBEBAGTInterface_getThis()
+{
+    if (D_004A1210 == 0) {
+        cBEBAGTInterface* mem = (cBEBAGTInterface*)cMemMan_alloc(0x10, D_0045A6D8, 0, 0);
+        D_004A1210 = mem;
+        mem->vtable = &D_0045ACD8;
+        D_0045ACD8.fn((char*)mem + D_0045ACD8.field_0x10);
+        ((cBEBAGTInterface*)D_004A1210)->field_0x8 = 0;
+    }
+    return D_004A1210;
+}
+#endif
 
 INCLUDE_ASM("be/beintbagt", func_0014F960);
 

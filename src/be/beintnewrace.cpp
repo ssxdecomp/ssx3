@@ -1,14 +1,69 @@
 #include "common.h"
 
-INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_getThis);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern const char D_0045A0F0[];
+extern void* D_0045AE58[16];
+extern void* D_004A11B4;
+
+struct cBENewRaceInterface {
+    char pad_0x00[8];
+    int field_0x8;
+    void* vtable;
+};
+
+struct sRaceInterfaceGlobal {
+    int arr1[6]; // 0x0
+    int arr2[6]; // 0x18
+    int field_0x30;
+    int field_0x34;
+    int field_0x38;
+    int field_0x3C;
+};
+extern sRaceInterfaceGlobal D_00535BC8;
+
+//99.58%
+INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_getThis__Fv);
+#ifdef SKIP_ASM
+void* cBENewRaceInterface_getThis()
+{
+    if (D_004A11B4 == 0) {
+        cBENewRaceInterface* mem = (cBENewRaceInterface*)cMemMan_alloc(0x10, D_0045A0F0, 0, 0);
+        mem->field_0x8 = 0;
+        mem->vtable = D_0045AE58;
+        D_004A11B4 = mem;
+    }
+    return D_004A11B4;
+}
+#endif
 
 INCLUDE_ASM("be/beintnewrace", func_00144928);
 
 INCLUDE_ASM("be/beintnewrace", func_001449E8);
 
-INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_setNumberHumans);
+INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_setNumberHumans__FPvi);
+#ifdef SKIP_ASM
+void cBENewRaceInterface_setNumberHumans(void* self, int humans)
+{
+    D_00535BC8.field_0x34 = humans;
+    D_00535BC8.field_0x30 = humans + D_00535BC8.field_0x3C + D_00535BC8.field_0x38;
+    for (int i = 0; i < 6; i++) {
+        D_00535BC8.arr1[i] = 0;
+        D_00535BC8.arr2[i] = 0;
+    }
+}
+#endif
 
-INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_setNumberMission);
+//100%
+INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_setNumberMission__FPvi);
+#ifdef SKIP_ASM
+void cBENewRaceInterface_setNumberMission(void* self, int mission)
+{
+    int a = D_00535BC8.field_0x34;
+    int b = D_00535BC8.field_0x3C;
+    D_00535BC8.field_0x38 = mission;
+    D_00535BC8.field_0x30 = a + b + mission;
+}
+#endif
 
 INCLUDE_ASM("be/beintnewrace", func_00144B20);
 

@@ -6,7 +6,21 @@ INCLUDE_ASM("replay/frameptr", func_0026E950);
 
 INCLUDE_ASM("replay/frameptr", func_0026E968);
 
-INCLUDE_ASM("replay/frameptr", cReplayFramePtr_readRewind);
+struct cReplayFramePtr {
+    char pad_0x00[0x4];
+    int field_0x4;
+    char pad_0x08[0x4];
+    int field_0xC;
+};
+
+//100%
+INCLUDE_ASM("replay/frameptr", cReplayFramePtr_readRewind__FP15cReplayFramePtr);
+#ifdef SKIP_ASM
+void cReplayFramePtr_readRewind(cReplayFramePtr* self)
+{
+    self->field_0xC = self->field_0x4;
+}
+#endif
 
 INCLUDE_ASM("replay/frameptr", func_0026E9C0);
 
@@ -28,7 +42,13 @@ INCLUDE_ASM("replay/frameptr", func_0026ED28);
 
 INCLUDE_ASM("replay/frameptr", func_0026ED88);
 
-INCLUDE_ASM("replay/frameptr", cReplayFramePtr_getFrameBlock);
+//100%
+INCLUDE_ASM("replay/frameptr", cReplayFramePtr_getFrameBlock__Fv);
+#ifdef SKIP_ASM
+void cReplayFramePtr_getFrameBlock()
+{
+}
+#endif
 
 INCLUDE_ASM("replay/frameptr", func_0026ED98);
 

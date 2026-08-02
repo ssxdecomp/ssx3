@@ -1,6 +1,18 @@
 #include "common.h"
 
-INCLUDE_ASM("visualfx/lensfx", cLensFxMan_construct);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+void* func_002EC418(void* self);
+extern const char D_004A3B48[];
+
+//99.23%
+INCLUDE_ASM("visualfx/lensfx", cLensFxMan_construct__Fv);
+#ifdef SKIP_ASM
+void* cLensFxMan_construct()
+{
+    void* mem = cMemMan_alloc(0x6820, D_004A3B48, 0, 0);
+    return func_002EC418(mem);
+}
+#endif
 
 INCLUDE_ASM("visualfx/lensfx", func_002EC418);
 

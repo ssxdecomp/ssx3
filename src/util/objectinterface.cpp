@@ -1,6 +1,25 @@
 #include "common.h"
 
-INCLUDE_ASM("util/objectinterface", cObjectInterface_getInstanceMan);
+struct cObjectInterface {
+    char pad_0x00[0x84];
+    struct cObjectInterface_Impl* mImpl; // offset 0x84
+};
+
+struct cObjectInterface_Impl {
+    char pad_0x00[0x88];
+    void* mInstanceMan; // offset 0x88
+};
+
+extern cObjectInterface* D_004A28A8;
+
+//100%
+INCLUDE_ASM("util/objectinterface", cObjectInterface_getInstanceMan__Fv);
+#ifdef SKIP_ASM
+void* cObjectInterface_getInstanceMan()
+{
+    return D_004A28A8->mImpl->mInstanceMan;
+}
+#endif
 
 INCLUDE_ASM("util/objectinterface", func_002D1CF0);
 

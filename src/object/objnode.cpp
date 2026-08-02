@@ -1,6 +1,24 @@
 #include "common.h"
 
-INCLUDE_ASM("object/objnode", cObjNode_cObjNode);
+extern "C" void cBucketMan_add(void* mgr, void* node, void* param);
+extern void* D_00491F00[16];
+extern char D_004A5988;
+
+struct cObjNode {
+    char pad_0x00[0xC];
+    void* field_0xC;
+};
+
+//99.94%
+INCLUDE_ASM("object/objnode", cObjNode_cObjNode__FP8cObjNodePv);
+#ifdef SKIP_ASM
+cObjNode* cObjNode_cObjNode(cObjNode* self, void* param2)
+{
+    self->field_0xC = D_00491F00;
+    cBucketMan_add(&D_004A5988, self, param2);
+    return self;
+}
+#endif
 
 INCLUDE_ASM("object/objnode", func_003546C8);
 

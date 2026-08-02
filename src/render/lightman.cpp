@@ -1,6 +1,22 @@
 #include "common.h"
 
-INCLUDE_ASM("render/lightman", cLightMan_construct);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern const char D_00492EE0[];
+extern void* D_00493650[16];
+
+struct cPSPLightMan;
+cPSPLightMan* cPSPLightMan_cPSPLightMan(cPSPLightMan* self);
+
+INCLUDE_ASM("render/lightman", cLightMan_construct__Fv);
+#ifdef SKIP_ASM
+void* cLightMan_construct()
+{
+    void* mem = cMemMan_alloc(0x14, D_00492EE0, 0, 0);
+    cPSPLightMan_cPSPLightMan((cPSPLightMan*)mem);
+    *(void**)mem = D_00493650;
+    return mem;
+}
+#endif
 
 INCLUDE_ASM("render/lightman", func_0038DC50);
 

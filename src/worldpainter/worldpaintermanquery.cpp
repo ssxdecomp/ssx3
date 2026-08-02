@@ -1,6 +1,23 @@
 #include "common.h"
 
-INCLUDE_ASM("worldpainter/worldpaintermanquery", cWorldPainterMan_getQuery);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern "C" void* cWorldPainterQuery_cWorldPainterQuery(void* self, void* arg);
+extern const char D_00483DE8[];
+
+struct cWorldPainterManArg {
+    void* field_0x0;
+};
+
+//100%
+INCLUDE_ASM("worldpainter/worldpaintermanquery", cWorldPainterMan_getQuery__FPvP19cWorldPainterManArg);
+#ifdef SKIP_ASM
+void* cWorldPainterMan_getQuery(void* self, cWorldPainterManArg* x)
+{
+    void* mem = cMemMan_alloc(0x18, D_00483DE8, 0, 0);
+    void* arg = x->field_0x0;
+    return cWorldPainterQuery_cWorldPainterQuery(mem, arg);
+}
+#endif
 
 INCLUDE_ASM("worldpainter/worldpaintermanquery", func_002C0B70);
 

@@ -32,7 +32,20 @@ INCLUDE_ASM("replay/replaycache", func_00270670);
 
 INCLUDE_ASM("replay/replaycache", func_002706B8);
 
-INCLUDE_ASM("replay/replaycache", cReplay_stopAutoReplay);
+extern "C" void func_0026F980(void* self);
+extern "C" void func_0026F4A0(void* self, int arg);
+
+//100%
+INCLUDE_ASM("replay/replaycache", cReplay_stopAutoReplay__FPv);
+#ifdef SKIP_ASM
+void cReplay_stopAutoReplay(void* self)
+{
+    if (*(int*)((char*)self + 0x61C) != 0) {
+        func_0026F980(self);
+    }
+    func_0026F4A0(self, 0xD);
+}
+#endif
 
 INCLUDE_ASM("replay/replaycache", func_00270730);
 

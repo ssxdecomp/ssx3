@@ -1,6 +1,31 @@
 #include "common.h"
 
-INCLUDE_ASM("camera/trigger/triggeralgorithms", cActiveTriggerList_purge);
+void operator_delete(int* ptr);
+
+struct sTriggerNode {
+    void* pad;
+    sTriggerNode* next;
+};
+
+struct cActiveTriggerList {
+    sTriggerNode* head;
+};
+
+INCLUDE_ASM("camera/trigger/triggeralgorithms", cActiveTriggerList_purge__FP18cActiveTriggerList);
+#ifdef SKIP_ASM
+void cActiveTriggerList_purge(cActiveTriggerList* self)
+{
+    sTriggerNode* node = self->head;
+    if (node != 0) {
+        do {
+            sTriggerNode* next = node->next;
+            operator_delete((int*)node);
+            node = next;
+        } while (node != 0);
+    }
+    self->head = 0;
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/triggeralgorithms", func_0016C678);
 

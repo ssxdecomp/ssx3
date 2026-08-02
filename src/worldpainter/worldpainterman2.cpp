@@ -1,6 +1,6 @@
 #include "common.h"
 
-INCLUDE_ASM("worldpainter/worldpainterman2", cWorldPainterMan_getQuery);
+INCLUDE_ASM("worldpainter/worldpainterman2", cWorldPainterMan_getQuery__FPvP19cWorldPainterManArg);
 
 INCLUDE_ASM("worldpainter/worldpainterman2", func_002C0B70);
 

@@ -1,6 +1,21 @@
 #include "common.h"
 
-INCLUDE_ASM("intersect/riderspheretree", cRiderSphereTree_cRiderSphereTree);
+struct cRiderSphereTree {
+    char pad_0x00[0x24];
+    int field_0x24;
+    int field_0x28;
+};
+
+//0% - target has extra dead constant load + redundant -1 materialization not yet reproduced
+INCLUDE_ASM("intersect/riderspheretree", cRiderSphereTree_cRiderSphereTree__FP16cRiderSphereTree);
+#ifdef SKIP_ASM
+cRiderSphereTree* cRiderSphereTree_cRiderSphereTree(cRiderSphereTree* self)
+{
+    self->field_0x24 = -1;
+    self->field_0x28 = -1;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("intersect/riderspheretree", func_00329970);
 

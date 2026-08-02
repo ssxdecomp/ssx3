@@ -37,7 +37,7 @@ options:
 
   extensions_path: tools/splat_ext
 
-  section_order: [".text", ".vutext", ".data", ".rodata", ".lit4", ".sbss", ".bss"]
+  section_order: [".text", ".vutext", ".data", ".rodata", ".lit4", ".sdata", ".sbss", ".bss"]
   auto_link_sections: [".data", ".rodata", ".bss"]
 
   subalign: 4
@@ -532,5 +532,17 @@ segments:
       - [0x39c080, rodatabin, gcc_except_table]
       
       - [0x39c100, lit4]
+
+      # .lit4 (real ELF size 0x5d58) was previously undersized/unbounded here,
+      # silently swallowing .sdata and .sbss content and misclassifying their
+      # pointer/data globals as float literals. Bounded properly per the
+      # original ELF's real section headers (readelf -S disc/SLUS_207.72).
+      - [0x3a1e80, sdata]
+
+      # .sbss (real ELF start 0x3a5c00) would go here, but splat's CommonSegSbss
+      # (a CommonSegBss subclass) isn't handled by configure.py's build_stuff
+      # dispatch, which breaks the ninja build. Leaving this range classified
+      # as .sdata instead -- still correctly generic (non-float) data, just not
+      # perfectly section-accurate for this small remaining tail.
 
   - [0x3B5E60]

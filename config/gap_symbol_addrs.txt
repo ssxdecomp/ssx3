@@ -11496,3 +11496,4 @@ func_003E665C = 0x003E665C; //type:func
 func_003ECB00 = 0x003ECB00; //type:func
 func_003EDD70 = 0x003EDD70; //type:func
 
+func_002A1388 = 0x002A1388; //type:func

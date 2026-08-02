@@ -42,9 +42,39 @@ INCLUDE_ASM("bx/bxstring", func_003189D0);
 
 INCLUDE_ASM("bx/bxstring", func_00318A88);
 
-INCLUDE_ASM("bx/bxstring", cBXString_FindLastOf);
+extern "C" char* strchr(char* str, int ch);
 
-INCLUDE_ASM("bx/bxstring", cBXString_FindFirstOf);
+struct cBXString {
+    char* str;
+};
+
+//100%
+INCLUDE_ASM("bx/bxstring", cBXString_FindLastOf__FP9cBXStringci);
+#ifdef SKIP_ASM
+int cBXString_FindLastOf(cBXString* self, char ch, int len)
+{
+    char* result = strchr(self->str + len, ch);
+    if (result == 0) {
+        return -1;
+    }
+    return result - self->str;
+}
+#endif
+
+extern "C" char* func_0041ACC0(char* str, int ch);
+
+//100%
+INCLUDE_ASM("bx/bxstring", cBXString_FindFirstOf__FP9cBXStringc);
+#ifdef SKIP_ASM
+int cBXString_FindFirstOf(cBXString* self, char ch)
+{
+    char* result = func_0041ACC0(self->str, ch);
+    if (result == 0) {
+        return -1;
+    }
+    return result - self->str;
+}
+#endif
 
 INCLUDE_ASM("bx/bxstring", func_00318D28);
 

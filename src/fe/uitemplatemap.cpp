@@ -16,7 +16,30 @@ INCLUDE_ASM("fe/uitemplatemap", func_00200D00);
 
 INCLUDE_ASM("fe/uitemplatemap", cUITemplate_MAP_setupMenus);
 
-INCLUDE_ASM("fe/uitemplatemap", cUITemplate_MAP_setupEventUnlock);
+struct cUITemplate_MAP {
+    char pad_0x00[0x10];
+    int field_0x10;
+    int field_0x14;
+    int field_0x18;
+    int field_0x1C;
+};
+extern unsigned int D_004A2594;
+
+//99.9%
+INCLUDE_ASM("fe/uitemplatemap", cUITemplate_MAP_setupEventUnlock__FP15cUITemplate_MAP);
+#ifdef SKIP_ASM
+void cUITemplate_MAP_setupEventUnlock(cUITemplate_MAP* self)
+{
+    self->field_0x1C = 0;
+    self->field_0x10 = 1;
+    self->field_0x14 = 1;
+    if (D_004A2594 < 2) {
+        self->field_0x18 = 0;
+    } else {
+        self->field_0x18 = 1;
+    }
+}
+#endif
 
 INCLUDE_ASM("fe/uitemplatemap", cUITemplate_MAP_setupPeakUnlock);
 

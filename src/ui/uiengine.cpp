@@ -1,6 +1,16 @@
 #include "common.h"
 
-INCLUDE_ASM("ui/uiengine", UIAsciiToUnicode);
+//100%
+INCLUDE_ASM("ui/uiengine", UIAsciiToUnicode__FPUsPCc);
+#ifdef SKIP_ASM
+void UIAsciiToUnicode(unsigned short* dst, const char* src)
+{
+    for (; *src != 0; src++, dst++) {
+        *dst = (char)*(unsigned char*)src;
+    }
+    *dst = 0;
+}
+#endif
 
 INCLUDE_ASM("ui/uiengine", func_00397B08);
 

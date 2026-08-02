@@ -1,6 +1,22 @@
 #include "common.h"
 
-INCLUDE_ASM("movie/movieplayer", cMCOverlayManager_getManager);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern "C" void* func_00242288(void* self);
+extern const char D_0047C128[];
+extern void* D_004A2C74;
+
+//99.53%
+INCLUDE_ASM("movie/movieplayer", cMCOverlayManager_getManager__Fv);
+#ifdef SKIP_ASM
+void* cMCOverlayManager_getManager()
+{
+    if (D_004A2C74 == 0) {
+        void* mem = cMemMan_alloc(0x74C, D_0047C128, 0, 0);
+        D_004A2C74 = func_00242288(mem);
+    }
+    return D_004A2C74;
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", func_0023C860);
 

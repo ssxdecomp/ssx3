@@ -59,13 +59,13 @@ The first step is a full dual build (everything compiles twice, once as
 reference bytes and once from our current source) so it's slower than a
 normal `ninja` build; only rerun it when you want a fresh number.
 
-Snapshot as of 2026-07-25:
+Snapshot as of 2026-08-02:
 
 | | matching | total | % |
 |---|---|---|---|
-| Functions | 9 | 12,929 | 0.07% |
-| Code bytes | 472 | 3,195,068 | 0.01% |
-| Data bytes | 4,968 | 500,792 | 0.99% |
+| Functions | 94 | 12,930 | 0.73% |
+| Code bytes | 4,176 | 3,195,184 | 0.13% |
+| Data bytes | 3,624 | 500,792 | 0.72% |
 
 The function/code counts include every function that's been split into its
 own file, named or not (via `config/gap_symbol_addrs.txt` — see that file's
@@ -78,6 +78,18 @@ identified.
 
 Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to
 pick a function to match, the matching workflow, and PR expectations.
+
+## AI use
+
+Use of AI tools (Claude, ChatGPT, Copilot, decomp.me's assistants, etc.) to
+help write or reverse-engineer matches is welcome, including for whole PRs.
+This project's correctness standard doesn't depend on who or what wrote a
+match: [objdiff](tools/objdiff) either reports a byte-perfect match against
+the real game binary or it doesn't. AI-assisted PRs are held to the same bar
+as any other — a green objdiff diff, not a claim of one — and normal review
+still applies (does the struct layout make sense, is naming reasonable,
+etc.). There's no need to disclose AI involvement, but please don't submit
+unverified output you haven't actually built and diffed yourself.
 
 ## License
 

@@ -1,6 +1,12 @@
 #include "common.h"
 
-INCLUDE_ASM("animation/gameanimmap", cGameAnimMap_testResolve);
+//100%
+INCLUDE_ASM("animation/gameanimmap", cGameAnimMap_testResolve__Fv);
+#ifdef SKIP_ASM
+void cGameAnimMap_testResolve()
+{
+}
+#endif
 
 INCLUDE_ASM("animation/gameanimmap", func_003150F8);
 

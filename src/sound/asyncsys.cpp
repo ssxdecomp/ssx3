@@ -1,6 +1,24 @@
 #include "common.h"
 
-INCLUDE_ASM("sound/asyncsys", cAsyncSys_ASYNCSYS_Init);
+void* operator_new(unsigned int size);
+
+struct cAsyncSys {
+    char pad_0x00[0x1CC];
+    void* field_0x1CC;
+    int field_0x1D0;
+};
+
+//63.76% - target has a dead address computation (D_00482988) not reproduced; logic correct
+INCLUDE_ASM("sound/asyncsys", cAsyncSys_ASYNCSYS_Init__FP9cAsyncSysUi);
+#ifdef SKIP_ASM
+void cAsyncSys_ASYNCSYS_Init(cAsyncSys* self, unsigned int x)
+{
+    if (x != 0) {
+        self->field_0x1D0 = x;
+        self->field_0x1CC = operator_new(x);
+    }
+}
+#endif
 
 INCLUDE_ASM("sound/asyncsys", func_0028A230);
 

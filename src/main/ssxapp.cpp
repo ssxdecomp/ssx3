@@ -8,11 +8,35 @@ INCLUDE_ASM("main/ssxapp", cSSXApp_loadInputMap);
 
 INCLUDE_ASM("main/ssxapp", cSSXApp_parseCommandLine);
 
-INCLUDE_ASM("main/ssxapp", cSSXApp_flush);
+extern "C" int func_00326C60(void* mgr);
+extern void* D_004A28A0;
+
+//99.9%
+INCLUDE_ASM("main/ssxapp", cSSXApp_flush__Fv);
+#ifdef SKIP_ASM
+int cSSXApp_flush()
+{
+    if (D_004A28A0 != 0) {
+        return func_00326C60(D_004A28A0);
+    }
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("main/ssxapp", cSSXApp_preUpdate);
 
-INCLUDE_ASM("main/ssxapp", cSSXApp_timerCallback);
+extern "C" void func_00326B88(void* mgr);
+
+//99.89%
+INCLUDE_ASM("main/ssxapp", cSSXApp_timerCallback__Fv);
+#ifdef SKIP_ASM
+void cSSXApp_timerCallback()
+{
+    if (D_004A28A0 != 0) {
+        func_00326B88(D_004A28A0);
+    }
+}
+#endif
 
 INCLUDE_ASM("main/ssxapp", func_00227F80);
 
@@ -26,7 +50,35 @@ INCLUDE_ASM("main/ssxapp", cSSXApp_initload);
 
 INCLUDE_ASM("main/ssxapp", cSSXApp_initLocale);
 
-INCLUDE_ASM("main/ssxapp", cSSXApp_loadexecpurge);
+extern "C" void func_002B4B48(void* self);
+extern "C" void func_00284C28();
+extern "C" void cAppMan_loadexecpurge(void* self);
+
+struct sExecPurgeVTable {
+    char pad_0x00[0x3B8];
+    short field_0x3B8;
+    char pad_0x3BA[2];
+    void (*fn)(void*);
+};
+
+struct sExecPurgeMgr {
+    char pad_0x00[0x10D8];
+    sExecPurgeVTable* vtable;
+};
+
+extern sExecPurgeMgr* D_004A5B80;
+
+INCLUDE_ASM("main/ssxapp", cSSXApp_loadexecpurge__FPv);
+#ifdef SKIP_ASM
+void cSSXApp_loadexecpurge(void* self)
+{
+    func_002B4B48(self);
+    func_00284C28();
+    cAppMan_loadexecpurge(self);
+    sExecPurgeVTable* vt = D_004A5B80->vtable;
+    vt->fn((char*)D_004A5B80 + vt->field_0x3B8);
+}
+#endif
 
 INCLUDE_ASM("main/ssxapp", func_00228C08);
 

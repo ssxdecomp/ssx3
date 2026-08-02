@@ -1,6 +1,18 @@
 #include "common.h"
 
-INCLUDE_ASM("render/bezierman", cBezierMan_construct);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+void* cPSPBezierMan_cPSPBezierMan(void* self);
+extern const char D_00492EA0[];
+
+//99.23%
+INCLUDE_ASM("render/bezierman", cBezierMan_construct__Fv);
+#ifdef SKIP_ASM
+void* cBezierMan_construct()
+{
+    void* mem = cMemMan_alloc(0x9C90, D_00492EA0, 0, 0);
+    return cPSPBezierMan_cPSPBezierMan(mem);
+}
+#endif
 
 INCLUDE_ASM("render/bezierman", func_0038AF30);
 

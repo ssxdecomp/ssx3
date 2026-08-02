@@ -1,6 +1,26 @@
 #include "common.h"
 
-INCLUDE_ASM("ui/uiscreen", cUIThread_deleteThread);
+extern "C" void cListNode_removeFromList(void* self);
+
+struct sDeleteTarget {
+    char pad_0x00[0x8];
+    short field_0x8;
+    char pad_0xA[2];
+    void (*fn)(void*, int); // 0xC
+};
+
+//100%
+INCLUDE_ASM("ui/uiscreen", cUIThread_deleteThread__FPv);
+#ifdef SKIP_ASM
+void cUIThread_deleteThread(void* self)
+{
+    cListNode_removeFromList(self);
+    if (self != 0) {
+        sDeleteTarget* target = *(sDeleteTarget**)((char*)self + 0x8);
+        target->fn((char*)self + target->field_0x8, 3);
+    }
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", func_0039C558);
 
@@ -8,7 +28,45 @@ INCLUDE_ASM("ui/uiscreen", cUIScreen_setData);
 
 INCLUDE_ASM("ui/uiscreen", func_0039C728);
 
-INCLUDE_ASM("ui/uiscreen", cUIScreen_getFrameByLabel);
+struct sFrameEntry {
+    int label; // 0x0
+    int stride; // 0x4
+    unsigned short field_0x8; // 0x8
+};
+
+struct sFrameList {
+    int count; // 0x0
+};
+
+struct cUIScreen {
+    char pad_0x00[0x34];
+    sFrameList* list; // 0x34
+};
+
+//44.71% - loop control-flow shape (bnel/lazy-stride idiom) not reproduced after several attempts; logic is correct
+INCLUDE_ASM("ui/uiscreen", cUIScreen_getFrameByLabel__FP9cUIScreeni);
+#ifdef SKIP_ASM
+unsigned short cUIScreen_getFrameByLabel(cUIScreen* self, int label)
+{
+    sFrameList* list = self->list;
+    int count = list->count;
+    if (count == 0) {
+        return 0xFFFF;
+    }
+    char* entry = (char*)list + 4;
+    int idx = 0;
+    do {
+        sFrameEntry* e = (sFrameEntry*)entry;
+        if (e->label == label) {
+            return e->field_0x8;
+        }
+        int stride = e->stride;
+        idx++;
+        entry += stride;
+    } while (idx < count);
+    return 0xFFFF;
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", cUIScreen_getPrimaryThread);
 

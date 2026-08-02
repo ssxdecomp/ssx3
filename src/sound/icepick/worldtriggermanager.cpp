@@ -1,6 +1,21 @@
 #include "common.h"
 
-INCLUDE_ASM("sound/icepick/worldtriggermanager", WORLDTRIGGERMANAGER_Init);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern "C" void* cWorldTriggerManager_cWorldTriggerManager(void* self);
+extern const char D_00483588[];
+extern void* D_004A52D4;
+
+//99.88%
+INCLUDE_ASM("sound/icepick/worldtriggermanager", WORLDTRIGGERMANAGER_Init__Fv);
+#ifdef SKIP_ASM
+void WORLDTRIGGERMANAGER_Init()
+{
+    if (D_004A52D4 == 0) {
+        void* mem = cMemMan_alloc(0x344, D_00483588, 0, 0);
+        D_004A52D4 = cWorldTriggerManager_cWorldTriggerManager(mem);
+    }
+}
+#endif
 
 INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B4B48);
 

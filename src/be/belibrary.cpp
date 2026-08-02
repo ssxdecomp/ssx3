@@ -1,12 +1,68 @@
 #include "common.h"
 
-INCLUDE_ASM("be/belibrary", cBELibrary_getCharacterID);
+extern int D_005305B0[];
+
+struct sCharEntry {
+    char pad_0x00[0x11];
+    signed char mCharID; // 0x11
+    char pad_0x12[0x1C - 0x11 - 1];
+};
+extern sCharEntry D_00535B20[];
+
+//100%
+INCLUDE_ASM("be/belibrary", cBELibrary_getCharacterID__Fi);
+#ifdef SKIP_ASM
+signed char cBELibrary_getCharacterID(int index)
+{
+    int charID = D_005305B0[index];
+    sCharEntry* entry = &D_00535B20[charID];
+    return entry->mCharID;
+}
+#endif
 
 INCLUDE_ASM("be/belibrary", func_0014A0B0);
 
-INCLUDE_ASM("be/belibrary", cBELibrary_getProfileIndex);
+struct sCharEntry2 {
+    char pad_0x00[0xC];
+    int field_0xC;
+    int field_0x10;
+};
 
-INCLUDE_ASM("be/belibrary", cBELibrary_getRiderIndex);
+INCLUDE_ASM("be/belibrary", cBELibrary_getProfileIndex__Fi);
+#ifdef SKIP_ASM
+int cBELibrary_getProfileIndex(int index)
+{
+    int charID = D_005305B0[index];
+    sCharEntry2* entry = (sCharEntry2*)((char*)D_00535B20 + charID * 0x1C);
+    if (entry->field_0xC == -1) {
+        return 2;
+    }
+    return entry->field_0x10 & 1;
+}
+#endif
+
+INCLUDE_ASM("be/belibrary", cBELibrary_getRiderIndex__Fi);
+#ifdef SKIP_ASM
+int cBELibrary_getRiderIndex(int flag)
+{
+    int* base = D_005305B0;
+    int count = 0;
+    while (1) {
+        int charID = *base;
+        sCharEntry2* entry = (sCharEntry2*)((char*)D_00535B20 + charID * 0x1C);
+        int bit = entry->field_0x10 & 1;
+        if (bit != flag) {
+            if (count >= 5) {
+                return -1;
+            }
+            base++;
+            count++;
+            continue;
+        }
+        return count;
+    }
+}
+#endif
 
 INCLUDE_ASM("be/belibrary", func_0014A188);
 

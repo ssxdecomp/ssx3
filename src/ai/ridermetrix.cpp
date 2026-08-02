@@ -110,7 +110,18 @@ INCLUDE_ASM("ai/ridermetrix", func_00119E38);
 
 INCLUDE_ASM("ai/ridermetrix", func_00119EF8);
 
-INCLUDE_ASM("ai/ridermetrix", cRiderMetrix_evAutoResetSurface);
+extern "C" void func_00117AE8(void* self, int a, const char* b, float c, int d);
+extern const char D_00457888[];
+
+//100%
+INCLUDE_ASM("ai/ridermetrix", cRiderMetrix_evAutoResetSurface__FPv);
+#ifdef SKIP_ASM
+float cRiderMetrix_evAutoResetSurface(void* self)
+{
+    func_00117AE8(self, 0x33, D_00457888, 1.5f, 0);
+    return 0.0f;
+}
+#endif
 
 INCLUDE_ASM("ai/ridermetrix", func_0011A0C0);
 

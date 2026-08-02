@@ -1,10 +1,46 @@
 #include "common.h"
 
-INCLUDE_ASM("world/worldview", cWorldView_getNumSections);
+struct cWorldViewSectionList {
+    char pad_0x00[0x8];
+    int mNumSections; // 0x8
+};
+
+struct cWorldView {
+    char pad_0x00[0x4];
+    cWorldViewSectionList* mSections; // 0x4
+};
+
+//100%
+INCLUDE_ASM("world/worldview", cWorldView_getNumSections__FP10cWorldView);
+#ifdef SKIP_ASM
+int cWorldView_getNumSections(cWorldView* self)
+{
+    if (self->mSections == 0) {
+        return 0;
+    }
+    return self->mSections->mNumSections;
+}
+#endif
 
 INCLUDE_ASM("world/worldview", func_003A9820);
 
-INCLUDE_ASM("world/worldview", cWorldView_isSectionLoaded);
+struct cWorldViewEntry {
+    char pad_0x00[0x14];
+    int field_0x14;
+};
+
+//100%
+INCLUDE_ASM("world/worldview", cWorldView_isSectionLoaded__FP10cWorldViewi);
+#ifdef SKIP_ASM
+int cWorldView_isSectionLoaded(cWorldView* self, int section)
+{
+    if (self->mSections == 0 || (unsigned int)section >= (unsigned int)self->mSections->mNumSections) {
+        return 0;
+    }
+    cWorldViewEntry* entry = (cWorldViewEntry*)((char*)self + section * 8);
+    return (unsigned int)(entry->field_0x14 - 5) < 2;
+}
+#endif
 
 INCLUDE_ASM("world/worldview", func_003A9890);
 

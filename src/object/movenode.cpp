@@ -6,7 +6,24 @@ INCLUDE_ASM("object/movenode", func_003553C0);
 
 INCLUDE_ASM("object/movenode", func_00355420);
 
-INCLUDE_ASM("object/movenode", cMoveNode_addModifierBlock);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern "C" void* tModifierBlock_tModifierBlock(void* self);
+extern const char D_0048E9D8[];
+
+struct cMoveNode {
+    char pad_0x00[0x1C];
+    void* field_0x1C;
+};
+
+//99.41%
+INCLUDE_ASM("object/movenode", cMoveNode_addModifierBlock__FP9cMoveNode);
+#ifdef SKIP_ASM
+void cMoveNode_addModifierBlock(cMoveNode* self)
+{
+    void* mem = cMemMan_alloc(0x28, D_0048E9D8, 0x20000000, 0);
+    self->field_0x1C = tModifierBlock_tModifierBlock(mem);
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_003554B0);
 

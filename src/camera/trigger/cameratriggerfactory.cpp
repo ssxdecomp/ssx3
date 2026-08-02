@@ -8,7 +8,15 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTActionSwitchCam);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTActionSpline);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTActionNone);
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTActionNone__FPvPi);
+#ifdef SKIP_ASM
+void* get_cCTActionNone(void* unused, int* outType)
+{
+    *outType = 3;
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_camboundobj);
 
@@ -18,7 +26,31 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTBoundObjBox);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTBoundObjLine);
 
-INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTBoundObjPoint);
+struct sBoundObjVTable {
+    char pad_0x00[0x8];
+    short field_0x8;
+    char pad_0xA[2];
+    void* (*fn)(void*); // 0xC
+};
+
+struct sBoundObjPoint {
+    char pad_0x00[0x24];
+    sBoundObjVTable* vtable;
+    int field_0x28;
+};
+
+extern "C" void* get_t3Vector(void* self, void* v);
+
+//100%
+INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_cCTBoundObjPoint__FPvP14sBoundObjPoint);
+#ifdef SKIP_ASM
+void* get_cCTBoundObjPoint(void* self, sBoundObjPoint* obj)
+{
+    obj->field_0x28 = 3;
+    void* result = obj->vtable->fn((char*)obj + obj->vtable->field_0x8);
+    return get_t3Vector(self, result);
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", get_camspline);
 

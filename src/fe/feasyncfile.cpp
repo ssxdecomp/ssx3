@@ -8,9 +8,33 @@ INCLUDE_ASM("fe/feasyncfile", func_001A37F8);
 
 INCLUDE_ASM("fe/feasyncfile", cFEAsyncManager_UnloadFEAsyncFile);
 
-INCLUDE_ASM("fe/feasyncfile", cFEAsyncManager_GetFileStatus);
+struct cFEAsyncFileEntry {
+    char pad_0x00[0x114];
+    int mStatus; // 0x114
+    char pad_0x118[0x11C - 0x114 - 4];
+};
 
-INCLUDE_ASM("fe/feasyncfile", cFEAsyncManager_SetFileStatus);
+struct cFEAsyncManager {
+    cFEAsyncFileEntry mFiles[1];
+};
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", cFEAsyncManager_GetFileStatus__FP15cFEAsyncManageri);
+#ifdef SKIP_ASM
+int cFEAsyncManager_GetFileStatus(cFEAsyncManager* self, int index)
+{
+    return self->mFiles[index].mStatus;
+}
+#endif
+
+//100%
+INCLUDE_ASM("fe/feasyncfile", cFEAsyncManager_SetFileStatus__FP15cFEAsyncManagerii);
+#ifdef SKIP_ASM
+void cFEAsyncManager_SetFileStatus(cFEAsyncManager* self, int index, int status)
+{
+    self->mFiles[index].mStatus = status;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001A39F0);
 

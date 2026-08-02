@@ -1,6 +1,23 @@
 #include "common.h"
 
-INCLUDE_ASM("object/effectlink", cEffectLink_add);
+struct cEffectLink {
+    cEffectLink* next; // 0x0
+    cEffectLink* prev; // 0x4
+};
+
+//100%
+INCLUDE_ASM("object/effectlink", cEffectLink_add__FP11cEffectLinkT0);
+#ifdef SKIP_ASM
+void cEffectLink_add(cEffectLink* link, cEffectLink* other)
+{
+    if (link->next != 0) {
+        link->next->prev = other;
+    }
+    other->prev = link;
+    other->next = link->next;
+    link->next = other;
+}
+#endif
 
 INCLUDE_ASM("object/effectlink", func_00345720);
 
