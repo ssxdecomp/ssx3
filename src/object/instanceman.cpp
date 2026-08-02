@@ -1,6 +1,25 @@
 #include "common.h"
 
-INCLUDE_ASM("object/instanceman", cInstanceMan_copyInstance);
+extern "C" void func_003E6574(void* dst, void* src, int size);
+
+struct sInstanceStruct {
+    char pad_0x00[0x8];
+    int field_0x8;
+    char pad_0xC[0x78 - 0xC];
+    void* field_0x78;
+};
+
+//100%
+INCLUDE_ASM("object/instanceman", cInstanceMan_copyInstance__FPvP15sInstanceStructT0);
+#ifdef SKIP_ASM
+void cInstanceMan_copyInstance(void* self, sInstanceStruct* a, void* b)
+{
+    void* saved = a->field_0x78;
+    func_003E6574(a, b, 0xA0);
+    a->field_0x78 = saved;
+    a->field_0x8 |= 0x2000;
+}
+#endif
 
 INCLUDE_ASM("object/instanceman", func_003512C0);
 

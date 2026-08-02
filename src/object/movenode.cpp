@@ -7,7 +7,8 @@ INCLUDE_ASM("object/movenode", func_003553C0);
 INCLUDE_ASM("object/movenode", func_00355420);
 
 extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
-extern "C" void* tModifierBlock_tModifierBlock(void* self);
+struct tModifierBlock;
+tModifierBlock* tModifierBlock_tModifierBlock(tModifierBlock* self);
 extern const char D_0048E9D8[];
 
 struct cMoveNode {
@@ -15,13 +16,13 @@ struct cMoveNode {
     void* field_0x1C;
 };
 
-//99.41%
+//100%
 INCLUDE_ASM("object/movenode", cMoveNode_addModifierBlock__FP9cMoveNode);
 #ifdef SKIP_ASM
 void cMoveNode_addModifierBlock(cMoveNode* self)
 {
     void* mem = cMemMan_alloc(0x28, D_0048E9D8, 0x20000000, 0);
-    self->field_0x1C = tModifierBlock_tModifierBlock(mem);
+    self->field_0x1C = tModifierBlock_tModifierBlock((tModifierBlock*)mem);
 }
 #endif
 
@@ -33,7 +34,19 @@ INCLUDE_ASM("object/movenode", func_003555A8);
 
 INCLUDE_ASM("object/movenode", func_00355600);
 
-INCLUDE_ASM("object/movenode", cMoveNode_addEffectModifier);
+void cEffectLink_add(void* link, void* other);
+
+//99.74%
+INCLUDE_ASM("object/movenode", cMoveNode_addEffectModifier__FP9cMoveNodePv);
+#ifdef SKIP_ASM
+void cMoveNode_addEffectModifier(cMoveNode* self, void* effect)
+{
+    if (self->field_0x1C == 0) {
+        cMoveNode_addModifierBlock(self);
+    }
+    cEffectLink_add((char*)self->field_0x1C + 0x10, effect);
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_003556A8);
 

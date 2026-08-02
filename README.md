@@ -63,9 +63,9 @@ Snapshot as of 2026-08-02:
 
 | | matching | total | % |
 |---|---|---|---|
-| Functions | 99 | 12,930 | 0.77% |
-| Code bytes | 4,568 | 3,195,184 | 0.14% |
-| Data bytes | 3,528 | 500,792 | 0.70% |
+| Functions | 494 | 12,930 | 3.82% |
+| Code bytes | 9,368 | 3,195,184 | 0.29% |
+| Data bytes | 3,264 | 500,792 | 0.65% |
 
 The function/code counts include every function that's been split into its
 own file, named or not (via `config/gap_symbol_addrs.txt` — see that file's

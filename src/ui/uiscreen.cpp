@@ -70,7 +70,22 @@ unsigned short cUIScreen_getFrameByLabel(cUIScreen* self, int label)
 
 INCLUDE_ASM("ui/uiscreen", cUIScreen_getPrimaryThread);
 
-INCLUDE_ASM("ui/uiscreen", cUIScreen_jumpToFrame);
+extern "C" void* cUIScreen_getPrimaryThread(void* self);
+void cUIThread_deleteThread(void* self);
+extern "C" void cUIScreen_playFrame(void* self, unsigned short frame, int flag);
+
+//99.75%
+INCLUDE_ASM("ui/uiscreen", cUIScreen_jumpToFrame__FPvUs);
+#ifdef SKIP_ASM
+void cUIScreen_jumpToFrame(void* self, unsigned short frame)
+{
+    void* thread = cUIScreen_getPrimaryThread(self);
+    if (thread != 0) {
+        cUIThread_deleteThread(thread);
+    }
+    cUIScreen_playFrame(self, frame, 0);
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", cUIScreen_playFrame);
 

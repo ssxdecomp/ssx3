@@ -1,6 +1,6 @@
 #include "common.h"
 
-INCLUDE_ASM("bx/bxstring2", cBXString_cBXString);
+INCLUDE_ASM("bx/bxstring2", cBXString_cBXString__FP10cBXString2);
 
 INCLUDE_ASM("bx/bxstring2", func_00268950);
 

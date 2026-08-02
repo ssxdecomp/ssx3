@@ -6,7 +6,27 @@ INCLUDE_ASM("ai/rider", func_0011B978);
 
 INCLUDE_ASM("ai/rider", cRider_addFocusBox);
 
-INCLUDE_ASM("ai/rider", cRider_addRiderMetrix);
+extern "C" void* cMemMan_alloc(int size, const char* tag, unsigned int flags, int d);
+extern "C" void* func_00117248(void* mem);
+extern "C" void cRiderMetrix_linkToRider(void* metrix);
+extern const char D_00457970[];
+
+struct cRider {
+    char pad_0x00[0x790];
+    void* field_0x790;
+};
+
+//95%
+INCLUDE_ASM("ai/rider", cRider_addRiderMetrix__FP6cRider);
+#ifdef SKIP_ASM
+void cRider_addRiderMetrix(cRider* self)
+{
+    void* mem = cMemMan_alloc(0x1CC, D_00457970, 0, 0);
+    void* metrix = func_00117248(mem);
+    self->field_0x790 = metrix;
+    cRiderMetrix_linkToRider(metrix);
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_0011BBE8);
 

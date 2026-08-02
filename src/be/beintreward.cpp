@@ -157,7 +157,22 @@ INCLUDE_ASM("be/beintreward", func_00158890);
 
 INCLUDE_ASM("be/beintreward", func_001588B0);
 
-INCLUDE_ASM("be/beintreward", cBERewardInterface_getTrackMedal);
+void* cBECharProfileDB_getScoreStats(void* self, int a, int b);
+extern int D_004A6CA8[];
+
+//88.68%
+INCLUDE_ASM("be/beintreward", cBERewardInterface_getTrackMedal__FPviiii);
+#ifdef SKIP_ASM
+signed char cBERewardInterface_getTrackMedal(void* self, int b, int c, int d, int e)
+{
+    char* ptr = (char*)D_004A6CA8 + c * 0xF88 + b * 0x9B50;
+    void* result = cBECharProfileDB_getScoreStats(ptr, e, d);
+    if (result == 0) {
+        return -1;
+    }
+    return ((signed char*)result)[1];
+}
+#endif
 
 INCLUDE_ASM("be/beintreward", func_00158960);
 
