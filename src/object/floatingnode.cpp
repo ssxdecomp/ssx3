@@ -9,6 +9,7 @@ struct cFloatingNode {
     void* field_0x78;
 };
 
+//93.68%
 INCLUDE_ASM("object/floatingnode", cFloatingNode_initInfo__FP13cFloatingNode);
 #ifdef SKIP_ASM
 void cFloatingNode_initInfo(cFloatingNode* self)

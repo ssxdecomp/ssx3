@@ -40,15 +40,20 @@ INCLUDE_ASM("be/beintnewrace", func_00144928);
 
 INCLUDE_ASM("be/beintnewrace", func_001449E8);
 
+//63.16% - target uses an up-counting loop with slti; ours keeps compiling to a down-counting or bne-based loop despite several rewrites
 INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_setNumberHumans__FPvi);
 #ifdef SKIP_ASM
 void cBENewRaceInterface_setNumberHumans(void* self, int humans)
 {
     D_00535BC8.field_0x34 = humans;
     D_00535BC8.field_0x30 = humans + D_00535BC8.field_0x3C + D_00535BC8.field_0x38;
-    for (int i = 0; i < 6; i++) {
-        D_00535BC8.arr1[i] = 0;
-        D_00535BC8.arr2[i] = 0;
+    int* p = (int*)&D_00535BC8;
+    int i = 0;
+    while (i != 6) {
+        p[0] = 0;
+        p[6] = 0;
+        i++;
+        p++;
     }
 }
 #endif

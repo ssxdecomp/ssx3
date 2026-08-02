@@ -25,6 +25,7 @@ struct cSpline {
     sSplineNode* node; // 0x8
 };
 
+//81.47% - condition/branch shape (slt-vs-slti, speculative float load in delay slot) not reproduced
 INCLUDE_ASM("object/spline3d", cSpline_calcLength__FP7cSpline);
 #ifdef SKIP_ASM
 float cSpline_calcLength(cSpline* self)

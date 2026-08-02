@@ -7,6 +7,7 @@ extern void* D_00493650[16];
 struct cPSPLightMan;
 cPSPLightMan* cPSPLightMan_cPSPLightMan(cPSPLightMan* self);
 
+//100%
 INCLUDE_ASM("render/lightman", cLightMan_construct__Fv);
 #ifdef SKIP_ASM
 void* cLightMan_construct()

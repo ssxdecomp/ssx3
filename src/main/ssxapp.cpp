@@ -68,6 +68,7 @@ struct sExecPurgeMgr {
 
 extern sExecPurgeMgr* D_004A5B80;
 
+//99.95%
 INCLUDE_ASM("main/ssxapp", cSSXApp_loadexecpurge__FPv);
 #ifdef SKIP_ASM
 void cSSXApp_loadexecpurge(void* self)

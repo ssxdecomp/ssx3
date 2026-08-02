@@ -28,6 +28,7 @@ struct sCharEntry2 {
     int field_0x10;
 };
 
+//100%
 INCLUDE_ASM("be/belibrary", cBELibrary_getProfileIndex__Fi);
 #ifdef SKIP_ASM
 int cBELibrary_getProfileIndex(int index)
@@ -41,6 +42,7 @@ int cBELibrary_getProfileIndex(int index)
 }
 #endif
 
+//100%
 INCLUDE_ASM("be/belibrary", cBELibrary_getRiderIndex__Fi);
 #ifdef SKIP_ASM
 int cBELibrary_getRiderIndex(int flag)
@@ -51,15 +53,15 @@ int cBELibrary_getRiderIndex(int flag)
         int charID = *base;
         sCharEntry2* entry = (sCharEntry2*)((char*)D_00535B20 + charID * 0x1C);
         int bit = entry->field_0x10 & 1;
-        if (bit != flag) {
-            if (count >= 5) {
-                return -1;
-            }
+        if (bit == flag) {
+            return count;
+        }
+        count++;
+        if (count < 6) {
             base++;
-            count++;
             continue;
         }
-        return count;
+        return -1;
     }
 }
 #endif

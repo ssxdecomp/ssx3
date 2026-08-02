@@ -11,6 +11,7 @@ struct cActiveTriggerList {
     sTriggerNode* head;
 };
 
+//100%
 INCLUDE_ASM("camera/trigger/triggeralgorithms", cActiveTriggerList_purge__FP18cActiveTriggerList);
 #ifdef SKIP_ASM
 void cActiveTriggerList_purge(cActiveTriggerList* self)
