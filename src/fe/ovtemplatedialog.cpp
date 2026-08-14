@@ -26,7 +26,14 @@ INCLUDE_ASM("fe/ovtemplatedialog", func_0020D190);
 
 INCLUDE_ASM("fe/ovtemplatedialog", func_0020D1D8);
 
+//100%
 INCLUDE_ASM("fe/ovtemplatedialog", func_0020D308);
+#ifdef SKIP_ASM
+extern "C" int func_0020D308(void* self, int a1, int a2)
+{
+    return a2 == 6 ? 0x101 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/ovtemplatedialog", func_0020D318);
 

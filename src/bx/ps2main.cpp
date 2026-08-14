@@ -6,7 +6,14 @@ INCLUDE_ASM("bx/ps2main", main);
 
 INCLUDE_ASM("bx/ps2main", func_0031B008);
 
+//100%
 INCLUDE_ASM("bx/ps2main", func_0031B088);
+#ifdef SKIP_ASM
+extern "C" float func_0031B088(float a, float b, float c, float d)
+{
+    return a * d - b * c;
+}
+#endif
 
 INCLUDE_ASM("bx/ps2main", func_0031B098);
 

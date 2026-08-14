@@ -80,12 +80,21 @@ INCLUDE_ASM("wscript/wscriptman", func_0030AEB8);
 
 INCLUDE_ASM("wscript/wscriptman", func_0030AF08);
 
+struct cWScriptListNode {
+    char pad_0x00[0x18];
+    void* next;
+};
+
+struct cWScriptListHead {
+    void* head;
+};
+
 //100%
 INCLUDE_ASM("wscript/wscriptman", func_0030B058__FPv);
 #ifdef SKIP_ASM
 void* func_0030B058(void* self)
 {
-    *(int*)self = 0;
+    ((cWScriptListHead*)self)->head = 0;
     return self;
 }
 #endif
@@ -96,7 +105,18 @@ INCLUDE_ASM("wscript/wscriptman", func_0030B0E8);
 
 INCLUDE_ASM("wscript/wscriptman", func_0030B1B8);
 
+//100%
 INCLUDE_ASM("wscript/wscriptman", func_0030B208);
+#ifdef SKIP_ASM
+extern "C" void* func_0030B208(void* self)
+{
+    cWScriptListNode* p = (cWScriptListNode*)((cWScriptListHead*)self)->head;
+    if (p != 0) {
+        ((cWScriptListHead*)self)->head = p->next;
+    }
+    return p;
+}
+#endif
 
 INCLUDE_ASM("wscript/wscriptman", func_0030B228);
 
@@ -105,9 +125,9 @@ INCLUDE_ASM("wscript/wscriptman", func_0030B260__FPvT0);
 #ifdef SKIP_ASM
 int func_0030B260(void* self, void* a1)
 {
-    int t0 = *(int*)self;
-    *(int*)((char*)a1 + 0x18) = t0;
-    *(int*)self = (int)a1;
+    int t0 = (int)((cWScriptListHead*)self)->head;
+    ((cWScriptListNode*)a1)->next = (void*)t0;
+    ((cWScriptListHead*)self)->head = a1;
     return t0;
 }
 #endif
@@ -119,9 +139,9 @@ INCLUDE_ASM("wscript/wscriptman", func_0030B2C0__FPvT0);
 #ifdef SKIP_ASM
 int func_0030B2C0(void* self, void* a1)
 {
-    int t0 = *(int*)self;
-    *(int*)((char*)a1 + 0x18) = t0;
-    *(int*)self = (int)a1;
+    int t0 = (int)((cWScriptListHead*)self)->head;
+    ((cWScriptListNode*)a1)->next = (void*)t0;
+    ((cWScriptListHead*)self)->head = a1;
     return t0;
 }
 #endif
@@ -141,6 +161,16 @@ void func_0030B4B8(void* self)
 {
 }
 #endif
+
+// self+0x4, +0x10, +0x1c, +0x28 are 0xc-byte slots of shape
+// { int enabled; int valueB; int valueC; } (see cWScriptSlot below);
+// kept as raw offsets here since struct-pointer codegen regresses
+// these below their current objdiff match on this compiler.
+struct cWScriptSlot {
+    int enabled;
+    int valueB;
+    int valueC;
+};
 
 //75.4%
 INCLUDE_ASM("wscript/wscriptman", func_0030B4C0__FPvii);

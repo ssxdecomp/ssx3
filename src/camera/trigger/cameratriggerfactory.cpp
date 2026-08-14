@@ -111,7 +111,17 @@ INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00175A20);
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176328);
 
+typedef int cQuad128 __attribute__((mode(TI)));
+
+//100%
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176358);
+#ifdef SKIP_ASM
+extern "C" void* func_00176358(void* self, void* a1)
+{
+    *(cQuad128*)self = *(cQuad128*)((char*)a1 + 0x20);
+    return self;
+}
+#endif
 
 INCLUDE_ASM("camera/trigger/cameratriggerfactory", func_00176368);
 

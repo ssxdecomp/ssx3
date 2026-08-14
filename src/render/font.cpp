@@ -1,5 +1,9 @@
 #include "common.h"
 
+// R5900 128-bit GPR quadword, for functions that copy a 16-byte block via a
+// single lq/sq pair instead of word-by-word.
+typedef int cQuad128 __attribute__((mode(TI)));
+
 INCLUDE_ASM("render/font", cFont_linkFont);
 
 INCLUDE_ASM("render/font", func_003919E8);
@@ -66,11 +70,33 @@ int func_00393FB0(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("render/font", func_00393FB8);
+#ifdef SKIP_ASM
+extern "C" void func_00393FB8(void* self, int a1, int a2)
+{
+    *(float*)self = (float)a1;
+    *(float*)((char*)self + 0x4) = (float)a2;
+}
+#endif
 
+//100%
 INCLUDE_ASM("render/font", func_00393FD8);
+#ifdef SKIP_ASM
+extern "C" int func_00393FD8(void* self)
+{
+    return (int)*(float*)self;
+}
+#endif
 
+//100%
 INCLUDE_ASM("render/font", func_00393FF0);
+#ifdef SKIP_ASM
+extern "C" int func_00393FF0(void* self)
+{
+    return (int)*(float*)((char*)self + 0x4);
+}
+#endif
 
 //100%
 INCLUDE_ASM("render/font", func_00394008__FPv);
@@ -98,7 +124,18 @@ int func_00394018(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("render/font", func_003942A0);
+#ifdef SKIP_ASM
+extern "C" void* func_003942A0(void* self)
+{
+    *(float*)self = 1.0f;
+    *(float*)((char*)self + 0x4) = 1.0f;
+    *(int*)((char*)self + 0x8) = 0;
+    *(float*)((char*)self + 0xc) = 1.0f;
+    return self;
+}
+#endif
 
 //100%
 INCLUDE_ASM("render/font", func_003942C0__FPv);
@@ -626,9 +663,36 @@ int func_00395328(void* self)
 }
 #endif
 
-INCLUDE_ASM("render/font", func_00395330);
+// 0xa4-byte elements reached through a pointer at self+0x59cc, indexed by
+// the counter at self+0x59c8
+struct sFontEntry {
+    char pad_0x00[0x88];
+    int field_0x88;
+    int field_0x8c;
+    char pad_0x90[0x14];
+};
 
+//100%
+INCLUDE_ASM("render/font", func_00395330);
+#ifdef SKIP_ASM
+extern "C" int func_00395330(void* self)
+{
+    int i = *(int*)((char*)self + 0x59c8);
+    sFontEntry* p = *(sFontEntry**)((char*)self + 0x59cc);
+    return p[i].field_0x88;
+}
+#endif
+
+//100%
 INCLUDE_ASM("render/font", func_00395350);
+#ifdef SKIP_ASM
+extern "C" int func_00395350(void* self)
+{
+    int i = *(int*)((char*)self + 0x59c8);
+    sFontEntry* p = *(sFontEntry**)((char*)self + 0x59cc);
+    return p[i].field_0x8c;
+}
+#endif
 
 INCLUDE_ASM("render/font", func_00395370);
 
@@ -784,7 +848,15 @@ void func_003968C8(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("render/font", func_003968D0);
+#ifdef SKIP_ASM
+extern "C" void func_003968D0(void* self, int a1, void* a2)
+{
+    cQuad128* p = *(cQuad128**)((char*)self + 0x8);
+    p[a1] = *(cQuad128*)a2;
+}
+#endif
 
 INCLUDE_ASM("render/font", func_003968E8);
 

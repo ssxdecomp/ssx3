@@ -377,7 +377,14 @@ INCLUDE_ASM("dirtysock/tagsunk", func_00262768);
 
 INCLUDE_ASM("dirtysock/tagsunk", func_002628C0);
 
+//100%
 INCLUDE_ASM("dirtysock/tagsunk", func_00262938);
+#ifdef SKIP_ASM
+extern "C" int func_00262938(void* self)
+{
+    return (*(int*)((char*)self + 0xb0) - *(int*)((char*)self + 0xac)) >> 2;
+}
+#endif
 
 INCLUDE_ASM("dirtysock/tagsunk", func_00262950);
 
@@ -467,7 +474,16 @@ INCLUDE_ASM("dirtysock/tagsunk", func_002642B8);
 
 INCLUDE_ASM("dirtysock/tagsunk", func_00264960);
 
+void operator_delete(int*);
+
+//100%
 INCLUDE_ASM("dirtysock/tagsunk", func_00264990);
+#ifdef SKIP_ASM
+extern "C" void func_00264990(void* self, int* p)
+{
+    operator_delete(p);
+}
+#endif
 
 INCLUDE_ASM("dirtysock/tagsunk", func_002649B0);
 
@@ -756,7 +772,14 @@ int func_00267DF8(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("dirtysock/tagsunk", func_00267E00);
+#ifdef SKIP_ASM
+extern "C" int func_00267E00(void* self)
+{
+    return *(int*)((char*)self + 0xc) == 2;
+}
+#endif
 
 //100%
 INCLUDE_ASM("dirtysock/tagsunk", func_00267E10__FPv);

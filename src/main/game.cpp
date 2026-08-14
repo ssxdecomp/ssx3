@@ -1,5 +1,15 @@
 #include "common.h"
 
+// 16-byte array elements; indexing as arr[i].field (rather than manual
+// pointer arithmetic) is what makes GCC emit the target's base-first addu
+struct sGameEntry {
+    int field_0x0;
+    int field_0x4;
+    int field_0x8;
+    int field_0xc;
+};
+extern sGameEntry D_00442168[];
+
 INCLUDE_ASM("main/game", cGame_renderModels);
 
 INCLUDE_ASM("main/game", func_0022C1B0);
@@ -63,11 +73,26 @@ void* func_0022DFD0(void* self)
 
 INCLUDE_ASM("main/game", func_0022DFF0);
 
+//100%
 INCLUDE_ASM("main/game", func_0022E078);
+#ifdef SKIP_ASM
+extern "C" int func_0022E078(void* self, int a1)
+{
+    int v = D_00442168[a1].field_0x8;
+    return (unsigned int)(v - 1) < 2;
+}
+#endif
 
 INCLUDE_ASM("main/game", func_0022E098);
 
+//100%
 INCLUDE_ASM("main/game", func_0022E0C8);
+#ifdef SKIP_ASM
+extern "C" int func_0022E0C8(void* self, int a1)
+{
+    return D_00442168[a1].field_0x4;
+}
+#endif
 
 INCLUDE_ASM("main/game", func_0022E0E0);
 

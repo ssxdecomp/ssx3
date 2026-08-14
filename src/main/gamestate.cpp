@@ -56,7 +56,14 @@ INCLUDE_ASM("main/gamestate", func_00235080);
 
 INCLUDE_ASM("main/gamestate", func_00235570);
 
+//100%
 INCLUDE_ASM("main/gamestate", func_002355B0);
+#ifdef SKIP_ASM
+extern "C" int func_002355B0(void* self)
+{
+    return *(int*)((char*)self + 0x10) == 5;
+}
+#endif
 
 INCLUDE_ASM("main/gamestate", func_002355C0);
 

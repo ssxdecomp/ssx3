@@ -49,7 +49,14 @@ int func_00152948(void* self)
 
 INCLUDE_ASM("be/beintsavefile", func_00152950);
 
+//100%
 INCLUDE_ASM("be/beintsavefile", func_00152BA8);
+#ifdef SKIP_ASM
+extern "C" int func_00152BA8()
+{
+    return 0x9B61;
+}
+#endif
 
 INCLUDE_ASM("be/beintsavefile", func_00152BB0);
 

@@ -6,7 +6,21 @@ INCLUDE_ASM("world/wscriptcache", func_003AC8F0);
 
 INCLUDE_ASM("world/wscriptcache", func_003ACA10);
 
+// 0xc-byte elements reached through a pointer at self+0x4
+struct sWScriptCacheEntry {
+    char pad_0x00[0x8];
+    int field_0x8;
+};
+
+//100%
 INCLUDE_ASM("world/wscriptcache", func_003ACA38);
+#ifdef SKIP_ASM
+extern "C" int func_003ACA38(void* self, int a1)
+{
+    sWScriptCacheEntry* p = *(sWScriptCacheEntry**)((char*)self + 0x4);
+    return p[a1].field_0x8;
+}
+#endif
 
 //100%
 INCLUDE_ASM("world/wscriptcache", func_003ACA50__FPv);
@@ -227,7 +241,18 @@ void* func_003B0738(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("world/wscriptcache", func_003B0758);
+#ifdef SKIP_ASM
+extern "C" void* func_003B0758(void* self, int a1, int a2, int a3, int a4)
+{
+    *(int*)((char*)self + 0xc) = a4;
+    *(int*)self = a1;
+    *(int*)((char*)self + 0x4) = a2;
+    *(int*)((char*)self + 0x8) = a3;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003B0770);
 
@@ -276,7 +301,19 @@ int func_003B0FA0(void* self)
 }
 #endif
 
+// padded past the 8-byte gp-relative threshold so the compiler emits
+// absolute lui/lo addressing like the target, instead of assuming small data
+struct sD_00509508 { float value; int pad[2]; };
+extern sD_00509508 D_00509508;
+
+//100%
 INCLUDE_ASM("world/wscriptcache", func_003B0FA8);
+#ifdef SKIP_ASM
+extern "C" float func_003B0FA8()
+{
+    return D_00509508.value;
+}
+#endif
 
 INCLUDE_ASM("world/wscriptcache", func_003B0FB8);
 
@@ -300,7 +337,19 @@ INCLUDE_ASM("world/wscriptcache", func_003B11F0);
 
 INCLUDE_ASM("world/wscriptcache", func_003B1228);
 
+// padded past the 8-byte gp-relative threshold so the compiler emits
+// absolute lui/lo addressing like the target
+struct sD_0050A088 { void* ptr; int pad[2]; };
+extern sD_0050A088 D_0050A088;
+
+//100%
 INCLUDE_ASM("world/wscriptcache", func_003B1258);
+#ifdef SKIP_ASM
+extern "C" unsigned int func_003B1258(int a0)
+{
+    return *(unsigned int*)((char*)D_0050A088.ptr + 0x4) >> (unsigned int)(-a0);
+}
+#endif
 
 extern "C" void* func_003B1300(int);
 

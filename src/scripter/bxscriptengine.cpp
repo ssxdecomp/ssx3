@@ -98,7 +98,15 @@ int func_00282C88(void* self, void* a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("scripter/bxscriptengine", func_00282CB0);
+#ifdef SKIP_ASM
+extern "C" void* func_00282CB0(void* self, int a1)
+{
+    char* p = (char*)self + (a1 * 0x24 + 0x2c0);
+    return *(int*)(p + 0x20) != 0 ? p : 0;
+}
+#endif
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282CD0);
 
@@ -126,7 +134,14 @@ void* func_00282DB0(void* self, int a1, int a2)
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282DD0);
 
+//100%
 INCLUDE_ASM("scripter/bxscriptengine", func_00282EF0);
+#ifdef SKIP_ASM
+extern "C" int func_00282EF0(void* self, int a1)
+{
+    return *(int*)((char*)self + 0x14) == a1;
+}
+#endif
 
 INCLUDE_ASM("scripter/bxscriptengine", func_00282F00);
 

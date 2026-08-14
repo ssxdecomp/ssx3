@@ -52,17 +52,67 @@ INCLUDE_ASM("be/beintbagt", func_0014FFB8);
 
 INCLUDE_ASM("be/beintbagt", func_00150048);
 
+struct sPad20 { char x; int pad[4]; };
+extern sPad20 D_0045AEB8;
+
+//100%
 INCLUDE_ASM("be/beintbagt", func_001500D8);
+#ifdef SKIP_ASM
+extern "C" unsigned short func_001500D8(void* self, int a1, int a2)
+{
+    return *(unsigned short*)((char*)&D_0045AEB8 + a2 * 0x14);
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintbagt", func_001500F8);
+#ifdef SKIP_ASM
+extern "C" unsigned short func_001500F8(void* self, int a1, int a2)
+{
+    char* p = (char*)&D_0045AEB8 + a2 * 0x14;
+    return *(unsigned short*)(p + 0x2);
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintbagt", func_00150118);
+#ifdef SKIP_ASM
+extern "C" unsigned short func_00150118(void* self, int a1, int a2)
+{
+    char* p = (char*)&D_0045AEB8 + a2 * 0x14;
+    return *(unsigned short*)(p + 0x4);
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintbagt", func_00150138);
+#ifdef SKIP_ASM
+extern "C" unsigned short func_00150138(void* self, int a1, int a2)
+{
+    char* p = (char*)&D_0045AEB8 + a2 * 0x14;
+    return *(unsigned short*)(p + 0x6);
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintbagt", func_00150158);
+#ifdef SKIP_ASM
+extern "C" unsigned short func_00150158(void* self, int a1, int a2)
+{
+    char* p = (char*)&D_0045AEB8 + a2 * 0x14;
+    return *(unsigned short*)(p + 0x8);
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintbagt", func_00150178);
+#ifdef SKIP_ASM
+extern "C" unsigned short func_00150178(void* self, int a1, int a2)
+{
+    char* p = (char*)&D_0045AEB8 + a2 * 0x14;
+    return *(unsigned short*)(p + 0xa);
+}
+#endif
 
 INCLUDE_ASM("be/beintbagt", func_00150198);
 

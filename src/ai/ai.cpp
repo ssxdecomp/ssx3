@@ -362,7 +362,16 @@ INCLUDE_ASM("ai/ai", func_001368E8);
 
 INCLUDE_ASM("ai/ai", func_00136920);
 
+extern "C" void cRider_updateOrientationImplicit(void*);
+
+//100%
 INCLUDE_ASM("ai/ai", func_00136958);
+#ifdef SKIP_ASM
+extern "C" void func_00136958(void* self)
+{
+    cRider_updateOrientationImplicit(*(void**)self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("ai/ai", func_00136978__FPv);

@@ -38,7 +38,16 @@ void cSSXApp_timerCallback()
 }
 #endif
 
+void* cMCOverlayManager_getManager();
+
+//100%
 INCLUDE_ASM("main/ssxapp", func_00227F80);
+#ifdef SKIP_ASM
+extern "C" void* func_00227F80()
+{
+    return cMCOverlayManager_getManager();
+}
+#endif
 
 INCLUDE_ASM("main/ssxapp", cSSXApp_purge);
 
@@ -111,7 +120,14 @@ INCLUDE_ASM("main/ssxapp", func_00229820);
 
 INCLUDE_ASM("main/ssxapp", func_00229910);
 
+//100%
 INCLUDE_ASM("main/ssxapp", func_00229B90);
+#ifdef SKIP_ASM
+extern "C" void func_00229B90(void* self, int a1)
+{
+    ((unsigned int*)self)[a1 + 2] = 0xFFFFFFFFU;
+}
+#endif
 
 INCLUDE_ASM("main/ssxapp", func_00229BA8);
 

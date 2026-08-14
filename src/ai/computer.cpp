@@ -6,7 +6,17 @@ INCLUDE_ASM("ai/computer", cComputer_updateRiderDifficulty);
 
 INCLUDE_ASM("ai/computer", func_0010C9A8);
 
+extern "C" void cComputer_updateRiderDifficulty(void*);
+
+//99.29% - identical instructions; jal addend differs only because the
+// callee sits at a different .text offset in our object than in the target
 INCLUDE_ASM("ai/computer", func_0010CAB8);
+#ifdef SKIP_ASM
+extern "C" void func_0010CAB8(void* self)
+{
+    cComputer_updateRiderDifficulty(self);
+}
+#endif
 
 INCLUDE_ASM("ai/computer", func_0010CAD8);
 
@@ -26,7 +36,19 @@ INCLUDE_ASM("ai/computer", func_0010D870);
 
 INCLUDE_ASM("ai/computer", func_0010D8F8);
 
+//100%
 INCLUDE_ASM("ai/computer", func_0010D9E8);
+#ifdef SKIP_ASM
+extern "C" int func_0010D9E8(void* self, int a1)
+{
+    void* p = *(void**)((char*)self + 0x18);
+    int r = 0;
+    if (*(int*)((char*)p + 0xf0) != 0) {
+        r = *(int*)((char*)p + 0xf8) == a1;
+    }
+    return r;
+}
+#endif
 
 INCLUDE_ASM("ai/computer", func_0010DA10);
 
@@ -147,7 +169,20 @@ INCLUDE_ASM("ai/computer", func_00112338);
 
 INCLUDE_ASM("ai/computer", func_00112588);
 
+// R5900 128-bit GPR quadword, for functions that copy/return a 16-byte
+// block via a single lq/sq pair instead of word-by-word.
+typedef int cQuad128 __attribute__((mode(TI)));
+
+//100%
 INCLUDE_ASM("ai/computer", func_001125A8);
+#ifdef SKIP_ASM
+extern "C" cQuad128 func_001125A8(void* self)
+{
+    cQuad128 v = *(cQuad128*)((char*)self + 0x4A0);
+    *(cQuad128*)((char*)self + 0x4B0) = v;
+    return v;
+}
+#endif
 
 //100%
 INCLUDE_ASM("ai/computer", func_001125B8__FPv);

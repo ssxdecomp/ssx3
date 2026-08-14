@@ -66,7 +66,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001A4330);
 
 INCLUDE_ASM("fe/feasyncfile", func_001A4670);
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001A4740);
+#ifdef SKIP_ASM
+extern "C" int func_001A4740(void* self, int a1)
+{
+    return *(int*)((char*)self + 0x6f4) + a1;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001A4750);
 
@@ -336,7 +343,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001AC448);
 
 INCLUDE_ASM("fe/feasyncfile", func_001AC4F0);
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001AC5A8);
+#ifdef SKIP_ASM
+extern "C" int func_001AC5A8(void* self, int a1, int a2)
+{
+    return a2 != 9 ? 0x101 : 0x100;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001AC5C0);
 
@@ -1117,7 +1131,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001C0A28);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C0A80);
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001C0B08);
+#ifdef SKIP_ASM
+extern "C" int func_001C0B08(void* self, int a1, int a2)
+{
+    return a2 != 9 ? 0x101 : 0x100;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C0B20);
 
@@ -1161,7 +1182,14 @@ int func_001C17D8(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001C17E0);
+#ifdef SKIP_ASM
+extern "C" int func_001C17E0(void* self, int a1, int a2)
+{
+    return a2 != 9 ? 0x101 : 0x100;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C17F8);
 
@@ -1295,7 +1323,14 @@ INCLUDE_ASM("fe/feasyncfile", func_001C5310);
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5368);
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001C5420);
+#ifdef SKIP_ASM
+extern "C" int func_001C5420(void* self, void* a1, int a2)
+{
+    return a2 == 4 ? 0 : 0x101;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5430);
 
@@ -1343,13 +1378,35 @@ int func_001C57C0(void* self, int a1, int a2)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001C5800);
+#ifdef SKIP_ASM
+extern "C" void* func_001C5800(void* self, int a1)
+{
+    return (char*)self + ((a1 << 3) + 0x24);
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5838);
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001C5860);
+#ifdef SKIP_ASM
+extern "C" void func_001C5860(void* self, int a1)
+{
+    char* p = (char*)self + a1 * 0xc;
+    *(int*)(p + 0x54) = 0;
+}
+#endif
 
 INCLUDE_ASM("fe/feasyncfile", func_001C5878);
 
+//100%
 INCLUDE_ASM("fe/feasyncfile", func_001C58D0);
+#ifdef SKIP_ASM
+extern "C" void* func_001C58D0(void* self, int a1)
+{
+    return (char*)self + (a1 * 0xc + 0x54);
+}
+#endif
 

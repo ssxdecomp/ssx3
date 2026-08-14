@@ -264,7 +264,14 @@ int func_00140BC0(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("ai/control/handplantcontrol", func_00140BC8);
+#ifdef SKIP_ASM
+extern "C" int func_00140BC8(void* self)
+{
+    return *(int*)((char*)self + 0x874) ^ 1;
+}
+#endif
 
 //100%
 INCLUDE_ASM("ai/control/handplantcontrol", func_00140C68__FPv);
@@ -403,7 +410,14 @@ float func_001446E8(void* self)
 
 INCLUDE_ASM("ai/control/handplantcontrol", func_001446F8);
 
+//100%
 INCLUDE_ASM("ai/control/handplantcontrol", func_001448A8);
+#ifdef SKIP_ASM
+extern "C" int func_001448A8(void* self)
+{
+    return *(int*)((char*)self + 0x70) == 3;
+}
+#endif
 
 extern "C" void* func_0013FB20(int, int);
 

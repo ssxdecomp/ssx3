@@ -28,9 +28,25 @@ INCLUDE_ASM("ui/uithing", func_003A0158);
 
 INCLUDE_ASM("ui/uithing", func_003A0290);
 
+//100%
 INCLUDE_ASM("ui/uithing", func_003A0318);
+#ifdef SKIP_ASM
+extern "C" int func_003A0318(void* self, int a1)
+{
+    self = (char*)self + ((signed char)a1 << 2);
+    return *(int*)((char*)self + 0x6c);
+}
+#endif
 
+//100%
 INCLUDE_ASM("ui/uithing", func_003A0330);
+#ifdef SKIP_ASM
+extern "C" void func_003A0330(void* self, int a1, int a2)
+{
+    self = (char*)self + ((signed char)a1 << 2);
+    *(int*)((char*)self + 0x6c) = a2;
+}
+#endif
 
 INCLUDE_ASM("ui/uithing", func_003A0348);
 

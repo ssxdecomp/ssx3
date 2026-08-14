@@ -8,9 +8,25 @@ INCLUDE_ASM("fe/fereal", cFECustom_getNextState);
 
 INCLUDE_ASM("fe/fereal", func_001A16C0);
 
+//100%
 INCLUDE_ASM("fe/fereal", func_001A1CB8);
+#ifdef SKIP_ASM
+extern "C" void func_001A1CB8(void* self, int a1, int val)
+{
+    char* p = (char*)self + (signed char)a1;
+    *(char*)(p + 0x8) = val;
+}
+#endif
 
+//100%
 INCLUDE_ASM("fe/fereal", func_001A1CD0);
+#ifdef SKIP_ASM
+extern "C" unsigned char func_001A1CD0(void* self, int a1)
+{
+    char* p = (char*)self + (signed char)a1;
+    return *(unsigned char*)(p + 0x8);
+}
+#endif
 
 INCLUDE_ASM("fe/fereal", func_001A1CE8);
 

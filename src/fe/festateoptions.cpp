@@ -31,9 +31,23 @@ void* func_001895F0(void* self)
 
 INCLUDE_ASM("fe/festateoptions", func_00189610);
 
+//100%
 INCLUDE_ASM("fe/festateoptions", func_00189958);
+#ifdef SKIP_ASM
+extern "C" int func_00189958(void* self, int a1, int a2)
+{
+    return a2 != 9 ? 0x101 : 0x100;
+}
+#endif
 
+//100%
 INCLUDE_ASM("fe/festateoptions", func_00189970);
+#ifdef SKIP_ASM
+extern "C" int func_00189970(void* self, int a1, int a2)
+{
+    return a2 ? 0x100 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/festateoptions", cFEStateOptionsGame_onWidgetEvent);
 
@@ -56,7 +70,14 @@ void* func_0018A870(void* self)
 
 INCLUDE_ASM("fe/festateoptions", func_0018A890);
 
+//100%
 INCLUDE_ASM("fe/festateoptions", func_0018A8C0);
+#ifdef SKIP_ASM
+extern "C" int func_0018A8C0(void* self, int a1, int a2)
+{
+    return a2 ? 0x100 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/festateoptions", func_0018A8D0);
 
@@ -97,7 +118,14 @@ INCLUDE_ASM("fe/festateoptions", func_0018CA10);
 
 INCLUDE_ASM("fe/festateoptions", func_0018CCE0);
 
+//100%
 INCLUDE_ASM("fe/festateoptions", func_0018CDB0);
+#ifdef SKIP_ASM
+extern "C" int func_0018CDB0(void* self, int a1, int a2)
+{
+    return a2 ? 0x100 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/festateoptions", func_0018CDC0);
 

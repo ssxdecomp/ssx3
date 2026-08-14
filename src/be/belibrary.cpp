@@ -76,9 +76,24 @@ INCLUDE_ASM("be/belibrary", cBELibrary_getScoreType);
 
 INCLUDE_ASM("be/belibrary", func_0014ABE0);
 
+//100%
 INCLUDE_ASM("be/belibrary", func_0014AC30);
+#ifdef SKIP_ASM
+extern "C" signed char func_0014AC30(int a0)
+{
+    return cBELibrary_getCharacterID(a0);
+}
+#endif
 
+//99.29% - identical instructions; jal addend differs only because the
+// callee sits at a different .text offset in our object than in the target
 INCLUDE_ASM("be/belibrary", func_0014AC50);
+#ifdef SKIP_ASM
+extern "C" int func_0014AC50(int a0)
+{
+    return cBELibrary_getProfileIndex(a0);
+}
+#endif
 
 INCLUDE_ASM("be/belibrary", func_0014ACB0);
 

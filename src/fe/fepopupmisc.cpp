@@ -274,7 +274,16 @@ int func_001DFB88(void* self, int a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFB98);
+#ifdef SKIP_ASM
+extern "C" int func_001DFB98(void* self, void* a1)
+{
+    int v = *(short*)((char*)a1 + 0xc);
+    if (v > 0) v = v * 10;
+    return v;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFBB0__FPvT0);
@@ -305,7 +314,16 @@ int func_001DFC58(void* self, int a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFC68);
+#ifdef SKIP_ASM
+extern "C" int func_001DFC68(void* self, void* a1)
+{
+    int v = *(short*)((char*)a1 + 0xc);
+    if (v > 0) v = v * 10;
+    return v;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFC80__FPvT0);
@@ -336,7 +354,16 @@ int func_001DFD28(void* self, int a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFD38);
+#ifdef SKIP_ASM
+extern "C" int func_001DFD38(void* self, void* a1)
+{
+    int v = *(short*)((char*)a1 + 0xc);
+    if (v > 0) v = v * 10;
+    return v;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFD50__FPvT0);
@@ -367,7 +394,16 @@ int func_001DFDF8(void* self, int a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFE08);
+#ifdef SKIP_ASM
+extern "C" int func_001DFE08(void* self, void* a1)
+{
+    int v = *(short*)((char*)a1 + 0xc);
+    if (v > 0) v = v * 10;
+    return v;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFE20__FPvT0);
@@ -398,7 +434,16 @@ int func_001DFEC8(void* self, int a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFED8);
+#ifdef SKIP_ASM
+extern "C" int func_001DFED8(void* self, void* a1)
+{
+    int v = *(short*)((char*)a1 + 0xc);
+    if (v > 0) v = v * 10;
+    return v;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFEF0__FPvT0);
@@ -429,7 +474,16 @@ int func_001DFF98(void* self, int a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFFA8);
+#ifdef SKIP_ASM
+extern "C" int func_001DFFA8(void* self, void* a1)
+{
+    int v = *(short*)((char*)a1 + 0xc);
+    if (v > 0) v = v * 10;
+    return v;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/fepopupmisc", func_001DFFC0__FPvT0);
@@ -1615,7 +1669,14 @@ INCLUDE_ASM("fe/fepopupmisc", func_001E64C8);
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E65B8);
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001E6630);
+#ifdef SKIP_ASM
+extern "C" int func_001E6630(void* self, int a1, int a2)
+{
+    return a2 == 6 ? 0x101 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E6640);
 
@@ -1639,7 +1700,14 @@ INCLUDE_ASM("fe/fepopupmisc", func_001E7928);
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E7AA8);
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001E7B78);
+#ifdef SKIP_ASM
+extern "C" int func_001E7B78(void* self, int a1, int a2)
+{
+    return a2 == 6 ? 0x101 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E7B88);
 
@@ -1649,7 +1717,20 @@ INCLUDE_ASM("fe/fepopupmisc", func_001E8098);
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E8160);
 
+//88.13% - logic verified correct; GCC allocates v0 to the comparison
+// constant and v1 to the result, the target does the reverse. No source
+// shape tried (temp local, early return, nested ternary) flips it.
 INCLUDE_ASM("fe/fepopupmisc", func_001E81B0);
+#ifdef SKIP_ASM
+extern "C" int func_001E81B0(void* self, int a1, int a2)
+{
+    int r = 0;
+    if (a2 == 6) {
+        r = *(int*)((char*)self + 0xa0) != 0 ? 0x101 : 0;
+    }
+    return r;
+}
+#endif
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E81D0);
 
@@ -1683,7 +1764,14 @@ int func_001E8E90(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fepopupmisc", func_001E8E98);
+#ifdef SKIP_ASM
+extern "C" int func_001E8E98(void* self, int a1, int a2)
+{
+    return a2 == 6 ? 0x101 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/fepopupmisc", func_001E8EA8);
 

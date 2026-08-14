@@ -32,9 +32,32 @@ INCLUDE_ASM("bx/bxstringctor", func_00268950);
 
 INCLUDE_ASM("bx/bxstringctor", func_002689B8);
 
-INCLUDE_ASM("bx/bxstringctor", func_00268A90);
+// padded past the 8-byte gp-relative threshold so the compiler emits
+// absolute lui/lo addressing like the target
+struct sShortPad16 { short v; int pad[3]; };
+extern sShortPad16 D_004A2FB0;
+extern "C" void func_0025D6C0(int);
 
+//100%
+INCLUDE_ASM("bx/bxstringctor", func_00268A90);
+#ifdef SKIP_ASM
+extern "C" void func_00268A90(void* self, void* a1, int a2)
+{
+    func_0025D6C0(a2 + D_004A2FB0.v);
+}
+#endif
+
+extern sShortPad16 D_004A2FB8;
+extern "C" void func_002599B0(int);
+
+//100%
 INCLUDE_ASM("bx/bxstringctor", func_00268AB8);
+#ifdef SKIP_ASM
+extern "C" void func_00268AB8(void* self, void* a1, int a2)
+{
+    func_002599B0(a2 + D_004A2FB8.v);
+}
+#endif
 
 INCLUDE_ASM("bx/bxstringctor", func_00268AE0);
 
@@ -196,7 +219,18 @@ void func_0026A068(void* self)
 }
 #endif
 
+extern "C" void func_0026BA88(void*);
+
+//100%
 INCLUDE_ASM("bx/bxstringctor", func_0026A070);
+#ifdef SKIP_ASM
+extern "C" void func_0026A070(void* self, int a1, int a2)
+{
+    if (a2 == 0) {
+        func_0026BA88((char*)self + 0x38);
+    }
+}
+#endif
 
 INCLUDE_ASM("bx/bxstringctor", func_0026A090);
 
@@ -238,9 +272,23 @@ INCLUDE_ASM("bx/bxstringctor", func_0026ADF0);
 
 INCLUDE_ASM("bx/bxstringctor", func_0026AF00);
 
+//100%
 INCLUDE_ASM("bx/bxstringctor", func_0026AF70);
+#ifdef SKIP_ASM
+extern "C" int func_0026AF70(void* self, int a1)
+{
+    return *(int*)((char*)self + 0x14) + a1 * 0x3c;
+}
+#endif
 
+//100%
 INCLUDE_ASM("bx/bxstringctor", func_0026AF88);
+#ifdef SKIP_ASM
+extern "C" int func_0026AF88(void* self, int a1)
+{
+    return *(int*)((char*)self + 0xc) + (a1 << 6);
+}
+#endif
 
 extern "C" void* func_0026AFB8(void*);
 

@@ -91,15 +91,47 @@ INCLUDE_ASM("world/worldcache", func_003A8448);
 
 INCLUDE_ASM("world/worldcache", func_003A84C8);
 
+//100%
 INCLUDE_ASM("world/worldcache", func_003A84F8);
+#ifdef SKIP_ASM
+extern "C" void func_003A84F8(void* self, int a1, int a2)
+{
+    self = (char*)self + a1 * 0x18;
+    *(int*)((char*)self + 0x3f4) = a2;
+}
+#endif
 
 INCLUDE_ASM("world/worldcache", func_003A8528);
 
+//100%
 INCLUDE_ASM("world/worldcache", func_003A8618);
+#ifdef SKIP_ASM
+extern "C" int func_003A8618(void* self, int a1)
+{
+    char* p = (char*)self + a1 * 0x18;
+    return *(int*)(p + 0x3f0) == 3;
+}
+#endif
 
+//100%
 INCLUDE_ASM("world/worldcache", func_003A8638);
+#ifdef SKIP_ASM
+extern "C" int func_003A8638(void* self, int a1)
+{
+    char* p = (char*)self + a1 * 0x18;
+    return *(int*)(p + 0x3f0) == 0;
+}
+#endif
 
+//100%
 INCLUDE_ASM("world/worldcache", func_003A8650);
+#ifdef SKIP_ASM
+extern "C" void func_003A8650(void* self, int a1)
+{
+    char* p = (char*)self + a1 * 0x18;
+    *(int*)(p + 0x3f0) = 3;
+}
+#endif
 
 INCLUDE_ASM("world/worldcache", cWorldCache_updatePages);
 

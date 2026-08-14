@@ -204,9 +204,27 @@ INCLUDE_ASM("be/beintreward", func_00158820);
 
 INCLUDE_ASM("be/beintreward", func_00158848);
 
-INCLUDE_ASM("be/beintreward", func_00158870);
+extern int D_0045AFE8[];
 
+//100%
+INCLUDE_ASM("be/beintreward", func_00158870);
+#ifdef SKIP_ASM
+extern "C" int func_00158870(void* self, int a1, int a2)
+{
+    return *(int*)((char*)D_0045AFE8 + ((a2 << 2) + (a1 << 4)));
+}
+#endif
+
+extern int D_0045B018[];
+
+//100%
 INCLUDE_ASM("be/beintreward", func_00158890);
+#ifdef SKIP_ASM
+extern "C" int func_00158890(void* self, int a1, int a2)
+{
+    return *(int*)((char*)D_0045B018 + ((a2 << 2) + (a1 << 4)));
+}
+#endif
 
 extern void* D_0045B048[];
 
@@ -298,7 +316,23 @@ INCLUDE_ASM("be/beintreward", func_0015A320);
 
 INCLUDE_ASM("be/beintreward", func_0015A358);
 
+// 0x64-byte array elements; arr[i].field indexing reproduces the target's
+// base-first addu
+struct sBERewardEntry {
+    char pad_0x00[0x54];
+    int field_0x54;
+    char pad_0x58[0xc];
+};
+extern sBERewardEntry D_0043D950[];
+
+//100%
 INCLUDE_ASM("be/beintreward", func_0015A398);
+#ifdef SKIP_ASM
+extern "C" int func_0015A398(void* self, int a1)
+{
+    return D_0043D950[a1].field_0x54;
+}
+#endif
 
 INCLUDE_ASM("be/beintreward", func_0015A3B8);
 
@@ -324,7 +358,14 @@ INCLUDE_ASM("be/beintreward", func_0015A628);
 
 INCLUDE_ASM("be/beintreward", func_0015A6F0);
 
+//100%
 INCLUDE_ASM("be/beintreward", func_0015A750);
+#ifdef SKIP_ASM
+extern "C" signed char func_0015A750(void* self, int a1, int a2)
+{
+    return *(signed char*)((char*)self + (a1 * 0xa + a2) + 0x6);
+}
+#endif
 
 //95.0%
 INCLUDE_ASM("be/beintreward", func_0015A768__FPvi);

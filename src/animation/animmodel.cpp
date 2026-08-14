@@ -13,7 +13,14 @@ void* func_0030DB70(void* self, int a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("animation/animmodel", func_0030DB90);
+#ifdef SKIP_ASM
+extern "C" int func_0030DB90(void* self, void* a1)
+{
+    return *(int*)self - *(int*)a1;
+}
+#endif
 
 INCLUDE_ASM("animation/animmodel", func_0030DBA0);
 

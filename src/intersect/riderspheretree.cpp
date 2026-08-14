@@ -1,5 +1,9 @@
 #include "common.h"
 
+// R5900 128-bit GPR quadword, for functions that copy a 16-byte block via a
+// single lq/sq pair instead of word-by-word.
+typedef int cQuad128 __attribute__((mode(TI)));
+
 struct cRiderSphereTree {
     char pad_0x00[0x24];
     int field_0x24;
@@ -53,7 +57,16 @@ INCLUDE_ASM("intersect/riderspheretree", func_0032C508);
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032C540);
 
+//100%
 INCLUDE_ASM("intersect/riderspheretree", func_0032C590);
+#ifdef SKIP_ASM
+extern "C" float func_0032C590(void* self)
+{
+    void* p = *(void**)((char*)self + 0x98);
+    void* q = *(void**)((char*)p + 0x20);
+    return *(float*)q * *(float*)((char*)self + 0x90);
+}
+#endif
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032C5A8);
 
@@ -97,7 +110,18 @@ INCLUDE_ASM("intersect/riderspheretree", func_0032E288);
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032E398);
 
+//100%
 INCLUDE_ASM("intersect/riderspheretree", func_0032E4B8);
+#ifdef SKIP_ASM
+extern "C" void func_0032E4B8(void* self)
+{
+    cQuad128 a = *(cQuad128*)((char*)self + 0x80);
+    cQuad128 b = *(cQuad128*)((char*)self + 0x90);
+    *(cQuad128*)((char*)self + 0x60) = a;
+    *(cQuad128*)((char*)self + 0x70) = b;
+    *(int*)((char*)self + 0x4) = 0;
+}
+#endif
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032E4D0);
 
@@ -152,7 +176,18 @@ INCLUDE_ASM("intersect/riderspheretree", func_0032FC08);
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032FD40);
 
+//100%
 INCLUDE_ASM("intersect/riderspheretree", func_0032FD98);
+#ifdef SKIP_ASM
+extern "C" void func_0032FD98(void* self)
+{
+    cQuad128 a = *(cQuad128*)((char*)self + 0x80);
+    float f = *(float*)((char*)self + 0x90);
+    *(cQuad128*)((char*)self + 0x60) = a;
+    *(float*)((char*)self + 0x70) = f;
+    *(int*)((char*)self + 0x4) = 0;
+}
+#endif
 
 INCLUDE_ASM("intersect/riderspheretree", func_0032FDB0);
 

@@ -20,7 +20,14 @@ INCLUDE_ASM("fe/ovstatemap", func_00208BB8);
 
 INCLUDE_ASM("fe/ovstatemap", func_00208C28);
 
+//100%
 INCLUDE_ASM("fe/ovstatemap", func_00208EF8);
+#ifdef SKIP_ASM
+extern "C" int func_00208EF8(void* self, int a1, int a2)
+{
+    return ((unsigned int)(a2 - 8) < 2) ? 0 : 0x101;
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatemap", func_00208F10);
 

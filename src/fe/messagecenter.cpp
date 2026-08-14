@@ -51,5 +51,14 @@ int func_00198AE8(void* self)
 
 INCLUDE_ASM("fe/messagecenter", func_00198AF0);
 
+//100%
 INCLUDE_ASM("fe/messagecenter", func_00198DA0);
+#ifdef SKIP_ASM
+extern "C" int func_00198DA0(void* self, void* a1)
+{
+    void* p = *(void**)self;
+    void* p2 = *(void**)a1;
+    return *(short*)((char*)p + 0xa) - *(short*)((char*)p2 + 0xa);
+}
+#endif
 

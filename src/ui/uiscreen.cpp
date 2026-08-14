@@ -91,7 +91,14 @@ INCLUDE_ASM("ui/uiscreen", cUIScreen_playFrame);
 
 INCLUDE_ASM("ui/uiscreen", func_0039C978);
 
+//100%
 INCLUDE_ASM("ui/uiscreen", func_0039CBC8);
+#ifdef SKIP_ASM
+extern "C" void func_0039CBC8(void* p0, void* p1, void* p2, void* p3)
+{
+    *(unsigned int*)((char*)p3 + 0x10) &= 0xFEFFFFFFU;
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", func_0039CBE0);
 
@@ -224,7 +231,18 @@ INCLUDE_ASM("ui/uiscreen", func_0039E688);
 
 INCLUDE_ASM("ui/uiscreen", func_0039E6B8);
 
+struct cList;
+struct cListNode;
+void cList_addToEnd(cList*, cListNode*);
+
+//100%
 INCLUDE_ASM("ui/uiscreen", func_0039E758);
+#ifdef SKIP_ASM
+extern "C" void func_0039E758(void* self, cListNode* node)
+{
+    cList_addToEnd((cList*)((char*)self + 0x24), node);
+}
+#endif
 
 INCLUDE_ASM("ui/uiscreen", func_0039E868);
 

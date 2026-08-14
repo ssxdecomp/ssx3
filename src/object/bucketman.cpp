@@ -65,7 +65,21 @@ INCLUDE_ASM("object/bucketman", cBucketMan_purgeBucket);
 
 INCLUDE_ASM("object/bucketman", func_003551A8);
 
+// 0x44-byte elements reached through a pointer at self+0x4
+struct sBucketEntry {
+    int flags;
+    char pad_0x04[0x40];
+};
+
+//100%
 INCLUDE_ASM("object/bucketman", func_00355260);
+#ifdef SKIP_ASM
+extern "C" void func_00355260(void* self, int a1)
+{
+    sBucketEntry* p = *(sBucketEntry**)((char*)self + 0x4);
+    p[a1].flags |= 1;
+}
+#endif
 
 INCLUDE_ASM("object/bucketman", func_00355280);
 

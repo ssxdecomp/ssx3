@@ -168,7 +168,18 @@ INCLUDE_ASM("object/movenode", func_00356F10);
 
 INCLUDE_ASM("object/movenode", func_00356F68);
 
+typedef int cQuad128 __attribute__((mode(TI)));
+
+//100%
 INCLUDE_ASM("object/movenode", func_00356FF0);
+#ifdef SKIP_ASM
+extern "C" void func_00356FF0(void* self)
+{
+    cQuad128 v = *(cQuad128*)((char*)self + 0x30);
+    *(int*)((char*)self + 0x44) = 0;
+    *(cQuad128*)((char*)self + 0x80) = v;
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_00357000);
 
@@ -188,7 +199,16 @@ INCLUDE_ASM("object/movenode", func_00357358);
 
 INCLUDE_ASM("object/movenode", func_003573F8);
 
+//100%
 INCLUDE_ASM("object/movenode", func_00357528);
+#ifdef SKIP_ASM
+extern "C" void func_00357528(void* self)
+{
+    cQuad128 v = *(cQuad128*)((char*)self + 0x10);
+    *(int*)((char*)self + 0x50) = 0;
+    *(cQuad128*)((char*)self + 0x90) = v;
+}
+#endif
 
 INCLUDE_ASM("object/movenode", func_00357538);
 

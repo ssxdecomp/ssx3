@@ -14,7 +14,17 @@ INCLUDE_ASM("ui/uilistbox", func_0039A738);
 
 INCLUDE_ASM("ui/uilistbox", func_0039A768);
 
+//100%
 INCLUDE_ASM("ui/uilistbox", func_0039A7A8);
+#ifdef SKIP_ASM
+extern "C" void func_0039A7A8(void* self, int a1)
+{
+    unsigned char v = (unsigned char)a1;
+    if (v < *(unsigned char*)((char*)self + 0x318)) {
+        *(char*)((char*)self + 0x319) = v;
+    }
+}
+#endif
 
 INCLUDE_ASM("ui/uilistbox", cUIListBox_setEntryByAsciiString);
 

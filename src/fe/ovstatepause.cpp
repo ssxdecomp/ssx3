@@ -10,9 +10,23 @@ INCLUDE_ASM("fe/ovstatepause", func_001FA9E0);
 
 INCLUDE_ASM("fe/ovstatepause", func_001FAA78);
 
+//100%
 INCLUDE_ASM("fe/ovstatepause", func_001FAAF0);
+#ifdef SKIP_ASM
+extern "C" int func_001FAAF0(void* self, int a1, int a2)
+{
+    return a2 != 4 ? 0x101 : 0x100;
+}
+#endif
 
+//100%
 INCLUDE_ASM("fe/ovstatepause", func_001FAB08);
+#ifdef SKIP_ASM
+extern "C" int func_001FAB08(void* self, int a1, int a2)
+{
+    return a2 != 0 ? 0x101 : 0x100;
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatepause", cOVState_PAUSE_ONLINE_ERROR_onCreateScreen);
 
@@ -71,7 +85,14 @@ INCLUDE_ASM("fe/ovstatepause", func_001FD268);
 
 INCLUDE_ASM("fe/ovstatepause", func_001FD320);
 
+//100%
 INCLUDE_ASM("fe/ovstatepause", func_001FDB78);
+#ifdef SKIP_ASM
+extern "C" int func_001FDB78(void* self, int a1, int a2)
+{
+    return a2 == 6 ? 0x101 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/ovstatepause", func_001FDB88);
 

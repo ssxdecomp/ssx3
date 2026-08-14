@@ -101,7 +101,16 @@ INCLUDE_ASM("sound/bankmanager", func_0028D960);
 
 INCLUDE_ASM("sound/bankmanager", func_0028D988);
 
+//100%
 INCLUDE_ASM("sound/bankmanager", func_0028DEF0);
+#ifdef SKIP_ASM
+extern "C" int func_0028DEF0(void* self, int a1)
+{
+    int old = *(int*)((char*)self + 0x629c);
+    *(int*)((char*)self + 0x629c) = a1;
+    return old != a1;
+}
+#endif
 
 //63.33%
 INCLUDE_ASM("sound/bankmanager", func_0028DF08__FPv);

@@ -97,7 +97,18 @@ INCLUDE_ASM("scripter/datamanager", func_002770C0);
 
 INCLUDE_ASM("scripter/datamanager", func_002771C8);
 
+//100%
 INCLUDE_ASM("scripter/datamanager", func_00277298);
+#ifdef SKIP_ASM
+extern "C" int func_00277298(void* self)
+{
+    int r = 0;
+    if (*(int*)((char*)self + 0xa4) == 3) {
+        r = *(int*)((char*)self + 0xa8) != 0;
+    }
+    return r;
+}
+#endif
 
 //100%
 INCLUDE_ASM("scripter/datamanager", func_002772B8__FPv);
@@ -132,7 +143,14 @@ INCLUDE_ASM("scripter/datamanager", func_00277980);
 
 INCLUDE_ASM("scripter/datamanager", func_00277C08);
 
+//100%
 INCLUDE_ASM("scripter/datamanager", func_00277DD8);
+#ifdef SKIP_ASM
+extern "C" int func_00277DD8(void* self, void* a1)
+{
+    return *(int*)a1 >= 0x1d;
+}
+#endif
 
 INCLUDE_ASM("scripter/datamanager", func_00277DE8);
 

@@ -61,7 +61,14 @@ INCLUDE_ASM("be/beintscore", func_00155190);
 
 INCLUDE_ASM("be/beintscore", func_00155208);
 
+//100%
 INCLUDE_ASM("be/beintscore", func_00155270);
+#ifdef SKIP_ASM
+extern "C" void* func_00155270(void* self, int a1)
+{
+    return (char*)self + (a1 * 0xb0 + 0x20);
+}
+#endif
 
 INCLUDE_ASM("be/beintscore", func_00155288);
 

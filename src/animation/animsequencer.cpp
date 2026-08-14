@@ -30,11 +30,36 @@ INCLUDE_ASM("animation/animsequencer", func_00313C08);
 
 INCLUDE_ASM("animation/animsequencer", func_00313C50);
 
+//100%
 INCLUDE_ASM("animation/animsequencer", func_00313CF0);
+#ifdef SKIP_ASM
+extern "C" void func_00313CF0(void* self, int a1, float val)
+{
+    char* p = (char*)self + a1 * 0x1c;
+    *(float*)(p + 0x8) = val;
+    *(int*)((char*)self + 0xc4) = 1;
+}
+#endif
 
+//100%
 INCLUDE_ASM("animation/animsequencer", func_00313D28);
+#ifdef SKIP_ASM
+extern "C" void func_00313D28(void* self, int a1, float val)
+{
+    char* p = (char*)self + a1 * 0x1c;
+    *(float*)(p + 0x14) = val;
+}
+#endif
 
+//100%
 INCLUDE_ASM("animation/animsequencer", func_00313D40);
+#ifdef SKIP_ASM
+extern "C" void func_00313D40(void* self, int a1, int val)
+{
+    char* p = (char*)self + a1 * 0x1c;
+    *(int*)(p + 0x1c) = val;
+}
+#endif
 
 INCLUDE_ASM("animation/animsequencer", func_00313D70);
 

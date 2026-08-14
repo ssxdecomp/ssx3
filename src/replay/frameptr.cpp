@@ -2,7 +2,17 @@
 
 INCLUDE_ASM("replay/frameptr", cReplayFramePtr_initBlock);
 
+//100%
 INCLUDE_ASM("replay/frameptr", func_0026E950);
+#ifdef SKIP_ASM
+extern "C" void func_0026E950(void* self, int a1, int a2)
+{
+    *(int*)((char*)self + 0x4) = a1;
+    *(int*)((char*)self + 0x8) = a1 + a2;
+    *(int*)((char*)self + 0xc) = a1;
+    *(int*)((char*)self + 0x10) = a2;
+}
+#endif
 
 INCLUDE_ASM("replay/frameptr", func_0026E968);
 

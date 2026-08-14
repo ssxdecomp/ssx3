@@ -59,7 +59,14 @@ INCLUDE_ASM("fe/festateloadhint", func_00246098);
 
 INCLUDE_ASM("fe/festateloadhint", func_002461E0);
 
+//100%
 INCLUDE_ASM("fe/festateloadhint", func_00246268);
+#ifdef SKIP_ASM
+extern "C" int func_00246268(void* self, int a1, int a2)
+{
+    return a2 == 6 ? 0x101 : 0;
+}
+#endif
 
 INCLUDE_ASM("fe/festateloadhint", func_00246278);
 

@@ -111,7 +111,18 @@ INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6AE0);
 
 INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6B08);
 
+extern "C" void func_002B6C20(void*);
+
+//100%
 INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6B30);
+#ifdef SKIP_ASM
+extern "C" void func_002B6B30(void* self, int a1)
+{
+    if (a1 != 0) {
+        func_002B6C20(self);
+    }
+}
+#endif
 
 INCLUDE_ASM("sound/icepick/worldtriggermanager", func_002B6B50);
 

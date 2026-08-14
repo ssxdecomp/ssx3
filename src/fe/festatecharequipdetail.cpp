@@ -88,7 +88,16 @@ INCLUDE_ASM("fe/festatecharequipdetail", func_0019C8D0);
 
 INCLUDE_ASM("fe/festatecharequipdetail", func_0019C8F8);
 
+//100%
 INCLUDE_ASM("fe/festatecharequipdetail", func_0019C920);
+#ifdef SKIP_ASM
+extern "C" int func_0019C920(void* self, int a1)
+{
+    int diff = a1 - (int)self;
+    if (a1 != 0) return diff >> 4;
+    return -1;
+}
+#endif
 
 INCLUDE_ASM("fe/festatecharequipdetail", func_0019C938);
 

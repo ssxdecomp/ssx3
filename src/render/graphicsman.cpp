@@ -1,5 +1,9 @@
 #include "common.h"
 
+// R5900 128-bit GPR quadword, for functions that copy a 16-byte block via a
+// single lq/sq pair instead of word-by-word.
+typedef int cQuad128 __attribute__((mode(TI)));
+
 INCLUDE_ASM("render/graphicsman", cGraphicsMan_AddBlendedMatrix);
 
 INCLUDE_ASM("render/graphicsman", func_00369A78);
@@ -83,19 +87,54 @@ INCLUDE_ASM("render/graphicsman", func_0036CCB8);
 
 INCLUDE_ASM("render/graphicsman", func_0036CE00);
 
+//100%
 INCLUDE_ASM("render/graphicsman", func_0036CE28);
+#ifdef SKIP_ASM
+extern "C" void func_0036CE28(void* self, float a, float b)
+{
+    float d = b - a;
+    float s = *(float*)((char*)self + 0x4c);
+    a = a * s;
+    d = d * s;
+    *(float*)((char*)self + 0x14) = d;
+    *(float*)((char*)self + 0x1c) = a - d;
+}
+#endif
 
 INCLUDE_ASM("render/graphicsman", func_0036CEF8);
 
+extern cQuad128 D_004FF120;
+
+//100%
 INCLUDE_ASM("render/graphicsman", func_0036D008);
+#ifdef SKIP_ASM
+extern "C" void func_0036D008(void* self)
+{
+    *(cQuad128*)((char*)self + 0xe0) = D_004FF120;
+}
+#endif
 
 INCLUDE_ASM("render/graphicsman", func_0036D1F0);
 
 INCLUDE_ASM("render/graphicsman", func_0036D318);
 
+//100%
 INCLUDE_ASM("render/graphicsman", func_0036D3D8);
+#ifdef SKIP_ASM
+extern "C" void func_0036D3D8(void* self, float val)
+{
+    *(float*)((char*)self + 0x8) = val * *(float*)((char*)self + 0x4c);
+}
+#endif
 
+//100%
 INCLUDE_ASM("render/graphicsman", func_0036D3E8);
+#ifdef SKIP_ASM
+extern "C" void func_0036D3E8(void* self, float val)
+{
+    *(float*)((char*)self + 0x8) += val * *(float*)((char*)self + 0x4c);
+}
+#endif
 
 INCLUDE_ASM("render/graphicsman", func_0036D400);
 

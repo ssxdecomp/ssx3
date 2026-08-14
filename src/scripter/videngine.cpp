@@ -35,7 +35,17 @@ int func_00283C58(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("scripter/videngine", func_00283C60);
+#ifdef SKIP_ASM
+extern "C" int func_00283C60(void* self, int a1)
+{
+    if (a1 == 4) {
+        return 0;
+    }
+    return a1 + 1;
+}
+#endif
 
 INCLUDE_ASM("scripter/videngine", func_00283C80);
 
@@ -43,7 +53,18 @@ INCLUDE_ASM("scripter/videngine", func_00283D28);
 
 INCLUDE_ASM("scripter/videngine", func_00283D70);
 
+//100%
 INCLUDE_ASM("scripter/videngine", func_00283DA0);
+#ifdef SKIP_ASM
+extern "C" int func_00283DA0(void* self)
+{
+    int r = 0;
+    if (*(int*)((char*)self + 0x90) == *(int*)((char*)self + 0x8c)) {
+        r = *(int*)((char*)self + 0x94) == 0;
+    }
+    return r;
+}
+#endif
 
 INCLUDE_ASM("scripter/videngine", func_00283DC0);
 

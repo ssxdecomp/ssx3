@@ -3,9 +3,12 @@
 extern int D_005305B0[];
 
 struct sPlayerCharEntry {
-    char pad_0x00[0x11];
+    char pad_0x00[0xc];
+    int field_0xc; // 0xc
+    char pad_0x10[1];
     signed char mCharID; // 0x11
-    char pad_0x12[0x1C - 0x11 - 1];
+    signed char field_0x12; // 0x12
+    char pad_0x13[0x1C - 0x12 - 1];
 };
 extern sPlayerCharEntry D_00534FE0[];
 
@@ -99,7 +102,14 @@ INCLUDE_ASM("be/beintplayer", func_00147290);
 
 INCLUDE_ASM("be/beintplayer", func_001472C8);
 
+//100%
 INCLUDE_ASM("be/beintplayer", func_00147318);
+#ifdef SKIP_ASM
+extern "C" int func_00147318(void* self, int a1)
+{
+    return D_00534FE0[a1].field_0xc;
+}
+#endif
 
 INCLUDE_ASM("be/beintplayer", cBENewPlayerInterface_setRiderCharID);
 
@@ -132,9 +142,25 @@ signed char cBENewPlayerInterface_getPlayerCharID(void* self, int index)
 }
 #endif
 
+//100%
 INCLUDE_ASM("be/beintplayer", func_001474A8);
+#ifdef SKIP_ASM
+extern "C" void func_001474A8(void* self, int a1, int a2)
+{
+    char* p = (char*)&D_00534FE0[0] + a1 * 0x1c;
+    *(char*)(p + 0x12) = a2;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintplayer", func_001474C8);
+#ifdef SKIP_ASM
+extern "C" signed char func_001474C8(void* self, int a1)
+{
+    char* p = (char*)&D_00534FE0[0] + a1 * 0x1c;
+    return *(signed char*)(p + 0x12);
+}
+#endif
 
 INCLUDE_ASM("be/beintplayer", func_001474E8);
 

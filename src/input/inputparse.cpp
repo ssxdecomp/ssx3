@@ -6,9 +6,23 @@ INCLUDE_ASM("input/inputparse", cInputMapParser_lookupConfigName);
 
 INCLUDE_ASM("input/inputparse", func_00321A40);
 
+//100%
 INCLUDE_ASM("input/inputparse", func_00321AD0);
+#ifdef SKIP_ASM
+extern "C" void* func_00321AD0(void* self, void* a1)
+{
+    return (char*)a1 + 0x40;
+}
+#endif
 
+//100%
 INCLUDE_ASM("input/inputparse", func_00321AD8);
+#ifdef SKIP_ASM
+extern "C" int func_00321AD8(void* self, int a1, int a2)
+{
+    return a1 * 6 + a2 + 0x60;
+}
+#endif
 
 INCLUDE_ASM("input/inputparse", cInputMapParser_readToken);
 
@@ -58,7 +72,18 @@ INCLUDE_ASM("input/inputparse", func_003252E8);
 
 INCLUDE_ASM("input/inputparse", func_003252F8);
 
+//100%
 INCLUDE_ASM("input/inputparse", func_00325430);
+#ifdef SKIP_ASM
+extern "C" float func_00325430(void* self, int a1)
+{
+    if (a1 == 0) {
+        return 0.0f;
+    }
+    char* p = (char*)self + a1 * 4;
+    return *(float*)(p + 0x108);
+}
+#endif
 
 INCLUDE_ASM("input/inputparse", func_00325450);
 

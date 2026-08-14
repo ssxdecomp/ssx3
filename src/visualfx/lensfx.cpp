@@ -71,7 +71,19 @@ INCLUDE_ASM("visualfx/lensfx", func_002EDB20);
 
 INCLUDE_ASM("visualfx/lensfx", func_002EDF00);
 
+// padded past the 8-byte gp-relative threshold so the compiler emits
+// absolute lui/lo addressing like the target
+struct sPad16 { char x; int pad[3]; };
+extern sPad16 D_004FA3C0;
+
+//100%
 INCLUDE_ASM("visualfx/lensfx", func_002EDFB8);
+#ifdef SKIP_ASM
+extern "C" void* func_002EDFB8(int a0)
+{
+    return (char*)&D_004FA3C0 + a0 * 0xf0;
+}
+#endif
 
 INCLUDE_ASM("visualfx/lensfx", func_002EDFD0);
 

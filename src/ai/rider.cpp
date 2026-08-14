@@ -1,5 +1,9 @@
 #include "common.h"
 
+// R5900 128-bit GPR quadword, for functions that copy a 16-byte block via a
+// single lq/sq pair instead of word-by-word.
+typedef int cQuad128 __attribute__((mode(TI)));
+
 INCLUDE_ASM("ai/rider", cRider_cRider);
 
 INCLUDE_ASM("ai/rider", func_0011B978);
@@ -108,7 +112,24 @@ int func_0011FEE8(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("ai/rider", func_0011FF48);
+#ifdef SKIP_ASM
+// 0x20-byte elements with the quadword at offset 0
+struct sRiderXform {
+    cQuad128 q;
+    char pad_0x10[0x10];
+};
+
+extern "C" void* func_0011FF48(void* dst, void* self)
+{
+    void* q = *(void**)((char*)self + 0x780);
+    int i = *(int*)((char*)self + 0x89c);
+    sRiderXform* b = *(sRiderXform**)((char*)q + 0x2c);
+    *(cQuad128*)dst = b[i].q;
+    return dst;
+}
+#endif
 
 INCLUDE_ASM("ai/rider", cRider_getMass);
 
@@ -124,7 +145,17 @@ INCLUDE_ASM("ai/rider", func_00120D58);
 
 INCLUDE_ASM("ai/rider", func_00120D90);
 
+//100%
 INCLUDE_ASM("ai/rider", func_00120E30);
+#ifdef SKIP_ASM
+extern "C" void func_00120E30(void* self)
+{
+    void* p = *(void**)((char*)self + 0x78c);
+    if (p != 0) {
+        *(cQuad128*)p = *(cQuad128*)((char*)self + 0x110);
+    }
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00120E50);
 
@@ -268,7 +299,18 @@ INCLUDE_ASM("ai/rider", cRider_quitEvent);
 
 INCLUDE_ASM("ai/rider", func_00125448);
 
+//100%
 INCLUDE_ASM("ai/rider", func_00125958);
+#ifdef SKIP_ASM
+extern "C" void func_00125958(void* self, int a1)
+{
+    *(int*)((char*)self + 0xb2c) = a1;
+    if (a1 == 0) {
+        *(int*)((char*)self + 0x2f4) = 0;
+        *(int*)((char*)self + 0x2f0) = 0;
+    }
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00125970);
 

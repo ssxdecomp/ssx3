@@ -50,9 +50,23 @@ INCLUDE_ASM("fe/feridermanager", func_001A04C8);
 
 INCLUDE_ASM("fe/feridermanager", func_001A0508);
 
+//100%
 INCLUDE_ASM("fe/feridermanager", func_001A0538);
+#ifdef SKIP_ASM
+extern "C" void* func_001A0538(void* self, int a1)
+{
+    return (char*)self + a1 * 0xce0;
+}
+#endif
 
+//100%
 INCLUDE_ASM("fe/feridermanager", func_001A0548);
+#ifdef SKIP_ASM
+extern "C" void* func_001A0548(void* self, int a1)
+{
+    return (char*)self + a1 * 0xce0;
+}
+#endif
 
 INCLUDE_ASM("fe/feridermanager", func_001A0570);
 

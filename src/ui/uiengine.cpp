@@ -22,7 +22,16 @@ INCLUDE_ASM("ui/uiengine", cUIEngine_addScreenByHashName);
 
 INCLUDE_ASM("ui/uiengine", func_00397DF8);
 
+void func_0039ECA8(void*);
+
+//100%
 INCLUDE_ASM("ui/uiengine", func_00398018);
+#ifdef SKIP_ASM
+extern "C" void func_00398018(void* self)
+{
+    func_0039ECA8((char*)self + 0x18);
+}
+#endif
 
 INCLUDE_ASM("ui/uiengine", func_00398038);
 

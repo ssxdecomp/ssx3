@@ -51,9 +51,28 @@ INCLUDE_ASM("be/beintnetwork", func_0014EA90);
 
 INCLUDE_ASM("be/beintnetwork", func_0014EB08);
 
-INCLUDE_ASM("be/beintnetwork", func_0014EBB8);
+extern "C" char* strcpy(char*, const char*);
+extern char D_00534FC8[16];
 
+//100%
+INCLUDE_ASM("be/beintnetwork", func_0014EBB8);
+#ifdef SKIP_ASM
+extern "C" void func_0014EBB8(void* self, const char* src)
+{
+    strcpy(D_00534FC8, src);
+}
+#endif
+
+extern char D_00534FB8[16];
+
+//100%
 INCLUDE_ASM("be/beintnetwork", func_0014EBD8);
+#ifdef SKIP_ASM
+extern "C" void func_0014EBD8(void* self, const char* src)
+{
+    strcpy(D_00534FB8, src);
+}
+#endif
 
 INCLUDE_ASM("be/beintnetwork", func_0014EBF8);
 

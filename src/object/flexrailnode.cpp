@@ -71,7 +71,16 @@ void func_0034AF18(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("object/flexrailnode", func_0034AF20);
+#ifdef SKIP_ASM
+extern "C" void* func_0034AF20(void* self)
+{
+    *(int*)((char*)self + 0x5c) = 0;
+    *(unsigned int*)((char*)self + 0x58) = 0xFFFFFFFFU;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("object/flexrailnode", func_0034AF38);
 

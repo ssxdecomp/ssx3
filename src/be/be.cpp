@@ -37,7 +37,14 @@ INCLUDE_ASM("be/be", func_0014DF08);
 
 INCLUDE_ASM("be/be", cBE_readFromReplayFrame);
 
+//100%
 INCLUDE_ASM("be/be", func_0014E048);
+#ifdef SKIP_ASM
+extern "C" int func_0014E048()
+{
+    return 0xBB78;
+}
+#endif
 
 INCLUDE_ASM("be/be", func_0014E050);
 

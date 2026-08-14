@@ -140,7 +140,14 @@ void func_001D93D0(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D93D8);
+#ifdef SKIP_ASM
+extern "C" int func_001D93D8(void* self)
+{
+    return *(int*)((char*)self + 0x1c0) == 6;
+}
+#endif
 
 INCLUDE_ASM("fe/fememcardcallbacks", func_001D93E8);
 

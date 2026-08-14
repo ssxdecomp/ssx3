@@ -18,11 +18,40 @@ INCLUDE_ASM("path/pathsys", func_0026B7D8);
 
 INCLUDE_ASM("path/pathsys", func_0026B880);
 
+extern "C" void* func_003E6574(void*, void*, int);
+
+//100%
 INCLUDE_ASM("path/pathsys", func_0026BA48);
+#ifdef SKIP_ASM
+extern "C" void func_0026BA48(void* dst, void* src)
+{
+    if (dst != src) {
+        func_003E6574(dst, src, 0xc);
+    }
+}
+#endif
 
+//100%
 INCLUDE_ASM("path/pathsys", func_0026BA68);
+#ifdef SKIP_ASM
+extern "C" void func_0026BA68(void* dst, void* src)
+{
+    if (dst != src) {
+        func_003E6574(dst, src, 0x4);
+    }
+}
+#endif
 
+//100%
 INCLUDE_ASM("path/pathsys", func_0026BA88);
+#ifdef SKIP_ASM
+extern "C" void func_0026BA88(void* dst, void* src)
+{
+    if (dst != src) {
+        func_003E6574(dst, src, 0x4);
+    }
+}
+#endif
 
 INCLUDE_ASM("path/pathsys", func_0026BAE8);
 

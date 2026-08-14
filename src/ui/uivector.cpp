@@ -20,7 +20,16 @@ INCLUDE_ASM("ui/uivector", func_003A47A8);
 
 INCLUDE_ASM("ui/uivector", func_003A47F8);
 
+extern "C" void cListNode_removeFromList(void*);
+
+//100%
 INCLUDE_ASM("ui/uivector", func_003A4868);
+#ifdef SKIP_ASM
+extern "C" void func_003A4868(void* self)
+{
+    cListNode_removeFromList(self);
+}
+#endif
 
 INCLUDE_ASM("ui/uivector", func_003A4888);
 
@@ -131,7 +140,15 @@ int func_003A5330(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("ui/uivector", func_003A5338);
+#ifdef SKIP_ASM
+extern "C" void* func_003A5338(void* self)
+{
+    *(unsigned char*)self &= 0xf0;
+    return self;
+}
+#endif
 
 INCLUDE_ASM("ui/uivector", func_003A54B8);
 

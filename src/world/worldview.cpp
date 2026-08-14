@@ -50,7 +50,14 @@ INCLUDE_ASM("world/worldview", func_003A9958);
 
 INCLUDE_ASM("world/worldview", func_003A99D8);
 
+//100%
 INCLUDE_ASM("world/worldview", func_003A9A98);
+#ifdef SKIP_ASM
+extern "C" void* func_003A9A98(void* self, int a1)
+{
+    return (char*)(*(void**)((char*)self + 0x10)) + a1 * 0x44;
+}
+#endif
 
 //100%
 INCLUDE_ASM("world/worldview", func_003A9AB0__FPv);
@@ -79,7 +86,15 @@ INCLUDE_ASM("world/worldview", func_003AA5C8);
 
 INCLUDE_ASM("world/worldview", func_003AA608);
 
+//100%
 INCLUDE_ASM("world/worldview", func_003AA6E8);
+#ifdef SKIP_ASM
+extern "C" int func_003AA6E8(void* self, void* a1)
+{
+    *(int*)((char*)a1 + 0x20) += (int)a1;
+    return 1;
+}
+#endif
 
 INCLUDE_ASM("world/worldview", func_003AA700);
 
@@ -89,7 +104,15 @@ INCLUDE_ASM("world/worldview", func_003AA780);
 
 INCLUDE_ASM("world/worldview", func_003AA830);
 
+//100%
 INCLUDE_ASM("world/worldview", func_003AA8D8);
+#ifdef SKIP_ASM
+extern "C" int func_003AA8D8(void* self, void* a1, int a2)
+{
+    *(int*)((char*)a1 + 0x4) += a2;
+    return 1;
+}
+#endif
 
 INCLUDE_ASM("world/worldview", func_003AA8F0);
 

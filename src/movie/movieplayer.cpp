@@ -20,9 +20,28 @@ void* cMCOverlayManager_getManager()
 
 INCLUDE_ASM("movie/movieplayer", func_0023C860);
 
+//100%
 INCLUDE_ASM("movie/movieplayer", func_0023C898);
+#ifdef SKIP_ASM
+extern "C" int func_0023C898(void* self)
+{
+    return *(int*)((char*)self + 0x130) == 1;
+}
+#endif
 
+//100%
 INCLUDE_ASM("movie/movieplayer", func_0023C8D0);
+#ifdef SKIP_ASM
+extern "C" int func_0023C8D0(void* self)
+{
+    // masks applied as separate statements; folding them into one
+    // expression collapses the two `and` instructions into one
+    int v = *(int*)((char*)self + 0x43c);
+    v &= -5;
+    v &= -481;
+    return v != 0;
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", func_0023C8F0);
 
@@ -237,11 +256,30 @@ INCLUDE_ASM("movie/movieplayer", func_00241540);
 
 INCLUDE_ASM("movie/movieplayer", cMCOverlayManager_GetDeviceDisplayString);
 
+//100%
 INCLUDE_ASM("movie/movieplayer", func_002419D8);
+#ifdef SKIP_ASM
+extern "C" int func_002419D8(void* self, int a1)
+{
+    char* p = (char*)self + a1 * 0xe0;
+    return *(int*)(p + 0x354);
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", cMCOverlayManager_GetDeviceTotalString);
 
+struct sPad16 { char x; int pad[3]; };
+extern sPad16 D_0047C3A8;
+extern "C" void func_002C2540(void*, void*);
+
+//100%
 INCLUDE_ASM("movie/movieplayer", func_00241AA0);
+#ifdef SKIP_ASM
+extern "C" void func_00241AA0(void* self)
+{
+    func_002C2540(self, &D_0047C3A8);
+}
+#endif
 
 INCLUDE_ASM("movie/movieplayer", func_00241AC0);
 

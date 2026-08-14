@@ -10,7 +10,16 @@ INCLUDE_ASM("ai/ridermetrix", func_001174B0);
 
 INCLUDE_ASM("ai/ridermetrix", func_001174E8);
 
+//100%
 INCLUDE_ASM("ai/ridermetrix", func_00117520);
+#ifdef SKIP_ASM
+extern "C" void func_00117520(void* self, int a1)
+{
+    int delta = a1 - *(int*)((char*)self + 0x1c8);
+    *(int*)((char*)self + 0x1c8) = a1;
+    *(int*)((char*)self + 0x198) += delta;
+}
+#endif
 
 INCLUDE_ASM("ai/ridermetrix", func_00117540);
 
@@ -20,7 +29,14 @@ INCLUDE_ASM("ai/ridermetrix", func_001175F8);
 
 INCLUDE_ASM("ai/ridermetrix", func_00117638);
 
+//100%
 INCLUDE_ASM("ai/ridermetrix", func_001176F8);
+#ifdef SKIP_ASM
+extern "C" void func_001176F8(void* self)
+{
+    *(float*)((char*)self + 0xa4) = -1.0f;
+}
+#endif
 
 INCLUDE_ASM("ai/ridermetrix", func_00117708);
 
@@ -67,7 +83,18 @@ INCLUDE_ASM("ai/ridermetrix", func_00119310);
 
 INCLUDE_ASM("ai/ridermetrix", func_00119368);
 
+extern "C" void func_00117718(void*);
+
+//99.38% - identical instructions; jal addend differs only because the
+// callee sits at a different .text offset in our object than in the target
 INCLUDE_ASM("ai/ridermetrix", func_001193E0);
+#ifdef SKIP_ASM
+extern "C" float func_001193E0(void* self)
+{
+    func_00117718(self);
+    return 0.0f;
+}
+#endif
 
 INCLUDE_ASM("ai/ridermetrix", func_00119400);
 

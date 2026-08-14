@@ -83,7 +83,20 @@ INCLUDE_ASM("object/splinemodifier", func_0035B418);
 
 INCLUDE_ASM("object/splinemodifier", func_0035B5A8);
 
+//100%
 INCLUDE_ASM("object/splinemodifier", func_0035B670);
+#ifdef SKIP_ASM
+extern "C" void func_0035B670(void* self, void* node)
+{
+    void* h = *(void**)self;
+    if (h != 0) {
+        *(void**)((char*)h + 0x4) = node;
+    }
+    *(void**)((char*)node + 0x4) = self;
+    *(void**)node = *(void**)self;
+    *(void**)self = node;
+}
+#endif
 
 INCLUDE_ASM("object/splinemodifier", func_0035B690);
 

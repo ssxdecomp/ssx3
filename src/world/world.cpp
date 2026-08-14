@@ -4,7 +4,16 @@ INCLUDE_ASM("world/world", cWorld_cWorld);
 
 INCLUDE_ASM("world/world", func_003A6740);
 
+extern "C" void cWorld_resetMap(void*);
+
+//100%
 INCLUDE_ASM("world/world", func_003A67E0);
+#ifdef SKIP_ASM
+extern "C" void func_003A67E0(void* self)
+{
+    cWorld_resetMap(self);
+}
+#endif
 
 INCLUDE_ASM("world/world", cWorld_resetMap);
 
@@ -55,7 +64,14 @@ int func_003A6CD8(void* self, void* a1)
 }
 #endif
 
+//100%
 INCLUDE_ASM("world/world", func_003A6CE8);
+#ifdef SKIP_ASM
+extern "C" void* func_003A6CE8(void* self, int a1)
+{
+    return (char*)(*(void**)self) + a1 * 0x140;
+}
+#endif
 
 //100%
 INCLUDE_ASM("world/world", func_003A6D00__FPvi);

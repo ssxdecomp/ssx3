@@ -44,7 +44,19 @@ void* func_002AA408(void* self)
 }
 #endif
 
+extern "C" void func_002AA020(void*, void*);
+
+//99.38% - identical instructions; jal addend differs only because the
+// callee sits at a different .text offset in our object than in the target
 INCLUDE_ASM("sound/streamsys", func_002AA428);
+#ifdef SKIP_ASM
+extern "C" int func_002AA428(void* self)
+{
+    int buf[4];
+    func_002AA020(self, buf);
+    return buf[0];
+}
+#endif
 
 INCLUDE_ASM("sound/streamsys", cStreamSys_cStreamSys);
 

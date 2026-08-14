@@ -83,7 +83,19 @@ INCLUDE_ASM("render/particle", func_00374C90);
 
 INCLUDE_ASM("render/particle", func_00374CA8);
 
+//100%
 INCLUDE_ASM("render/particle", func_00374CE0);
+#ifdef SKIP_ASM
+extern "C" void func_00374CE0(void* self, int a1, int a2, int a3, int a4, int a5, int a6)
+{
+    *(int*)((char*)self + 0x17c) = a1;
+    *(int*)((char*)self + 0x180) = a2;
+    *(int*)((char*)self + 0x184) = a3;
+    *(int*)((char*)self + 0x188) = a4;
+    *(int*)((char*)self + 0x18c) = a5;
+    *(int*)((char*)self + 0x190) = a6;
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_00374D00);
 
@@ -138,7 +150,14 @@ INCLUDE_ASM("render/particle", func_00376468);
 
 INCLUDE_ASM("render/particle", func_003764C0);
 
+//100%
 INCLUDE_ASM("render/particle", func_00376560);
+#ifdef SKIP_ASM
+extern "C" void* func_00376560(void* self, int a1)
+{
+    return *(char**)((char*)self + 0x59cc) + a1 * 0xa4;
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_00376578);
 
@@ -152,7 +171,16 @@ INCLUDE_ASM("render/particle", func_00376A70);
 
 INCLUDE_ASM("render/particle", func_00376B90);
 
+//100%
 INCLUDE_ASM("render/particle", func_00376C10);
+#ifdef SKIP_ASM
+extern "C" float func_00376C10(void* self)
+{
+    int i = *(int*)((char*)self + 0x10dc);
+    char* p = (char*)self + i * 0x230;
+    return *(float*)(p + 0x6d38);
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_00376C28);
 
@@ -221,7 +249,18 @@ void* func_0037C808(void* self)
 
 INCLUDE_ASM("render/particle", func_0037C830);
 
+// declared by mangled name so we can call it with a single argument, the way
+// the target does (its real signature takes a second arg the caller leaves set)
+extern "C" void func_00366FE0__FPvi(void*);
+
+//100%
 INCLUDE_ASM("render/particle", func_0037C8A0);
+#ifdef SKIP_ASM
+extern "C" void func_0037C8A0(void* self)
+{
+    func_00366FE0__FPvi(*(void**)((char*)self + 0x18f4));
+}
+#endif
 
 INCLUDE_ASM("render/particle", func_0037C8C0);
 
@@ -334,7 +373,14 @@ INCLUDE_ASM("render/particle", func_00382688);
 
 INCLUDE_ASM("render/particle", func_003826E0);
 
+//100%
 INCLUDE_ASM("render/particle", func_00382730);
+#ifdef SKIP_ASM
+extern "C" int func_00382730(void* self)
+{
+    return *(unsigned int*)((char*)self + 0x5a8c) == 0;
+}
+#endif
 
 extern "C" void* func_00382760(void* self);
 

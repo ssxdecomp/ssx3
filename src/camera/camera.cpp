@@ -1,5 +1,9 @@
 #include "common.h"
 
+// R5900 128-bit GPR quadword, for functions that copy a 16-byte block via a
+// single lq/sq pair instead of word-by-word.
+typedef int cQuad128 __attribute__((mode(TI)));
+
 INCLUDE_ASM("camera/camera", cCamera_resetChaseControllerSwitches);
 
 INCLUDE_ASM("camera/camera", cCamera_cCamera);
@@ -41,15 +45,51 @@ INCLUDE_ASM("camera/camera", func_0015EE00);
 
 INCLUDE_ASM("camera/camera", func_0015F568);
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F598);
+#ifdef SKIP_ASM
+extern "C" void* func_0015F598(void* self, void* a1)
+{
+    void* p = *(void**)((char*)a1 + 0x4);
+    *(cQuad128*)self = *(cQuad128*)((char*)p + 0x120);
+    return self;
+}
+#endif
 
 INCLUDE_ASM("camera/camera", func_0015F5B0);
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F5F8);
+#ifdef SKIP_ASM
+extern "C" void* func_0015F5F8(void* self, void* a1)
+{
+    void* p = *(void**)((char*)a1 + 0x4);
+    *(cQuad128*)self = *(cQuad128*)((char*)p + 0x1b0);
+    return self;
+}
+#endif
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F610);
+#ifdef SKIP_ASM
+extern "C" void* func_0015F610(void* self, void* a1)
+{
+    void* p = *(void**)((char*)a1 + 0x4);
+    *(cQuad128*)self = *(cQuad128*)((char*)p + 0x1a0);
+    return self;
+}
+#endif
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F628);
+#ifdef SKIP_ASM
+extern "C" void* func_0015F628(void* self, void* a1)
+{
+    void* p = *(void**)((char*)a1 + 0x4);
+    *(cQuad128*)self = *(cQuad128*)((char*)p + 0x1c0);
+    return self;
+}
+#endif
 
 //100%
 INCLUDE_ASM("camera/camera", func_0015F640__FPv);
@@ -60,9 +100,27 @@ float func_0015F640(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F650);
+#ifdef SKIP_ASM
+extern "C" void* func_0015F650(void* self, void* a1)
+{
+    void* p = *(void**)((char*)a1 + 0x4);
+    *(cQuad128*)self = *(cQuad128*)((char*)p + 0x370);
+    return self;
+}
+#endif
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F668);
+#ifdef SKIP_ASM
+extern "C" void* func_0015F668(void* self, void* a1)
+{
+    void* p = *(void**)((char*)a1 + 0x4);
+    *(cQuad128*)self = *(cQuad128*)((char*)p + 0x380);
+    return self;
+}
+#endif
 
 //100%
 INCLUDE_ASM("camera/camera", func_0015F680__FPv);
@@ -91,9 +149,27 @@ float func_0015F6A0(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F6B0);
+#ifdef SKIP_ASM
+extern "C" float func_0015F6B0(void* self)
+{
+    void* p = *(void**)((char*)self + 0x4);
+    void* p2 = *(void**)((char*)p + 0x788);
+    return *(float*)((char*)p2 + 0x98) - *(float*)((char*)p2 + 0xa0);
+}
+#endif
 
+//100%
 INCLUDE_ASM("camera/camera", func_0015F6C8);
+#ifdef SKIP_ASM
+extern "C" float func_0015F6C8(void* self)
+{
+    void* p = *(void**)((char*)self + 0x4);
+    void* p2 = *(void**)((char*)p + 0x788);
+    return *(float*)((char*)p2 + 0x9c) - *(float*)((char*)p2 + 0xa0);
+}
+#endif
 
 //100%
 INCLUDE_ASM("camera/camera", func_0015F6E0__FPv);
@@ -459,7 +535,16 @@ INCLUDE_ASM("camera/camera", func_00162998);
 
 INCLUDE_ASM("camera/camera", func_00162A20);
 
+//100%
 INCLUDE_ASM("camera/camera", func_00162B80);
+#ifdef SKIP_ASM
+extern "C" cQuad128 func_00162B80(void* self, void* a1)
+{
+    cQuad128 v = *(cQuad128*)((char*)a1 + 0x10);
+    *(cQuad128*)((char*)self + 0x20) = v;
+    return v;
+}
+#endif
 
 INCLUDE_ASM("camera/camera", func_00162B90);
 
@@ -518,7 +603,16 @@ INCLUDE_ASM("camera/camera", func_00166F28);
 
 INCLUDE_ASM("camera/camera", func_00166F90);
 
+//100%
 INCLUDE_ASM("camera/camera", func_001673A0);
+#ifdef SKIP_ASM
+extern "C" void* func_001673A0(void* self, void* a1)
+{
+    *(cQuad128*)self = *(cQuad128*)((char*)a1 + 0x60);
+    *(cQuad128*)((char*)self + 0x10) = *(cQuad128*)((char*)a1 + 0x70);
+    return self;
+}
+#endif
 
 INCLUDE_ASM("camera/camera", func_001673F8);
 
@@ -558,7 +652,17 @@ void func_00167E28(void* self)
 
 INCLUDE_ASM("camera/camera", func_00167E30);
 
+extern cQuad128 D_004FF120;
+
+//100%
 INCLUDE_ASM("camera/camera", func_00167E40);
+#ifdef SKIP_ASM
+extern "C" void* func_00167E40(void* self)
+{
+    *(cQuad128*)self = D_004FF120;
+    return self;
+}
+#endif
 
 //100%
 INCLUDE_ASM("camera/camera", func_00167E58__FPv);
@@ -603,7 +707,15 @@ INCLUDE_ASM("camera/camera", func_00167F40);
 
 INCLUDE_ASM("camera/camera", func_00167F70);
 
+//100%
 INCLUDE_ASM("camera/camera", func_00167FA0);
+#ifdef SKIP_ASM
+extern "C" void* func_00167FA0(void* self, void* a1)
+{
+    *(cQuad128*)self = *(cQuad128*)((char*)a1 + 0x20);
+    return self;
+}
+#endif
 
 //100%
 INCLUDE_ASM("camera/camera", func_00167FB0__FPv);

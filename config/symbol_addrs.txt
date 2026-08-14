@@ -181,6 +181,12 @@ cSpline_calcLength__FP7cSpline = 0x003454E8; //type:func
 // gp-relative globals discovered while reversing (need explicit symbols since
 // splat doesn't auto-label single-instruction $gp-relative accesses like it
 // does for lui/addiu absolute addressing).
+D_0049C968 = 0x0049C968; //type:f32
+D_0049C96C = 0x0049C96C; //type:f32
+D_0049C970 = 0x0049C970; //type:f32
+D_0049C974 = 0x0049C974; //type:f32
+D_0049CA20 = 0x0049CA20; //type:f32
+D_0049CAE4 = 0x0049CAE4; //type:f32
 D_004A01FC = 0x004A01FC; //type:f32
 D_004A11B4 = 0x004A11B4; //type:u32
 D_004A11C0 = 0x004A11C0; //type:u32
@@ -200,10 +206,15 @@ D_004A1258 = 0x004A1258; //type:u32
 D_004A1264 = 0x004A1264; //type:u32
 D_004A2594 = 0x004A2594; //type:u32
 D_004A28A0 = 0x004A28A0; //type:u32
+D_004A28A8 = 0x004A28A8; //type:u32
 D_004A2C74 = 0x004A2C74; //type:u32
 D_004A2E78 = 0x004A2E78; //type:u32
+D_004A34DC = 0x004A34DC; //type:u32
+D_004A3500 = 0x004A3500; //type:u32
 D_004A3E84 = 0x004A3E84; //type:u32
 D_004A3E90 = 0x004A3E90; //type:u32
+D_004A3ED0 = 0x004A3ED0; //type:u32
+D_004A47B8 = 0x004A47B8; //type:u32
 D_004A52D4 = 0x004A52D4; //type:u32
 D_004A5988 = 0x004A5988; //type:u32
 D_004A5B64 = 0x004A5B64; //type:u32

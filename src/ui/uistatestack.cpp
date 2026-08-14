@@ -26,7 +26,17 @@ INCLUDE_ASM("ui/uistatestack", func_0039F9D8);
 
 INCLUDE_ASM("ui/uistatestack", cUIStateStack_getCurrentState);
 
+struct cList;
+void* cList_first(cList*);
+
+//100%
 INCLUDE_ASM("ui/uistatestack", func_0039FAE8);
+#ifdef SKIP_ASM
+extern "C" void* func_0039FAE8(void* self)
+{
+    return cList_first((cList*)self);
+}
+#endif
 
 INCLUDE_ASM("ui/uistatestack", func_0039FB30);
 
@@ -49,5 +59,12 @@ int func_0039FF50(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("ui/uistatestack", func_0039FF60);
+#ifdef SKIP_ASM
+extern "C" void* func_0039FF60(void* self, int a1)
+{
+    return *(int*)((char*)self + 0x38) == a1 ? self : 0;
+}
+#endif
 

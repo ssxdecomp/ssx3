@@ -4,9 +4,27 @@ INCLUDE_ASM("object/instancenode", cInstanceNode_cInstanceNode);
 
 INCLUDE_ASM("object/instancenode", func_0034FBF0);
 
+//100%
 INCLUDE_ASM("object/instancenode", func_0034FC78);
+#ifdef SKIP_ASM
+extern "C" void func_0034FC78(int a0, void* a1)
+{
+    *(int*)((char*)a1 + 0xc) = a0;
+}
+#endif
 
+//100%
 INCLUDE_ASM("object/instancenode", func_0034FC80);
+#ifdef SKIP_ASM
+extern "C" void func_0034FC80(void* self, void* a1)
+{
+    if (a1 != 0) {
+        if (*(int*)((char*)a1 + 0xc) == (int)self) {
+            *(int*)((char*)a1 + 0xc) = 0;
+        }
+    }
+}
+#endif
 
 extern "C" void* func_002D19E8(int);
 

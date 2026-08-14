@@ -118,7 +118,15 @@ INCLUDE_ASM("fe/uitemplatemap", func_002085B8);
 
 INCLUDE_ASM("fe/uitemplatemap", func_00208610);
 
+//99.29% - identical instructions; jal addend differs only because the
+// callee sits at a different .text offset in our object than in the target
 INCLUDE_ASM("fe/uitemplatemap", func_00208638);
+#ifdef SKIP_ASM
+extern "C" void func_00208638(void* self)
+{
+    func_00202768((char*)self + 0x9c);
+}
+#endif
 
 extern "C" void* func_00202770(void*);
 

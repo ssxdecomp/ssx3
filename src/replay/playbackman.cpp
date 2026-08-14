@@ -113,5 +113,14 @@ INCLUDE_ASM("replay/playbackman", func_0026DA88);
 
 INCLUDE_ASM("replay/playbackman", func_0026DB88);
 
+extern "C" void cReplay_restoreFrame(void*);
+
+//100%
 INCLUDE_ASM("replay/playbackman", func_0026DBD0);
+#ifdef SKIP_ASM
+extern "C" void func_0026DBD0(void* self)
+{
+    cReplay_restoreFrame(self);
+}
+#endif
 

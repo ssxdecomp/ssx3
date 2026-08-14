@@ -21,6 +21,39 @@ struct sRaceInterfaceGlobal {
 };
 extern sRaceInterfaceGlobal D_00535BC8;
 
+// padded past the 8-byte gp-relative threshold so the compiler emits
+// absolute lui/lo addressing like the target, instead of assuming small data
+struct sD_00535C08 { int value; int pad[2]; };
+extern sD_00535C08 D_00535C08;
+
+// padded past the 8-byte gp-relative threshold so the compiler emits
+// absolute lui/lo addressing like the target, instead of assuming small data
+struct sPad16 { char x; int pad[3]; };
+extern sPad16 D_0043D984;
+
+extern sPad16 D_0043D954;
+
+// 0x64-byte array elements; arr[i].field indexing is what makes GCC emit the
+// target's base-first addu (manual pointer arithmetic reverses the operands)
+struct sRaceEntry {
+    char pad_0x00[0x54];
+    int field_0x54;
+    int field_0x58;
+    char pad_0x5c[4];
+    int field_0x60;
+};
+extern sRaceEntry D_0043D950[];
+
+extern sPad16 D_0043E254;
+
+struct sRaceEntry18 {
+    char pad_0x00[0x14];
+    int field_0x14;
+};
+extern sRaceEntry18 D_0043E250[];
+
+extern sPad16 D_0043E7D0;
+
 //99.58%
 INCLUDE_ASM("be/beintnewrace", cBENewRaceInterface_getThis__Fv);
 #ifdef SKIP_ASM
@@ -72,29 +105,106 @@ void cBENewRaceInterface_setNumberMission(void* self, int mission)
 
 INCLUDE_ASM("be/beintnewrace", func_00144B20);
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144BC0);
+#ifdef SKIP_ASM
+extern "C" void* func_00144BC0()
+{
+    return (char*)&D_0043D950[0] + D_00535C08.value * 0x64;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144BE0);
+#ifdef SKIP_ASM
+extern "C" int func_00144BE0()
+{
+    return D_00535C08.value;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144BF0);
+#ifdef SKIP_ASM
+extern "C" void* func_00144BF0()
+{
+    return (char*)&D_0043D954 + D_00535C08.value * 0x64;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144C48);
+#ifdef SKIP_ASM
+extern "C" void* func_00144C48(void* self, int a1)
+{
+    return (char*)&D_0043D984 + a1 * 0x64;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144C60);
+#ifdef SKIP_ASM
+extern "C" void* func_00144C60(void* self, int a1)
+{
+    return (char*)&D_0043D954 + a1 * 0x64;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144C78);
+#ifdef SKIP_ASM
+extern "C" int func_00144C78(void* self, int a1)
+{
+    return D_0043D950[a1].field_0x54;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144C98);
+#ifdef SKIP_ASM
+extern "C" int func_00144C98()
+{
+    return D_0043D950[D_00535C08.value].field_0x54;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144CC0);
+#ifdef SKIP_ASM
+extern "C" int func_00144CC0(void* self, int a1)
+{
+    return D_0043D950[a1].field_0x58;
+}
+#endif
 
 INCLUDE_ASM("be/beintnewrace", func_00144CE0);
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144D18);
+#ifdef SKIP_ASM
+extern "C" int func_00144D18(void* self, int a1)
+{
+    return D_0043D950[a1].field_0x60;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144D38);
+#ifdef SKIP_ASM
+extern "C" void* func_00144D38(void* self, int a1)
+{
+    return (char*)&D_0043E254 + a1 * 0x18;
+}
+#endif
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_00144D50);
+#ifdef SKIP_ASM
+extern "C" int func_00144D50(void* self, int a1)
+{
+    return D_0043E250[a1].field_0x14;
+}
+#endif
 
 //100%
 INCLUDE_ASM("be/beintnewrace", func_00144D70__FPvii);
@@ -121,7 +231,14 @@ INCLUDE_ASM("be/beintnewrace", func_00145378);
 
 INCLUDE_ASM("be/beintnewrace", func_00145398);
 
+//100%
 INCLUDE_ASM("be/beintnewrace", func_001453B8);
+#ifdef SKIP_ASM
+extern "C" void* func_001453B8(void* self, int a1)
+{
+    return (char*)&D_0043E7D0 + a1 * 0x3c;
+}
+#endif
 
 INCLUDE_ASM("be/beintnewrace", func_001453D0);
 

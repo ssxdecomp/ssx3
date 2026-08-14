@@ -415,7 +415,18 @@ INCLUDE_ASM("fe/debugfe", func_00180300);
 
 INCLUDE_ASM("fe/debugfe", func_00180478);
 
+//100%
 INCLUDE_ASM("fe/debugfe", func_00180498);
+#ifdef SKIP_ASM
+extern "C" int func_00180498(void* self)
+{
+    void* p = *(void**)((char*)self + 0x18);
+    if (p != 0) {
+        return **(int**)p != 0;
+    }
+    return 0;
+}
+#endif
 
 INCLUDE_ASM("fe/debugfe", func_001804B8);
 
@@ -429,7 +440,16 @@ INCLUDE_ASM("fe/debugfe", func_001806D8);
 
 INCLUDE_ASM("fe/debugfe", func_00180768);
 
+//100%
 INCLUDE_ASM("fe/debugfe", func_001807C8);
+#ifdef SKIP_ASM
+extern "C" int func_001807C8(void* self)
+{
+    int v = *(int*)((char*)self + 0xe4) ^ 1;
+    *(int*)((char*)self + 0xe4) = v;
+    return v;
+}
+#endif
 
 INCLUDE_ASM("fe/debugfe", func_00180840);
 

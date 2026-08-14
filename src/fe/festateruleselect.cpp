@@ -37,7 +37,15 @@ INCLUDE_ASM("fe/festateruleselect", func_001927B0);
 
 INCLUDE_ASM("fe/festateruleselect", func_00192918);
 
+//100%
 INCLUDE_ASM("fe/festateruleselect", func_00192948);
+#ifdef SKIP_ASM
+extern "C" int func_00192948(void* self, int a1)
+{
+    int mask = (int)(0x1000000 << a1) >> 24;
+    return (*(int*)((char*)self + 0x2c) & mask) != 0;
+}
+#endif
 
 //100%
 INCLUDE_ASM("fe/festateruleselect", func_00192968__FPvi);
