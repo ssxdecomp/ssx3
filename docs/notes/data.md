@@ -1,0 +1,525 @@
+<!-- Generated from the SSX 3 port notes; see docs/notes/README.md. -->
+
+# Data notes
+
+Globals, tables, vtables and constants, by address. Section boundaries are from the ELF section headers.
+
+## `.vutext` (`0x0042E590`-`0x0043CD70`)
+
+- **`0x00434990`** - VU1 microprogram 2 in .vutext (ELF DMA/MPG source) for lit skinned rider/model drawing. Micro entry 0x1150 scales the 40 lighting coefficient floats by 255; entry 0x0080 prepares the matrix palette (weighted matrices keep their first three columns for normals). Decodes packed normals with ITOF15, applies a 3-column normal transform, evaluates a 10-row irradiance polynomial, clamps 0..255 with FTOI0 truncation, then transforms and projects vertices. *[static]*
+- **`0x00435BD0`** - VU1 microprogram 3 in .vutext (ELF DMA source) that fades and transforms board-trail strips; runs at VU1 micro 0x3A00..0x3BE0 (entries 0x3A00/0x3A08). Interleaves two bands and fades only integer vertex alpha (clamp fade 0..1, ITOF0, multiply, FTOI0); oldest slice fade 0, +1/16 per slice. Then joins the common VU1 path at micro 0x12B8 (transform, perspective UVQ, clip), no lighting. *[static]*
+- **`0x00439A40`** - Particle/snow-spray VU microprogram source: the fifth .vutext DMA/MPG stream is loaded from here. Micro entry 0xA00 is selected when emitter `+0x200` is 0, 0xF10 is the alternate colour mode (VU addresses). Probably computes sprite positions from per-rider birth rings with a local integer LFSR. *[static]*
+- **`0x0043CCB8`** - Ten-row power table used by the VU0 bicubic evaluation of the 10x10 coarse collision grid points (ELF file offset 0x0033DCB8). Powers are stored separately rounded, so recomputing u^2/u^3 gives different coordinates. *[static]*
+
+## `.data` (`0x0043CE00`-`0x004568C0`)
+
+- **`0x0043D388`** - Authored trick rotation table (319 bytes) read by the trick identity builder `0x0011A8C8`; a second table follows at `0x0043D4C8`. *[static]*
+- **`0x0043D4C8`** - Second authored trick rotation table (319 bytes) read by the trick identity builder `0x0011A8C8`, following `0x0043D388`. *[static]*
+- **`0x0043D608`** - Monster/named trick combination table: 24 rows x 16 bytes holding trick identity bit-field patterns and the bonus. *[static]*
+- **`0x0043D788`** - Prewind five-style directional animation clip table read by `0x0012EE30`. *[static]*
+- **`0x0043D840`** - Charged-release five-style animation clip table read by `0x0012EE30`. *[static]*
+- **`0x0043D950`** - Course/event table, 22 rows (course index 0..21) of 0x64 bytes, indexed by the current course index at `0x00535C08`; ELF file offset 0x0033E950. Fields: +0 index, +4 name[32], +0x24 short name[16], +0x34 location code[16], +0x44 world[16], +0x54 career peak (0-based; selects the peak rival, e.g. peak 0 Mac or Griff when the human is Mac, and flag wind mode = value+1, read by `0x002D1BA0`), +0x58 station flag, +0x5C map id, +0x60 map region. *[PS2]*
+- **`0x0043E250`** - Location table: 24-byte rows {id, name[16], kind}, one per streamable location; read by `0x00144D38`/`0x00144D50`. Kind 0 event course, 1 peak hub, 2 connector, 3 TRANSP, 4 sky. Ids 0..21 equal the course indices (e.g. Peak 1 connectors 35..42, TRANSP 43, ASKY 44); the streaming-table row index returned by `0x0022E0E0` is this id. *[static]*
+- **`0x0043E7D0`** - ELF data table related to the event kind byte at `0x00535C10` (role not further described). *[static]*
+- **`0x0043E978`** - Game mode name table; also noted as related to the event kind byte at `0x00535C10`. *[static]*
+- **`0x0043EE10`** - Big Challenge table: 88 rows x 0x24 bytes {id, title/objective/description LOC hashes, course, cash at +0x14 (not used for the payout), +0x18 s16 peak, +0x1A/+0x1B status seed bits 0/4, next challenge, +0x22 music type}. Peak 1 has 40 challenges, Peak 3 has 21. *[static]*
+- **`0x0043FA38`** - Table of 8-character rider short names indexed by character id * 8; used by the HUD and the records screens. *[static]*
+- **`0x0043FA70`** - Per-course collectible count table (HUD 'n/N' denominator, read via `0x00153350`); values equal each stage's builtin-38 collectible list, e.g. Snow Jam 30, Metro-City 35, Happiness 44, stations 5. *[static]*
+- **`0x0043FB28`** - Default records table: 26 record slots x 5 entries {value, character, name} (20 bytes per entry by table span). Value is whole seconds for times or points for scores; e.g. Snow Jam slot 12 runs BOMBER 02:57 .. BADBRAD 03:35. *[PS2]*
+- **`0x00440550`** - Attribute point cost table, $250 .. $5,000, indexed raw/5 - 1 where raw 5..55 maps to attribute 1.0..11.0. *[static]*
+- **`0x004405A0`** - Event cash table [course][platinum, gold, silver, bronze], values stored /100. Pays the full amount only when the medal improves the stored best, otherwise half; no medal pays nothing. E.g. Ruthless Ridge 50000/25000/15000/5000, Gravitude (row 4) 100000/80000/40000/20000. *[static]*
+- **`0x00440770`** - Session point table per course/location; `+0x18` holds the session point count (read by `0x001545F8`), e.g. ARA1 7, BRA2 8, ABA1 2. MCOMM Session menu item k is formatted '%s %d' (kT_MAPSessionPt, k+1) and maps to session point k+1. *[static]*
+- **`0x00440B38`** - Freestyle posted-score table read by `0x001454F8`: rows {course, round, 5 x posted score/100, time limit in s}. E.g. big air heats 60000/42000/20000/12000/5000 in 60 s; rival jam rows 14/28/29 have posted 0 and a 300 s limit. *[static]*
+- **`0x00440D18`** - Peak-run (peak race/jam challenge) table: per peak the tier target limits, split columns and cash (paid x100; gold and platinum pay the gold row). E.g. Peak 1 Race 800/760/670 s, Jam 130,000/350,000/700,000 pts in 12:00, cash 5k/10k/25k. Tier is chosen from the stored medal. *[static]*
+- **`0x00440E80`** - Platinum medal threshold table per course/event: time in s for races and rival races, points (some stored x100) for freestyle. E.g. Ruthless Ridge 160 s, Style Mile 1,000,000, Gravitude 160 s. *[static]*
+- **`0x00440ED0`** - Personal-best medal thresholds, 8 categories x 3 tiers: StayOnRail 2500/12000/30000, HoldHandplant 3/5/8, StayInAir 5/8/9, KOPeopleRace 3/6/10, DoUberGrind 5/8/10, DoSupUber 5/8/10, GetPoints (score/100) 1500/5000/10000, DoXCombo 10/20/100. *[static]*
+- **`0x00440F68`** - CHARDB rider order for Select Character: screen index -> character id {4,0,8,5,9,6,7,3,2,1} (Zoe, Moby, Psymon, Griff, Viggo, Elise, Nate, Mac, Allegra, Kaori); Left on Zoe wraps to Kaori. *[static]*
+- **`0x00441128`** - Path table of the Previews trailer movies (DATA/MOVIES/NFSXSELL.MPC, NFLXSELL.MPC, ST3XSELL.MPC). *[static]*
+- **`0x00441630`** - Career message category table: 61 entries of 20 bytes {type, first item, count, kind, folder}. *[PS2]*
+- **`0x00441B40`** - Monster trick list order used by the front-end unlock rule. *[static]*
+- **`0x00441BA0`** - Career Highlights stat locale key table (e.g. kT_STATStayOnRail1). *[static]*
+- **`0x00441F38`** - Stage-script (LUN) builtin function table: 111 x 4-byte pointers indexed by builtin number. E.g. 0 `0x002FC0D0`, 1 `0x002FC7D0`, 2 `0x002FC420`, 15 `0x002FD250`, 16 `0x002FD420`, 27 `0x002FF850`, 65 `0x00301D78`, 69 `0x00302490`, 99 `0x00306260`. Builtins 40, 47, 50, 63..65, 67, 68, 75, 76, 78, 79, 83, 98, 107 are Big Challenge/free ride/hub builtins that do nothing in a race. *[static]*
+- **`0x0044203C`** - Entry 65 (0x41) of the builtin table at `0x00441F38`, pointing to `0x00301D78` (instance-contact predicate). *[static]*
+- **`0x00442168`** - Streaming location table: 50 rows x 16 bytes {id, loaded SDB track (+4, read by `0x0022E0E0`), state 0..8, class (0 location, 1 TRANSP, 2 sky)}; rows 0..48 are indexed by location id. Built by `0x0022CD40` and driven by the loader state machine `0x0022D8D8`; Unload/Load trigger volumes drive transitions, one disc read at a time. State 2 = resident; the Snow Jam race keeps ARA1, A_ARA1, ARA1_B, TRANSP and ASKY at state 2. *[PS2]*
+- **`0x00442488`** - Residency table: 23 rows x 40 bytes, one per course index {course, count, sky, TRANSP, up to 6 location ids}. E.g. row 0 Snow Jam ARA1, A_ARA1, ARA1_B + ASKY; row 17 Green station A, A_ARA1, A_ASS1, A_ABA1, DRA4_A, ABC1_A + ASKY. A race event keeps its row resident; free ride and peak runs switch rows while riding. *[PS2]*
+- **`0x004428F0`** - Table read on Give Up to set the global at gp-0x6A0 (`0x004A2A50`). *[static]*
+- **`0x00445898`** - SFX level curve tables, 5-point curves laid out x[0..4], y[5..9], read by `0x00290C10`. *[static]*
+- **`0x00445AB0`** - Wake noise table of 161 floats. *[static]*
+- **`0x00445E40`** - Stage-script entry-mode table indexed by key2: {2,3,4,5,1,1,1,0}, giving the entry mode per connector destination (A_ARA1 -> ARA1 mode 2, A_ASS1 -> ASS1 3, A_ABA1 -> ABA1 4, B_BHP1 -> BHP1 5, station entries 1). Attributed to builtin 68 in one source and to builtin 67's key0 (value 1 = FreeRideState volumes, rejected) in another. *[static]*
+- **`0x00446530`** - Expected argument type table per key for stage-script builtin 27. *[static]*
+- **`0x004465F8`** - Event-kind table indexed by stage-script builtin 43's argument; entries are compared with the event type byte at `0x00535C10`. *[static]*
+- **`0x00446990`** - Animation state table indexed by semantic: class, driver kind (+4), completion kind (+8), channel, blend time and fades. E.g. semantics 18..20: class 15, driver 5, completion 0, channel 2, blend 0.23 s; 68..70: class 10, driver 0, completion 6, blend 0.10 s. *[static]*
+- **`0x0044B200`** - Static GS restore packet chained after the glare pass by `0x00368138`. *[static]*
+- **`0x0044B420`** - Particle blend mode -> GS alpha setter index table (BlendMode 1 -> 5). *[static]*
+- **`0x0044C590`** - Sine-law pan table mapping a patch pan value (tag 0x0C) to stereo gains. *[static]*
+- **`0x0044E8E8`** - MicroTalk speech codec 64-entry reflection coefficient table. *[static]*
+- **`0x0044E9E8`** - MicroTalk multipulse Huffman codebooks. *[static]*
+- **`0x0044EBE8`** - MicroTalk Huffman command table {next model, code size, pulse}. *[static]*
+- **`0x0044FF90`** - Callback pointer to `0x002AF8A8`, the head of the speech script/event processing chain `0x002AF8A8` -> `0x002B0F48` -> `0x002B04D8`. *[static]*
+- **`0x00450B88`** - Speech no-repeat history ring: 32 entries keyed by bank. *[static]*
+
+## `.rodata` (`0x00456900`-`0x0049B018`)
+
+- **`0x00456950`** - Animation driver-kind jump table (16 x 4 bytes) used by the driver dispatcher; entries point at case blocks at `0x00103700`+0x1C*kind (e.g. kind 8 -> `0x001037E0`), each calling the driver: 0 `0x001048C0`, 1 `0x00104940`, 2 `0x001049C0`, 3 `0x00104110`, 4 `0x00104178`, 5 `0x00104238`, 6 `0x001042A8`, 7 `0x00104358`, 8 `0x001045D8` (start pose), 9 `0x00104660`, 10 `0x001042E0`, 11 `0x001043F8`, 12 `0x001045B8`, 13 `0x001047F0`, 14 `0x00104728`, 15 `0x001046B0`. *[static]*
+- **`0x00456990`** - Animation completion-kind jump table (11 entries) used by `0x00103918`; words point at case blocks `0x00103978`..`0x00103A68`, which reach the handlers: 0 `0x00104CA0`, 1 `0x00104A40`, 2 `0x00104A60`, 3 `0x00104B78`, 4 `0x00104C18`, 5 `0x00104B48`, 6 `0x00104C38`, 7 `0x00104B98`, 8 `0x00104BB8`, 9 `0x00104BD8`, 10 `0x00104C80`. Kinds 6 and 7 are easy to swap when reading it. *[PS2]*
+- **`0x004569E0`** - Semantic list consulted by animation completion kind 2: semantics not in it keep their finished sequence. *[static]*
+- **`0x00456A30`** - NPC command producer jump table indexed by control id: 0 `0x0010A960`, 1 `0x0010AD78`, 2 `0x0010AA70`, 4 `0x0010B590`, 5 `0x0010B250`, 6 `0x0010B790`, 7 `0x0010AED8`, 8 `0x0010B750`; controls 3 and 9..13 produce a zero command. *[static]*
+- **`0x00456AF0`** - Jump table of `0x0010F1C0` for effect types 0..7. *[static]*
+- **`0x00456B10`** - Motion exit table indexed by motion id (owner `+0xDE0`): 0 `0x0013F410` ground, 1 `0x00139A18` (empty), 2 `0x00136F28` crash, 3 none, 4 `0x0013C5A0` rail, 5 `0x00139178` handplant. First of four consecutive motion tables: exit, enter `0x00456B30`, update `0x00456B50`, post `0x00456B70`. *[static]*
+- **`0x00456B30`** - Motion enter table indexed by motion id; entry 4 (rail) = `0x0013AF28`, entry 5 (handplant) = `0x00138B48`. Sits between the exit table `0x00456B10` and the update table `0x00456B50`. *[static]*
+- **`0x00456B50`** - Motion update jump table (6 motion ids) used by the motion dispatcher `0x00111408`; entry 4 (rail) = `0x0013AD20`, entry 5 (handplant) = `0x001391A8`. Neighbours: exit `0x00456B10`, enter `0x00456B30`, post `0x00456B70`. *[PS2]*
+- **`0x00456B70`** - Motion post-stage table indexed by motion id, run every tick after the pose; entry 4 (rail) = `0x0013BFA8`, entry 5 (handplant) = `0x00139528`. *[static]*
+- **`0x00456B90`** - Control exit handler table indexed by control id (owner `+0xDE4`), used by `0x00111578`: 0 `0x00131C30`, 1 `0x0012FE98`, 2 `0x0012E9B0`, 4 `0x0012FB68`, 5 `0x00134CB0`, 7 `0x00132048` rail, 8 `0x0012E690` crash, 11 `0x00132F98` handplant. Controls 3 (soft collision), 6, 9, 10, 12, 13 have no exit; control 12's entry goes to `0x00111624` (no extra callback). *[static]*
+- **`0x00456BD0`** - Control enter handler table indexed by control id; entry 7 (rail) = `0x00131D08`. *[static]*
+- **`0x00456C10`** - Control update handler table indexed by control id; entry 7 (rail) = `0x00131D30`. Control 13 has no handlers. *[static]*
+- **`0x00456CC0`** - Reaction kind -> animation semantic table: kinds 1..3 -> 315, 4 -> 314, 5/6 -> 318 (only if |`+0x1FC`| < 0.75). *[PS2]*
+- **`0x00457A90`** - Bone list for a channel-1 upper-body (reaction) animation mask; the built mask lives at rider `+0x8C0`. *[PS2]*
+- **`0x00457B38`** - Bone list for a channel-1 upper-body (reaction) animation mask; the built mask lives at rider `+0x8C8`. *[PS2]*
+- **`0x00457BC8`** - Bone list for the channel-1 animation mask at rider `+0x8D0` (mask 0x870). *[PS2]*
+- **`0x00457EA0`** - Input provider jump table, 14 entries indexed by rider control state. *[static]*
+- **`0x004581A0`** - Table mapping the current directional air semantic to its phase-2 semantic (306..313 or 287); used when the controller-5 selector enters phase 2, after which playback rate comes from remaining rotation and clip duration. *[static]*
+- **`0x00458230`** - Temporary body-sphere mask table for rail exits, used in the `0x00105398` contact phase: control-12 (rail uber) identities 0..3 (owner `+0x394`) select 0x141/0x16/0x2/0x2, other controls 0x16. Not an animation/score event table, despite being read on rail loss. *[static]*
+- **`0x004583A8`** - Human rider actor vtable, stored at rider `+0x6C0` (computer riders use `0x00458660`). Slots: +0x18 this-adjust back to the rider, +0x1C `0x00108C28` contact membership, +0x54 `0x00123210` teleport, +0x64 `0x001234D0` place at matrix, +0x6C `0x0010E770` speed boost window, +0x74 `0x0010E7D0` boost modifier, +0x80..+0x9C feedback hooks writing owner `+0xDFC`/`+0xE00`, +0xA4 `0x001446E8` route score. *[PS2]*
+- **`0x00458488`** - Interface marker (vtable) of the race game-info object, stored at `+0xCC`. *[PS2]*
+- **`0x004585F0`** - NPC input provider vtable, pointed to by motion owner `+0xDE8`: input `0x0010A768` (this-adjust 0), serialization `0x0010A898`/`0x0010A8E8`, which serialize the common owner then the 0x150-byte NPC extension at owner `+0xDF0..+0xF40`. *[PS2]*
+- **`0x00458660`** - Computer (NPC) rider actor vtable stored at rider `+0x6C0`. Same as the human vtable `0x004583A8` (e.g. +0x54 `0x00123210` teleport) except the feedback hooks +0x80..+0x9C are no-ops and the route score slot +0xA4 is `0x0010D410`. *[PS2]*
+- **`0x00459F68`** - Rail distance bonus table: 11 distance thresholds 10000..30000 cm in 2000 cm steps, then a negative sentinel; bonus points 1000, 3000, 5000, 7000, 9000, 12000, 16000, 20000, 30000, 40000, 50000. Entry layout not confirmed. *[static]*
+- **`0x00459FC8`** - Handplant animation clip table used by the handplant play routine `0x00132FB8`. *[static]*
+- **`0x0045A038`** - Rail Uber (control 12) trick records: 4 x 0x24 bytes indexed by identity 0..3. Each holds eight animation semantics (213+8k..220+8k) and a tier 1..4 at +0x20: +0x00 backside-into-frontside grind (style 4), +0x04 frontside into (3), +0x08 fakie into (2), +0x0C regular into (1), +0x10 cycle (driver 2), +0x14 balance-left (driver 10), +0x18 land (driver 1), +0x1C out-of (completion 8). *[static]*
+- **`0x0045A2B0`** - Great-trick score thresholds by rider level, 11 entries {3000, 5000, 7000, 9000, 12000, 15000, 20000, 25000, 30000, 40000, 50000}, indexed by clamp(level-1, 0, 10). *[static]*
+- **`0x0045A2F8`** - Event-to-record-slot mapping table. *[static]*
+- **`0x0045A660`** - Jump table of `0x0014EFA8`, which returns a cheat character's model scale (e.g. Brodi 0.98, Stretch 1.2, NW Legend 1.5, Far East Myth 2.0). *[PS2]*
+- **`0x0045AA40`** - Cheat-character award table used by `0x00159CD0`. *[static]*
+- **`0x0045AAD8`** - Career goal lists per peak in CTM Transport order (Race: standard races, rival race, peak race; Freestyle: slope style, big air, pipe, rival jam, peak jam); walked by `0x001591E8` at event completion and used for the Single Event list order. E.g. Peak 1 Race = Snow Jam, Metro-City, Happiness. All Peak goals carry course 1. *[static]*
+- **`0x0045AEB8`** - Uber trick / grab table with rows per grab category (15 grabs), read via `0x00150118`, `0x001352A8` -> `0x00150198`/`0x001502C8`/`0x001503F8` -> `0x0014FEA8`; lodge lists read by `0x0014FF90`. Score mapping read at base + index*stride + 4 (stride probably 0x20). Holds the Ubertrick Setup rows (Method 0, Mute 1, Stalefish 2, Indy 3, Nose Grab 4, Tail Grab 9) with prices $10,000/$15,000/$30,000. *[PS2]*
+- **`0x0045AFE8`** - EXPLORE goal table: collectible medal thresholds per peak (row 3 = Peak 3: 122/90/80/70). Paired with the Big Challenge medal table at `0x0045B018`. *[static]*
+- **`0x0045B018`** - EXPLORE goal table, probably the Big Challenge medal thresholds per peak (Peak 3 row 21/18/16/12, address not confirmed); paired with the collectible medal table `0x0045AFE8`. *[static]*
+- **`0x0045B048`** - EARNINGS goal thresholds: $100,000 / $250,000 / $1,000,000. *[static]*
+- **`0x0045B908`** - Camera director vtable; the director owns the camera algorithm node list. Slots: +0x1C `0x0015CC70` notify-by-rider, +0x20 an extra set-target used during restart `0x0015DB58`, +0x24 `0x0015CCF0` set-target for all. *[PS2]*
+- **`0x00460560`** - Audio options help text key table by item value (kT_HELPAUDIORadioBig, kT_HELPAUDIOBMA, kT_FEHELPCustPlayDJ, kT_FEHELPCustPlayNoDJ, create/edit texts). *[static]*
+- **`0x00469318`** - Overlay UI sound listener vtable (handler `0x001A2F70`). *[static]*
+- **`0x00469348`** - FE UI sound listener vtable (FEUISound, handler `0x001A2E58`). *[static]*
+- **`0x0046B230`** - Vtable of cFEPopupScreenPos; slot +0x60 = `0x00393FB8` applies the display offset live. *[static]*
+- **`0x0046B3D0`** - Popup FE state vtable whose query handler plays sound 3 on Cross only. *[static]*
+- **`0x0046B9E8`** - cFEStateMainMenu vtable (query handler `0x001952E8`). *[static]*
+- **`0x0046BAB8`** - cFEStateTitle vtable (query handler `0x00194A48`). *[static]*
+- **`0x0046C7C0`** - cFEStateOptions vtable (query handler `0x00188C68`). *[static]*
+- **`0x0046C890`** - FE state vtable associated with `0x001CA180` (together with `0x0046CBD8`). *[static]*
+- **`0x0046CBD8`** - FE state vtable associated with `0x001CA180` (together with `0x0046C890`). *[static]*
+- **`0x0046CCC8`** - Vtable of the Ubertrick Setup FE state (string '66ut_btnmap'); contains `0x00184C60`, which plays FE_A_CYC with the rider model at (-228,-205,63). *[static]*
+- **`0x0046D000`** - cFEStateCharSelect vtable; its default query handler plays sound 3 for all buttons. *[static]*
+- **`0x0046D1D0`** - FEUIInput vtable (methods from `0x0017FDF0`; bindings come from input.map). Slots: +0x10 IsPressed(id) (0..3 UIUp/Down/Left/Right, 4..7 right stick), +0x18 UIStart, +0x20 UISelect, +0x28 UINext (Cross or Start), +0x30 UIPrevious (Triangle), +0x38 UIOption (Square), +0x40 UIMisc (Circle), +0x88/+0x90/+0x98/+0xA0 UIUp/Down/Left/Right. *[static]*
+- **`0x0046E1E0`** - Jump table used by `0x001E4F80` to format message subjects by message kind. *[static]*
+- **`0x0046E488`** - Results menu item template {1,5,6,7,8}: advance ('To semi final round'/'To Final Round') or Transport, Restart, Replay, Records, Quit; item 0 is rewritten by `0x001E5AA0`. *[PS2]*
+- **`0x0046EB60`** - ASCII string 'OPPONENT'. *[static]*
+- **`0x0046EC70`** - Jump table for the HUD slot-type cases of `0x001E9A30`. *[static]*
+- **`0x00472B88`** - In-game options FE state vtable (query handler `0x001FAA78`). *[static]*
+- **`0x00472C60`** - First of the pause-family FE state vtables (`0x00472C60`..`0x00473170`); query handler `0x001F8908`. *[static]*
+- **`0x004733F8`** - 'Map' overlay FE state vtable. *[static]*
+- **`0x00473D28`** - Vtable of the finish results panel ('finishov'). *[static]*
+- **`0x004741C4`** - Vtable slot holding the in-game HUD update `0x001EA930` (the draw slot `0x001EC3F8` is 0x18 bytes later at `0x004741DC`). *[PS2]*
+- **`0x004741DC`** - Vtable slot holding the in-game HUD draw `0x001EC3F8` (the update slot is at `0x004741C4`). *[PS2]*
+- **`0x004744C0`** - Yes/no dialog (87yndialog) FE state vtable (query handler `0x0020D568`). *[static]*
+- **`0x00474AA8`** - Replay FE state vtable (query handler `0x0020DF10`; all buttons silent). *[static]*
+- **`0x004768B0`** - HUD layout descriptor/settings table. Boost gauge settings come from it (bottom 392, height 242, center 582, coil width 50, stem background 8, preview 4); descriptor indices used elsewhere (3 orb, 0x17 standings, 0x1A clock, 0x1B banner, 30+2*letter, 73 hint) probably index this table. *[static]*
+- **`0x00478078`** - HUD flag word table indexed by game mode/event kind, read by `0x001EA930` and copied to HUD owner `+0x3CC`: race (entries 4 and 5) 0x1530C047, slope style 0x1530C056, pipe/big air 0x1530C016. The minimal HUD option masks the word with ~0x0510C040 (keeps timer, score, place, boost, career and trick HUD; drops speed and progress); None draws only countdown and banners. *[PS2]*
+- **`0x004780B0`** - Buy Attributes menu row -> attribute index map. *[static]*
+- **`0x00478D38`** - Freeride Transport destination list per peak. Peak 1 order: Happiness, Green Station, R&B, Snow Jam, Crow's Nest, Blue Station, Metro-City, The Junction; Peak 3: The Throne, Black Station, Gravitude, Much-2-Much, Perpendiculous, Kick Doubt. *[static]*
+- **`0x00479780`** - Luno VM allocation tag strings (through `0x00479880`): LunoVMRegister, LunoVMCallParam, cLunoTable, LunoTable, TableData, cLunoTableEntry; they identify the course stage-script VM as EA's 'Luno' register VM. *[static]*
+- **`0x004797B0`** - LUN (Luno) VM opcode jump table indexed by instruction word & 0xFF; opcodes 0x00..0x2A (43) have handlers, >= 0x2B do nothing. Opcode 0x21 -> `0x00223F58` (builtin call). Instruction word = op | b1<<8 | b2<<16 | b3<<24, jump targets are word>>16; ops 0x14..0x17, 0x1D and 0x24..0x27 read one inline word (from the trailer at code end). *[static]*
+- **`0x0047B4E0`** - Jump table of `0x0022E180` selecting the default irradiance (lighting) bank per course index. *[static]*
+- **`0x0047C0F0`** - Jump table used by `0x00238160` mapping game mode to its GameModeMan handler. *[static]*
+- **`0x0047C538`** - First of the loading-state vtables (`0x0047C538`..`0x0047C948`: cFELoadState, LoadHint, LoadStateInLodge, cGameLoadState*); default handlers, no UI sounds. *[static]*
+- **`0x0047C7A8`** - Vtable of cGameLoadStateConquer (Conquer the Mountain event load); its enter function is `0x00245730` (slot offset not given). *[static]*
+- **`0x0047C878`** - Vtable of cGameLoadStateOutLodge (load screen 118loadoutlodge), built by `0x00232E20` when the flag at `0x004A19D8` is set or the game mode byte is 5 or 6. *[static]*
+- **`0x0047C948`** - Vtable of cGameLoadState (Quick Play event load); its enter function is `0x00245418` (slot offset not given). *[static]*
+- **`0x0047CC60`** - Game mode handler 7 vtable (points challenge / peak jam): init `0x0023C0D0`, results `0x0023C2D8`, per-tick/split `0x0023C560`. *[static]*
+- **`0x0047CCC8`** - Game mode handler 6 vtable (Rival Points): init `0x0023BB98`, results `0x0023BDB8`. *[static]*
+- **`0x0047CD30`** - Game mode handler 5 vtable (Rival Time): init `0x0023B6C0`, results `0x0023B8C8`. *[static]*
+- **`0x0047CD98`** - Game mode handler 4 vtable (time challenge / peak race): init `0x0023B268`, results `0x0023B468`, split `0x0023B5F8`. *[static]*
+- **`0x0047CE00`** - Game mode handler 2 vtable (free ride): init `0x0023B170`, no results function. *[static]*
+- **`0x0047CF38`** - Game mode handler 1 vtable (race): slot +0x10 init/event start `0x0023A108`, slot +0x40 results `0x0023A760`. *[static]*
+- **`0x0047CF4C`** - Race rules object vtable pointer (event start `0x0023A108`); lies 0x14 bytes into the race handler vtable `0x0047CF38`, so probably the same table. *[static]*
+- **`0x0047CFA0`** - Game mode handler 0 vtable (freestyle), shared by slope style, pipe and big air, which differ only by kind (GMM `+8`), table rows and course data: init `0x00238E20`, results `0x00239230`. *[PS2]*
+- **`0x0047D130`** - Race game class vtable; slot +0x14 (at `0x0047D144`) is the race game update `0x002306B8`. *[static]*
+- **`0x00481478`** - Runtime interface (vtable) of the AI path objects built from the 64-byte AI path headers. *[PS2]*
+- **`0x004816C0`** - SSB record-kind constructor table (kinds 0..22) used by the world loader `0x0026DED8`: 8 `0x00341548` rail spline, 14 `0x0034ED88` AIP paths, 16 `0x00350F08` collision bindings, 17 `0x00356E60` course-progress objects, 21 `0x00349DB0` course spine. *[static]*
+- **`0x00481C68`** - Format string '%s%08d.big' naming the per-script NIS load groups in SCDAT.BIG. *[static]*
+- **`0x00481D00`** - NIS anchor table: anchor id -> frame source (world, start-grid node, locator, podium step, live actor). *[static]*
+- **`0x00481E48`** - CTM intro NIS list table: venue fly-over 2 (flags 0) -> approach 3 (flags 3) -> start-gate idle 5 (flags 0). *[PS2]*
+- **`0x00481E68`** - Single Event intro NIS list table: start hut 4 (flags 3) -> start-gate idle 5 (flags 0). *[PS2]*
+- **`0x00481E90`** - Podium NIS list table used by `0x0027AC60`. *[static]*
+- **`0x00482A10`** - Chartune (podium theme) event per CHARDB character, events 1..10: Moby 10, Kaori 2, Allegra 8, Mac 1, Zoe 5, Griff 9, Elise 3, Nate 7, Psymon 4, Viggo 6. *[PS2]*
+- **`0x00482A70`** - FE screen -> character select Pathfinder music event table used by `0x0028F140`. *[static]*
+- **`0x00482AA0`** - Jump table for the board surface class switch in `0x00291710`. *[static]*
+- **`0x00482AF8`** - Board loop A volume curve, 5-point x/y: x 0/.003/.027/.15/.2 -> 0/101/61/0/0. *[static]*
+- **`0x00482B20`** - Board loop A pitch curve (1.0..2.0); inaudible in practice because the doppler pitch bend overwrites it. *[PS2]*
+- **`0x00482B78`** - Board glide loop volume curve, surface family 0 (pitch curve at `0x00482BA0`). *[static]*
+- **`0x00482BA0`** - Board glide loop pitch curve, surface family 0 (volume curve at `0x00482B78`). *[static]*
+- **`0x00482BC8`** - Board glide loop volume curve, surface family 1 (pitch curve at `0x00482BF0`). *[static]*
+- **`0x00482BF0`** - Board glide loop pitch curve, surface family 1 (volume curve at `0x00482BC8`). *[static]*
+- **`0x00482C18`** - Board glide loop volume curve, surface family 2 (pitch curve at `0x00482C40`). *[static]*
+- **`0x00482C40`** - Board glide loop pitch curve, surface family 2 (volume curve at `0x00482C18`). *[static]*
+- **`0x00482C68`** - Board carve loop volume curve, surface family 0. *[static]*
+- **`0x00482C90`** - Board carve loop pitch curve (driven by compression), surface family 0. *[static]*
+- **`0x00482CB8`** - Board carve loop volume curve, surface family 1. *[static]*
+- **`0x00482CE0`** - Board carve loop pitch curve (driven by compression), surface family 1. *[static]*
+- **`0x00482D08`** - Board carve loop pitch curve (driven by compression), surface family 2. *[static]*
+- **`0x00482D30`** - Landing sound volume curve over impact speed: 100/300/800/1200/2000 -> 10/28/34/80/127. *[static]*
+- **`0x00482D60`** - UI event -> bank-0 sound id table used by `0x00294F78`. *[static]*
+- **`0x00482DA0`** - Crash slide loop volume curve (flat 127). *[static]*
+- **`0x00483070`** - Race place -> speech place mask table used by `0x002A1E68`. *[static]*
+- **`0x004832D8`** - Format string '%sheaders.big' (character speech .hdr archive), used by `0x002B0088`. *[static]*
+- **`0x004832E8`** - Format string '%slanghead.big' (DJ/PA speech .hdr archive), used by `0x002B0088`. *[static]*
+- **`0x004832F8`** - Format string '%s%s%s.dat' (speech line data file), used by `0x002B04D8`. *[static]*
+- **`0x00483688`** - Music listener vtable, pointer stored at audio `+0x5558`: +0x10 PlaySong `0x0028F478`, +0x18 SendEventForced `0x0028F328`, +0x20 SendEvent `0x0028F3C8`. Game music events go through +0x20; big-air events 7/8 use +0x18. *[static]*
+- **`0x004836D8`** - Speech manager vtable installed by the audio constructor, holding callbacks into the audio system: +0x08 `0x002854F8` start stream, +0x10 `0x0029EEE0` bank name -> bus, +0x18 `0x0029F000` volume pointer (with DJ duck), +0x20 `0x002A43B8` OnIdle dispatcher. *[static]*
+- **`0x004838F8`** - Probably the music manager vtable, stored at audio `+0x118+0x5440` (= audio `+0x5558`); that is the same offset given for the music listener vtable `0x00483688`, so one of the two offsets is likely imprecise (unconfirmed). *[unconfirmed]*
+- **`0x00483E00`** - Environment/painter property wrapper vtable; its transition driver `0x002C0778` is cited both as slot 10 and as offset +0x10. *[static]*
+- **`0x00484058`** - Environment property class vtable (pointer at object `+4`): virtuals +0x180/+0x184 return object `+0x30` via `0x002C1608`; +0x210 is the property blend `0x002BD698`. *[static]*
+- **`0x00484290`** - Lighting world painter vtable (tWPIGD_Lighting, painter type 11): +0x148/+0x14C gain getter `0x002C15D0`, rim getter `0x002C15D8`, +0x218 empty hook `0x002BDA58`; blend `0x002BD5A8`, compare `0x002BDE30`, reset `0x002BE1F8`. *[static]*
+- **`0x00484700`** - Sun world painter vtable (tWPIGD_Sun, painter type 9): blend `0x002BD378`, compare `0x002BDD38`, reset `0x002BE1A8`, getters `0x002C1560`..`0x002C15A0`. *[static]*
+- **`0x00484B70`** - ScreenTint world painter (type 7) vtable. *[static]*
+- **`0x00484DA8`** - Glare world painter (type 6) vtable. Slots by index (8-byte entries, so 66..69 = byte offsets 0x210..0x228 as in the fog painter): 66 blend `0x002BD068`, 67 notify `0x002BDA50`, 68 compare `0x002BDBD0`, 69 reset `0x002BE140`; 13..19 getters `0x002C14F0`..`0x002C1520`; serializers `0x002BF700`/`0x002BE698`. *[static]*
+- **`0x00484FE0`** - Fog world painter (type 5) vtable: +0x200 `0x002BF580` and +0x208 `0x002BE518` (stream), +0x210 blend `0x002BCF38`, +0x218 empty `0x002BDA48`, +0x220 compare `0x002BDB38`, +0x228 defaults `0x002BE108`. *[static]*
+- **`0x004879D8`** - ASCII bone-name string 'shinleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x004879E8`** - ASCII bone-name string 'footleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x004879F8`** - ASCII bone-name string 'shinright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A08`** - ASCII bone-name string 'footright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A18`** - ASCII bone-name string 'thighleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A28`** - ASCII bone-name string 'thighright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A38`** - ASCII bone-name string 'lowerspine', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A48`** - ASCII bone-name string 'middlespine', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A58`** - ASCII bone-name string 'upperspine', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A68`** - ASCII bone-name string 'clavicleleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A78`** - ASCII bone-name string 'handright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A88`** - ASCII bone-name string 'bicepleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487A98`** - ASCII bone-name string 'biceptwistleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487AA8`** - ASCII bone-name string 'forearmleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487AB8`** - ASCII bone-name string 'handleft', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487AC8`** - ASCII bone-name string 'clavicleright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487AD8`** - ASCII bone-name string 'bicepright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487AE8`** - ASCII bone-name string 'biceptwistright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487AF8`** - ASCII bone-name string 'forearmright', one of the bone names at `0x004879D8`..`0x00487AF8` (16-byte spacing). *[static]*
+- **`0x00487D28`** - Environment object vtable; +0x14 is the environment update `0x002F0A98`. The object is built by `0x002F0548` with 17 vtable-only components and is updated from entity group 3 via `0x00244478`. *[static]*
+- **`0x00487F00`** - Z-buffer query object vtable: +0x10 `0x002E3578` glow material push, +0x24 `0x002EC478` query. *[static]*
+- **`0x0048817C`** - Full-screen fade overlay vtable (draw `0x002E47E8`, constructor `0x002E4228`). *[static]*
+- **`0x004881D0`** - Rider bone-emitter controller vtable. *[static]*
+- **`0x00488230`** - Camera splash class vtable: +0x0C `0x002F3618`, +0x14 update `0x002F39E0`, +0x24 render `0x002F3E28`, reset `0x002F39C8` (the update calls vt+0x70 as reset; that this is the +0x70 slot is unconfirmed). One object per camera, all in entity group 2 (manager gp+0x2898 = `0x004A5988`); Snow Jam group-2 order is snowfall, flag manager, camera-1 splash, camera-0 splash. *[static]*
+- **`0x00488664`** - Vtable of a priority-7 effect class (draw `0x002D9130`, constructor `0x002D5778`). *[static]*
+- **`0x00488EA0`** - Relationship icon pulse curve table, one of six (level-change pop, level>=4 loop, rise pop curves; which curve each holds is not known). *[static]*
+- **`0x00488F48`** - Relationship icon pulse curve table, one of six (level-change pop, level>=4 loop, rise pop curves; which curve each holds is not known). *[static]*
+- **`0x00488FF0`** - Relationship icon pulse curve table, one of six (level-change pop, level>=4 loop, rise pop curves; which curve each holds is not known). *[static]*
+- **`0x00489070`** - Relationship icon pulse curve table, one of six (level-change pop, level>=4 loop, rise pop curves; which curve each holds is not known). *[static]*
+- **`0x004890F0`** - Relationship icon pulse curve table, one of six (level-change pop, level>=4 loop, rise pop curves; which curve each holds is not known). *[static]*
+- **`0x00489150`** - Relationship icon pulse curve table, one of six (level-change pop, level>=4 loop, rise pop curves; which curve each holds is not known). *[static]*
+- **`0x004891B0`** - Effects/particle texture tag table: 12-byte entries indexed by texture id, each with a packed four-character name. E.g. 5 spry, 6 impt, 14..21 tmb1..tmb8, 25 brth, 55 btrl (at `0x00489444`), 56 wake, 57..61 yrbn/orbn/rrbn/brbn/prbn. *[static]*
+- **`0x004896B8`** - ASCII string 'DeadNode', the allocation tag of the type-6 node. *[static]*
+- **`0x004896C8`** - ASCII string 'RestoreNode', the allocation tag of the type-19 node; only a tag, the type-19 node does not restore or respawn anything by itself. *[static]*
+- **`0x004896E8`** - ASCII string 'Debounce' (component name). *[static]*
+- **`0x004897B0`** - Key table mapping stage-script builtin 50/79 stat keys to rider stats (used with `0x00122EE8`). *[static]*
+- **`0x00489A30`** - WScriptMission vtable, derived from WScriptProcess (`0x00489B70`). *[static]*
+- **`0x00489AE0`** - WScript mission task vtable. *[static]*
+- **`0x00489B70`** - WScriptProcess vtable, base class of WScriptMission (`0x00489A30`). *[static]*
+- **`0x0048D808`** - Default animation channel priority table {3,2,1,0,0,0}, copied into sequence `+0x84` by `0x003128E8` when a new sequence is created; needed for the correct attack pose. *[PS2]*
+- **`0x0048E560`** - Golden-section lower-bracket table for the rail search, indexed by best sample: {0, 0, 0, .25, .25}. *[static]*
+- **`0x0048E578`** - Golden-section upper-bracket table for the rail search, indexed by best sample: {.75, .75, 1, 1, 1}. *[static]*
+- **`0x0048E8D0`** - Start of the modifier class name strings (e.g. 'RollerModifier' at `0x0048E908`). *[static]*
+- **`0x0048E908`** - ASCII string 'RollerModifier' (modifier class name). *[static]*
+- **`0x0048EE60`** - Emitter entity vtable (node type 13); draw slot +0x20 -> `0x00356298`. *[static]*
+- **`0x0048F008`** - SkyBox object vtable; a live instance holds the index of the currently loaded sky region (field offset not given), e.g. 10 = ASKY during ARA1. BAM.SDB sky locations: ASKY 10, BSKY 17, CSKY 26, DSKY 34, ESKY 47. *[PS2]*
+- **`0x0048F080`** - RollerModifier vtable (crashbags; stage-script builtin 15), created by `0x0035DA70`. Slots: +0x44 rigid predicate `0x00361CA8` (0), +0x4C script re-run gate `0x00361CF8` (0), +0x54 rider re-contact `0x00361CD8`, +0x64 bounds `0x00361D18`, +0x9C base matrix `0x00361D38`, +0xA4 node override `0x00360BC8` (0), +0xAC query `0x00360BD0` (0), +0xB4 selected-contact no-op `0x00360BD8`. *[static]*
+- **`0x0048F168`** - MultiSplineModifier vtable (constructor `0x00359F88`; stage-script builtin 20); drives the Snow Jam chairlift chairs. *[PS2]*
+- **`0x0048F250`** - SplineModifier vtable (constructor `0x00359460`; stage-script builtin 19). *[static]*
+- **`0x0048F338`** - AvaSplineModifier vtable (stage-script builtin 95; unused on Snow Jam). *[static]*
+- **`0x0048F420`** - MagnetModifier vtable (stage-script builtin 90). *[static]*
+- **`0x0048F508`** - ParentModifier vtable (constructor `0x00357038`, eval `0x00357108`; stage-script builtin 18). *[static]*
+- **`0x0048F5F0`** - PositionModifier vtable (stage-script builtin 23); holds a fixed matrix. *[static]*
+- **`0x0048FC10`** - Flag entity vtable (node type 10, 'Flag Verts' cloth flags). *[static]*
+- **`0x00490898`** - Boost modifier vtable. *[static]*
+- **`0x004908F8`** - AnimTeeter entity vtable (stage-script builtin 6); vt+0x144 is the contact gate `0x00355770`. *[static]*
+- **`0x00490B10`** - LiveComp entity vtable (node type 1), an animation-time player; used for the live boost pickup component. Slots: +0x20 draw `0x00356298`, +0x144 `0x00355770`, +0x154 `0x0034E698` (this-adjust -20), +0x7C with this-adjust -48. *[PS2]*
+- **`0x00490E80`** - Object entity vtable (node type 17; the builtin 0 contact-gate entity), created by `0x00356DB0`; entries appear to be 8 bytes (adjust word + pointer). Slots: +0x20 draw `0x00356298`, +0x74 rigid predicate `0x00355420`, +0xCC base matrix `0x00356128`, +0xD4 `0x00360990` (0), +0x134 node override `0x00356A28`, +0x144 contact `0x00355770`, +0x14C end callback `0x00355858`, +0x154 selected-contact `0x00356AE0`, +0x164/+0x16C collidable/bounds `0x003569D0`/`0x00356A00`. *[static]*
+- **`0x004911D0`** - RailModifier vtable (constructor `0x0035B708`; stage-script builtin 48). *[static]*
+- **`0x00491220`** - HaloModifier vtable. *[static]*
+- **`0x00491268`** - DynamicParticle modifier vtable (stage-script builtin 26). *[static]*
+- **`0x004912B0`** - Particle modifier vtable. *[static]*
+- **`0x004914E0`** - One-way volume entity vtable; its contact slot is the no-op `0x003609F0`. *[static]*
+- **`0x00491680`** - Vtable of the type-19 ('RestoreNode'-tagged) node: +0x10 update `0x003608E8` (performs no timed restoration), update delegate +0x78/+0x7C `0x00360910` returns 1, +0x10C `0x00350288`, +0x114 no-op `0x00360AE0`; draw +0x20 `0x00360790` and contact +0x140 `0x003609F0` are empty. *[static]*
+- **`0x00491800`** - Vtable of type-16 node entities (free-ride Big Challenge objects); draw slot +0x20 is the empty `0x00360790`. Their runtime flags 0x00210005/0x00210305 lack 0x20 and 0x40, so body collectors `0x00333EF8`/`0x00334458` and rays `0x00335B90`/`0x00336D40` never test them (74 such objects in the Snow Jam event). *[PS2]*
+- **`0x00491B00`** - DeadNode entity vtable. *[static]*
+- **`0x00491FB0`** - Jump table of the GS alpha-blend setter `0x00362478`, indexed by renderer blend enum (entry 5 -> `0x003624DC`); the cases produce GS ALPHA values such as enum1 0x2A (Cs, opaque), enum5 0x44, enum7 0x48, enum8 0x81 ((Cd-Cs)*As>>7). One source reads it as a table of ALPHA values rather than code pointers. *[static]*
+- **`0x00492FA0`** - ScreenTint environment component vtable: +0x14 update `0x00390C60`, +0x1C render `0x00390F20`. *[static]*
+- **`0x004930D0`** - Vtable of the 0x210-byte live rider snow emitter class, stored at emitter `+0x1F8`; the class uses the per-birth phase update `0x003710D0` (emitter `+0x10`) and draw `0x00371380`. *[PS2]*
+- **`0x00493260`** - Renderer (graphics render context) vtable. Slots (adjust 0): 0x10C Euler view `0x00395750`, 0x114 matrix copy `0x00395C38`, 0x11C view getter `0x00395C68`, 0x228/0x22C coefficient setter `0x003954D0`, 0x278 `0x003781A0`, 0x290 `0x00380518`, 0x31C part draw `0x0037A610`, 0x37C skin blend `0x00386BD0`, 0x3A8 `0x003866E0`, 0x3E4 coefficient upload `0x00396B40`. *[PS2]*
+- **`0x00494348`** - cUISlider vtable. *[static]*
+- **`0x004946C8`** - Default UI state handler vtable: +0x98 item notify (no-op); queries +0xA0 menu, +0xA8 UIPair, +0xB0 list box all return 0x101. *[static]*
+- **`0x00494798`** - UIListBox vtable ('lb' widgets). *[static]*
+- **`0x00494868`** - UIPair vtable. *[static]*
+- **`0x00494928`** - UIMenu vtable; slot +0x78 is HandleInput `0x0039B000`. *[static]*
+- **`0x00495A30`** - Jump table of Pathfinder (interactive music) event action opcodes (action byte 9). *[static]*
+
+## `.lit4` (`0x0049B100`-`0x004A0E58`)
+
+- **`0x0049B180`** - Float 1/60 (0x3C888889) in .lit4, gp-0x7F70; a duplicate sits at `0x0049B184`. *[static]*
+- **`0x0049B184`** - Float 1/60 (0x3C888889) in .lit4, gp-0x7F6C; a duplicate sits at `0x0049B180` (gp-0x7F70). *[static]*
+- **`0x0049B24C`** - Float 0.001 in .lit4 (gp-0x7EA4): speed epsilon used by `0x00106F78`. *[static]*
+- **`0x0049B250`** - Float -0.2 in .lit4 (gp-0x7EA0): rail-behind ratio in `0x00106F78`; a rail point with (p - hips).v < -0.2*speed is skipped. *[static]*
+- **`0x0049B254`** - Float 0.001 (`gp-0x7E9C`): normal-length epsilon for the tangent fallback in the obstacle-collision bounce routine `0x00106F78`. *[static]*
+- **`0x0049B258`** - Float 55.5556 (`gp-0x7E98`): minimum bounce speed (cm/s) in the obstacle-collision routine `0x00106F78`. *[static]*
+- **`0x0049B2BC`** - Float -0.2 (`0xBE4CCCCD`, `gp-0x7E34`): rail-attach behind-board tolerance factor (0.2 cm tolerance). *[static]*
+- **`0x0049B4FC`** - Float at `gp-0x7BF4`: boost active drain-rate constant read by `0x00114130`. *[static]*
+- **`0x0049B680`** - Float 1/60 (`0x3C888889`, `gp-0x7A70`): boost-HUD preview display step. *[static]*
+- **`0x0049B684`** - Float 1/60 (`0x3C888889`, `gp-0x7A6C`): boost-HUD stored-meter display step. *[static]*
+- **`0x0049B68C`** - Float 0.0066666673 (`0x3BDA740F`, `gp-0x7A64`): boost-HUD letter-slot smoothing step. *[static]*
+- **`0x0049B698`** - Float 0.05 (`gp-0x7A58`): boost-HUD Tricky flash target scale per timer second. *[static]*
+- **`0x0049B69C`** - Float 1/60 (`gp-0x7A54`): boost-HUD Tricky flash approach step. *[static]*
+- **`0x0049B6C8`** - Float -0.7 (`gp-0x7A28`): coefficient applied to the boost meter by `0x00119368` (stage teleport path). *[static]*
+- **`0x0049B7E0`** - Float -99999 sentinel (`gp-0x7910`) used by the breath-effect code. *[static]*
+- **`0x0049BE08`** - Float pi/4 (`0x3F490FDB`, `gp-0x72E8`): uber-trick root angle in the rail animation code; identical copies sit at `0x0049BE0C` (`gp-0x72E4`) and `0x0049BE10` (`gp-0x72E0`). *[static]*
+- **`0x0049BE0C`** - Float pi/4 (`0x3F490FDB`, `gp-0x72E4`): second copy of the uber-trick root-angle constant (see `0x0049BE08`). *[static]*
+- **`0x0049BE10`** - Float pi/4 (`0x3F490FDB`, `gp-0x72E0`): third copy of the uber-trick root-angle constant (see `0x0049BE08`). *[static]*
+- **`0x0049BE14`** - Float 0.33 (`0x3EA8F5C3`, `gp-0x72DC`): uber-trick enter channel fade time (rail animation). *[static]*
+- **`0x0049BE18`** - Float 1/31 (`0x3D042108`, `gp-0x72D8`): command-axis scale in the uber-trick animation update. *[static]*
+- **`0x0049BE1C`** - Float 3.5/60 (`0x3D6EEEF0`, `gp-0x72D4`): uber-trick balance rate constant. The same value probably also sits at `gp-0x72CC` (`0x0049BE24`) and `gp-0x72C4` (`0x0049BE2C`), with 0.1 at `gp-0x72C8`; the source listing is ambiguous about the exact slots. *[unconfirmed]*
+- **`0x0049BE24`** - Float 3.5/60 (`0x3D6EEEF0`, `gp-0x72CC`): probably a copy of the uber-trick balance rate (see `0x0049BE1C`); slot placement inferred from an ambiguous listing. *[unconfirmed]*
+- **`0x0049BE28`** - Float 0.1 (`0x3DCCCCCD`, `gp-0x72C8`): uber-trick balance threshold that selects CYC vs BAL_L. *[static]*
+- **`0x0049BE2C`** - Float 3.5/60 (`0x3D6EEEF0`, `gp-0x72C4`): probably a copy of the uber-trick balance rate (see `0x0049BE1C`); slot placement inferred from an ambiguous listing. *[unconfirmed]*
+- **`0x0049BE88`** - Float at `gp-0x7268`: probe-fraction threshold that gates crash air-landing impact reports in `0x00137860`. *[static]*
+- **`0x0049C658`** - Start of a DEFAULT_3 jump-camera spline knot table (`gp-0x6A98`). *[static]*
+- **`0x0049C700`** - Start of another DEFAULT_3 jump-camera spline knot table (`gp-0x69F0`). *[static]*
+- **`0x0049C7EC`** - Start of the DEFAULT_3 camera wall-launch swing ease-curve knots (`gp-0x6904`), a 9-knot clamped spline. *[static]*
+- **`0x0049CFBC`** - Float 61.687962 (`gp-0x6134`): DEFAULT_3 camera set-target eye vertical-offset seed. *[PS2]*
+- **`0x0049CFD0`** - 8 floats (`gp-0x6120`..`gp-0x6104`): DEFAULT_3 camera velocity-filter constants 0.6, 0.27136135, 0.9, 0.29420722, 0.85139298, 0.85, 0.97, 0.1; used by camera stage `0x00162568`. *[PS2]*
+- **`0x0049CFF0`** - Float 0.98 (`gp-0x6100`): DEFAULT_3 camera travel-direction filter coefficient. *[PS2]*
+- **`0x0049CFF4`** - 7 floats (`gp-0x60FC`..`gp-0x60E4`): DEFAULT_3 camera follow-distance constants 0.92397803, 0.90741497, 300.92493, 11.549837, 76.68663, 10.755208, 1.7668397; used by `0x00163010`. *[PS2]*
+- **`0x0049D010`** - 5 floats (`gp-0x60E0`..`gp-0x60D0`): DEFAULT_3 camera eye vertical-offset constants 0.97839177, 11.678784, 31.225603, 11.392387, 9.33469; used by `0x00163270`. *[PS2]*
+- **`0x0049D024`** - Probably the DEFAULT_3 camera FOV-filter constants (0, 0.95990783, 1, 0.95) at `gp-0x60CC`..`gp-0x60C0`; the address is inferred from contiguity with the neighbouring constant blocks. *[unconfirmed]*
+- **`0x0049D034`** - Probably the DEFAULT_3 camera mode-5 hold constants (2.0036807, 0, 0.98, 0.96) at `gp-0x60BC`..`gp-0x60B0`; the address is inferred from contiguity with the neighbouring constant blocks. *[unconfirmed]*
+- **`0x0049D044`** - 5 floats (`gp-0x60AC`..`gp-0x609C`): DEFAULT_3 camera look-at height constants 0.92419082, 31.102573, 0.37469128, 12.332657, 10.589058; used by `0x00162B90`. *[PS2]*
+- **`0x0049D058`** - 4 floats (`gp-0x6098`..`gp-0x608C`): DEFAULT_3 jump-camera constants 0.1364145, 0.85366827, 2.4947209, 1.8110173; used by `0x001635F8`. *[PS2]*
+- **`0x0049D068`** - Float 1.5269116 (`gp-0x6088`): DEFAULT_3 camera wall-launch swing constant. *[static]*
+- **`0x0049D06C`** - Two floats, 146.389 (`gp-0x6084`) and 0.97069818 (`gp-0x6080`): DEFAULT_3 camera mode-4 pull-behind constants. *[static]*
+- **`0x0049D074`** - Float 559.74402 (`gp-0x607C`): DEFAULT_3 camera set-target travel-direction forward scale; the seed direction is normalize(fwd*559.744 - Z*300). *[PS2]*
+- **`0x0049D700`** - Float 31 degrees (`gp-0x59F0`): half-angle constant for the Ubertrick preview's 62-degree root turn. *[static]*
+- **`0x0049DA38`** - Float 1.80013132 (`gp-0x56B8`): boost-HUD letter scale-pop coefficient. *[static]*
+- **`0x0049DD94`** - Float 1.8101751 (`gp-0x535C`): race-place glow rectangle growth factor. *[static]*
+- **`0x0049DF7C`** - Float 277.78 cm/s (`gp-0x5174`, 10 km/h): post-finish speed threshold in the career event logic. *[static]*
+- **`0x0049EA90`** - Float 10/11 (about 0.909, `gp-0x4660`): master audio channel volume. *[static]*
+- **`0x0049EB1C`** - Float 3.9995 (`gp-0x45D4`): minimum predicted flight time for the big-air audio loop overlay; lowering it (e.g. to 2.5) makes the loops engage on shorter jumps. *[PS2]*
+- **`0x0049EE6C`** - Float -99999.0 (`gp-0x4284`): fog painter driver initialisation sentinel. *[static]*
+- **`0x0049EE70`** - Float -99999.0 (`gp-0x4280`): fog painter driver automatic-weight sentinel. *[static]*
+- **`0x0049F554`** - Float 0.8 (`0x3F4CCCCD`, `gp-0x3B9C`): BodySnow VelScale. *[static]*
+- **`0x0049F6A4`** - Float 83.333336 (`0x42A6AAAB`, 3 km/h, `gp-0x3A4C`): BodySnow speed gate. *[static]*
+- **`0x0049F6A8`** - Float 1/60 (`0x3C888889`, `gp-0x3A48`): BodySnow dt and buildup decay step. *[static]*
+- **`0x0049F6AC`** - Float 1/60 (`0x3C888889`, `gp-0x3A44`): BodySnow dt used while the request is inactive. *[static]*
+- **`0x0049F6B0`** - Float 2^-24 (`gp-0x3A40`): glow depth scale, zf = Z * 2^-24. *[static]*
+- **`0x0049F6B4`** - Float 0.005 (`gp-0x3A3C`, about 50 m): far-glow threshold; glows at or below it are not queried. *[static]*
+- **`0x0049F6B8`** - Float pi/2 (`gp-0x3A38`): rotation used for the light-glow sprites. *[static]*
+- **`0x0049F7EC`** - Float 59.999996 (`gp-0x3904`): ticks per second in the camera speed formula. *[static]*
+- **`0x0049F7F0`** - Float 0.036 (`gp-0x3900`): cm/s to km/h factor in the camera speed and impact formulas. *[static]*
+- **`0x0049F7FC`** - Float 0.0076923 (`gp-0x38F4`): factor in the snowfall pending-drop formula. *[static]*
+- **`0x0049F834`** - Float 107 degrees (`gp-0x38BC`): one of the two sun default angles applied on reset (the other is 16 degrees at `0x0049F838`); which sun angle each sets is not established. *[static]*
+- **`0x0049F838`** - Float 16 degrees (`gp-0x38B8`): one of the two sun default angles applied on reset (the other is 107 degrees at `0x0049F834`); which sun angle each sets is not established. *[static]*
+- **`0x0049FECC`** - Float 1/30 (`0x3D088889`, `gp-0x3224`): animation clip duration factor, duration = (frames-1)*1/30. *[static]*
+- **`0x004A06F0`** - RollerModifier constant block, `gp-0x2A00` through `gp-0x29D0` (`0x004A06F0`..`0x004A0720`): float constants used by the roller obstacle dynamics; the per-constant mapping is not established. *[static]*
+- **`0x004A0930`** - Float (`gp-0x27C0`): reverse-depth range constant for the set-projection routine `0x00376C58`, probably 16777215 (mapping of 16777215/65535 to `gp-0x27C0`/`gp-0x27B4` taken from listing order only). *[unconfirmed]*
+- **`0x004A093C`** - Float (`gp-0x27B4`): reverse-depth range constant for the set-projection routine `0x00376C58`, probably 65535 (mapping taken from listing order only; see `0x004A0930`). *[unconfirmed]*
+- **`0x004A0940`** - Float 1.3333 (`gp-0x27B0`): aspect-ratio constant used by the set-projection routine `0x00376C58`. *[static]*
+- **`0x004A09C4`** - Eleven floats (`gp-0x272C`..`gp-0x2704`) used by the rider-lighting directional irradiance projection `0x00389308`. *[static]*
+- **`0x004A0A08`** - Float 0.7500065565 (`gp-0x26E8`): global rim-light scale multiplied into the rider rim-lighting contribution. *[static]*
+- **`0x004A0A4C`** - Lightning strike distance constants 1.98, 0.02 and 100000 cm (`gp-0x26A4`/`-0x26A0`/`-0x269C`), used as dist = (unit(r)*1.98 + 0.02) * 100000; the in-memory order is assumed to follow that listing. *[unconfirmed]*
+
+## `.sdata` (`0x004A0E80`-`0x004A4BF4`)
+
+- **`0x004A0EA8`** - Float -0.0 (`gp-0x2248`): threshold comparing projected forward vs heading in the airborne stance-switch test `0x00114DB8`. *[PS2]*
+- **`0x004A1090`** - Bone-name list (`gp-0x2060`) used to build the channel-1 upper-body animation masks; also referenced as the 'morph' bone list for the reaction mask at rider `+0x8D0`. *[static]*
+- **`0x004A1120`** - Word (`gp-0x1FD0`), value 3 in the ELF and at runtime: core body-sphere mask (spheres 0/1 only) for the airborne obstacle query. Used by `0x00139C88` (access at `0x0013A734`); the airborne post stage around `0x0013AA48` also sets it to 3. Ground counterpart at `0x004A115C`. *[PS2]*
+- **`0x004A1128`** - Pointer (`gp-0x1FC8`) to the extra-lean response curve used on surfaces 2/3 outside control 1 (landing/lean logic). *[static]*
+- **`0x004A1130`** - Pointer (`gp-0x1FC0`) to a four-point cruise heading response curve (see also `0x004A1138`). *[static]*
+- **`0x004A1138`** - Pointer (`gp-0x1FB8`) to a four-point cruise heading response curve (see also `0x004A1130`). *[static]*
+- **`0x004A1158`** - Pointer (`gp-0x1F98`) to the direct steering curve, indexed by forward-facing speed fraction; on Snow Jam its ordinates are all zero. *[PS2]*
+- **`0x004A115C`** - Word (`gp-0x1F94`), value 3 in the ELF and at runtime: core body-sphere mask (spheres 0/1: lower spine and head) for the ground obstacle query, used by `0x0013F178` (access at `0x0013F278`). Airborne counterpart at `0x004A1120`. *[PS2]*
+- **`0x004A11E0`** - Word (`gp-0x1F10`) = 3: front-end folder id for Equip Gear Boards. *[static]*
+- **`0x004A18D8`** - Word (`gp-0x1818`) = 3392: outfit item-limit value. *[static]*
+- **`0x004A19D8`** - Flag (`gp-0x1718`) that, when set, forces the out-of-lodge game load state (cGameLoadStateOutLodge); read by the cGameLoadState init `0x00232E20`. *[static]*
+- **`0x004A20CC`** - Word (`gp-0x1024`) tested by `0x001E3C00`; a value other than -1 opens the Progression/Rewards folder. Setter unknown. *[unconfirmed]*
+- **`0x004A20D0`** - Strings/string refs (`gp-0x1020`) shared by the Message Center and the pause-menu Messages screen: 'folder', 'btext', 'arr_up', 'From%d'. *[static]*
+- **`0x004A21D0`** - Uber-trick hint text table (`gp-0xF20`), indexed by the HUD owner's `+0x55C` field. *[PS2]*
+- **`0x004A26FC`** - Pause menu state word (`gp-0x9F4`); writing 3 closes the pause menu. *[static]*
+- **`0x004A289C`** - Pointer (`gp-0x854`) to the renderer/render context; the object itself is on the heap. *[PS2]*
+- **`0x004A28A0`** - Pointer (`gp-0x850`) to the 30-entry pad input ring between the device producer and the game consumer. Ring read cursor at `+0x2EE0`, write cursor at `+0x2EE4`; each entry is 0x190 bytes holding four 0x64-byte device records. *[PS2]*
+- **`0x004A28A4`** - Pointer (`gp-0x84C`) to the NIS (cutscene) list manager. *[static]*
+- **`0x004A28A8`** - Pointer (`gp-0x848`) to the global game object G: +0x14 clock dt, +0x7C FE preview block, +0xC0 game mode manager (event handler, id at +4), +0x84 game world W (non-zero while in game; also cached at `0x004A2C68`). W+0xC race clock object (tick at +8, rider roster at +0x28+4*slot with human 0 and CPU riders 1..5, human rider also via +0x40 -> +0x18); W+0x20 event octree root (authored patches, instances, rails, glow sources, most kind-6 lights); W+0x28 tutorial counter; W+0x44 surface records; W+0x78 streamer; W+0x214 screen state. *[PS2]*
+- **`0x004A2A50`** - Global flag word (`gp-0x6A0`) tested by the game update: bit 0 disables the camera controller update and shake; bit 0x2 skips entity group 1 (plus groups 5/6 and the group-1 pass at `0x00355028`); bit 0x4 skips group 3; bit 0x10 skips group 2. Give Up sets it from table `0x004428F0`. *[static]*
+- **`0x004A2C38`** - Byte (`gp-0x4B8`): loading-screen hint rotation counter, starts at 0 and is advanced modulo 15 by `0x00245950`. *[static]*
+- **`0x004A2C68`** - Pointer (`gp-0x488`) to the live race world, the same object as *(*(gp-0x848)+0x84) (see `0x004A28A8`). *[PS2]*
+- **`0x004A2C6C`** - Pointer (`gp-0x484`) documented as the GameModeMan (event rounds / handler state). `0x004A2C70` (`gp-0x480`) is also documented as the GMM pointer, so one of the two attributions may be off by a word (unconfirmed). *[static]*
+- **`0x004A2C70`** - Pointer (`gp-0x480`) to the game mode manager GMM (same object as G+0xC0); its `+0x18[]` and `+0x40[]` arrays receive the heat's participants. *[static]*
+- **`0x004A3500`** - Pointer (`gp+0x410`) to the SSXAudioSystem singleton (0x7780-byte object), created by `0x00284BB0` via ctor `0x00284C68` and returned by `0x0028B180`. Passed to the cheer query `0x002A77C8`; its `+0x598C` receives the rail surface on rail attach. *[static]*
+- **`0x004A3504`** - Storage at `gp+0x414` for per-channel audio base scales, indexed by channel slot in `0x00288D18`; whether it is a pointer or inline floats is not established. *[unconfirmed]*
+- **`0x004A352C`** - 10 floats (`gp+0x43C`..`gp+0x460`, all 1.0): per-character CHARACTER-bus scalars, copied into audio `+0x636C[10]`; per-speaker gain = ch4 * *(gp+0x43C + 4*id). *[static]*
+- **`0x004A3560`** - Pointer (`gp+0x470`) to the MIX.INF path string 'data/config/mix.inf'. *[static]*
+- **`0x004A361C`** - Big-air 'long air' audio flag (`gp+0x52C`); its previous value is copied to `0x004A3620` (`gp+0x530`) each frame. *[static]*
+- **`0x004A3620`** - Previous-frame copy (`gp+0x530`) of the big-air long-air flag at `0x004A361C`. *[static]*
+- **`0x004A3648`** - Timer callback key (pointer-to-member, `gp+0x558`) for the music request handler `0x0028E088`. *[static]*
+- **`0x004A3650`** - Timer callback key (pointer-to-member, `gp+0x560`) for the DJ line handler `0x0028E548`. *[static]*
+- **`0x004A3658`** - Timer callback key (pointer-to-member, `gp+0x568`) for the retry song change handler `0x0028E068`. *[static]*
+- **`0x004A37C0`** - Format string '%s.hdr' (`gp+0x6D0`), used by `0x002AF960`. *[static]*
+- **`0x004A3850`** - Timer callback key (pointer-to-member, `gp+0x760`) for the song volume ramp tick `0x002B3E20` (40 ms period). *[static]*
+- **`0x004A3AFC`** - Visual/effects LCG state word (`gp+0xA0C`), separate from gameplay RNG: w = ((w*0x18FCD + 0xE9507C) & 0x7FFFFF) | 0x3F800000, read as a float in [1,2). One stream shared by all riders, including computer riders; consumed by board tracks (two steps per track commit, drawn before snow spray), board sparks, fist sparkle, snow emission and the camera splash spawn. BodySnow does not use it. *[static]*
+- **`0x004A3B00`** - String 'hips' (`gp+0xA10`): bone name in the small-data area, used by the crash body-snow code. *[static]*
+- **`0x004A3B08`** - String 'neck' (`gp+0xA18`): bone name in the small-data area, used by the crash body-snow code. *[static]*
+- **`0x004A3B64`** - Lighting override flag (`gp+0xA74`) checked by `0x002EF0E8`; 0 in every inspected runtime state. *[PS2]*
+- **`0x004A3B68`** - Float camera far value (`gp+0xA78`); after the compositor it equals min(30000, farCap) (29999.34 observed). *[PS2]*
+- **`0x004A3B70`** - Float 0.5 (`gp+0xA80`): incoming weight of the environment irradiance mix in `0x002ED92C` (rider lighting). *[static]*
+- **`0x004A3C40`** - Stage-script builtin argument type descriptors (`gp+0xB50`). *[static]*
+- **`0x004A3CB0`** - Expected argument types for stage-script builtin 0x41 (`gp+0xBC0`). *[static]*
+- **`0x004A3DD8`** - Stage-script global at `gp+0xCE8`, documented both as the current stage-script context pointer (ctx = *(gp+0xCE8)) and as the current player index substituted when a builtin's player-slot argument is -1; the two readings are not reconciled. *[static]*
+- **`0x004A3DFC`** - Pointer (`gp+0xD0C`) to the runtime table mapping trick ids to FE animation clip variants (all masks); FE variant is fe:(id-93), with ids 113..148 = UBER_<GRAB>_<n>_L<k> and 149..158 = UBER_TAIL_/UBER_NOSE_ variants. *[PS2]*
+- **`0x004A3E7C`** - Pointer (`gp+0xD8C`) to the loaded animation lookup; three-way leaf maps at `+0x1030+leaf*4`. *[static]*
+- **`0x004A4058`** - Render priority split table (`gp+0xF68`), values 6 and 9, used by `0x00363490` to split render layers. *[static]*
+- **`0x004A424C`** - Camera Splash tweak 'Enable' (`gp+0x115C`, int); 1 in the race. The camera-splash update `0x002F39E0` returns early when it is 0. First of the Camera Splash tweak block that runs to `0x004A4294`. *[PS2]*
+- **`0x004A4250`** - Camera Splash tweak 'Render' (`gp+0x1160`); 1 in the race. *[PS2]*
+- **`0x004A4254`** - Camera Splash tweak 'Max Drops' (`gp+0x1164`); 30 in the race. *[PS2]*
+- **`0x004A4258`** - Camera Splash tweak 'Max Crystals' (`gp+0x1168`); 24 in the race, also the divisor in the crystal draw. *[PS2]*
+- **`0x004A425C`** - Camera Splash tweak 'Percentage Ice Crystals' (`gp+0x116C`); 0.6: a spawn draw t < 0.6 makes a crystal group, otherwise a drop. *[PS2]*
+- **`0x004A4260`** - Camera Splash tweak 'Percentage Ice Crystal Spawn' (`gp+0x1170`); 0.01: threshold in the crystal draw that picks a crystal to spawn from. *[PS2]*
+- **`0x004A4264`** - Camera Splash tweak 'Ice Crystal Min in Group' (`gp+0x1174`); 1 in the race. *[PS2]*
+- **`0x004A4268`** - Camera Splash tweak 'Ice Crystal Max in Group' (`gp+0x1178`); 3 in the race; group size = 1 + r % (3-1). *[PS2]*
+- **`0x004A426C`** - Camera Splash tweak 'Max Spawn Per Crystal' (`gp+0x117C`); 2: a crystal spawns drops while its spawn count is below 2. *[PS2]*
+- **`0x004A4270`** - Camera Splash tweak 'Farthest Impact Distance' (`gp+0x1180`); 450: impacts add pending drops only when d < 450. *[PS2]*
+- **`0x004A4274`** - Camera Splash tweak 'Lowest Impact Intensity' (`gp+0x1184`); 105, used in the impact term clamp((I*0.036 - 105)/(120 - 105), 0, 1). *[PS2]*
+- **`0x004A4278`** - Camera Splash tweak 'Lowest Snowfall For Impacts' (`gp+0x1188`); 1.0: impacts count only when snowfall > 1.0. *[PS2]*
+- **`0x004A427C`** - Camera Splash tweak 'Impact Multiplier' (`gp+0x118C`); 1.1. *[PS2]*
+- **`0x004A4280`** - Camera Splash tweak 'Lowest Snowfall Amount' (`gp+0x1190`); 1.5: snowfall adds pending drops only above 1.5. *[PS2]*
+- **`0x004A4284`** - Camera Splash tweak 'Snowfall Multiplier' (`gp+0x1194`); 0.015. *[PS2]*
+- **`0x004A4294`** - Camera Splash tweak value (`gp+0x11A4`) = 4 (tweak name not identified): a crystal spawns a drop only if both of its sizes * 0.6 exceed it. *[PS2]*
+- **`0x004A432C`** - Fog near distance global (`gp+0x123C`). *[static]*
+- **`0x004A4330`** - Fog far distance global (`gp+0x1240`). *[static]*
+- **`0x004A4334`** - Fog equation integer global (`gp+0x1244`), set to 1 by `0x002F00A0`. *[static]*
+- **`0x004A4338`** - Fog density global (`gp+0x1248`), written by `0x002F00A0`. *[static]*
+- **`0x004A43C0`** - Float -0.0 (`gp+0x12D0`): Y^2 row constant of the rider rim-light shape, read by `0x00389CB8`. *[static]*
+- **`0x004A43C4`** - Per-course default irradiance (IRR) bank index (`gp+0x12D4`), used for empty Lighting references and as the default rider irradiance bank (xPBR1); set per course by `0x0022E180`. An index, not a pointer: 3 (BPBR1) in Metro-City and The Junction, 12 (APBR1) in Snow Jam. *[PS2]*
+- **`0x004A43C8`** - Glare pass global 'Enable' (`gp+0x12D8`): gate for the glare pass; 1 in retail and at runtime. Start of the glare settings block that runs to `0x004A43F8`. *[static]*
+- **`0x004A43CC`** - Glare pass global 'Override World Painter' (`gp+0x12DC`); 0 in retail. When set, `0x002F00A0` does not copy the painter values. *[static]*
+- **`0x004A43D0`** - Glare pass global 'PS2 Capture Size' exponent (`gp+0x12E0`), size = 2^x; 8 in retail. *[static]*
+- **`0x004A43D4`** - Glare pass global 'Minimum Intensity Cutoff' (`gp+0x12E4`), first of the glare values block (Cutoff, Post-Cutoff Scale, Copy, Frame Source, Frame Blend, Blend Textures) that `0x0036C740` copies to render context `+0x6CD4`. *[static]*
+- **`0x004A43D8`** - Glare pass global 'Post-Cutoff Scale' (threshold FIX) (`gp+0x12E8`); part of the glare values block copied by `0x0036C740`. *[static]*
+- **`0x004A43DC`** - Glare pass global 'Copy Intensity' (`gp+0x12EC`); part of the glare values block copied by `0x0036C740`. *[static]*
+- **`0x004A43E0`** - Glare pass global 'Frame Source Intensity' (`gp+0x12F0`); part of the glare values block copied by `0x0036C740`. *[static]*
+- **`0x004A43E4`** - Glare pass global 'Frame Blend Intensity' (`gp+0x12F4`); part of the glare values block copied by `0x0036C740`. *[static]*
+- **`0x004A43E8`** - Glare pass global 'Blend Texture 0' (`gp+0x12F8`); 0 in retail. *[static]*
+- **`0x004A43EC`** - Glare pass global 'Blend Texture 1' (`gp+0x12FC`); 0 in retail. *[static]*
+- **`0x004A43F0`** - Glare pass global 'Blend Texture 2' (`gp+0x1300`), fed from painter value 6. *[static]*
+- **`0x004A43F4`** - Glare pass global 'Blend Texture 3' (`gp+0x1304`), fed from painter value 7. *[static]*
+- **`0x004A43F8`** - Glare pass global 'Texture Jitter' (`gp+0x1308`); 2.0 in retail. *[static]*
+- **`0x004A4528`** - Wake render suppression gate (`gp+0x1438`). *[static]*
+- **`0x004A452C`** - Debug toggle 'Disable Sky Box' (`gp+0x143C`), related to the sky draw routine `0x00353B10`. *[static]*
+- **`0x004A45CC`** - Board-track fixup-layer enable flag (`gp+0x14DC`, draw_fixup_layer), default 1; gates the gap fixup pass at `0x00387C30`. *[static]*
+- **`0x004A45D4`** - Board-track (btrl) texture handle global (`gp+0x14E4`); written at `0x002F0008` after the texture id 55 load at `0x002EFFAC`, read when `0x00386FD0` selects the track texture. *[static]*
+- **`0x004A45E4`** - ScreenTint base tint colour, 3 floats (`gp+0x14F4`..`gp+0x14FC`): written by `0x002F00A0` from the region tint driver and restored when a lightning flash ends; part of the ScreenTint scale/add globals that run to `gp+0x1508`. *[static]*
+- **`0x004A45F0`** - ScreenTint tweakables (`gp+0x1500`..`gp+0x1518`): Fill and XN Tint colours and XN Lerp. *[static]*
+- **`0x004A460C`** - ScreenTint 'Enable Lightning' (`gp+0x151C`); recomputed each update by `0x002F00A0` as 0 or 1. *[PS2]*
+- **`0x004A4610`** - ScreenTint lightning 'Frame Id' (`gp+0x1520`); -1 normally, and when in range it forces the flash phase counter. *[static]*
+- **`0x004A4614`** - ScreenTint 'Lightning Chance' (`gp+0x1524`), set from the region getter `0x002EE738`; a strike needs a random draw below chance*chance. 0 in every sampled course (Snow Jam, Metro City, Happiness, Crow's Nest, R&B, The Junction). *[PS2]*
+- **`0x004A4618`** - ScreenTint lightning flash phase lengths, 4 values (`gp+0x1528`..`gp+0x1534`) = 2, 2, 2, 7 ticks. *[static]*
+- **`0x004A4628`** - ScreenTint lightning flash intensities, 3 floats (`gp+0x1538`/`+0x153C`/`+0x1540`) = 0.4, 1.0, 0.5. *[static]*
+- **`0x004A4634`** - ScreenTint lightning flash colour 1, 3 floats (`gp+0x1544`) = (1.584, 1.905, 1.998). *[static]*
+- **`0x004A4640`** - ScreenTint lightning flash colour 2, 3 floats (`gp+0x1550`) = (0.333, 0.43, 1.99). *[static]*
+- **`0x004A464C`** - ScreenTint lightning flash colour 3, 3 floats (`gp+0x155C`) = (0.75, 0.75, 2.0). *[static]*
+- **`0x004A4698`** - ScreenTint flash phase counter (`gp+0x15A8`): negative means idle; a strike sets it to 0 and it returns to -1 after tick 13. *[static]*
+- **`0x004A469C`** - ScreenTint current flash intensity (`gp+0x15AC`); the tint render `0x00390F20` draws only when it is non-zero. *[static]*
+- **`0x004A46A0`** - ScreenTint current flash colour, 3 floats (`gp+0x15B0`..`gp+0x15B8`). *[static]*
+- **`0x004A46AC`** - ScreenTint blend mode (`gp+0x15BC`); 5 in every flash phase. *[static]*
+- **`0x004A46B0`** - ScreenTint lightning strike distance in cm (`gp+0x15C0`), set by `0x00390EC8`. *[static]*
+- **`0x004A46B4`** - ScreenTint thunder delay in ticks (`gp+0x15C4`) = (int)(dist * 0.0018072289), i.e. 553.3 cm per tick (332 m/s at 60 Hz); decremented each update and `0x00390EF8` reports when it reaches 0. *[static]*
+- **`0x004A47B8`** - World manager pointer (`gp+0x16C8`); W = **(gp+0x16C8). W+0x24+8*track = 6 marks an active track; W+0x3F0+24*chunk holds streaming chunk states. Resource lookup (e.g. `0x00301D78`): track = *(*(W+8)+4*(res & 0xFF)); entry = *(*(track+0x1C)+4*(res >> 8)); instance pointer = (entry >> 8) << 2, 0 when absent. *[PS2]*
+- **`0x004A482C`** - Function pointer (`gp+0x173C`), `0x003D76F0` at runtime: the speech event entry used to post speech events with bitmask arguments. *[PS2]*
+
+## `.sbss` (`0x004A4C00`-`0x004A5BBC`)
+
+- **`0x004A53D0`** - Empty Lighting bank reference (`gp+0x22E0`), stored by the reset routine `0x002BE1F8`. *[static]*
+- **`0x004A55B0`** - Lighting override value (`gp+0x24C0`) returned by `0x002EF0E8` when the override flag `0x004A3B64` (`gp+0xA74`) is set. *[static]*
+- **`0x004A5688`** - Default -1 argument value for stage-script builtin keys (`gp+0x2598`), lazily initialised under the guard at `0x004A5690` (`gp+0x25A0`). *[static]*
+- **`0x004A5690`** - Lazy-init guard (`gp+0x25A0`) for the default stage-builtin argument value at `0x004A5688`. *[static]*
+- **`0x004A5988`** - Component/entity group manager (`gp+0x2898`): groups of 0x44 bytes, each with pending and active node lists; passed to the group passes `0x00354F98` and `0x00355028`. *[static]*
+- **`0x004A5A58`** - Static null UI sound listener (`gp+0x2968`) that plays no sound, used as the fallback when no listener exists; built by the static initialiser at `0x003A426C`. *[static]*
+- **`0x004A5B64`** - Pointer (`gp+0x2A74`) to the game clock object, `0x004C9428` at runtime. *[PS2]*
+
+## `.bss` (`0x004A5C00`-`0x0053EADC`)
+
+- **`0x004A5E50`** - Float -980 (`0xC4750000`): gravity used by the rail motion acceleration; the address lies in .bss, so the value is written at runtime. *[static]*
+- **`0x004A6310`** - Dynamic speed-limit table, 48 floats, used by `0x0011B3F8`. *[static]*
+- **`0x004A6750`** - Runtime item database loaded from DATA/CHAR/BOLTPS2.DAT: 30 character buckets (0..9 riders, 10..29 cheat skins) of 56-byte entries. Further tables: 7327 equip rules of 12 bytes (on/off, item, condition item + state, target, desired); NIS -> race model pairs (see `0x0014DC00`/`0x0014DC10`); default outfit rows (see `0x0014DC40`/`0x0014DC50`). *[PS2]*
+- **`0x004A6CA8`** - Profile banks (`gp+0x3BB8`): 0x9B50 bytes per bank, 0xF88 bytes per character record; record = base + bank*0x9B50 + char*0xF88. Bank 0 is the human profile (shared by Single Event and career), bank 2 the computer riders (bank chosen by `0x0014A0E0`); banks 1/2 exist from power-on. Record: +0x278 progression bits, +0x288/+0x28C/+0x290 inventory, +0xBC1+other*3 relationship {kind, level, score}, +0xE38 message inbox, +0xF57 cheat unlock bits. Clearing bit 12 in banks 0..2 unlocks Peak 2 in Single Event. *[PS2]*
+- **`0x004C53A0`** - Render axis-permutation matrix G, stored as four vectors (0,0,1,0; -1,0,0,0; 0,1,0,0; 0,0,0,1); left-multiplied into the camera view/output. *[static]*
+- **`0x004C5830`** - Camera trigger volume manager (record layout not enumerated); kind-2 triggers (e.g. `0x0016E1D8`) request override cameras. *[static]*
+- **`0x004C6C08`** - Career message records: 256 x 0x18 bytes (item, category, flag, sender, subject/body key hashes). *[PS2]*
+- **`0x004C8428`** - Trick-flash palette colour: gold, for tiers below 5 (palette tier = min(tier, 11)). *[PS2]*
+- **`0x004C8448`** - Trick-flash palette colour: orange, for tiers 5..9. *[PS2]*
+- **`0x004C8468`** - Trick-flash palette colour: red, for tier 10. *[PS2]*
+- **`0x004C8488`** - Trick-flash palette colour: purple, the highest palette tier (palette tier = min(tier, 11)). *[PS2]*
+- **`0x004C84C8`** - Ordinary boost gauge palette colour, 1 of 3. *[static]*
+- **`0x004C84E8`** - Ordinary boost gauge palette colour, 2 of 3. *[static]*
+- **`0x004C8508`** - Ordinary boost gauge palette colour, 3 of 3. *[static]*
+- **`0x004C8688`** - HUD race clock red colour, shown under 10 s during half of each second. *[PS2]*
+- **`0x004C8788`** - White colour used for the first blink half of the mail icon. *[PS2]*
+- **`0x004C87A8`** - Orange colour for the mail icon (words 1..3 = 0.861, 0.381, 0). *[PS2]*
+- **`0x004C8888`** - OPPONENT line colour green, used when N < -5000. *[PS2]*
+- **`0x004C88A8`** - OPPONENT line colour pale yellow, used when -5000 <= N <= 0. *[PS2]*
+- **`0x004C88C8`** - OPPONENT line colour red, used when the opponent is ahead (N > 0). *[PS2]*
+- **`0x004C8980`** - HUD icon table: bsl1 / bsr1 (28x16) and square (21x20), taken from OV_1-2. *[static]*
+- **`0x004C9098`** - Constant nil LUN VM value {0, 0, 0} (stage-script VM). *[static]*
+- **`0x004C9428`** - Game clock object; `+0x10` holds the tick rate (60). Referenced by the pointer at `0x004A5B64`. *[PS2]*
+- **`0x004C9548`** - Lineup/roster generator RNG state (six words), seeded from presentation draw 130 of `0x004FF018`; invertible, 52 draws per roster build. *[PS2]*
+- **`0x004D33A0`** - Global path manager / race-reset path bank of the current location: start markers (+4), AI paths (+8/+0xC), course-progress paths (count +0x10, array +0x14); observed with 14 markers, 129 AI paths, 8 progress paths. Markers are 40-byte records whose final pointers resolve raw track and AI-path indices. Race paths equal the AIP track paths; the reset bank is the AIP AI paths renumbered. Replaced by `0x0012A340` on a read; `0x0011DE60`/`0x0026B5E0` read region rows. *[PS2]*
+- **`0x004D33A8`** - Reset/NPC AI path table (path manager `0x004D33A0` + 8, paired with the word at `0x004D33AC`); on Snow Jam it holds 129 records of 64 bytes, 117 with a nonzero `+0x3C`. Distinct from the 8-path race-course table. *[PS2]*
+- **`0x004D33AC`** - Companion word of the reset/NPC AI path table at `0x004D33A8` (path manager `+0xC`), probably its count or a pointer. *[unconfirmed]*
+- **`0x004D33B8`** - Race bonus (slope style) checkpoint list: up to six {int value, float distance} entries ended by a 0 value. A checkpoint is crossed when the rider's best remaining distance (`rider+0x4D4`) passes its distance; each adds +60 s and shows the '+60' popup (`0x001194C0` / `0x002398E8`). R&B has {60, 176456.97}, {60, 75402.55}. *[PS2]*
+- **`0x004FA370`** - Environment blocks, stride 0xF0, one per rider slot (0 = human, then the computer riders; six rider slots) plus camera views at indices 6/7 (the camera path passes view+6). +0x08 glare painter holder, +0x14 Sun, +0x1C Lighting wrapper, +0x28 ARGB environment colour (see `0x004FA398`), +0x38 lighting ratio, +0x50 rider irradiance bank (see `0x004FA3C0`). `0x002ED490` runs each block's nine property wrappers. *[static]*
+- **`0x004FA398`** - Environment colour records (environment block `0x004FA370` + 0x28): ambient ARGB float4 at `0x004FA398 + envIndex*0xF0`, updated live with world lighting. Colours board trails as-is and snow with RGB doubled; also used for grind chunks on `+0x88` rail surfaces. *[PS2]*
+- **`0x004FA3C0`** - Per-slot rider environment irradiance banks, 160 bytes each at stride 0xF0 (environment block `0x004FA370` + 0x50); `0x002EDFB8` returns `0x004FA3C0 + index*0xF0`. *[static]*
+- **`0x004FB778`** - Default argument words for stage-script builtin 19 (Spline). *[static]*
+- **`0x004FBAE8`** - Default argument words for stage-script builtin 27 (player effect). *[static]*
+- **`0x004FC420`** - Renderer skin palette matrices (scaled pose times inverse bind), written by `0x00310640`. *[static]*
+- **`0x004FE920`** - Rate curve used by the board-press depth update `0x00130DD0`, blended with the curve at `0x004FE940` by min(t*0.2, 1). *[static]*
+- **`0x004FE940`** - Second rate curve used by the board-press depth update `0x00130DD0` (blended with `0x004FE920`). *[static]*
+- **`0x004FF018`** - Presentation/visual RNG state, six words (word 5 at +0x14 counts draws); separate from the gameplay RNG `0x004FF030`, the LCG word `0x004A3AFC` and the VU RINIT/RNEXT generator. Seeded once at boot (at `0x0031AE94`), drawn via `0x003177F0`. Menus, pause and title make no draws; each event load makes 128 timer draws and draw 130 seeds the lineup RNG `0x004C9548`. Per tick (about 10 draws, fixed order): section pass (flag grid), snow and grind-chunk emitter births, stage particle emitters, MeshAnim contact programs, camera shake (`0x001656B0`/`0x00165938`), then the post-rider pass (flag wind, camera splash, lightning, crowd timers). HUD init `0x001E9AD0` draws it for the Uber hint variant. *[PS2]*
+- **`0x004FF030`** - Shared gameplay RNG state (six words), separate from the visual RNG `0x004FF018`; drawn via `0x00317810`. Seeded 0 at event load, then drawn N times during load (Snow Jam 10, Metro-City 13; varies by character, source call site unknown); each computer rider's start command draws 2 (steering amount `+0xDF0` and its sign). Per frame, riders draw in slot order: stage-1 controller pass (`0x00121068` providers, `0x00115D48`, `0x00131620`), stages 2/3, then the world pass. Also used by LiveComp random starts/rates, Spline construction (one draw even with zero jitter), builtin 77 random float and career collectibles. *[PS2]*
+- **`0x004FF120`** - Zero float4 constant (0,0,0,0): start value of the normal sum in `0x00104E70`; copied to out+0x20 by the rail query `0x00334680`. *[static]*
+- **`0x004FF130`** - Constant vector (0,0,0,1), the default animation root translation; initialised by `0x00320550`. *[static]*
+- **`0x004FF140`** - Constant X axis vector (1,0,0,0): reference axis for the rider rim-light yaw calculation and used by `0x00123210` to transform the stage-teleport destination direction. *[static]*
+- **`0x004FF160`** - Constant Z axis vector (0,0,1,0): rotation axis for the animation root and for MultiSpline car rotation. *[static]*
+- **`0x004FF1A0`** - Identity matrix constant copied by the sky box draw `0x00353B10` as the sky's base transform; its translation row is then replaced with the camera position. *[static]*
+- **`0x00501420`** - Light-glow material template used by `0x002E3578`. *[static]*
+- **`0x00504FB8`** - Sine table used for HUD pulse effects. *[static]*
+- **`0x0050A8E8`** - Sound driver state; `+0x2A` holds the mixer rate 36000. *[PS2]*
+- **`0x0050AA5D`** - Sound driver master volume byte = trunc(0.909 * 127) = 115 (0.909 being the 10/11 master channel volume at `0x0049EA90`); scales every voice and stream linearly. *[PS2]*
+- **`0x00517610`** - Audio pathfinder slots: 4 x 0x928 bytes (slot i at `0x00517610 + 0x928*i`). +0x30 id, +0x34 mpf, +0x38.. table pointers, +0x58[track] voices, +0xBC 16 s16 registers, +0xDC 16 pending event copies with their count at +0x91C. Zeroed by the loader `0x003D2350`. *[PS2]*
+- **`0x005305F0`** - Collectible set key base word: profile collectible record = (setKey + *0x005305F0) * 12. *[static]*
+- **`0x005305F9`** - Mode flag byte: 0 only in Conquer the Mountain (1 in every Single Event state); all career message posting requires 0. *[PS2]*
+- **`0x00530600`** - Trick score definition table, 8 bytes per score id: signed begin-point word then signed hold-point word. Read by the score begin `0x00119708` (begin scaled by 1e-4, hold by float `0x35DFB23B` per tick); used by the uber trick rows. *[PS2]*
+- **`0x005308D0`** - Global flag word: bit 9 disables the race/slope-style checkpoint bonus (checked in `0x0010E558`); bits 6/8/7 probably disable builtin-99 selectors 0/1/2 (writer unconfirmed). *[PS2]*
+- **`0x005308D8`** - Per-character attribute maximum bytes at `0x005308D8 + char*15 + 8 + k`; 11 for every rider on a fresh profile (where every raw attribute is 5). *[static]*
+- **`0x00530970`** - Character database table: 10 rider rows of 0x88 bytes indexed by character id 0..9, filled by `0x00149C84`. Row: +0x00 long name, +0x20 first name, +0x30 nickname, +0x40 weight (integer collision weight, read by `0x0011FF98`), +0x44 stance, +0x48 model size, +0x4C blood type, +0x5C female, +0x60 age, +0x64 height, +0x74 nationality. *[static]*
+- **`0x00530EC0`** - Per-bank, per-character Uber selection bytes at `0x00530EC0 + bank*0x13EC + char*0x1FE + grabSlot*6 + (tier >= 5)`; byte +0 is the hidden base Uber (tier < 5), +1 the lodge Ubertrick Setup selection (tier >= 5). *[PS2]*
+- **`0x00534FE0`** - Setup slot array, 0x1C bytes per player slot: chosen base character at +0x11 and cheat character id at +0x12. *[PS2]*
+- **`0x00535538`** - Runtime rider attribute bank: raw byte = `0x00535538 + bank*70 + char*7 + k` (7 attributes per character, 70 bytes per player/bank). stat_k = int(raw_k/5) / max_k (float divide); level 1 yields 1/11 (`0x3DBA2E8C`). *[static]*
+- **`0x00535610`** - Profile options word: bits 0..3 music/MC volume, 8..11 SFX volume, 12..13 sound mode, 17 DJ speech, 18 EA SPORTS BIG Talk, 19 speed in km/h, 20..21 widescreen (0 off, 1 16:9, 2 anamorphic; setter `0x0015BEE8`, front-end store `0x00189D14`), 22.. language (1 English, 2 French, 4 German, 8 Spanish; documented as bits 22..24), 30..31 HUD level (0 Full, 1 Minimal, 2 None). Screen position bytes follow at `0x00535615`/`0x00535616`. *[PS2]*
+- **`0x00535615`** - Profile screen position y, signed byte in -20..20. *[PS2]*
+- **`0x00535616`** - Profile screen position x, signed byte in -20..20. *[PS2]*
+- **`0x00535B20`** - Race copy of the participant setup: per slot base character and cheat id (the human's entry holds base 4 and cheat id 10..29 when a cheat skin is used). +0x10 is read as the profile bank (& 1) and +0x11 as the character; the byte at +0x10 (`0x00535B30`) is also documented as the Pro controller flag. *[PS2]*
+- **`0x00535B30`** - Controller 1P setting in the race copy area: 1 = Pro, which selects the compiled INPUT2.MAP input map (the compiled map context is on the heap). The same byte is also read as race copy `+0x10` profile bank (& 1); the relation is unresolved. *[PS2]*
+- **`0x00535BC8`** - Global game mode settings block (name not known); `+0x48` (`0x00535C10`) selects the event load screen (5 or 6 selects the out-of-lodge load) and `+0x49` (`0x00535C11`) is the play-type byte (0 Conquer the Mountain, 2 multiplayer, otherwise Quick Play). *[static]*
+- **`0x00535C04`** - Number of computer riders spawned: 5 in races, 1 in slope style, 0 in pipe/big air. *[PS2]*
+- **`0x00535C08`** - Current course index (row of the course table `0x0043D950`; byte or word): 0-13 events, 14-16 backcountry, 17-21 stations. Set at `0x0022DF50`, changing on the first streamer pass after a streaming request (e.g. a free-ride location crossing). Read by `0x00144C78` for the course peak (peak rival `0x00145750`); peak-run split handlers fire when it is 17..21. *[static]*
+- **`0x00535C10`** - Event kind byte (settings block `0x00535BC8` + 0x48): 0 race, 1 slope style, 2 big air, 3 half pipe, 4 free ride (also missions), 5 time challenge (rival time, peak races), 6 points challenge (rival points, peak jams). Set by `0x00144DF0`; related tables `0x0043E7D0`/`0x0043E978`; builtin 43 compares it with table `0x004465F8`. *[PS2]*
+- **`0x00535C11`** - Session/game-path byte (settings block `0x00535BC8` + 0x49): 0 Conquer the Mountain (career, free ride, peak runs), 1 single event/Quick Play, 2 multiplayer. In single events listed stage collectibles become DeadNodes, career keeps uncollected ones (via `0x0030C4A8`). Gates `0x0014EFA8` (career base scale), the Post_Selection speech (`0x001A0358`), event-start roster building (`0x0023A108`) and the PA_Medal_Run_Intro speech at GO (requires 0); read as a signed byte by NPC pacing `0x0010DEF0`. *[PS2]*
+- **`0x00535C12`** - Game mode byte, equal to the freestyle handler kind (GMM+8); names at `0x0043E978`. Values: 0 race, 1 slope style, 2 half pipe, 3 big air, 4 rival time, 5 rival points, 6-8 peak races, 9-11 peak jams, 12 free ride, 13 mission (one source gives the range as 0..11). Set by `0x001451E8`; selects HUD flags via `0x00478078`; `0x0010E558` checks == 1 so the race bonus applies only in slope style. *[PS2]*
+- **`0x00536640`** - Per-slot result array (6 words): posted freestyle scores, or result times for race/rival results with 360000 meaning DNF/give-up. *[PS2]*
+- **`0x00536668`** - GameModeMan handler table, filled by `0x00237CF8`. *[static]*
+- **`0x005366A8`** - Per-slot gave-up flag array; `0x005366D0` is also documented as the per-slot give-up flags, so one of the two attributions may be off (unconfirmed). *[static]*
+- **`0x005366D0`** - Per-slot give-up flags, read by the results rows (`0x001E5F6C`) and the finish overlay setup (`0x001E8D38`). *[PS2]*
+- **`0x00536708`** - Rider slot per finishing place ([0] = winner); the finish order of the last heat, used to fill semi/final slots with the qualifiers' top three. *[PS2]*
+- **`0x00536730`** - Finishing place per rider slot (0 = first); also read by the speech place mask `0x002A1E68` (table `0x00483070`). *[PS2]*
