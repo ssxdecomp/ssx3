@@ -58,7 +58,52 @@ INCLUDE_ASM("ai/rider", func_0011DE60);
 
 INCLUDE_ASM("ai/rider", func_0011DF18);
 
+struct cQuat {
+    float x, y, z, w;
+} __attribute__((aligned(16)));
+
+extern "C" void func_0031BE50(float angle, float* s, float* c);
+extern "C" void cRider_updateOrientationImplicit(void* self);
+
+// Pre-multiplies the physical quaternion (+0x120) by a rotation of `angle`
+// about `axis` (not normalised here), then rebuilds the orientation.
+//85.52%
 INCLUDE_ASM("ai/rider", func_0011DFE0);
+#ifdef SKIP_ASM
+extern "C" void func_0011DFE0(void* self, float* axis, float angle)
+{
+    cQuat t;
+    cQuat q;
+    cQuat r;
+    float s;
+    float c;
+
+    func_0031BE50(angle * 0.5f, &s, &c);
+    q.x = s * axis[0];
+    q.y = s * axis[1];
+    q.z = s * axis[2];
+    q.w = c;
+    __asm__ volatile(
+        ".set noreorder\n"
+        "lqc2       $vf4, %1\n"
+        "lqc2       $vf5, %2\n"
+        "vmul.xyzw  $vf7, $vf4, $vf5\n"
+        "vopmula.xyz ACC, $vf4, $vf5\n"
+        "vopmsub.xyz $vf6, $vf5, $vf4\n"
+        "vmulaw.xyz ACC, $vf4, $vf5w\n"
+        "vmaddaw.xyz ACC, $vf5, $vf4w\n"
+        "vsubax.w   ACC, $vf7, $vf7x\n"
+        "vmsubay.w  ACC, $vf0, $vf7y\n"
+        "vmsubz.w   $vf8, $vf0, $vf7z\n"
+        "vmaddw.xyz $vf8, $vf6, $vf0w\n"
+        "sqc2       $vf8, %0\n"
+        ".set reorder\n"
+        : "=m"(r)
+        : "m"(q), "m"(*(cQuat*)((char*)self + 0x120)));
+    *(cQuat*)((char*)self + 0x120) = t = r;
+    cRider_updateOrientationImplicit(self);
+}
+#endif
 
 //100%
 INCLUDE_ASM("ai/rider", cRider_updateOrientationImplicit);
