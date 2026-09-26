@@ -1,5 +1,6 @@
 #include "common.h"
-void cBxPseudoRng_Seed(uint* param_1, uint seedAddend);
+extern "C" void cBxPseudoRng_Seed(uint* state, uint seed);
+extern "C" uint cBxPseudoRng_NextInt(uint* state);
 void BXsrand(uint seed);
 extern const uint D_004FF018[];
 
@@ -91,6 +92,46 @@ void* func_00317930(void* self)
 }
 #endif
 
+//100%
 INCLUDE_ASM("bx/bxrandom", cBxPseudoRng_Seed);
+#ifdef SKIP_ASM
+extern "C" void cBxPseudoRng_Seed(uint* state, uint seed)
+{
+    ulong x = seed;
 
+    x += 0xF22D0E56; state[0] = x;
+    x += 0x96041893; state[1] = x;
+    x += 0x3DF3B646; state[2] = x;
+    x += 0x40DDE76D; state[3] = x;
+    x += 0x97327AE1; state[4] = x;
+    x += 0xD1A9FBE7; state[5] = x;
+}
+#endif
+
+//100%
 INCLUDE_ASM("bx/bxrandom", cBxPseudoRng_NextInt);
+#ifdef SKIP_ASM
+extern "C" uint cBxPseudoRng_NextInt(uint* state)
+{
+    uint a = state[5];
+    uint b = state[4];
+    uint t = a + b;
+    uint c = 0;
+
+    if (t < a || t < b)
+        c = 1;
+    state[4] = t;
+    t = t + state[3] + c; c = t < state[3]; state[3] = t;
+    t = t + state[2] + c; c = t < state[2]; state[2] = t;
+    t = t + state[1] + c; c = t < state[1]; state[1] = t;
+    t = t + state[0] + c; state[0] = t;
+
+    if (++state[5] == 0 && ++state[4] == 0 && ++state[3] == 0 &&
+        ++state[2] == 0 && ++state[1] == 0)
+    {
+        state[0] = t + 1;
+        t = state[0];
+    }
+    return t;
+}
+#endif
