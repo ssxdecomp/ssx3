@@ -28,3 +28,6 @@ venv/
 
 temp_sheet.xlsx
 objdiff.json
+# macOS tooling (downloaded, not committed)
+tools/wibo/
+tools/objdiff/objdiff-cli-macos
