@@ -60,7 +60,64 @@ INCLUDE_ASM("ai/rider", func_0011DF18);
 
 INCLUDE_ASM("ai/rider", func_0011DFE0);
 
+//100%
 INCLUDE_ASM("ai/rider", cRider_updateOrientationImplicit);
+#ifdef SKIP_ASM
+// Normalises the physical quaternion (+0x120) and rebuilds the orientation
+// matrix at +0x1A0 (rows right/forward/up, position +0x110 as row 3), VU0.
+extern "C" void cRider_updateOrientationImplicit(void* self)
+{
+    __asm__ volatile(
+        ".set noreorder\n"
+        "lqc2       $vf3, %1\n"
+        "vaddw.x    $vf6, $vf0, $vf0w\n"
+        "vmul.xyzw  $vf4, $vf3, $vf3\n"
+        "vadday.x   ACC, $vf4, $vf4y\n"
+        "vmaddaz.x  ACC, $vf6, $vf4z\n"
+        "vmaddw.x   $vf4, $vf6, $vf4w\n"
+        "vrsqrt     Q, $vf0w, $vf4x\n"
+        "vwaitq\n"
+        "vmulq.xyzw $vf5, $vf3, Q\n"
+        "sqc2       $vf5, %1\n"
+        "lqc2       $vf4, %1\n"
+        "lqc2       $vf3, %2\n"
+        "vaddw.xyz  $vf1, $vf0, $vf0w\n"
+        "vadd.xyz   $vf5, $vf4, $vf4\n"
+        "vsub.w     $vf10, $vf10, $vf10\n"
+        "vsub.w     $vf11, $vf11, $vf11\n"
+        "vsub.w     $vf12, $vf12, $vf12\n"
+        "vmul.xyz   $vf6, $vf5, $vf4\n"
+        "vmulw.xyz  $vf7, $vf5, $vf4w\n"
+        "vopmula.xyz ACC, $vf5, $vf4\n"
+        "vmadd.xyz  $vf8, $vf0, $vf0\n"
+        "vsubay.x   ACC, $vf1, $vf6y\n"
+        "vmsubz.x   $vf10, $vf1, $vf6z\n"
+        "vsubaz.y   ACC, $vf1, $vf6z\n"
+        "vmsubx.y   $vf11, $vf1, $vf6x\n"
+        "vsubax.z   ACC, $vf1, $vf6x\n"
+        "vmsuby.z   $vf12, $vf1, $vf6y\n"
+        "vaddaz.y   ACC, $vf0, $vf8z\n"
+        "vmaddz.y   $vf10, $vf1, $vf7z\n"
+        "vaddax.z   ACC, $vf0, $vf8x\n"
+        "vmaddx.z   $vf11, $vf1, $vf7x\n"
+        "vaddax.y   ACC, $vf0, $vf8x\n"
+        "vmsubx.y   $vf12, $vf1, $vf7x\n"
+        "vadday.z   ACC, $vf0, $vf8y\n"
+        "vmsuby.z   $vf10, $vf1, $vf7y\n"
+        "vaddaz.x   ACC, $vf0, $vf8z\n"
+        "vmsubz.x   $vf11, $vf1, $vf7z\n"
+        "vadday.x   ACC, $vf0, $vf8y\n"
+        "vmaddy.x   $vf12, $vf1, $vf7y\n"
+        "sqc2       $vf3, 0x30(%0)\n"
+        "sqc2       $vf10, 0x0(%0)\n"
+        "sqc2       $vf11, 0x10(%0)\n"
+        "sqc2       $vf12, 0x20(%0)\n"
+        ".set reorder\n"
+        :
+        : "r"((char*)self + 0x1a0), "m"(*(cQuad128*)((char*)self + 0x120)), "m"(*(cQuad128*)((char*)self + 0x110))
+        : "memory");
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_0011E150);
 
@@ -131,9 +188,36 @@ extern "C" void* func_0011FF48(void* dst, void* self)
 }
 #endif
 
-INCLUDE_ASM("ai/rider", cRider_getMass);
+extern "C" void* cBE_getBE();
+void* cBE_getInterface(void* be, int kind);
+int cBECharacterInterface_getWeight(void* iface, int character);
+extern "C" float cBEStatInterface_getCollisionAttrib(void* iface, int character, int stat);
 
+//100%
+INCLUDE_ASM("ai/rider", cRider_getMass);
+#ifdef SKIP_ASM
+extern "C" float cRider_getMass(void* self)
+{
+    int weight = cBECharacterInterface_getWeight(cBE_getInterface(cBE_getBE(), 2), *(int*)((char*)self + 0x86c));
+    float toughness = cBEStatInterface_getCollisionAttrib(cBE_getInterface(cBE_getBE(), 3),
+                                                          *(int*)((char*)self + 0x86c), *(int*)((char*)self + 0xb34));
+
+    return (float)weight * (toughness * 1.5003352165222168f + 1.0f) * (*(float*)((char*)self + 0x2fc) * 10.0f + 1.0f);
+}
+#endif
+
+extern "C" float func_00149690(void* iface, int character, int stat);
+
+// Grab playback speed: 1 + grab stat * 0.2998.
+//100%
 INCLUDE_ASM("ai/rider", func_00120038);
+#ifdef SKIP_ASM
+extern "C" float func_00120038(void* self)
+{
+    void* iface = cBE_getInterface(cBE_getBE(), 3);
+    return func_00149690(iface, *(int*)((char*)self + 0x86c), *(int*)((char*)self + 0xb34)) * 0.29988324642181396f + 1.0f;
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00120090);
 
@@ -240,14 +324,14 @@ INCLUDE_ASM("ai/rider", func_00122C28);
 
 INCLUDE_ASM("ai/rider", func_00122C98);
 
-extern "C" void* func_001231A8(void* self);
+extern "C" int func_001231A8(void* self);
 
 //100%
 INCLUDE_ASM("ai/rider", func_00122CD0__FPv);
 #ifdef SKIP_ASM
 void* func_00122CD0(void* self)
 {
-    return func_001231A8(self);
+    return (void*)func_001231A8(self);
 }
 #endif
 
@@ -263,7 +347,21 @@ INCLUDE_ASM("ai/rider", func_00123128);
 
 INCLUDE_ASM("ai/rider", func_00123168);
 
+// Grounded predicate: motion 0, or motion 2 with owner+0x30 == 0.
+//100%
 INCLUDE_ASM("ai/rider", func_001231A8);
+#ifdef SKIP_ASM
+extern "C" int func_001231A8(void* self)
+{
+    int grounded = 0;
+
+    if (func_0011FE98(self) == 0 ||
+        (func_0011FE98(self) == 2 && *(int*)((char*)*(void**)((char*)self + 0x77c) + 0x30) == 0)) {
+        grounded = 1;
+    }
+    return grounded;
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00123210);
 
