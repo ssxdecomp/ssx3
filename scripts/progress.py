@@ -1,10 +1,17 @@
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 OBJDIFF_CLI = ROOT / "tools" / "objdiff" / "objdiff-cli"
+if os.environ.get("OBJDIFF_CLI"):
+    OBJDIFF_CLI = Path(os.environ["OBJDIFF_CLI"])
+elif sys.platform == "darwin":
+    # The committed objdiff-cli is a Linux binary; on macOS use the
+    # objdiff-cli-macos-* release asset saved as tools/objdiff/objdiff-cli-macos.
+    OBJDIFF_CLI = ROOT / "tools" / "objdiff" / "objdiff-cli-macos"
 
 
 def generate_report():

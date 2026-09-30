@@ -27,6 +27,11 @@ MAP_PATH = f"{OUTDIR}/{BASENAME}.map"
 PRE_ELF_PATH = f"{OUTDIR}/{BASENAME}.elf"
 
 COMMON_INCLUDES = "-Iinclude -isystem include/sdk/ee -isystem include/gcc"
+if sys.platform == "darwin":
+    # macOS has no /usr/include for the compiler to fall back on (under Linux
+    # + Wine it picks up the host's glibc headers there, e.g. <stdint.h>), so
+    # supply the few headers the sources need from tools/macos/include.
+    COMMON_INCLUDES += " -isystem tools/macos/include"
 
 
 CC_DIR = f"{TOOLS_DIR}/cc/eegcc-2.95.3-V1.36"
@@ -53,6 +58,14 @@ WINE = "wine"
 if sys.platform == "linux" or sys.platform == "linux2":
     COMPILE_C_RULE = f"{WINE} {COMPILE_C_RULE}"
     COMPILE_CXX_RULE = f"{WINE} {COMPILE_CXX_RULE}"
+elif sys.platform == "darwin":
+    # macOS: run the Windows compiler with wibo (decompals/wibo, the
+    # `wibo-macos` release asset; runs under Rosetta 2 on Apple Silicon)
+    # instead of Wine. Uses $WIBO, else tools/wibo/wibo, else `wibo` on PATH.
+    _wibo_local = TOOLS_DIR / "wibo" / "wibo"
+    WIBO = os.environ.get("WIBO") or (str(_wibo_local) if _wibo_local.exists() else "wibo")
+    COMPILE_C_RULE = f"{WIBO} {COMPILE_C_RULE}"
+    COMPILE_CXX_RULE = f"{WIBO} {COMPILE_CXX_RULE}"
 
 def clean():
     files_to_clean = [
@@ -201,10 +214,18 @@ def build_stuff(linker_entries: List[LinkerEntry], skip_checksum=False, objects_
 
     ld_args = "-EL -T config/undefined_syms_auto.txt -T config/undefined_funcs_auto.txt -Map $mapfile -T $in -o $out"
 
+    as_cpp = "cpp"
+    as_filter = ""
+    if sys.platform == "darwin":
+        # Apple's /usr/bin/cpp mis-parses `-isystem DIR`; use clang directly.
+        # Also normalise $t0-$t7 to numeric names (see tools/macos/o32_gpr_names.pl).
+        as_cpp = "clang -E -x assembler-with-cpp"
+        as_filter = "perl -p tools/macos/o32_gpr_names.pl | "
+
     ninja.rule(
         "as",
         description="as $in",
-        command=f"cpp {COMMON_INCLUDES} $in -o  - | {cross}as -no-pad-sections -EL -march=5900 -mabi=eabi -Iinclude -o $out",
+        command=f"{as_cpp} {COMMON_INCLUDES} $in -o  - | {as_filter}{cross}as -no-pad-sections -EL -march=5900 -mabi=eabi -Iinclude -o $out",
     )
 
     ninja.rule(

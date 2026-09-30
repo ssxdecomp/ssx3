@@ -131,9 +131,36 @@ extern "C" void* func_0011FF48(void* dst, void* self)
 }
 #endif
 
-INCLUDE_ASM("ai/rider", cRider_getMass);
+extern "C" void* cBE_getBE();
+void* cBE_getInterface(void* be, int kind);
+int cBECharacterInterface_getWeight(void* iface, int character);
+extern "C" float cBEStatInterface_getCollisionAttrib(void* iface, int character, int stat);
 
+//100%
+INCLUDE_ASM("ai/rider", cRider_getMass);
+#ifdef SKIP_ASM
+extern "C" float cRider_getMass(void* self)
+{
+    int weight = cBECharacterInterface_getWeight(cBE_getInterface(cBE_getBE(), 2), *(int*)((char*)self + 0x86c));
+    float toughness = cBEStatInterface_getCollisionAttrib(cBE_getInterface(cBE_getBE(), 3),
+                                                          *(int*)((char*)self + 0x86c), *(int*)((char*)self + 0xb34));
+
+    return (float)weight * (toughness * 1.5003352165222168f + 1.0f) * (*(float*)((char*)self + 0x2fc) * 10.0f + 1.0f);
+}
+#endif
+
+extern "C" float func_00149690(void* iface, int character, int stat);
+
+// Grab playback speed: 1 + grab stat * 0.2998.
+//100%
 INCLUDE_ASM("ai/rider", func_00120038);
+#ifdef SKIP_ASM
+extern "C" float func_00120038(void* self)
+{
+    void* iface = cBE_getInterface(cBE_getBE(), 3);
+    return func_00149690(iface, *(int*)((char*)self + 0x86c), *(int*)((char*)self + 0xb34)) * 0.29988324642181396f + 1.0f;
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00120090);
 
@@ -240,14 +267,14 @@ INCLUDE_ASM("ai/rider", func_00122C28);
 
 INCLUDE_ASM("ai/rider", func_00122C98);
 
-extern "C" void* func_001231A8(void* self);
+extern "C" int func_001231A8(void* self);
 
 //100%
 INCLUDE_ASM("ai/rider", func_00122CD0__FPv);
 #ifdef SKIP_ASM
 void* func_00122CD0(void* self)
 {
-    return func_001231A8(self);
+    return (void*)func_001231A8(self);
 }
 #endif
 
@@ -263,7 +290,21 @@ INCLUDE_ASM("ai/rider", func_00123128);
 
 INCLUDE_ASM("ai/rider", func_00123168);
 
+// Grounded predicate: motion 0, or motion 2 with owner+0x30 == 0.
+//100%
 INCLUDE_ASM("ai/rider", func_001231A8);
+#ifdef SKIP_ASM
+extern "C" int func_001231A8(void* self)
+{
+    int grounded = 0;
+
+    if (func_0011FE98(self) == 0 ||
+        (func_0011FE98(self) == 2 && *(int*)((char*)*(void**)((char*)self + 0x77c) + 0x30) == 0)) {
+        grounded = 1;
+    }
+    return grounded;
+}
+#endif
 
 INCLUDE_ASM("ai/rider", func_00123210);
 
