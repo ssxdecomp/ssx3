@@ -1,5 +1,5 @@
 #include "visualfx/crowdrender2d.h"
-#include <stdint.h>
+#include <common.h>
 
 //100%
 //https://decomp.me/scratch/pOTwa
