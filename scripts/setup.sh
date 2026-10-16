@@ -23,7 +23,6 @@ download "https://github.com/AngheloAlf/SN-Systems-ProDG_for_PS2_3.01/releases/l
 # wine regedit prodg_env.reg
 
 # Extract the compiler into the tools dir
-mkdir $TOP/tools
 mkdir $TOP/tools/cc
 mkdir $TOP/tools/cc/eegcc-2.95.3-V1.36
 echo "Extracting compiler to $TOP/tools..."
