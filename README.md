@@ -12,28 +12,78 @@ You will need:
 - a copy of binutils for the `mips-linux-gnu` target
 - A NTSC-U disc image (obtained legally)
 
-### Debian/Ubuntu
+### Setup on Windows from Scratch (Ubuntu WSL2)
 
-`# apt install -y binutils-mips-linux-gnu ninja-build wine`  
+1. Install Ubuntu WSL2.
+2. Open a Ubuntu WSL terminal and `cd` into a path inside the Linux filesystem (not `/mnt/c/...`), e.g. `cd ~`.
+3. Clone the repo:
+   ```bash
+   git clone https://github.com/ssxdecomp/ssx3
+   cd ssx3
+   ```
+4. Install dependencies:
+   ```bash
+   sudo dpkg --add-architecture i386
+   sudo apt-get update
+   sudo apt install -y binutils-mips-linux-gnu ninja-build wine python3.12-venv cpp
+   ```
+5. Run the setup script:
+   ```bash
+   chmod +x ./scripts/setup.sh
+   ./scripts/setup.sh
+   ```
+6. Place the game files into the newly made `disc` directory.
+7. Set up the Python virtual environment:
+   ```bash
+   python3 -m venv venv
+   . venv/bin/activate
+   pip install -r requirements.txt
+   ```
+8. Run the first build:
+   ```bash
+   python3 configure.py -o -c
+   ninja
+   ```
 
-Download required tools:  
+#### Rebuilding after closing and reopening WSL
 
-```bash  
-# ./scripts/setup.sh
-```
-
-Make a `disc` directory in the root of this repository, and copy the files from the NTSC-U game disc.
-
-Setup a venv for splat:
+Once set up, you don't need to repeat the steps above. Just:
 
 ```bash
-$ python -m venv venv  
-$ . venv/bin/activate  
-(venv) $ pip install -r requirements.txt  
+cd ssx3
+. venv/bin/activate
+python3 configure.py -o -c
+ninja
+```
+
+### Debian/Ubuntu
+
+Install required packages:
+
+```bash
+sudo apt install -y binutils-mips-linux-gnu ninja-build wine
+```
+
+Download required tools:
+
+```bash
+./scripts/setup.sh
+```
+
+Make a `disc` directory in the root of this repository, and copy the files from the NTSC-U game disc into it.
+
+Set up a venv for splat:
+
+```bash
+python -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
 ```
 
 `./configure.py` ultimately does the setup.
 
-## Building
+#### Building
 
-`ninja` should do the trick.
+```bash
+ninja
+```
