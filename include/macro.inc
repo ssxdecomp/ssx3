@@ -15,13 +15,11 @@
 .endm
 
 # Marks a function as not-yet-matched. Current splat/spimdisasm emits this
-# unconditionally before every function split, regardless of match status;
-# it's purely an informational marker (scripts/matching_report.py filters
-# symbols ending in .NON_MATCHING when reading objdiff's symbol table), so
-# this just emits that marker object and has no effect on the actual code.
+# unconditionally before every function split, regardless of match status.
+# Intentionally a no-op: emitting a `\label\().NON_MATCHING` object here puts
+# a duplicate symbol on top of every function in obj/target, which objdiff
+# lists as an unmatched symbol (obj/current is built with -DSKIP_ASM and
+# never has them). objdiff already treats functions missing from
+# obj/current as unmatched, so the marker isn't needed.
 .macro nonmatching label, size=1
-    .global \label\().NON_MATCHING
-    .type \label\().NON_MATCHING, @object
-    .size \label\().NON_MATCHING, \size
-    \label\().NON_MATCHING:
 .endm
