@@ -57,11 +57,14 @@ def per_unit_matched_counts(report):
 
 
 def diff_unit(target_path, base_path, tmp_path):
-    result = subprocess.run(
-        [str(OBJDIFF_CLI), "diff", "-1", target_path, "-2", base_path, "-o", str(tmp_path), "--format", "json"],
-        capture_output=True,
-        text=True,
-    )
+    # With no base, objdiff lists the target's symbols with no match_percent (= Not Started).
+    cmd = [str(OBJDIFF_CLI), "diff", "-1", target_path]
+    if base_path:
+        cmd += ["-2", base_path]
+    cmd += ["-o", str(tmp_path), "--format", "json"]
+    if tmp_path.exists():
+        tmp_path.unlink()
+    result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0 or not tmp_path.exists():
         return None
     try:
@@ -78,8 +81,10 @@ def collect_functions(units):
         target_path = u.get("target_path")
         if not target_path or not (ROOT / target_path).exists():
             continue
-        base_path = u.get("base_path") or target_path.replace("obj/target", "obj/current")
-        if not (ROOT / base_path).exists():
+        # Units with no source file have no base_path. Don't fall back to obj/current:
+        # that's the same asm assembled again, so every function would diff as 100%.
+        base_path = u.get("base_path")
+        if base_path and not (ROOT / base_path).exists():
             continue
 
         data = diff_unit(target_path, base_path, tmp_path)

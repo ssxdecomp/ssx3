@@ -51,28 +51,778 @@ segments:
       - [0x1000, asm, sce/crt0]
         
       - [0x1218, asm]
+      - [0x14a98, cpp, _Unknown/func_00113A98]  # needs to be sorted
+      - [0x14aa0, asm]
+      - [0x14cb8, cpp, _Unknown/func_00113CB8]  # needs to be sorted
+      - [0x14cc0, asm]
+      - [0x14ce0, cpp, _Unknown/func_00113CE0]  # needs to be sorted
+      - [0x14ce8, asm]
+      - [0x14d10, cpp, _Unknown/func_00113D10]  # needs to be sorted
+      - [0x14d18, asm]
+      - [0x14d28, cpp, _Unknown/func_00113D28]  # needs to be sorted
+      - [0x14d30, cpp, _Unknown/func_00113D30]  # needs to be sorted
+      - [0x14d38, asm]
+      - [0x14e40, cpp, _Unknown/func_00113E40]  # needs to be sorted
+      - [0x14e48, cpp, _Unknown/func_00113E48]  # needs to be sorted
+      - [0x14e50, asm]
+      - [0x14e70, cpp, _Unknown/func_00113E70]  # needs to be sorted
+      - [0x14e78, cpp, _Unknown/func_00113E78]  # needs to be sorted
+      - [0x14e80, asm]
+      - [0x17930, cpp, _Unknown/func_00116930]  # needs to be sorted
+      - [0x17938, asm]
+      - [0x26ad0, cpp, _Unknown/func_00125AD0]  # needs to be sorted
+      - [0x26ad8, asm]
+      - [0x2b558, cpp, _Unknown/func_0012A558]  # needs to be sorted
+      - [0x2b560, asm]
+      - [0x2f9b0, cpp, _Unknown/func_0012E9B0]  # needs to be sorted
+      - [0x2f9b8, asm]
+      - [0x37978, cpp, _Unknown/func_00136978]  # needs to be sorted
+      - [0x37980, asm]
+      - [0x37f28, cpp, _Unknown/func_00136F28]  # needs to be sorted
+      - [0x37f30, asm]
+      - [0x3aa18, cpp, _Unknown/func_00139A18]  # needs to be sorted
+      - [0x3aa20, asm]
+      - [0x416c8, cpp, _Unknown/func_001406C8]  # needs to be sorted
+      - [0x416d0, asm]
+      - [0x41708, cpp, _Unknown/func_00140708]  # needs to be sorted
+      - [0x41710, cpp, _Unknown/func_00140710]  # needs to be sorted
+      - [0x41718, cpp, _Unknown/func_00140718]  # needs to be sorted
+      - [0x41720, cpp, _Unknown/func_00140720]  # needs to be sorted
+      - [0x41728, cpp, _Unknown/func_00140728]  # needs to be sorted
+      - [0x41730, cpp, _Unknown/func_00140730]  # needs to be sorted
+      - [0x41738, asm]
+      - [0x41c68, cpp, _Unknown/func_00140C68]  # needs to be sorted
+      - [0x41c70, cpp, _Unknown/func_00140C70]  # needs to be sorted
+      - [0x41c78, cpp, _Unknown/func_00140C78]  # needs to be sorted
+      - [0x41c80, cpp, _Unknown/func_00140C80]  # needs to be sorted
+      - [0x41c88, asm]
+      - [0x45068, cpp, _Unknown/func_00144068]  # needs to be sorted
+      - [0x45070, asm]
+      - [0x4b078, cpp, _Unknown/func_0014A078]  # needs to be sorted
+      - [0x4b080, asm]
+      - [0x4b180, cpp, _Unknown/func_0014A180]  # needs to be sorted
+      - [0x4b188, asm]
+      - [0x50100, cpp, _Unknown/func_0014F100]  # needs to be sorted
+      - [0x50108, asm]
+      - [0x557d8, cpp, _Unknown/func_001547D8]  # needs to be sorted
+      - [0x557e0, cpp, _Unknown/func_001547E0]  # needs to be sorted
+      - [0x557e8, asm]
+      - [0x559e0, cpp, _Unknown/func_001549E0]  # needs to be sorted
+      - [0x559e8, asm]
+      - [0x56380, cpp, _Unknown/func_00155380]  # needs to be sorted
+      - [0x56388, cpp, _Unknown/func_00155388]  # needs to be sorted
+      - [0x56390, asm]
+      - [0x56aa0, cpp, _Unknown/func_00155AA0]  # needs to be sorted
+      - [0x56aa8, cpp, _Unknown/func_00155AA8]  # needs to be sorted
+      - [0x56ab0, asm]
+      - [0x5cb00, cpp, _Unknown/func_0015BB00]  # needs to be sorted
+      - [0x5cb08, cpp, _Unknown/func_0015BB08]  # needs to be sorted
+      - [0x5cb10, cpp, _Unknown/func_0015BB10]  # needs to be sorted
+      - [0x5cb18, cpp, _Unknown/func_0015BB18]  # needs to be sorted
+      - [0x5cb20, asm]
+      - [0x5ccc0, cpp, _Unknown/func_0015BCC0]  # needs to be sorted
+      - [0x5ccc8, cpp, _Unknown/func_0015BCC8]  # needs to be sorted
+      - [0x5ccd0, asm]
+      - [0x5d6c8, cpp, _Unknown/func_0015C6C8]  # needs to be sorted
+      - [0x5d6d0, cpp, _Unknown/func_0015C6D0]  # needs to be sorted
+      - [0x5d6d8, cpp, _Unknown/func_0015C6D8]  # needs to be sorted
+      - [0x5d6e0, cpp, _Unknown/func_0015C6E0]  # needs to be sorted
+      - [0x5d6e8, asm]
+      - [0x5d7d0, cpp, _Unknown/func_0015C7D0]  # needs to be sorted
+      - [0x5d7d8, cpp, _Unknown/func_0015C7D8]  # needs to be sorted
+      - [0x5d7e0, asm]
+      - [0x60d48, cpp, _Unknown/func_0015FD48]  # needs to be sorted
+      - [0x60d50, asm]
+      - [0x63560, cpp, _Unknown/func_00162560]  # needs to be sorted
+      - [0x63568, asm]
+      - [0x645c0, cpp, _Unknown/func_001635C0]  # needs to be sorted
+      - [0x645c8, asm]
+      - [0x68e18, cpp, _Unknown/func_00167E18]  # needs to be sorted
+      - [0x68e20, cpp, _Unknown/func_00167E20]  # needs to be sorted
+      - [0x68e28, cpp, _Unknown/func_00167E28]  # needs to be sorted
+      - [0x68e30, asm]
+      - [0x68e58, cpp, _Unknown/func_00167E58]  # needs to be sorted
+      - [0x68e60, cpp, _Unknown/func_00167E60]  # needs to be sorted
+      - [0x68e68, asm]
+      - [0x68e90, cpp, _Unknown/func_00167E90]  # needs to be sorted
+      - [0x68e98, asm]
+      - [0x68fb8, cpp, _Unknown/func_00167FB8]  # needs to be sorted
+      - [0x68fc0, asm]
+      - [0x68ff8, cpp, _Unknown/func_00167FF8]  # needs to be sorted
+      - [0x69000, cpp, _Unknown/func_00168000]  # needs to be sorted
+      - [0x69008, cpp, _Unknown/func_00168008]  # needs to be sorted
+      - [0x69010, cpp, _Unknown/func_00168010]  # needs to be sorted
+      - [0x69018, asm]
+      - [0x6da08, cpp, _Unknown/func_0016CA08]  # needs to be sorted
+      - [0x6da10, cpp, _Unknown/func_0016CA10]  # needs to be sorted
+      - [0x6da18, asm]
+      - [0x6df40, cpp, _Unknown/func_0016CF40]  # needs to be sorted
+      - [0x6df48, asm]
+      - [0x772a0, cpp, _Unknown/func_001762A0]  # needs to be sorted
+      - [0x772a8, cpp, _Unknown/func_001762A8]  # needs to be sorted
+      - [0x772b0, cpp, _Unknown/func_001762B0]  # needs to be sorted
+      - [0x772b8, asm]
+      - [0x772e0, cpp, _Unknown/func_001762E0]  # needs to be sorted
+      - [0x772e8, cpp, _Unknown/func_001762E8]  # needs to be sorted
+      - [0x772f0, asm]
+      - [0x77318, cpp, _Unknown/func_00176318]  # needs to be sorted
+      - [0x77320, asm]
+      - [0x775f8, cpp, _Unknown/func_001765F8]  # needs to be sorted
+      - [0x77600, asm]
+      - [0x78e28, cpp, _Unknown/func_00177E28]  # needs to be sorted
+      - [0x78e30, asm]
+      - [0x7a730, cpp, _Unknown/func_00179730]  # needs to be sorted
+      - [0x7a738, asm]
+      - [0x95980, cpp, _Unknown/func_00194980]  # needs to be sorted
+      - [0x95988, asm]
+      - [0x96a98, cpp, _Unknown/func_00195A98]  # needs to be sorted
+      - [0x96aa0, asm]
+      - [0x9cfe0, cpp, _Unknown/func_0019BFE0]  # needs to be sorted
+      - [0x9cfe8, asm]
+      - [0xa4300, cpp, _Unknown/func_001A3300]  # needs to be sorted
+      - [0xa4308, asm]
+      - [0xa44a0, cpp, _Unknown/func_001A34A0]  # needs to be sorted
+      - [0xa44a8, cpp, _Unknown/func_001A34A8]  # needs to be sorted
+      - [0xa44b0, asm]
+      - [0xa8bb0, cpp, _Unknown/func_001A7BB0]  # needs to be sorted
+      - [0xa8bb8, asm]
+      - [0xa9768, cpp, _Unknown/func_001A8768]  # needs to be sorted
+      - [0xa9770, asm]
+      - [0xaa4d8, cpp, _Unknown/func_001A94D8]  # needs to be sorted
+      - [0xaa4e0, asm]
+      - [0xd6f38, cpp, _Unknown/func_001D5F38]  # needs to be sorted
+      - [0xd6f40, asm]
+      - [0xda3a8, cpp, _Unknown/func_001D93A8]  # needs to be sorted
+      - [0xda3b0, asm]
+      - [0xda3c0, cpp, _Unknown/func_001D93C0]  # needs to be sorted
+      - [0xda3c8, cpp, _Unknown/func_001D93C8]  # needs to be sorted
+      - [0xda3d0, cpp, _Unknown/func_001D93D0]  # needs to be sorted
+      - [0xda3d8, asm]
+      - [0xda878, cpp, _Unknown/func_001D9878]  # needs to be sorted
+      - [0xda880, asm]
+      - [0xdd930, cpp, _Unknown/func_001DC930]  # needs to be sorted
+      - [0xdd938, cpp, _Unknown/func_001DC938]  # needs to be sorted
+      - [0xdd940, asm]
+      - [0xddca8, cpp, _Unknown/func_001DCCA8]  # needs to be sorted
+      - [0xddcb0, asm]
+      - [0xde918, cpp, _Unknown/func_001DD918]  # needs to be sorted
+      - [0xde920, asm]
+      - [0xdedd8, cpp, _Unknown/func_001DDDD8]  # needs to be sorted
+      - [0xdede0, cpp, _Unknown/func_001DDDE0]  # needs to be sorted
+      - [0xdede8, cpp, _Unknown/func_001DDDE8]  # needs to be sorted
+      - [0xdedf0, cpp, _Unknown/func_001DDDF0]  # needs to be sorted
+      - [0xdedf8, cpp, _Unknown/func_001DDDF8]  # needs to be sorted
+      - [0xdee00, cpp, _Unknown/func_001DDE00]  # needs to be sorted
+      - [0xdee08, cpp, _Unknown/func_001DDE08]  # needs to be sorted
+      - [0xdee10, cpp, _Unknown/func_001DDE10]  # needs to be sorted
+      - [0xdee18, asm]
+      - [0xdefa8, cpp, _Unknown/func_001DDFA8]  # needs to be sorted
+      - [0xdefb0, asm]
+      - [0xdf010, cpp, _Unknown/func_001DE010]  # needs to be sorted
+      - [0xdf018, asm]
+      - [0xdf078, cpp, _Unknown/func_001DE078]  # needs to be sorted
+      - [0xdf080, asm]
+      - [0xdf0e8, cpp, _Unknown/func_001DE0E8]  # needs to be sorted
+      - [0xdf0f0, asm]
+      - [0xdf550, cpp, _Unknown/func_001DE550]  # needs to be sorted
+      - [0xdf558, asm]
+      - [0xdf868, cpp, _Unknown/func_001DE868]  # needs to be sorted
+      - [0xdf870, asm]
+      - [0xdf910, cpp, _Unknown/func_001DE910]  # needs to be sorted
+      - [0xdf918, asm]
+      - [0xdf940, cpp, _Unknown/func_001DE940]  # needs to be sorted
+      - [0xdf948, cpp, _Unknown/func_001DE948]  # needs to be sorted
+      - [0xdf950, asm]
+      - [0xe0578, cpp, _Unknown/func_001DF578]  # needs to be sorted
+      - [0xe0580, asm]
+      - [0xe05c0, cpp, _Unknown/func_001DF5C0]  # needs to be sorted
+      - [0xe05c8, asm]
+      - [0xe0ac0, cpp, _Unknown/func_001DFAC0]  # needs to be sorted
+      - [0xe0ac8, cpp, _Unknown/func_001DFAC8]  # needs to be sorted
+      - [0xe0ad0, asm]
+      - [0xe1770, cpp, _Unknown/func_001E0770]  # needs to be sorted
+      - [0xe1778, cpp, _Unknown/func_001E0778]  # needs to be sorted
+      - [0xe1780, asm]
+      - [0xe17b0, cpp, _Unknown/func_001E07B0]  # needs to be sorted
+      - [0xe17b8, cpp, _Unknown/func_001E07B8]  # needs to be sorted
+      - [0xe17c0, asm]
+      - [0xe1948, cpp, _Unknown/func_001E0948]  # needs to be sorted
+      - [0xe1950, asm]
+      - [0xe1ba0, cpp, _Unknown/func_001E0BA0]  # needs to be sorted
+      - [0xe1ba8, asm]
+      - [0xe1c20, cpp, _Unknown/func_001E0C20]  # needs to be sorted
+      - [0xe1c28, asm]
+      - [0xe1c80, cpp, _Unknown/func_001E0C80]  # needs to be sorted
+      - [0xe1c88, asm]
+      - [0xe1e88, cpp, _Unknown/func_001E0E88]  # needs to be sorted
+      - [0xe1e90, asm]
+      - [0xe1ec0, cpp, _Unknown/func_001E0EC0]  # needs to be sorted
+      - [0xe1ec8, asm]
+      - [0xe2078, cpp, _Unknown/func_001E1078]  # needs to be sorted
+      - [0xe2080, cpp, _Unknown/func_001E1080]  # needs to be sorted
+      - [0xe2088, cpp, _Unknown/func_001E1088]  # needs to be sorted
+      - [0xe2090, asm]
+      - [0xe20e8, cpp, _Unknown/func_001E10E8]  # needs to be sorted
+      - [0xe20f0, asm]
+      - [0xe22a8, cpp, _Unknown/func_001E12A8]  # needs to be sorted
+      - [0xe22b0, asm]
+      - [0xe2450, cpp, _Unknown/func_001E1450]  # needs to be sorted
+      - [0xe2458, asm]
+      - [0xe2548, cpp, _Unknown/func_001E1548]  # needs to be sorted
+      - [0xe2550, asm]
+      - [0xe8920, cpp, _Unknown/func_001E7920]  # needs to be sorted
+      - [0xe8928, asm]
+      - [0xe9fc0, cpp, _Unknown/func_001E8FC0]  # needs to be sorted
+      - [0xe9fc8, asm]
+      - [0xf64a8, cpp, _Unknown/func_001F54A8]  # needs to be sorted
+      - [0xf64b0, asm]
+      - [0xf9720, cpp, _Unknown/func_001F8720]  # needs to be sorted
+      - [0xf9728, asm]
+      - [0x1097e8, cpp, _Unknown/func_002087E8]  # needs to be sorted
+      - [0x1097f0, asm]
+      - [0x1222c0, cpp, _Unknown/func_002212C0]  # needs to be sorted
+      - [0x1222c8, asm]
+      - [0x122400, cpp, _Unknown/func_00221400]  # needs to be sorted
+      - [0x122408, asm]
+      - [0x122d80, cpp, _Unknown/func_00221D80]  # needs to be sorted
+      - [0x122d88, asm]
+      - [0x1232a8, cpp, _Unknown/func_002222A8]  # needs to be sorted
+      - [0x1232b0, cpp, _Unknown/func_002222B0]  # needs to be sorted
+      - [0x1232b8, asm]
+      - [0x1234b0, cpp, _Unknown/func_002224B0]  # needs to be sorted
+      - [0x1234b8, asm]
+      - [0x12af80, cpp, _Unknown/func_00229F80]  # needs to be sorted
+      - [0x12af88, asm]
+      - [0x131e90, cpp, _Unknown/func_00230E90]  # needs to be sorted
+      - [0x131e98, asm]
+      - [0x133710, cpp, _Unknown/func_00232710]  # needs to be sorted
+      - [0x133718, cpp, _Unknown/func_00232718]  # needs to be sorted
+      - [0x133720, asm]
+      - [0x134b88, cpp, _Unknown/func_00233B88]  # needs to be sorted
+      - [0x134b90, asm]
+      - [0x137af0, cpp, _Unknown/func_00236AF0]  # needs to be sorted
+      - [0x137af8, asm]
+      - [0x138030, cpp, _Unknown/func_00237030]  # needs to be sorted
+      - [0x138038, asm]
+      - [0x138948, cpp, _Unknown/func_00237948]  # needs to be sorted
+      - [0x138950, asm]
+      - [0x13bc10, cpp, _Unknown/func_0023AC10]  # needs to be sorted
+      - [0x13bc18, asm]
+      - [0x13f2c0, cpp, _Unknown/func_0023E2C0]  # needs to be sorted
+      - [0x13f2c8, asm]
+      - [0x13f4f0, cpp, _Unknown/func_0023E4F0]  # needs to be sorted
+      - [0x13f4f8, asm]
+      - [0x1448e0, cpp, _Unknown/func_002438E0]  # needs to be sorted
+      - [0x1448e8, cpp, _Unknown/func_002438E8]  # needs to be sorted
+      - [0x1448f0, asm]
+      - [0x144ab0, cpp, _Unknown/func_00243AB0]  # needs to be sorted
+      - [0x144ab8, asm]
+      - [0x144cb0, cpp, _Unknown/func_00243CB0]  # needs to be sorted
+      - [0x144cb8, cpp, _Unknown/func_00243CB8]  # needs to be sorted
+      - [0x144cc0, cpp, _Unknown/func_00243CC0]  # needs to be sorted
+      - [0x144cc8, cpp, _Unknown/func_00243CC8]  # needs to be sorted
+      - [0x144cd0, cpp, _Unknown/func_00243CD0]  # needs to be sorted
+      - [0x144cd8, cpp, _Unknown/func_00243CD8]  # needs to be sorted
+      - [0x144ce0, asm]
+      - [0x144ce8, cpp, _Unknown/func_00243CE8]  # needs to be sorted
+      - [0x144cf0, asm]
+      - [0x145230, cpp, _Unknown/func_00244230]  # needs to be sorted
+      - [0x145238, cpp, _Unknown/func_00244238]  # needs to be sorted
+      - [0x145240, asm]
+      - [0x145528, cpp, _Unknown/func_00244528]  # needs to be sorted
+      - [0x145530, asm]
+      - [0x145538, cpp, _Unknown/func_00244538]  # needs to be sorted
+      - [0x145540, cpp, _Unknown/func_00244540]  # needs to be sorted
+      - [0x145548, asm]
+      - [0x145550, cpp, _Unknown/func_00244550]  # needs to be sorted
+      - [0x145558, cpp, _Unknown/func_00244558]  # needs to be sorted
+      - [0x145560, asm]
+      - [0x145620, cpp, _Unknown/func_00244620]  # needs to be sorted
+      - [0x145628, cpp, _Unknown/func_00244628]  # needs to be sorted
+      - [0x145630, asm]
+      - [0x145860, cpp, _Unknown/func_00244860]  # needs to be sorted
+      - [0x145868, asm]
+      - [0x145a38, cpp, _Unknown/func_00244A38]  # needs to be sorted
+      - [0x145a40, asm]
+      - [0x146690, cpp, _Unknown/func_00245690]  # needs to be sorted
+      - [0x146698, asm]
+      - [0x1468b0, cpp, _Unknown/func_002458B0]  # needs to be sorted
+      - [0x1468b8, asm]
+      - [0x146b50, cpp, _Unknown/func_00245B50]  # needs to be sorted
+      - [0x146b58, asm]
+      - [0x146db8, cpp, _Unknown/func_00245DB8]  # needs to be sorted
+      - [0x146dc0, asm]
+      - [0x152d00, cpp, _Unknown/func_00251D00]  # needs to be sorted
+      - [0x152d08, asm]
+      - [0x156668, cpp, _Unknown/func_00255668]  # needs to be sorted
+      - [0x156670, asm]
+      - [0x1567a8, cpp, _Unknown/func_002557A8]  # needs to be sorted
+      - [0x1567b0, asm]
+      - [0x1567b8, cpp, _Unknown/func_002557B8]  # needs to be sorted
+      - [0x1567c0, asm]
+      - [0x157250, cpp, _Unknown/func_00256250]  # needs to be sorted
+      - [0x157258, asm]
+      - [0x15a390, cpp, _Unknown/func_00259390]  # needs to be sorted
+      - [0x15a398, asm]
+      - [0x160c20, cpp, _Unknown/func_0025FC20]  # needs to be sorted
+      - [0x160c28, asm]
+      - [0x1624e0, cpp, _Unknown/func_002614E0]  # needs to be sorted
+      - [0x1624e8, asm]
+      - [0x162a20, cpp, _Unknown/func_00261A20]  # needs to be sorted
+      - [0x162a28, asm]
+      - [0x168dc8, cpp, _Unknown/func_00267DC8]  # needs to be sorted
+      - [0x168dd0, asm]
+      - [0x16bda0, cpp, _Unknown/func_0026ADA0]  # needs to be sorted
+      - [0x16bda8, asm]
+      - [0x16d410, cpp, _Unknown/func_0026C410]  # needs to be sorted
+      - [0x16d418, cpp, _Unknown/func_0026C418]  # needs to be sorted
+      - [0x16d420, asm]
+      - [0x16fd88, cpp, _Unknown/func_0026ED88]  # needs to be sorted
+      - [0x16fd90, cpp, _Unknown/cReplayFramePtr_getFrameBlock]  # needs to be sorted
+      - [0x16fd98, asm]
+      - [0x170498, cpp, _Unknown/func_0026F498]  # needs to be sorted
+      - [0x1704a0, asm]
+      - [0x1715a8, cpp, _Unknown/func_002705A8]  # needs to be sorted
+      - [0x1715b0, asm]
+      - [0x171f18, cpp, _Unknown/func_00270F18]  # needs to be sorted
+      - [0x171f20, asm]
+      - [0x1857a8, cpp, _Unknown/func_002847A8]  # needs to be sorted
+      - [0x1857b0, cpp, _Unknown/func_002847B0]  # needs to be sorted
+      - [0x1857b8, cpp, _Unknown/func_002847B8]  # needs to be sorted
+      - [0x1857c0, cpp, _Unknown/func_002847C0]  # needs to be sorted
+      - [0x1857c8, asm]
+      - [0x1857e8, cpp, _Unknown/func_002847E8]  # needs to be sorted
+      - [0x1857f0, cpp, _Unknown/func_002847F0]  # needs to be sorted
+      - [0x1857f8, asm]
+      - [0x185800, cpp, _Unknown/func_00284800]  # needs to be sorted
+      - [0x185808, cpp, _Unknown/func_00284808]  # needs to be sorted
+      - [0x185810, asm]
+      - [0x185828, cpp, _Unknown/func_00284828]  # needs to be sorted
+      - [0x185830, cpp, _Unknown/func_00284830]  # needs to be sorted
+      - [0x185838, cpp, _Unknown/func_00284838]  # needs to be sorted
+      - [0x185840, cpp, _Unknown/func_00284840]  # needs to be sorted
+      - [0x185848, cpp, _Unknown/func_00284848]  # needs to be sorted
+      - [0x185850, asm]
+      - [0x185878, cpp, _Unknown/func_00284878]  # needs to be sorted
+      - [0x185880, cpp, _Unknown/func_00284880]  # needs to be sorted
+      - [0x185888, asm]
+      - [0x18a680, cpp, _Unknown/func_00289680]  # needs to be sorted
+      - [0x18a688, asm]
+      - [0x18aaf0, cpp, _Unknown/func_00289AF0]  # needs to be sorted
+      - [0x18aaf8, asm]
+      - [0x192430, cpp, _Unknown/func_00291430]  # needs to be sorted
+      - [0x192438, asm]
+      - [0x197308, cpp, _Unknown/func_00296308]  # needs to be sorted
+      - [0x197310, asm]
+      - [0x197e18, cpp, _Unknown/func_00296E18]  # needs to be sorted
+      - [0x197e20, asm]
+      - [0x198430, cpp, _Unknown/func_00297430]  # needs to be sorted
+      - [0x198438, asm]
+      - [0x198498, cpp, _Unknown/func_00297498]  # needs to be sorted
+      - [0x1984a0, asm]
+      - [0x19c960, cpp, _Unknown/func_0029B960]  # needs to be sorted
+      - [0x19c968, asm]
+      - [0x19d418, cpp, _Unknown/func_0029C418]  # needs to be sorted
+      - [0x19d420, asm]
+      - [0x19f560, cpp, _Unknown/func_0029E560]  # needs to be sorted
+      - [0x19f568, cpp, _Unknown/func_0029E568]  # needs to be sorted
+      - [0x19f570, cpp, _Unknown/func_0029E570]  # needs to be sorted
+      - [0x19f578, asm]
+      - [0x1aef58, cpp, _Unknown/func_002ADF58]  # needs to be sorted
+      - [0x1aef60, asm]
+      - [0x1b5060, cpp, _Unknown/func_002B4060]  # needs to be sorted
+      - [0x1b5068, asm]
+      - [0x1bea28, cpp, _Unknown/func_002BDA28]  # needs to be sorted
+      - [0x1bea30, cpp, _Unknown/func_002BDA30]  # needs to be sorted
+      - [0x1bea38, cpp, _Unknown/func_002BDA38]  # needs to be sorted
+      - [0x1bea40, cpp, _Unknown/func_002BDA40]  # needs to be sorted
+      - [0x1bea48, cpp, _Unknown/func_002BDA48]  # needs to be sorted
+      - [0x1bea50, cpp, _Unknown/func_002BDA50]  # needs to be sorted
+      - [0x1bea58, cpp, _Unknown/func_002BDA58]  # needs to be sorted
+      - [0x1bea60, cpp, _Unknown/func_002BDA60]  # needs to be sorted
+      - [0x1bea68, cpp, _Unknown/func_002BDA68]  # needs to be sorted
+      - [0x1bea70, cpp, _Unknown/func_002BDA70]  # needs to be sorted
+      - [0x1bea78, cpp, _Unknown/func_002BDA78]  # needs to be sorted
+      - [0x1bea80, cpp, _Unknown/func_002BDA80]  # needs to be sorted
+      - [0x1bea88, cpp, _Unknown/func_002BDA88]  # needs to be sorted
+      - [0x1bea90, cpp, _Unknown/func_002BDA90]  # needs to be sorted
+      - [0x1bea98, asm]
+      - [0x1c2458, cpp, _Unknown/func_002C1458]  # needs to be sorted
+      - [0x1c2460, asm]
+      - [0x1c3200, cpp, _Unknown/func_002C2200]  # needs to be sorted
+      - [0x1c3208, cpp, _Unknown/func_002C2208]  # needs to be sorted
+      - [0x1c3210, asm]
+      - [0x1c4fa0, cpp, _Unknown/func_002C3FA0]  # needs to be sorted
+      - [0x1c4fa8, asm]
+      - [0x1c6520, cpp, _Unknown/func_002C5520]  # needs to be sorted
+      - [0x1c6528, asm]
+      - [0x1cb368, cpp, _Unknown/func_002CA368]  # needs to be sorted
+      - [0x1cb370, cpp, _Unknown/func_002CA370]  # needs to be sorted
+      - [0x1cb378, asm]
+      - [0x1cbd50, cpp, _Unknown/func_002CAD50]  # needs to be sorted
+      - [0x1cbd58, asm]
+      - [0x1ce3f0, cpp, _Unknown/func_002CD3F0]  # needs to be sorted
+      - [0x1ce3f8, asm]
+      - [0x1d3138, cpp, _Unknown/func_002D2138]  # needs to be sorted
+      - [0x1d3140, cpp, _Unknown/func_002D2140]  # needs to be sorted
+      - [0x1d3148, asm]
+      - [0x1d31b0, cpp, _Unknown/func_002D21B0]  # needs to be sorted
+      - [0x1d31b8, cpp, _Unknown/func_002D21B8]  # needs to be sorted
+      - [0x1d31c0, asm]
+      - [0x1d47c0, cpp, _Unknown/func_002D37C0]  # needs to be sorted
+      - [0x1d47c8, cpp, _Unknown/func_002D37C8]  # needs to be sorted
+      - [0x1d47d0, asm]
+      - [0x1d49e0, cpp, _Unknown/func_002D39E0]  # needs to be sorted
+      - [0x1d49e8, asm]
+      - [0x1d49f8, cpp, _Unknown/func_002D39F8]  # needs to be sorted
+      - [0x1d4a00, asm]
       
       - [0x1dc6d8, cpp, visualfx/crowdrender2d]
       
       - [0x1dcd10, asm]
+      - [0x1f1388, cpp, _Unknown/func_002F0388]  # needs to be sorted
+      - [0x1f1390, asm]
+      - [0x1f74e8, cpp, _Unknown/func_002F64E8]  # needs to be sorted
+      - [0x1f74f0, asm]
+      - [0x1f7908, cpp, _Unknown/func_002F6908]  # needs to be sorted
+      - [0x1f7910, asm]
+      - [0x1f8a60, cpp, _Unknown/func_002F7A60]  # needs to be sorted
+      - [0x1f8a68, asm]
+      - [0x1f8ab0, cpp, _Unknown/func_002F7AB0]  # needs to be sorted
+      - [0x1f8ab8, asm]
+      - [0x1f8ad8, cpp, _Unknown/func_002F7AD8]  # needs to be sorted
+      - [0x1f8ae0, asm]
+      - [0x1f8b00, cpp, _Unknown/func_002F7B00]  # needs to be sorted
+      - [0x1f8b08, asm]
+      - [0x1f8b28, cpp, _Unknown/func_002F7B28]  # needs to be sorted
+      - [0x1f8b30, asm]
+      - [0x1f8b50, cpp, _Unknown/func_002F7B50]  # needs to be sorted
+      - [0x1f8b58, asm]
+      - [0x1f8b78, cpp, _Unknown/func_002F7B78]  # needs to be sorted
+      - [0x1f8b80, asm]
+      - [0x1f8ba0, cpp, _Unknown/func_002F7BA0]  # needs to be sorted
+      - [0x1f8ba8, asm]
+      - [0x1f8c20, cpp, _Unknown/func_002F7C20]  # needs to be sorted
+      - [0x1f8c28, cpp, _Unknown/func_002F7C28]  # needs to be sorted
+      - [0x1f8c30, cpp, _Unknown/func_002F7C30]  # needs to be sorted
+      - [0x1f8c38, asm]
+      - [0x1f8ea0, cpp, _Unknown/func_002F7EA0]  # needs to be sorted
+      - [0x1f8ea8, asm]
+      - [0x1f8ec8, cpp, _Unknown/func_002F7EC8]  # needs to be sorted
+      - [0x1f8ed0, asm]
+      - [0x1f8ef0, cpp, _Unknown/func_002F7EF0]  # needs to be sorted
+      - [0x1f8ef8, cpp, _Unknown/func_002F7EF8]  # needs to be sorted
+      - [0x1f8f00, asm]
+      - [0x1f8fc8, cpp, _Unknown/func_002F7FC8]  # needs to be sorted
+      - [0x1f8fd0, cpp, _Unknown/func_002F7FD0]  # needs to be sorted
+      - [0x1f8fd8, asm]
+      - [0x1f9168, cpp, _Unknown/func_002F8168]  # needs to be sorted
+      - [0x1f9170, asm]
+      - [0x1f9ff8, cpp, _Unknown/func_002F8FF8]  # needs to be sorted
+      - [0x1fa000, asm]
+      - [0x1fb5f8, cpp, _Unknown/func_002FA5F8]  # needs to be sorted
+      - [0x1fb600, asm]
+      - [0x204d88, cpp, _Unknown/func_00303D88]  # needs to be sorted
+      - [0x204d90, asm]
+      - [0x20c4b8, cpp, _Unknown/func_0030B4B8]  # needs to be sorted
+      - [0x20c4c0, asm]
+      - [0x2160b0, cpp, _Unknown/cGameAnimMap_testResolve]  # needs to be sorted
+      - [0x2160b8, asm]
+      - [0x217cc8, cpp, _Unknown/func_00316CC8]  # needs to be sorted
+      - [0x217cd0, asm]
       
       - [0x218618, cpp, hashvalue]
       
       - [0x2187c8, cpp, bxrandom]
       
       - [0x218ae8, asm]
+      - [0x218fc0, cpp, _Unknown/func_00317FC0]  # needs to be sorted
+      - [0x218fc8, asm]
       
       - [0x218fe8, cpp, bx/bxstring]
       
       - [0x21a1c0, asm]
+      - [0x21ad08, cpp, _Unknown/func_00319D08]  # needs to be sorted
+      - [0x21ad10, cpp, _Unknown/func_00319D10]  # needs to be sorted
+      - [0x21ad18, asm]
+      - [0x21b260, cpp, _Unknown/func_0031A260]  # needs to be sorted
+      - [0x21b268, asm]
+      - [0x21bbc0, cpp, _Unknown/func_0031ABC0]  # needs to be sorted
+      - [0x21bbc8, asm]
       
       - [0x21d350, cpp, md5]
       
       - [0x21E5A8, asm]
+      - [0x220e28, cpp, _Unknown/func_0031FE28]  # needs to be sorted
+      - [0x220e30, asm]
+      - [0x2210e0, cpp, _Unknown/func_003200E0]  # needs to be sorted
+      - [0x2210e8, asm]
+      - [0x221518, cpp, _Unknown/func_00320518]  # needs to be sorted
+      - [0x221520, cpp, _Unknown/func_00320520]  # needs to be sorted
+      - [0x221528, cpp, _Unknown/func_00320528]  # needs to be sorted
+      - [0x221530, cpp, _Unknown/func_00320530]  # needs to be sorted
+      - [0x221538, cpp, _Unknown/func_00320538]  # needs to be sorted
+      - [0x221540, cpp, _Unknown/func_00320540]  # needs to be sorted
+      - [0x221548, cpp, _Unknown/func_00320548]  # needs to be sorted
+      - [0x221550, asm]
+      - [0x221950, cpp, _Unknown/cExecutionMan_prepause]  # needs to be sorted
+      - [0x221958, cpp, _Unknown/cExecutionMan_postpause]  # needs to be sorted
+      - [0x221960, asm]
+      - [0x227a20, cpp, _Unknown/func_00326A20]  # needs to be sorted
+      - [0x227a28, asm]
+      - [0x228808, cpp, _Unknown/func_00327808]  # needs to be sorted
+      - [0x228810, asm]
+      - [0x22c460, cpp, _Unknown/func_0032B460]  # needs to be sorted
+      - [0x22c468, asm]
+      - [0x241a08, cpp, _Unknown/func_00340A08]  # needs to be sorted
+      - [0x241a10, asm]
+      - [0x24bf18, cpp, _Unknown/func_0034AF18]  # needs to be sorted
+      - [0x24bf20, asm]
+      - [0x25dfe0, cpp, _Unknown/func_0035CFE0]  # needs to be sorted
+      - [0x25dfe8, asm]
+      - [0x25fd88, cpp, _Unknown/func_0035ED88]  # needs to be sorted
+      - [0x25fd90, asm]
+      - [0x261720, cpp, _Unknown/func_00360720]  # needs to be sorted
+      - [0x261728, cpp, _Unknown/func_00360728]  # needs to be sorted
+      - [0x261730, cpp, _Unknown/func_00360730]  # needs to be sorted
+      - [0x261738, cpp, _Unknown/func_00360738]  # needs to be sorted
+      - [0x261740, asm]
+      - [0x261778, cpp, _Unknown/func_00360778]  # needs to be sorted
+      - [0x261780, cpp, _Unknown/func_00360780]  # needs to be sorted
+      - [0x261788, cpp, _Unknown/func_00360788]  # needs to be sorted
+      - [0x261790, cpp, _Unknown/func_00360790]  # needs to be sorted
+      - [0x261798, asm]
+      - [0x261938, cpp, _Unknown/func_00360938]  # needs to be sorted
+      - [0x261940, asm]
+      - [0x2619d0, cpp, _Unknown/func_003609D0]  # needs to be sorted
+      - [0x2619d8, cpp, _Unknown/func_003609D8]  # needs to be sorted
+      - [0x2619e0, asm]
+      - [0x2619f0, cpp, _Unknown/func_003609F0]  # needs to be sorted
+      - [0x2619f8, cpp, _Unknown/func_003609F8]  # needs to be sorted
+      - [0x261a00, cpp, _Unknown/func_00360A00]  # needs to be sorted
+      - [0x261a08, cpp, _Unknown/func_00360A08]  # needs to be sorted
+      - [0x261a10, asm]
+      - [0x261a50, cpp, _Unknown/func_00360A50]  # needs to be sorted
+      - [0x261a58, cpp, _Unknown/func_00360A58]  # needs to be sorted
+      - [0x261a60, cpp, _Unknown/func_00360A60]  # needs to be sorted
+      - [0x261a68, cpp, _Unknown/func_00360A68]  # needs to be sorted
+      - [0x261a70, asm]
+      - [0x261a98, cpp, _Unknown/func_00360A98]  # needs to be sorted
+      - [0x261aa0, cpp, _Unknown/func_00360AA0]  # needs to be sorted
+      - [0x261aa8, cpp, _Unknown/func_00360AA8]  # needs to be sorted
+      - [0x261ab0, cpp, _Unknown/func_00360AB0]  # needs to be sorted
+      - [0x261ab8, asm]
+      - [0x261ae0, cpp, _Unknown/func_00360AE0]  # needs to be sorted
+      - [0x261ae8, cpp, _Unknown/func_00360AE8]  # needs to be sorted
+      - [0x261af0, cpp, _Unknown/func_00360AF0]  # needs to be sorted
+      - [0x261af8, cpp, _Unknown/func_00360AF8]  # needs to be sorted
+      - [0x261b00, asm]
+      - [0x261b30, cpp, _Unknown/func_00360B30]  # needs to be sorted
+      - [0x261b38, cpp, _Unknown/func_00360B38]  # needs to be sorted
+      - [0x261b40, cpp, _Unknown/func_00360B40]  # needs to be sorted
+      - [0x261b48, cpp, _Unknown/func_00360B48]  # needs to be sorted
+      - [0x261b50, asm]
+      - [0x261b58, cpp, _Unknown/func_00360B58]  # needs to be sorted
+      - [0x261b60, asm]
+      - [0x261b70, cpp, _Unknown/func_00360B70]  # needs to be sorted
+      - [0x261b78, cpp, _Unknown/func_00360B78]  # needs to be sorted
+      - [0x261b80, asm]
+      - [0x261b88, cpp, _Unknown/func_00360B88]  # needs to be sorted
+      - [0x261b90, asm]
+      - [0x261ba0, cpp, _Unknown/func_00360BA0]  # needs to be sorted
+      - [0x261ba8, asm]
+      - [0x261bd8, cpp, _Unknown/func_00360BD8]  # needs to be sorted
+      - [0x261be0, asm]
+      - [0x261be8, cpp, _Unknown/func_00360BE8]  # needs to be sorted
+      - [0x261bf0, asm]
+      - [0x261c00, cpp, _Unknown/func_00360C00]  # needs to be sorted
+      - [0x261c08, asm]
+      - [0x261c58, cpp, _Unknown/func_00360C58]  # needs to be sorted
+      - [0x261c60, cpp, _Unknown/func_00360C60]  # needs to be sorted
+      - [0x261c68, asm]
+      - [0x261cf0, cpp, _Unknown/func_00360CF0]  # needs to be sorted
+      - [0x261cf8, cpp, _Unknown/func_00360CF8]  # needs to be sorted
+      - [0x261d00, cpp, _Unknown/func_00360D00]  # needs to be sorted
+      - [0x261d08, cpp, _Unknown/func_00360D08]  # needs to be sorted
+      - [0x261d10, cpp, _Unknown/func_00360D10]  # needs to be sorted
+      - [0x261d18, asm]
+      - [0x261d90, cpp, _Unknown/func_00360D90]  # needs to be sorted
+      - [0x261d98, asm]
+      - [0x261dc8, cpp, _Unknown/func_00360DC8]  # needs to be sorted
+      - [0x261dd0, asm]
+      - [0x2624c0, cpp, _Unknown/func_003614C0]  # needs to be sorted
+      - [0x2624c8, cpp, _Unknown/func_003614C8]  # needs to be sorted
+      - [0x2624d0, asm]
+      - [0x2624f8, cpp, _Unknown/func_003614F8]  # needs to be sorted
+      - [0x262500, asm]
+      - [0x262578, cpp, _Unknown/func_00361578]  # needs to be sorted
+      - [0x262580, cpp, _Unknown/func_00361580]  # needs to be sorted
+      - [0x262588, cpp, _Unknown/func_00361588]  # needs to be sorted
+      - [0x262590, cpp, _Unknown/func_00361590]  # needs to be sorted
+      - [0x262598, asm]
+      - [0x2628f8, cpp, _Unknown/func_003618F8]  # needs to be sorted
+      - [0x262900, asm]
+      - [0x262a50, cpp, _Unknown/func_00361A50]  # needs to be sorted
+      - [0x262a58, asm]
+      - [0x262f90, cpp, _Unknown/func_00361F90]  # needs to be sorted
+      - [0x262f98, asm]
+      - [0x2683d0, cpp, _Unknown/func_003673D0]  # needs to be sorted
+      - [0x2683d8, asm]
+      - [0x26aff0, cpp, _Unknown/func_00369FF0]  # needs to be sorted
+      - [0x26aff8, asm]
+      - [0x276a00, cpp, _Unknown/func_00375A00]  # needs to be sorted
+      - [0x276a08, asm]
+      - [0x28e660, cpp, _Unknown/func_0038D660]  # needs to be sorted
+      - [0x28e668, asm]
+      - [0x28ec20, cpp, _Unknown/func_0038DC20]  # needs to be sorted
+      - [0x28ec28, asm]
+      - [0x28ec48, cpp, _Unknown/func_0038DC48]  # needs to be sorted
+      - [0x28ec50, cpp, _Unknown/func_0038DC50]  # needs to be sorted
+      - [0x28ec58, cpp, _Unknown/func_0038DC58]  # needs to be sorted
+      - [0x28ec60, cpp, _Unknown/func_0038DC60]  # needs to be sorted
+      - [0x28ec68, cpp, _Unknown/func_0038DC68]  # needs to be sorted
+      - [0x28ec70, asm]
+      - [0x2907f8, cpp, _Unknown/func_0038F7F8]  # needs to be sorted
+      - [0x290800, asm]
+      - [0x294fa8, cpp, _Unknown/func_00393FA8]  # needs to be sorted
+      - [0x294fb0, asm]
+      - [0x295008, cpp, _Unknown/func_00394008]  # needs to be sorted
+      - [0x295010, asm]
+      - [0x2952c0, cpp, _Unknown/func_003942C0]  # needs to be sorted
+      - [0x2952c8, cpp, _Unknown/func_003942C8]  # needs to be sorted
+      - [0x2952d0, cpp, _Unknown/func_003942D0]  # needs to be sorted
+      - [0x2952d8, asm]
+      - [0x2952e0, cpp, _Unknown/func_003942E0]  # needs to be sorted
+      - [0x2952e8, asm]
+      - [0x2955b8, cpp, _Unknown/func_003945B8]  # needs to be sorted
+      - [0x2955c0, cpp, _Unknown/func_003945C0]  # needs to be sorted
+      - [0x2955c8, cpp, _Unknown/func_003945C8]  # needs to be sorted
+      - [0x2955d0, cpp, _Unknown/func_003945D0]  # needs to be sorted
+      - [0x2955d8, cpp, _Unknown/func_003945D8]  # needs to be sorted
+      - [0x2955e0, cpp, _Unknown/func_003945E0]  # needs to be sorted
+      - [0x2955e8, cpp, _Unknown/func_003945E8]  # needs to be sorted
+      - [0x2955f0, asm]
+      - [0x295610, cpp, _Unknown/func_00394610]  # needs to be sorted
+      - [0x295618, cpp, _Unknown/func_00394618]  # needs to be sorted
+      - [0x295620, cpp, _Unknown/func_00394620]  # needs to be sorted
+      - [0x295628, cpp, _Unknown/func_00394628]  # needs to be sorted
+      - [0x295630, cpp, _Unknown/func_00394630]  # needs to be sorted
+      - [0x295638, cpp, _Unknown/func_00394638]  # needs to be sorted
+      - [0x295640, cpp, _Unknown/func_00394640]  # needs to be sorted
+      - [0x295648, cpp, _Unknown/func_00394648]  # needs to be sorted
+      - [0x295650, cpp, _Unknown/func_00394650]  # needs to be sorted
+      - [0x295658, cpp, _Unknown/func_00394658]  # needs to be sorted
+      - [0x295660, cpp, _Unknown/func_00394660]  # needs to be sorted
+      - [0x295668, cpp, _Unknown/func_00394668]  # needs to be sorted
+      - [0x295670, cpp, _Unknown/func_00394670]  # needs to be sorted
+      - [0x295678, asm]
+      - [0x295680, cpp, _Unknown/func_00394680]  # needs to be sorted
+      - [0x295688, cpp, _Unknown/func_00394688]  # needs to be sorted
+      - [0x295690, asm]
+      - [0x2956e8, cpp, _Unknown/func_003946E8]  # needs to be sorted
+      - [0x2956f0, asm]
+      - [0x295b68, cpp, _Unknown/func_00394B68]  # needs to be sorted
+      - [0x295b70, asm]
+      - [0x295b78, cpp, _Unknown/func_00394B78]  # needs to be sorted
+      - [0x295b80, cpp, _Unknown/func_00394B80]  # needs to be sorted
+      - [0x295b88, asm]
+      - [0x295c48, cpp, _Unknown/func_00394C48]  # needs to be sorted
+      - [0x295c50, cpp, _Unknown/func_00394C50]  # needs to be sorted
+      - [0x295c58, cpp, _Unknown/func_00394C58]  # needs to be sorted
+      - [0x295c60, cpp, _Unknown/func_00394C60]  # needs to be sorted
+      - [0x295c68, asm]
+      - [0x295d30, cpp, _Unknown/func_00394D30]  # needs to be sorted
+      - [0x295d38, cpp, _Unknown/func_00394D38]  # needs to be sorted
+      - [0x295d40, cpp, _Unknown/func_00394D40]  # needs to be sorted
+      - [0x295d48, cpp, _Unknown/func_00394D48]  # needs to be sorted
+      - [0x295d50, asm]
+      - [0x296508, cpp, _Unknown/func_00395508]  # needs to be sorted
+      - [0x296510, asm]
+      - [0x296fa0, cpp, _Unknown/func_00395FA0]  # needs to be sorted
+      - [0x296fa8, asm]
+      - [0x297190, cpp, _Unknown/func_00396190]  # needs to be sorted
+      - [0x297198, cpp, _Unknown/func_00396198]  # needs to be sorted
+      - [0x2971a0, cpp, _Unknown/func_003961A0]  # needs to be sorted
+      - [0x2971a8, asm]
+      - [0x2978c8, cpp, _Unknown/func_003968C8]  # needs to be sorted
+      - [0x2978d0, asm]
+      - [0x297918, cpp, _Unknown/func_00396918]  # needs to be sorted
+      - [0x297920, cpp, _Unknown/func_00396920]  # needs to be sorted
+      - [0x297928, asm]
+      - [0x297958, cpp, _Unknown/func_00396958]  # needs to be sorted
+      - [0x297960, asm]
+      - [0x29dd90, cpp, _Unknown/func_0039CD90]  # needs to be sorted
+      - [0x29dd98, cpp, _Unknown/func_0039CD98]  # needs to be sorted
+      - [0x29dda0, asm]
+      - [0x29de90, cpp, _Unknown/func_0039CE90]  # needs to be sorted
+      - [0x29de98, asm]
+      - [0x29f508, cpp, _Unknown/func_0039E508]  # needs to be sorted
+      - [0x29f510, asm]
+      - [0x29fca8, cpp, _Unknown/func_0039ECA8]  # needs to be sorted
+      - [0x29fcb0, asm]
+      - [0x2a5be0, cpp, _Unknown/func_003A4BE0]  # needs to be sorted
+      - [0x2a5be8, cpp, _Unknown/func_003A4BE8]  # needs to be sorted
+      - [0x2a5bf0, cpp, _Unknown/func_003A4BF0]  # needs to be sorted
+      - [0x2a5bf8, asm]
+      - [0x2a5dd8, cpp, _Unknown/func_003A4DD8]  # needs to be sorted
+      - [0x2a5de0, cpp, _Unknown/func_003A4DE0]  # needs to be sorted
+      - [0x2a5de8, cpp, _Unknown/func_003A4DE8]  # needs to be sorted
+      - [0x2a5df0, asm]
+      - [0x2a6aa8, cpp, _Unknown/func_003A5AA8]  # needs to be sorted
+      - [0x2a6ab0, asm]
+      - [0x2a6ac8, cpp, _Unknown/func_003A5AC8]  # needs to be sorted
+      - [0x2a6ad0, cpp, _Unknown/func_003A5AD0]  # needs to be sorted
+      - [0x2a6ad8, asm]
+      - [0x2a6b08, cpp, _Unknown/func_003A5B08]  # needs to be sorted
+      - [0x2a6b10, cpp, _Unknown/func_003A5B10]  # needs to be sorted
+      - [0x2a6b18, cpp, _Unknown/func_003A5B18]  # needs to be sorted
+      - [0x2a6b20, asm]
+      - [0x2aa180, cpp, _Unknown/func_003A9180]  # needs to be sorted
+      - [0x2aa188, asm]
+      - [0x2abe60, cpp, _Unknown/func_003AAE60]  # needs to be sorted
+      - [0x2abe68, asm]
+      - [0x2b21e8, cpp, _Unknown/func_003B11E8]  # needs to be sorted
+      - [0x2b21f0, asm]
+      - [0x2b6470, cpp, _Unknown/func_003B5470]  # needs to be sorted
+      - [0x2b6478, asm]
+      - [0x2c3438, cpp, _Unknown/func_003C2438]  # needs to be sorted
+      - [0x2c3440, asm]
+      - [0x2c8aa8, cpp, _Unknown/func_003C7AA8]  # needs to be sorted
+      - [0x2c8ab0, asm]
+      - [0x2d26c8, cpp, _Unknown/func_003D16C8]  # needs to be sorted
+      - [0x2d26d0, asm]
+      - [0x2d26e8, cpp, _Unknown/func_003D16E8]  # needs to be sorted
+      - [0x2d26f0, asm]
+      - [0x2d4010, cpp, _Unknown/func_003D3010]  # needs to be sorted
+      - [0x2d4018, asm]
+      - [0x2df4c8, cpp, _Unknown/func_003DE4C8]  # needs to be sorted
+      - [0x2df4d0, asm]
+      - [0x2df668, cpp, _Unknown/func_003DE668]  # needs to be sorted
+      - [0x2df670, asm]
+      - [0x2e6288, cpp, _Unknown/func_003E5288]  # needs to be sorted
+      - [0x2e6290, asm]
       
       - [0x2ec198, cpp, dirtysock/tags]
       
       - [0x2eef50, asm]
+      - [0x2f6908, cpp, _Unknown/func_003F5908]  # needs to be sorted
+      - [0x2f6910, asm]
+      - [0x2fc2f8, cpp, _Unknown/func_003FB2F8]  # needs to be sorted
+      - [0x2fc300, asm]
+      - [0x2fe908, cpp, _Unknown/func_003FD908]  # needs to be sorted
+      - [0x2fe910, asm]
+      - [0x311408, cpp, _Unknown/func_00410408]  # needs to be sorted
+      - [0x311410, asm]
+      - [0x311c10, cpp, _Unknown/func_00410C10]  # needs to be sorted
+      - [0x311c18, asm]
+      - [0x32f0b0, cpp, _Unknown/func_0042E0B0]  # needs to be sorted
+      - [0x32f0b8, asm]
+      - [0x32f0c0, cpp, _Unknown/func_0042E0C0]  # needs to be sorted
+      - [0x32f0c8, asm]
+      - [0x32f308, cpp, _Unknown/func_0042E308]  # needs to be sorted
+      - [0x32f310, asm]
+      - [0x32f318, cpp, _Unknown/func_0042E318]  # needs to be sorted
+      - [0x32f320, asm]
       
       # --- .vutext
       - [0x32f590, textbin, vutext]
