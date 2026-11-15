@@ -396,3 +396,570 @@ sound/icepick/worldsound.h
 sound/icepick/worldtriggermanager.cpp
 sound/icepick/worldsound.cpp
 ```
+
+## More files from the PS2 prototypes
+July 17 build.
+
+```txt
+fe/festatenetaccount.cpp
+fe/festatenetchallenge.cpp
+fe/festatenetconfig.cpp
+fe/festatenetcreate.cpp
+fe/festatenetlobby.cpp
+fe/festatenetmainmenu.cpp
+fe/festatenetmessenger.cpp
+fe/ovstatepause.h
+online/commchannel.cpp
+online/commsystem.cpp
+online/commsystem.h
+online/dnasman.cpp
+online/dsockchannel.cpp
+online/gamecomm.cpp
+online/gamecomm.h
+online/lobbyman.cpp
+online/setupman.cpp
+online/sharedloginman.cpp
+online/usbkeyboard.cpp
+online/usbkeyboard.h
+online/voipman.cpp
+real/include/gamelink.h
+ui/uitextscroll.cpp
+```
+
+## Files from the PSP build (SSX On Tour)
+SSX On Tour on PSP is a port of the SSX 3 engine.
+
+```txt
+ai/airpredictor.h
+ai/aistate.h
+ai/computer.h
+ai/control/finishlinecontrol.cpp
+ai/dangerman.h
+ai/focusbox.h
+ai/motion/handplantmotion.cpp
+ai/motion/staticmotion.cpp
+ai/player.h
+ai/rideranim.h
+ai/riderdebug.cpp
+ai/riderdebug.h
+ai/riderhandler.h
+ai/yardsale.cpp
+ai/yardsale.h
+animation/animmodel.h
+animation/dcmpmain.h
+animation/rideranimbase.h
+apt/aptcallbacks.cpp
+apt/aptcallbacks.h
+apt/aptfe.cpp
+apt/aptfe.h
+apt/aptfontmanager.cpp
+apt/aptfontmanager.h
+apt/aptingameui.cpp
+apt/aptingameui.h
+apt/aptloadingscreen.cpp
+apt/aptloadingscreen.h
+apt/aptmanager.cpp
+apt/aptmanager.h
+apt/aptrendering.cpp
+apt/aptrendering.h
+apt/apturldecoder.cpp
+apt/apturldecoder.h
+apt/apturlencoder.cpp
+apt/apturlencoder.h
+av/cmn/avsubtitle.cpp
+be/be.h
+be/bedbmission.h
+be/beintaggression.h
+be/beintbagt.h
+be/beintcharacter.h
+be/beintecon.h
+be/beinterface.h
+be/beintevents.cpp
+be/beintevents.h
+be/beintmission.h
+be/beintnetwork.h
+be/beintplayer.h
+be/beintreward.h
+be/beintsavefile.h
+be/beintscore.h
+be/beintstat.h
+be/beprofilelib.cpp
+be/bestate.h
+be/bestatepost.cpp
+be/bestatepost.h
+be/bestatepre.cpp
+be/bestatepre.h
+be/bestaterace.cpp
+be/bestaterace.h
+bx/bx.h
+bx/confman.h
+bx/hashname.h
+bx/logfile.cpp
+bx/md5.cpp
+bx/memblockman.h
+bx/meminfoman.cpp
+bx/meminfoman.h
+bx/replayframe.h
+bx/resourceid.h
+bx/signalfilter.h
+bx/stackman.h
+bx/statsman.cpp
+bx/statsman.h
+camera/CameraAlgoList.h
+camera/cameracontroller.h
+camera/cameratarget.cpp
+camera/cameratarget.h
+camera/race/fromfrontchasealgo.cpp
+camera/race/idlechasealgo.cpp
+camera/race/lazychasealgo.cpp
+camera/race/lookbackchasealgo.cpp
+camera/race/midslightsidechasealgo.cpp
+camera/trigger/cameratrigger.h
+camera/trigger/cameratriggeractions.cpp
+camera/trigger/cameratriggerlist.h
+camera/trigger/cameratriggerman.h
+camera/trigger/cameratriggervolumes.h
+comm/commsrp.c
+comm/commtcp.c
+comm/commudp.c
+decoder/cmn/rcmpbase.cpp
+dirtysock/dirtynet.c
+dirtysock/netconn.c
+editor/editor.cpp
+editor/editor.h
+editor/editorcam.cpp
+editor/editorcursor.cpp
+fe/debugfe.h
+fe/fe.cpp
+fe/fe.h
+fe/feasyncfile.h
+fe/fefullkeyboard.cpp
+fe/fefullkeyboard.h
+fe/feinput.cpp
+fe/feinput.h
+fe/fekeyboard.cpp
+fe/fekeyboard.h
+fe/felocale.cpp
+fe/felocale.h
+fe/fememcard.h
+fe/fepopup.h
+fe/fereal.h
+fe/ferider.h
+fe/fesound.cpp
+fe/fesound.h
+fe/festatebigradio.h
+fe/festatecharequip.h
+fe/festatecharselect.h
+fe/festatecharsetup.h
+fe/festateload.h
+fe/festatemodeselect.cpp
+fe/festatemodeselect.h
+fe/festatenethelp.cpp
+fe/festatenethelp.h
+fe/festateoptions.h
+fe/festateprofile.h
+fe/festateriderbio.h
+fe/festatetitle.cpp
+fe/festatetitle.h
+fe/festatetournament.cpp
+fe/festatetournament.h
+fe/ovstateautosave.cpp
+fe/ovstateautosave.h
+fe/ovstateeventresults.h
+fe/ovstatehiscorelist.cpp
+fe/ovstatehiscorelist.h
+fe/ovstatehud.h
+fe/ovstatelodge.h
+fe/ovstatemap.h
+fe/ovstatenewrecord.h
+fe/ovstatepreevent.h
+fe/ovstateprofile.cpp
+fe/ovstateprofile.h
+fe/ovstatereplay.h
+fe/ovstaterewardslist.h
+fe/ovstates.h
+fe/ovstatetrophy.cpp
+fe/ovstatetrophy.h
+input/input.cpp
+input/input.h
+inseq/inseq.cpp
+inseq/inseq.h
+inseq/scriptheap.cpp
+inseq/scriptmemop.cpp
+inseq/scriptplayerchannelblock.cpp
+inseq/scriptplayerchannelblock.h
+inseq/scriptplayerchannelevent.cpp
+inseq/scriptplayerchannelevent.h
+inseq/scriptplayerchannelobject.cpp
+inseq/scriptplayerchannelobject.h
+inseq/scriptplayerchannelspline.cpp
+inseq/scriptplayerchannelspline.h
+inseq/scriptplayerentity.cpp
+inseq/scriptplayerentity.h
+inseq/scriptplayermain.cpp
+inseq/scriptplayermain.h
+intersect/intersecthint.h
+intersect/riderspheretree.h
+intersect/runpacki.cpp
+intersect/tree.h
+intersect/treedef.cpp
+lib/cmn/driver.h
+lib/cmn/interfaceimp.cpp
+lib/cmn/interfaceimp.h
+lib/cmn/locale.cpp
+lib/cmn/memcard_memvectors.cpp
+lib/cmn/memcard_utilities.cpp
+lib/cmn/msg_timer.h
+lib/cmn/task.cpp
+lib/cmn/task.h
+lobby/lobbylan.c
+luno/lunofunc.cpp
+luno/lunotable.h
+luno/lunotableentry.h
+luno/lunovar.cpp
+luno/lunovm.h
+luno/parser/lunocompile.cpp
+luno/parser/lunoparse.cpp
+luno/parser/lunoreader.h
+main/aivisualeffectsmenu.cpp
+main/gamemodehandler.h
+main/gamestate.h
+main/heatresults.cpp
+main/inputsync.h
+main/loadscreens.h
+main/memcard.h
+main/metagame.h
+main/mgbestofx.cpp
+main/mgdblelimqlf.cpp
+main/mghelpers.cpp
+main/mgshrd.cpp
+main/mgshrd.h
+main/mgsngrace.cpp
+main/mgxrndtot.cpp
+main/occlude.h
+main/sectionman.h
+main/ssxunits.h
+main/streampause.cpp
+main/visualeffectsmenu.cpp
+main/visualeffectssubmenu.h
+mem/memalloc.cpp
+mem/memblock.cpp
+mem/memclass.cpp
+mem/memcontain.cpp
+mem/memfind.cpp
+mem/memfree.cpp
+mem/meminit.cpp
+mem/memlink.cpp
+mem/memmanmenu.cpp
+mem/memmanmenu.h
+mem/memprint.cpp
+mem/memprintf.cpp
+mem/memvalid.cpp
+mem/resize.cpp
+movie/movieplayer.h
+netgame/netgamelink.c
+netgame/netgameutil.c
+network/commchannel.cpp
+network/commchannel.h
+network/commsystem.cpp
+network/commsystem.h
+network/dsockchannel.cpp
+network/dsockchannel.h
+network/gamecomm.cpp
+network/gamecomm.h
+network/LobbyLanMgr.cpp
+network/LobbyLanMgr.h
+object/animcombo.cpp
+object/animcombo.h
+object/animdelta.cpp
+object/animdelta.h
+object/animnode.h
+object/animobject.h
+object/animteeter.cpp
+object/animteeter.h
+object/boostmodifier.cpp
+object/boostmodifier.h
+object/boostnode.cpp
+object/boostnode.h
+object/conveyornode.cpp
+object/conveyornode.h
+object/counternode.cpp
+object/counternode.h
+object/debouncenode.cpp
+object/debouncenode.h
+object/flagnode.h
+object/flexbridgenode.h
+object/flexrailnode.h
+object/floatingnode.h
+object/keyframeanim.cpp
+object/keyframeanim.h
+object/modifierblock.h
+object/movenode.h
+object/parentmodifier.h
+object/particlenode.cpp
+object/particlenode.h
+object/physicsmodifier.cpp
+object/physicsmodifier.h
+object/railmannode.h
+object/railmodifier.h
+object/rollermodifier.h
+object/skybox.cpp
+object/skybox.h
+object/spline3d.h
+object/splinemodifier.h
+object/spring.h
+object/texflipmodifier.h
+object/uvscrollmodifier.cpp
+object/uvscrollmodifier.h
+path/pathbuffersys.cpp
+path/pathbuffersys.h
+path/patheditcursor.cpp
+path/patheditevent.cpp
+path/patheditmenu.cpp
+path/patheditmenu.h
+path/patheditnode.cpp
+path/patheditnode.h
+path/patheditrecord.cpp
+path/patheditshape.cpp
+path/patheditstart.cpp
+proto/protoadvt.c
+queueloader/queueloader.cpp
+render/2drender.cpp
+render/2drender.h
+render/avalanche.h
+render/bezierman.h
+render/boardtrail.h
+render/bxshadow.cpp
+render/cloud.cpp
+render/debugrender.cpp
+render/debugrender.h
+render/depthfog.h
+render/detailSystem.cpp
+render/detailsystem.h
+render/flags.h
+render/font.h
+render/heightfog.h
+render/lightglow.h
+render/lightman.h
+render/plants.cpp
+render/plants.h
+render/powerupfxtoggles.h
+render/renderToggles.cpp
+render/rendertoggles.h
+render/screentint.cpp
+render/screentint.h
+render/shadow.h
+render/sincostable.cpp
+render/sincostable.h
+render/snowfalltoggles.h
+render/snowsurface.h
+render/splash.h
+render/tube.cpp
+render/tube.h
+render/visualeffect.h
+render/visualeffectstest.cpp
+render/visualeffectstest.h
+replay/replaycache.h
+scripter/bxscriptengine.h
+scripter/datamanager.h
+scripter/nismenu.cpp
+scripter/scriptentitycam.h
+scripter/scriptobjcam.h
+scripter/scriptobjcammgr.h
+scripter/scriptobjtransition.h
+scripter/ssxinseq.cpp
+scripter/videngine.h
+shape/cmn/cluttype.cpp
+shape/cmn/creates.cpp
+shape/cmn/locatshp.cpp
+shape/cmn/shpclone.cpp
+shape/cmn/shpclut.cpp
+shape/cmn/shpdepth.cpp
+shape/cmn/shpdestroy.cpp
+shape/cmn/shpgetoffset.cpp
+shape/cmn/shpisclut.cpp
+shape/cmn/shpistexture.cpp
+shape/cmn/shplongname.cpp
+shape/cmn/shpmemalloc.cpp
+shape/cmn/shpsize.cpp
+shape/cmn/shpsubs.cpp
+shape/cmn/shptype.cpp
+shape/cmn/unpackf.cpp
+sound/asyncsys.h
+sound/audiointerface.cpp
+sound/bankmanager.h
+sound/bankmonitor.h
+sound/banksys.cpp
+sound/banksys.h
+sound/circbuffer.h
+sound/controller.cpp
+sound/fileparser.cpp
+sound/fileparser.h
+sound/icepick/worldtriggermanager.h
+sound/monitor.cpp
+sound/monitor.h
+sound/pocketdj/pocketDJ.cpp
+sound/PocketDJ/PocketDJ.h
+sound/pocketdj/pocketDJFifa.cpp
+sound/simpleJukeBox.cpp
+sound/sndplayopts.cpp
+sound/sndplayopts.h
+sound/soundsys.h
+sound/ssxaudio.h
+sound/streamsys.h
+trc/PowerMgr.cpp
+trc/ProductCode.cpp
+trc/trc.cpp
+ui/uianimation.h
+ui/uidef.h
+ui/uigroup.cpp
+ui/uigroup.h
+ui/uiicon.cpp
+ui/uiicon.h
+ui/uiinput.h
+ui/uilistbox.h
+ui/uimenu.h
+ui/uipair.h
+ui/uiprogress.h
+ui/uiscreen.h
+ui/uiscrollbar.cpp
+ui/uiscrollbar.h
+ui/uisound.cpp
+ui/uisound.h
+ui/uitext.h
+ui/uitextscroll.h
+ui/uitexture.cpp
+ui/uitexture.h
+ui/uithing.h
+ui/uivector.h
+util/bigfile_loader.cpp
+util/bxcomm.cpp
+util/bxustr.cpp
+util/circularbuffer.h
+util/comm/commendian.cpp
+util/comm/commendian.h
+util/consoleconfig.cpp
+util/consoleconfig.h
+util/debugconsole.cpp
+util/debugconsole.h
+util/huffread.cpp
+util/huffwrite.cpp
+util/localefile.h
+util/NoiseFunctions.cpp
+util/ssxstatsman.cpp
+util/ssxstatsman.h
+util/surfprop.cpp
+util/visualassert.cpp
+viewer/viewer.cpp
+viewer/viewer.h
+viewer/viewermenu.cpp
+viewer/viewermenu.h
+visualfx/aivisualeffectsman.h
+visualfx/boardsparkfx.cpp
+visualfx/cheatfx.cpp
+visualfx/cutscenetransitionman.h
+visualfx/fog.h
+visualfx/lensfx.h
+visualfx/powerupfx.h
+visualfx/punchfx.cpp
+visualfx/renderstateman.h
+visualfx/riderfx.h
+visualfx/snowfall.h
+visualfx/splashfx.h
+visualfx/transitionman.h
+visualfx/transitions.cpp
+visualfx/transitions.h
+visualfx/visualeffectsman.h
+world/chunkresolve.h
+world/oscilloscope.cpp
+world/oscilloscope.h
+world/sfxformat.h
+world/streamman.h
+world/streamstats.cpp
+world/streamstats.h
+world/tDataFormat.h
+world/world.h
+world/worldinterface.cpp
+world/wscriptfunclist.h
+worldpainter/quadtree.h
+worldpainter/worldpainterquery.h
+worldpainter/wpformat.h
+wscript/compiler/wscriptcompile.cpp
+wscript/compiler/wscriptcompile.h
+wscript/compiler/wscriptparseinstance.cpp
+wscript/compiler/wscriptparseinstance.h
+wscript/compiler/wscriptparsemission.cpp
+wscript/compiler/wscriptparseprocess.cpp
+wscript/compiler/wscriptparseprocess.h
+wscript/compiler/wscriptparsescript.cpp
+wscript/compiler/wscriptparsescript.h
+wscript/compiler/wscriptparsespline.cpp
+wscript/compiler/wscriptparsespline.h
+wscript/compiler/wscriptparsetask.cpp
+wscript/compiler/wscriptparsetask.h
+wscript/ssxwscriptcompile.cpp
+wscript/ssxwscriptcompile.h
+wscript/wscriptmission.h
+wscript/wscriptprocess.h
+```
+
+## PSP-specific files from the PSP build
+These names mention the PSP, so they were left out of the placeholders. The PS2 game probably has a matching file with `ps2` in its name instead; each line shows that guess and whether it is already listed above.
+
+```txt
+av/psp/pspaudioplayer.cpp                        -> av/ps2/ps2audioplayer.cpp  (not listed)
+av/psp/pspaudioplayer.h                          -> av/ps2/ps2audioplayer.h  (not listed)
+av/psp/pspavplayer.cpp                           -> av/ps2/ps2avplayer.cpp  (not listed)
+av/psp/pspmpegstreamer.cpp                       -> av/ps2/ps2mpegstreamer.cpp  (not listed)
+bx/pspmain.cpp                                   -> bx/ps2main.cpp  (already listed)
+bx/pspPrxLoad.cpp                                -> bx/ps2PrxLoad.cpp  (not listed)
+decoder/psp/rcmp_psp_sony_codec.cpp              -> decoder/ps2/rcmp_ps2_sony_codec.cpp  (not listed)
+dirtysock/psp/dirtyaddr.c                        -> dirtysock/ps2/dirtyaddr.c  (not listed)
+dirtysock/psp/dirtyerrpsp.c                      -> dirtysock/ps2/dirtyerrps2.c  (not listed)
+dirtysock/psp/dirtylibpsp.c                      -> dirtysock/ps2/dirtylibps2.c  (not listed)
+dirtysock/psp/dirtynetpsp.c                      -> dirtysock/ps2/dirtynetps2.c  (not listed)
+dirtysock/psp/dirtynetpspadhoc.c                 -> dirtysock/ps2/dirtynetps2adhoc.c  (not listed)
+dirtysock/psp/dirtynetpspinet.c                  -> dirtysock/ps2/dirtynetps2inet.c  (not listed)
+dirtysock/psp/netconnpsp.c                       -> dirtysock/ps2/netconnps2.c  (not listed)
+input/psppad.cpp                                 -> input/ps2pad.cpp  (already listed)
+lib/psp/psp_blockcalculator.cpp                  -> lib/ps2/ps2_blockcalculator.cpp  (not listed)
+lib/psp/psp_blockcalculator.h                    -> lib/ps2/ps2_blockcalculator.h  (not listed)
+lib/psp/psp_interface.cpp                        -> lib/ps2/ps2_interface.cpp  (not listed)
+lib/psp/psp_interface.h                          -> lib/ps2/ps2_interface.h  (not listed)
+lib/psp/psp_internaltasks.cpp                    -> lib/ps2/ps2_internaltasks.cpp  (not listed)
+lib/psp/psp_message.h                            -> lib/ps2/ps2_message.h  (not listed)
+lib/psp/psp_public.cpp                           -> lib/ps2/ps2_public.cpp  (not listed)
+lib/psp/psp_task.h                               -> lib/ps2/ps2_task.h  (not listed)
+lib/psp/psp_tasks.cpp                            -> lib/ps2/ps2_tasks.cpp  (not listed)
+lib/psp/psp_trctasks.cpp                         -> lib/ps2/ps2_trctasks.cpp  (not listed)
+movie/psp/pspvideodriver.cpp                     -> movie/ps2/ps2videodriver.cpp  (already listed)
+network/PSPLobbyLanMgr.cpp                       -> network/PS2LobbyLanMgr.cpp  (not listed)
+render/irradiance_psp.cpp                        -> render/irradiance_ps2.cpp  (not listed)
+render/irradiance_psp.h                          -> render/irradiance_ps2.h  (not listed)
+render/pspbezierman.cpp                          -> render/ps2bezierman.cpp  (already listed)
+render/pspbezierman.h                            -> render/ps2bezierman.h  (not listed)
+render/pspdeferman.cpp                           -> render/ps2deferman.cpp  (not listed)
+render/pspdetailsystem.cpp                       -> render/ps2detailsystem.cpp  (not listed)
+render/pspgraphicsdefines.h                      -> render/ps2graphicsdefines.h  (not listed)
+render/pspgraphicsman.cpp                        -> render/ps2graphicsman.cpp  (already listed)
+render/pspgraphicsman.h                          -> render/ps2graphicsman.h  (already listed)
+render/pspgraphicsutils.cpp                      -> render/ps2graphicsutils.cpp  (not listed)
+render/psplightman.cpp                           -> render/ps2lightman.cpp  (already listed)
+render/psplightman.h                             -> render/ps2lightman.h  (already listed)
+render/pspscreentint.cpp                         -> render/ps2screentint.cpp  (not listed)
+render/pspswclipmgr.cpp                          -> render/ps2swclipmgr.cpp  (not listed)
+render/pspswclipmgr.h                            -> render/ps2swclipmgr.h  (not listed)
+render/psptextureman.cpp                         -> render/ps2textureman.cpp  (not listed)
+sceePspGu_List_inl.h                             -> sceeps2Gu_List_inl.h  (not listed)
+shape/psp/getoffset.cpp                          -> shape/ps2/getoffset.cpp  (not listed)
+shape/psp/swizzlesize.cpp                        -> shape/ps2/swizzlesize.cpp  (not listed)
+sound/pspsoundman.cpp                            -> sound/ps2soundman.cpp  (already listed)
+sound/pspsoundman.h                              -> sound/ps2soundman.h  (not listed)
+visualfx/pspaivisualeffectsman.cpp               -> visualfx/ps2aivisualeffectsman.cpp  (not listed)
+visualfx/psplensfx.cpp                           -> visualfx/ps2lensfx.cpp  (already listed)
+visualfx/pspvisualeffectsman.cpp                 -> visualfx/ps2visualeffectsman.cpp  (not listed)
+world/pspchunkresolve.cpp                        -> world/ps2chunkresolve.cpp  (already listed)
+world/tDataFormatPSP.h                           -> world/tDataFormatPS2.h  (not listed)
+```
+
+</details>
